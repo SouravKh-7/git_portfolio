@@ -91,7 +91,7 @@ bundle exec jekyll serve
 ```
 
 ---
-
+<!--
 ## Live Website
 
 (Add after deployment)
@@ -107,7 +107,7 @@ This portfolio is built to:
 * Showcase my engineering + AI work
 * Document my learning
 * Build real-world technical projects
-
+-->
 
 
 

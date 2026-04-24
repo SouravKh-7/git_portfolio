@@ -13,7 +13,7 @@ I started out in mechanical engineering, learning how systems are designed and h
 <h2>Resume</h2>
 
 <p>
-  <a href="/git_portfolio/assets/resume/Sourav_Khandai_Resume.pdf" target="_blank">
+  <a href="/git_portfolio/assets/files/Sourav_Resume.pdf" target="_blank">
   Download Resume
 </a>
 </p>

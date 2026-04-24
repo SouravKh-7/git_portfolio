@@ -4,7 +4,7 @@ title: About Me
 ---
 
 <p align="center">
-  <img src="/assets/images/profile.jpg" width="180" />
+  <img src="{{ '/assets/images/profile.jpg' | relative_url }}" width="180" />
 </p>
 
 # Hey, I'm Sourav

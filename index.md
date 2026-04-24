@@ -13,9 +13,9 @@ I started out in mechanical engineering, learning how systems are designed and h
 <h2>Resume</h2>
 
 <p>
-  <a href="/assets/files/Sourav_Resume.pdf" target="_blank">
-    View Resume
-  </a>
+  <a href="{{ '/assets/resume/Sourav_Khandai_Resume.pdf' | relative_url }}" target="_blank">
+  Download Resume
+</a>
 </p>
 
 

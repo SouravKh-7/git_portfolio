@@ -24,4 +24,4 @@ I started out in mechanical engineering, learning how systems are designed and h
 You can reach me here:
 - Email: [Contact Me](mailto:khandai.sourav111@gmail.com)
 - LinkedIn: [My LinkedIn](https://www.linkedin.com/in/sourav-khandai-75022b144/)
-- GitHub: [My Projects](https://github.com/SouravKh-7)
+- GitHub: [My Projects](https://github.com/SouravKh-7/git_portfolio)

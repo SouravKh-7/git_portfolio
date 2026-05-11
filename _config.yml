@@ -26,8 +26,9 @@ url: "https://SouravKh-7.github.io"
 theme: minima
 
 header_pages:
+  - resume.md
   - index.md
-  - projects.md
+  # - projects.md
   - posts.md
 
 plugins:

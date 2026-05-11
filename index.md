@@ -8,7 +8,7 @@ title: About Me
   <div>
 # Hey, I'm Sourav.
 
-I'm interested in understanding how real-world problems can be broken down, studied, and improved through better thinking, useful data, and practical systems. My work is not limited to one field — I like exploring the space where problem-solving, technology, automation, and domain knowledge come together.
+<p>I'm interested in understanding how real-world problems can be broken down, studied, and improved through better thinking, useful data, and practical systems. My work is not limited to one field — I like exploring the space where problem-solving, technology, automation, and domain knowledge come together.</p>
 
 Right now, I'm building small projects to understand what actually works in practice. Some projects may involve data, some may involve automation, some may connect with engineering or industry problems, and some may simply start from a question I want to explore.
 

@@ -9,7 +9,7 @@ title: About Me
 
 # Hey, I'm Sourav
 I started out in mechanical engineering, learning how systems are designed and how physical principles shape real machines, but over time I became just as interested in the computational side—how programming, data, and machine learning can support or improve those systems. Right now, I’m exploring that intersection by building small projects that combine design, simulation, and data-driven approaches, mainly to understand what actually works in practice. I usually begin with simple questions: can simulation results be approximated with a model, what kind of data is actually useful, how far can automation go in design, and where do these methods break down? I don’t always have clear answers, but that’s part of the process—this site is where I keep track of what I’m trying, what I’m learning, and how my understanding evolves as I work across both engineering and computational domains.
-
+<!--
 <h2>Resume</h2>
 
 <p>
@@ -17,7 +17,7 @@ I started out in mechanical engineering, learning how systems are designed and h
     View Resume
   </a>
 </p>
-
+-->
 
 ## Contact
 

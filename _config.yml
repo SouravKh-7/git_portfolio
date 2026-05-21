@@ -21,12 +21,12 @@
 title: "Sourav Khandai | Portfolio - MyThinkingLab"
 description: “This is Sourav, I believe in -”Driven by curiosity, refined by logic, built through engineering.””
 baseurl: “/git_portfolio”
-url: “https://SouravKh-7.github.io”
+url: https://SouravKh-7.github.io
 
 theme: minima
 
 header_pages:
- # - resume.md
+  # - resume.md
   - index.md
   # - projects.md
   - posts.md

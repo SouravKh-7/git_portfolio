@@ -3,3 +3,10 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# Ignore portfolio website sections for now
+projects.md
+posts.md
+projects/
+_posts/
+assets/

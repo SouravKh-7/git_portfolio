@@ -1,131 +1,105 @@
-# Sourav Khandai | Data Engineering, Industrial AI & Intelligent Systems Portfolio
+# Sourav Khandai
 
-Hey, I’m Sourav Khandai.
+## Data Engineer | Reliable Data Platforms | AI-Ready Data Systems | Applied Operational Intelligence
 
-This portfolio is a collection of projects where I explore how data engineering, automation, AI systems, and industrial workflows can be used to solve practical real-world problems.
+I design reliable data systems that turn business and operational requirements into tested pipelines, trusted data products, AI-ready datasets, and human-controlled automation.
 
-My background in Mechanical Engineering and exposure to manufacturing environments helped me understand how industrial systems operate in practice — production workflows, machine operations, inspection records, quality issues, maintenance activities, and operational decision-making.
+I am primarily a Data Engineer, working across pipelines, platform design, reliability, DevOps, and AI-assisted workflows. My mechanical engineering and manufacturing background is a domain advantage for understanding assets, maintenance, operations, reliability, and physical systems. I use AI to reduce repetitive investigation and decision-preparation workÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Ânot to bypass human accountability.
 
-Through this portfolio, I aim to connect industrial understanding with IT systems, data workflows, automation, and AI-driven approaches that help organizations make better decisions using data.
+**Explore:** [Projects](projects.md) Ãƒâ€šÃ‚Â· [Strategy](docs/portfolio_strategy.md) Ãƒâ€šÃ‚Â· [Project README template](docs/project_readme_template.md) Ãƒâ€šÃ‚Â· [Manifest](portfolio_manifest.yaml)
 
----
+## Engineering approach
 
-## About This Portfolio
+```mermaid
+flowchart LR
+    A[Business or Operational Problem] --> B[Requirements and Constraints]
+    B --> C[Data and System Design]
+    C --> D[Ingestion and Processing]
+    D --> E[Quality, Security and Observability]
+    E --> F[Trusted Data Products]
+    F --> G[AI-Assisted Workflow]
+    G --> H[Human-Controlled Business Outcome]
+```
 
-This portfolio focuses on building practical, data-driven systems that improve how information is collected, processed, analyzed, automated, and used for decision-making.
+I start with the decision or operational problem, make constraints explicit, and design for validation, recovery, and accountability. AI may organize evidence or prepare recommendations; a person remains responsible for consequential decisions and recovery actions.
 
-The main idea is to explore how data engineering, automation, analytics, and AI can help industries:
+## What I focus on
 
-- improve operational visibility
-- reduce repetitive manual work
-- organize scattered information
-- monitor processes and performance
-- detect patterns, defects, and risks
-- support better planning and decisions
+### Reliable Data Platforms
 
----
+Python and SQL; ETL/ELT; batch and streaming; data modeling; CDC and incremental processing; data contracts; quality, observability, reconciliation, and backfills; APIs; Docker and CI/CD.
 
-## Project Areas
+### Data Systems for AI
 
----
+RAG ingestion and metadata; evaluation datasets; feature and embedding pipelines; prompt, model, and data versioning; agent evaluation; guardrails; and explicit human-approval boundaries.
 
-## 1. Data Engineering & Operational Analytics
+### Applied Real-World Systems
 
-These projects focus on how data is collected, cleaned, transformed, stored, and used within operational or industrial environments.
+Asset uptime; operational excellence; industrial operations; reliability and maintenance; product and market intelligence; economic-impact analysis; and business decision support.
 
-The goal is to build workflows that convert scattered or unstructured information into usable systems for reporting, monitoring, analysis, and decision support.
+## Featured projects
 
-**Focus Areas:** ETL pipelines | Data cleaning | Data validation | Operational analytics | Reporting systems | KPI dashboards | Database workflows | Log analysis | Data quality checks
+Status reflects evidence currently tracked here. A project brief is not presented as a finished implementation.
 
-**Technologies & Concepts:** Python | SQL | Pandas | PostgreSQL | APIs | CSV | JSON | Parquet | ETL/ELT | Data pipelines | Data monitoring
+| Project | Problem solved | Core engineering evidence | AI role | Status |
+|---|---|---|---|---|
+| AI-Assisted Data Reliability Platform | Pipeline failures, stale data, schema drift, and manual recovery | Roadmap: ingestion, contracts, quality, observability, reconciliation | Proposed triage with human-approved recovery | Planned |
+| AI Knowledge and Evaluation Platform | Unreliable ingestion, retrieval, and evaluation | Roadmap: ingestion, metadata, lineage, evaluation datasets | Proposed retrieval and evaluation support with human review | Planned |
+| Asset Uptime Operations System | Manual maintenance investigation and decision preparation | Roadmap: asset events, reliability KPIs, impact analysis | Proposed recommendations subject to operator approval | Planned |
+| Product Event Streaming Platform | Product-event processing for behavior analysis | Roadmap: event models, streaming, deduplication, late events | No autonomous decision role planned | Planned |
+| Bearing Product Intelligence | Disconnected engineering, quality, service, and market information | Roadmap: product model, feedback loops, opportunity scoring | Proposed evidence synthesis for human decisions | Planned |
+| [Health-Aware Autonomous Drone System](projects/Real-Time-Failure.md) | Routing that accounts for component condition and mission risk | Brief: health monitoring, risk assessment, adaptive routing | Proposed decision support; operators retain responsibility | In Development |
 
-**Why This Matters:**  
-Modern industries generate large amounts of operational data, but without proper data systems, that information becomes difficult to use. These projects explore how data engineering can create structured and decision-ready workflows.
+Additional work: [bearing RUL prediction](projects/rul-bearing.md), [robotic fleet optimization](projects/health-aware-robotic-fleet-optimization.md), [manufacturing root-cause analysis](projects/manufacturing-root-cause-analysis.md), and [real-time constraint optimization](projects/real-time-constraint-optimization.md).
 
----
+## Current flagship project
 
-## 2. Automation & Intelligent IT Workflows
+### [Health-Aware Autonomous Drone System](projects/Real-Time-Failure.md) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â In Development
 
-These projects focus on reducing repetitive manual work through automation, workflow systems, and intelligent process handling.
+The project explores route planning using motor and bearing condition alongside navigation and mission constraints. Current evidence is a design brief covering monitoring, risk assessment, and adaptive strategies. Analytics or AI is intended to prepare risk-informed options; mission and maintenance decisions remain with human operators. Implementation, tests, and performance results are not yet documented here.
 
-The objective is to improve consistency, efficiency, and reliability using software-based solutions.
+## Core capabilities
 
-**Focus Areas:** IT workflow automation | Report automation | File processing | Task scheduling | Process tracking | Notification systems | Data synchronization | Script-based automation | Monitoring workflows
+| Area | Working knowledge and active roadmap |
+|---|---|
+| Data Engineering | Python, SQL, Pandas, PostgreSQL, APIs, ETL/ELT, Parquet, batch and streaming concepts |
+| Reliability and Platform Engineering | Data contracts, quality, reconciliation, schema evolution, observability, backfills, Docker, CI/CD, testing |
+| AI Data Engineering | RAG pipelines, evaluation data, version tracking, agent workflows, guardrails, human-in-the-loop systems |
+| Business and Domain | Operational excellence, asset reliability, manufacturing, product analytics, economic impact, stakeholder requirements |
 
-**Technologies & Concepts:** Python scripting | Bash | Linux workflows | APIs | Scheduling | Logging | CI/CD basics | Automation pipelines | File handling | Workflow orchestration
+These combine documented exploration with an active learning roadmap; they are not claims of production deployment.
 
-**Why This Matters:**  
-Many business and industrial tasks are repeated manually. Automation helps reduce errors, save time, improve consistency, and make daily operations more reliable.
+## Current work
 
----
+**Currently building:** [Health-Aware Autonomous Drone System](projects/Real-Time-Failure.md)<br>
+**Current milestone:** Convert the concept into explicit requirements, data contracts, and an architecture baseline.<br>
+**Next:** Add a minimal, tested ingestion and health-scoring workflow before claiming implementation results.
 
-## 3. Industrial Data Systems & AI Applications
+## Portfolio navigation
 
-These projects focus on using industrial and operational data to support monitoring, prediction, optimization, and decision-making.
+```mermaid
+flowchart TD
+    A[GitHub Portfolio] --> B[Reliable Data Platforms]
+    A --> C[Data Systems for AI]
+    A --> D[Applied Real-World Systems]
+    B --> E[AI-Assisted Data Reliability Platform]
+    B --> F[Product Event Streaming Platform]
+    C --> G[AI Knowledge and Evaluation Platform]
+    D --> H[Asset Uptime Operations System]
+    D --> I[Bearing Product Intelligence]
+```
 
-The emphasis is on combining engineering understanding with AI, analytics, and data-driven workflows.
+- Core Data Engineering and reliability: **AI-Assisted Data Reliability Platform** ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Planned
+- AI data infrastructure: **AI Knowledge and Evaluation Platform** ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Planned
+- Applied operational systems: **Asset Uptime Operations System** ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Planned
+- Product and event data: **Product Event Streaming Platform** ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Planned
+- Industrial product intelligence: **Bearing Product Intelligence** ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Planned
+- Current documented work: [Project index](projects.md)
 
-**Focus Areas:** Predictive maintenance | Quality analytics | Anomaly detection | Failure prediction | Process monitoring | Sensor data analysis | Performance analytics | Decision-support systems | Industrial AI workflows
+## Contact
 
-**Technologies & Concepts:** Machine Learning | Scikit-learn | PyTorch | Time-series analysis | Classification | Regression | Feature engineering | Predictive analytics | Statistical analysis | Monitoring pipelines
+- [LinkedIn](https://www.linkedin.com/in/sourav-khandai-75022b144/)
+- [Email](mailto:khandai.sourav111@gmail.com)
+- [Portfolio website](https://souravkh-7.github.io/git_portfolio/)
 
-**Why This Matters:**  
-Industrial systems produce continuous operational information. AI and analytics can help move decision-making from reactive actions toward predictive and data-driven systems.
-
----
-
-## 4. Optimization, Planning & Intelligent Decision Systems
-
-These projects focus on optimization problems, workflow efficiency, resource planning, and intelligent operational decision-making.
-
-The goal is to explore how data, algorithms, and computational approaches can improve planning and performance.
-
-**Focus Areas:** Workflow optimization | Resource allocation | Scheduling | Bottleneck analysis | Task prioritization | Route planning | IT workflow optimization | Operational planning | Decision-support algorithms
-
-**Technologies & Concepts:** Python | Optimization algorithms | Graph-based methods | Operations research basics | Scheduling logic | Simulation concepts | Data-driven planning | Computational workflows
-
-**Why This Matters:**  
-Optimization problems exist across industries, IT systems, operations, logistics, and engineering workflows. These projects explore how computational thinking can improve efficiency and support better decisions.
-
----
-
-## Core Philosophy
-
-The purpose of this portfolio is not only to build technical projects, but to understand how:
-
-- data moves through systems
-- workflows operate in practice
-- operational problems can be measured
-- automation improves reliability
-- AI can support decision-making
-- industrial and IT systems can work together
-
-The long-term goal is to build practical systems that combine:
-
-**Data Engineering | Automation | Analytics | AI | Industrial Understanding | Operational Problem Solving**
-
----
----
-
-## Project Repository Links
-
-### Data Engineering & Operational Analytics
-- [Project 1 - Coming Soon](#)
-- [Project 2 - Coming Soon](#)
-
-### Automation & Intelligent IT Workflows
-- [Project 1 - Coming Soon](#)
-- [Project 2 - Coming Soon](#)
-
-### Industrial Data Systems & AI Applications
-- [Project 1 - Coming Soon](#)
-- [Project 2 - Coming Soon](#)
-
-### Optimization, Planning & Intelligent Decision Systems
-- [Project 1 - Coming Soon](#)
-- [Project 2 - Coming Soon](#)
-
-
-## Repository Status
-
-This portfolio is a work in progress. Projects will be added, improved, and documented as I continue building practical systems around data-driven industrial and IT applications.
+A resume link will be added when a public resume file is available.

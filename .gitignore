@@ -10,3 +10,22 @@ posts.md
 projects/
 _posts/
 assets/
+
+_resume.md
+CHANGELOG.md
+
+# Local-only workspace folder. Anything placed here stays off GitHub.
+local_ignored/
+
+# Local-only Codex / project workspace files
+CODEX_GITHUB_PORTFOLIO_PROMPT.md
+ProjectGit/
+github-portfolio-system-starter/
+Health-Aware-Autonomous-Drone-System/
+Health-Aware-Robotic-Fleet-Optimization-System/
+Manufacturing-Root-Cause-Analysis-Assistant/
+
+# Future local work areas
+local/
+private/
+drafts/

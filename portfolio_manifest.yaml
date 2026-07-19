@@ -1,0 +1,76 @@
+portfolio:
+  primary_identity: "Data Engineer"
+  positioning: "Reliable data platforms, AI-ready systems, and applied operational intelligence"
+
+tracks:
+  - id: reliable-data-platforms
+    title: "Reliable Data Platforms"
+    description: "Production-oriented data systems with quality, observability, recovery, and DevOps."
+  - id: ai-data-systems
+    title: "Data Systems for AI"
+    description: "Trusted ingestion, evaluation, metadata, and agent workflows for AI products."
+  - id: applied-systems
+    title: "Applied Real-World Systems"
+    description: "Data and system design applied to business, industrial, and operational problems."
+
+projects:
+  - name: "AI-Assisted Data Reliability Platform"
+    repo: ""
+    track: "reliable-data-platforms"
+    status: "Planned"
+    problem: "Pipeline failures, stale data, schema drift, and manual incident recovery."
+    evidence: ["Planned batch and streaming ingestion", "Planned data contracts and quality gates", "Planned observability and reconciliation", "Planned AI-assisted incident triage", "Planned human-approved recovery"]
+  - name: "AI Knowledge and Evaluation Platform"
+    repo: ""
+    track: "ai-data-systems"
+    status: "Planned"
+    problem: "Unreliable ingestion, retrieval, evaluation, and monitoring for AI knowledge systems."
+    evidence: ["Planned document ingestion", "Planned metadata and lineage", "Planned evaluation datasets", "Planned prompt, model, and data versioning", "Planned human review"]
+  - name: "Asset Uptime Operations System"
+    repo: ""
+    track: "applied-systems"
+    status: "Planned"
+    problem: "Manual maintenance investigation and operational decision preparation."
+    evidence: ["Planned asset event pipelines", "Planned reliability KPIs", "Planned economic impact analysis", "Planned recommendations", "Planned human approval"]
+  - name: "Product Event Streaming Platform"
+    repo: ""
+    track: "reliable-data-platforms"
+    status: "Planned"
+    problem: "Product event processing for activation, retention, and customer behavior."
+    evidence: ["Planned event modeling", "Planned streaming", "Planned late and duplicate event handling", "Planned sessionization", "Planned product data models"]
+  - name: "Bearing Product Intelligence"
+    repo: ""
+    track: "applied-systems"
+    status: "Planned"
+    problem: "Disconnected engineering, market, quality, and service data in product-development decisions."
+    evidence: ["Planned design-to-market data model", "Planned opportunity scoring", "Planned quality and service feedback", "Planned application-fit analysis", "Planned decision support"]
+  - name: "Health-Aware Autonomous Drone System"
+    repo: "projects/Real-Time-Failure.md"
+    track: "applied-systems"
+    status: "In Development"
+    problem: "Route planning that accounts for component health and mission risk."
+    evidence: ["Documented system concept", "Health-monitoring scope", "Mission-risk assessment scope", "Adaptive-routing scope"]
+  - name: "Remaining Useful Life Prediction for Bearings"
+    repo: "projects/rul-bearing.md"
+    track: "applied-systems"
+    status: "In Development"
+    problem: "Early, data-informed maintenance planning from bearing vibration data."
+    evidence: ["Documented data-preparation plan", "Documented feature-engineering plan", "Documented baseline-model evaluation plan"]
+  - name: "Health-Aware Robotic Fleet Optimization System"
+    repo: "projects/health-aware-robotic-fleet-optimization.md"
+    track: "applied-systems"
+    status: "In Development"
+    problem: "Task allocation under robot health, battery, capacity, and location constraints."
+    evidence: ["Documented task-assignment design", "Documented path-planning design", "Documented fleet KPI design"]
+  - name: "Manufacturing Root Cause Analysis Assistant"
+    repo: "projects/manufacturing-root-cause-analysis.md"
+    track: "ai-data-systems"
+    status: "In Development"
+    problem: "Slow investigation across maintenance logs, procedures, sensor summaries, and incidents."
+    evidence: ["Documented retrieval design", "Documented traceability requirement", "Documented engineer-review boundary"]
+  - name: "Real-Time Constraint Optimization for Multi-Stage Workflows"
+    repo: "projects/real-time-constraint-optimization.md"
+    track: "applied-systems"
+    status: "In Development"
+    problem: "Resource allocation under dependencies, capacity constraints, batching, and changing conditions."
+    evidence: ["Documented scheduling design", "Documented feasibility checks", "Documented optimization metrics"]

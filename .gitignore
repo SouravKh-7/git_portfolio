@@ -17,8 +17,6 @@ CHANGELOG.md
 # Local-only workspace folder. Anything placed here stays off GitHub.
 local_ignored/
 
-# Local-only Codex / project workspace files
-CODEX_GITHUB_PORTFOLIO_PROMPT.md
 ProjectGit/
 github-portfolio-system-starter/
 Health-Aware-Autonomous-Drone-System/

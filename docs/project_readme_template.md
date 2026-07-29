@@ -165,11 +165,11 @@ flowchart TD
 
 [Describe required changes without presenting them as current features.]
 
-## 31. Interview explanation
+## 31. Project explanation
 
 [Prepare a concise problem → constraints → design → reliability → trade-offs → outcome narrative.]
 
-## 32. Resume bullets
+## 32. Evidence summary
 
 - [Action + system + engineering method + verified result or status]
 - [Reliability, quality, or governance evidence]

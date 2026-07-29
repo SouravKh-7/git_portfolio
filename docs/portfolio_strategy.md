@@ -44,7 +44,7 @@ flowchart TD
     E --> F[Project Problem and Requirements]
     F --> G[Architecture and Trade-offs]
     G --> H[Implementation and Tests]
-    H --> I[Demo, Documentation, and Interview Notes]
+    H --> I[Demo and Documentation]
 ```
 
 ## Status evidence rules

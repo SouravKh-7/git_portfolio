@@ -1,67 +1,56 @@
 # Portfolio Strategy
 
-## Primary identity
+## Primary Identity
 
-Data Engineer
+**Data Engineer | Reliable Data Platforms | AI-Ready Data Systems | Applied Operational Intelligence**
 
-## Portfolio message
+The portfolio connects data engineering with manufacturing and process-engineering domain knowledge. Industrial experience provides context for assets, service, maintenance, quality, reliability, constraints, and physical operations; it does not replace the primary Data Engineer identity.
 
-> I design reliable data platforms that support analytics and AI applications, and I apply those systems to real business and operational problems.
+## Portfolio Mission
 
-Mechanical and manufacturing experience is a domain advantage for understanding assets, maintenance, operations, reliability, and physical constraints—not a competing professional identity.
+Build reliable, observable, and AI-ready data systems that transform raw operational and business data into trusted data products, measurable workflows, and human-controlled decision support.
 
-## Repository strategy
+## Priority Order
 
-- Use one personal GitHub account.
-- Use the profile README as the entry point when a profile repository is available; until then, use this repository README.
-- Use separate repositories for serious projects once they contain meaningful implementation evidence.
-- Pin only four to six strong projects.
-- Do not pin empty frameworks, tutorial clones, or nearly identical dashboards.
-- Use honest status labels: `Implemented`, `In Development`, `Architecture Complete`, or `Planned`.
-- Keep future ideas in the manifest or roadmap instead of creating many empty repositories.
-- Link only public, verified destinations.
-- Treat AI output as evidence preparation or recommendation and identify the person accountable for action.
+1. **AI-Assisted Data Reliability Platform** - primary flagship and Reference Implementation.
+2. **Data Pipeline Optimization Framework** - core engineering case study in Active Development.
+3. **Industrial Service Intelligence Platform** - industrial-domain flagship in Active Development.
+4. **Health-Aware Robotic Fleet Optimization System** - Design / Blueprint research track.
+5. **Retail Sales and Inventory Intelligence Platform** - Parked domain-transfer project.
 
-## Recommended pin order
+The Manufacturing Root-Cause Analysis Assistant is evolving into a module of the Industrial Service Intelligence Platform. The Health-Aware Autonomous Drone System is an archived predecessor to robotic-fleet research.
 
-1. AI-Assisted Data Reliability Platform
-2. AI Knowledge and Evaluation Platform
-3. Asset Uptime Operations System
-4. Product Event Streaming Platform
-5. Bearing Product Intelligence
-6. Portfolio website or one polished contribution
+## Evidence Status Rules
 
-This is a target order, not a claim that these repositories exist. Pin a project only after its repository demonstrates its status.
+- **Reference Implementation:** runs locally with documented behavior, tests, and limitations.
+- **Active Development:** working implementation exists, but significant milestones remain.
+- **Design / Blueprint:** architecture and requirements exist, while implementation is limited.
+- **Planned:** approved future work that has not started meaningfully.
+- **Parked:** intentionally paused.
+- **Evolving:** the concept is being incorporated into another project.
+- **Archived / Evolved:** no longer independently active; the concept moved into broader work.
 
-## Recruiter journey
+A project brief is never evidence of a completed implementation. Performance, production deployment, scale, and business impact are stated only when supported by reproducible evidence.
+
+## Visitor Journey
 
 ```mermaid
 flowchart TD
-    A[Profile README] --> B[Professional Identity]
+    A[Professional Identity] --> B[Why the Portfolio Exists]
     B --> C[Engineering Approach]
-    C --> D[Portfolio Tracks]
-    D --> E[Featured Projects]
-    E --> F[Project Problem and Requirements]
-    F --> G[Architecture and Trade-offs]
-    G --> H[Implementation and Tests]
-    H --> I[Demo and Documentation]
+    C --> D[Project Ecosystem]
+    D --> E[Primary Flagship]
+    E --> F[Active Projects]
+    F --> G[Evidence and Limitations]
+    G --> H[Repository, Demo, or Roadmap]
 ```
 
-## Status evidence rules
+## Maintenance Rules
 
-- **Implemented:** runnable implementation, instructions, and proportionate tests are present.
-- **In Development:** active design or partial implementation is present, with missing work stated.
-- **Architecture Complete:** requirements, alternatives, design, boundaries, and diagrams are complete; implementation is not implied.
-- **Planned:** roadmap only; no repository link is required.
-
-The tracked project pages are briefs or development plans, so none are labelled `Implemented`.
-
-## Maintenance checklist
-
-1. Confirm every relative link resolves.
-2. Compare status labels with repository evidence.
-3. Remove unsupported scale, deployment, impact, or savings claims.
-4. Keep the first screen focused on Data Engineering identity and outcomes.
-5. Keep planned work visibly separate from documented work.
-6. State AI guardrails and the human responsibility boundary.
-7. Update the manifest and landing-page table together.
+1. Keep `_data/projects.yml` as the canonical website catalog.
+2. Keep the homepage, README, and compatibility manifest aligned with the catalog.
+3. Confirm every internal link and exact filename case before publishing.
+4. Use browser repository URLs without a `.git` suffix.
+5. Keep planned work separate from working evidence.
+6. State AI tool boundaries and the accountable human role.
+7. Preserve archived and evolved work without featuring it as current implementation.

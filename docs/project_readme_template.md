@@ -1,6 +1,12 @@
 # [Project title]
 
-**Status:** [Implemented | In Development | Architecture Complete | Planned]
+**Status:** [Reference Implementation | Active Development | Design / Blueprint | Planned | Parked | Evolving | Archived / Evolved]
+
+**Portfolio role:** [Primary flagship | Core engineering case study | Industrial-domain flagship | Research project | Secondary | Historical concept]
+
+**Current evidence:** [List only implementation, tests, measurements, or design artifacts that exist now.]
+
+**Related projects:** [Explain parent, module, predecessor, successor, or shared-pattern relationships.]
 
 ## 1. Executive summary
 

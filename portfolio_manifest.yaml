@@ -1,76 +1,58 @@
+# Compatibility manifest for repository tooling and readers outside Jekyll.
+# The canonical website catalog is _data/projects.yml.
+canonical_catalog: "_data/projects.yml"
+
 portfolio:
   primary_identity: "Data Engineer"
   positioning: "Reliable data platforms, AI-ready systems, and applied operational intelligence"
-
-tracks:
-  - id: reliable-data-platforms
-    title: "Reliable Data Platforms"
-    description: "Production-oriented data systems with quality, observability, recovery, and DevOps."
-  - id: ai-data-systems
-    title: "Data Systems for AI"
-    description: "Trusted ingestion, evaluation, metadata, and agent workflows for AI products."
-  - id: applied-systems
-    title: "Applied Real-World Systems"
-    description: "Data and system design applied to business, industrial, and operational problems."
+  mission: "Build reliable, observable, and AI-ready data systems that transform raw operational and business data into trusted data products, measurable workflows, and human-controlled decision support."
 
 projects:
   - name: "AI-Assisted Data Reliability Platform"
-    repo: ""
-    track: "reliable-data-platforms"
-    status: "Planned"
-    problem: "Pipeline failures, stale data, schema drift, and manual incident recovery."
-    evidence: ["Planned batch and streaming ingestion", "Planned data contracts and quality gates", "Planned observability and reconciliation", "Planned AI-assisted incident triage", "Planned human-approved recovery"]
-  - name: "AI Knowledge and Evaluation Platform"
-    repo: ""
-    track: "ai-data-systems"
-    status: "Planned"
-    problem: "Unreliable ingestion, retrieval, evaluation, and monitoring for AI knowledge systems."
-    evidence: ["Planned document ingestion", "Planned metadata and lineage", "Planned evaluation datasets", "Planned prompt, model, and data versioning", "Planned human review"]
-  - name: "Asset Uptime Operations System"
-    repo: ""
-    track: "applied-systems"
-    status: "Planned"
-    problem: "Manual maintenance investigation and operational decision preparation."
-    evidence: ["Planned asset event pipelines", "Planned reliability KPIs", "Planned economic impact analysis", "Planned recommendations", "Planned human approval"]
-  - name: "Product Event Streaming Platform"
-    repo: ""
-    track: "reliable-data-platforms"
-    status: "Planned"
-    problem: "Product event processing for activation, retention, and customer behavior."
-    evidence: ["Planned event modeling", "Planned streaming", "Planned late and duplicate event handling", "Planned sessionization", "Planned product data models"]
-  - name: "Bearing Product Intelligence"
-    repo: ""
-    track: "applied-systems"
-    status: "Planned"
-    problem: "Disconnected engineering, market, quality, and service data in product-development decisions."
-    evidence: ["Planned design-to-market data model", "Planned opportunity scoring", "Planned quality and service feedback", "Planned application-fit analysis", "Planned decision support"]
-  - name: "Health-Aware Autonomous Drone System"
-    repo: "projects/Real-Time-Failure.md"
-    track: "applied-systems"
-    status: "In Development"
-    problem: "Route planning that accounts for component health and mission risk."
-    evidence: ["Documented system concept", "Health-monitoring scope", "Mission-risk assessment scope", "Adaptive-routing scope"]
-  - name: "Remaining Useful Life Prediction for Bearings"
-    repo: "projects/rul-bearing.md"
-    track: "applied-systems"
-    status: "In Development"
-    problem: "Early, data-informed maintenance planning from bearing vibration data."
-    evidence: ["Documented data-preparation plan", "Documented feature-engineering plan", "Documented baseline-model evaluation plan"]
+    repository_url: "https://github.com/SouravKh-7/ai-data-reliability-platform"
+    category: "Data Platforms and Reliability"
+    status: "Reference Implementation"
+    priority: "Primary flagship"
+    featured: true
+
+  - name: "Data Pipeline Optimization Framework"
+    repository_url: "https://github.com/SouravKh-7/data-pipeline-optimization-framework"
+    category: "Data Platforms and Reliability"
+    status: "Active Development"
+    priority: "Core engineering case study"
+    featured: true
+
+  - name: "Industrial Service Intelligence Platform"
+    repository_url: "https://github.com/SouravKh-7/industrial-service-intelligence-platform"
+    category: "Industrial Data and Operational Intelligence"
+    status: "Active Development"
+    priority: "Industrial-domain flagship"
+    featured: true
+
   - name: "Health-Aware Robotic Fleet Optimization System"
-    repo: "projects/health-aware-robotic-fleet-optimization.md"
-    track: "applied-systems"
-    status: "In Development"
-    problem: "Task allocation under robot health, battery, capacity, and location constraints."
-    evidence: ["Documented task-assignment design", "Documented path-planning design", "Documented fleet KPI design"]
-  - name: "Manufacturing Root Cause Analysis Assistant"
-    repo: "projects/manufacturing-root-cause-analysis.md"
-    track: "ai-data-systems"
-    status: "In Development"
-    problem: "Slow investigation across maintenance logs, procedures, sensor summaries, and incidents."
-    evidence: ["Documented retrieval design", "Documented traceability requirement", "Documented engineer-review boundary"]
-  - name: "Real-Time Constraint Optimization for Multi-Stage Workflows"
-    repo: "projects/real-time-constraint-optimization.md"
-    track: "applied-systems"
-    status: "In Development"
-    problem: "Resource allocation under dependencies, capacity constraints, batching, and changing conditions."
-    evidence: ["Documented scheduling design", "Documented feasibility checks", "Documented optimization metrics"]
+    repository_url: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System"
+    category: "Research, Optimization and Intelligent Operations"
+    status: "Design / Blueprint"
+    priority: "Research project"
+    featured: false
+
+  - name: "Retail Sales and Inventory Intelligence Platform"
+    repository_url: "https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform"
+    category: "Business Data Products"
+    status: "Parked"
+    priority: "Future domain-transfer project"
+    featured: false
+
+  - name: "Manufacturing Root-Cause Analysis Assistant"
+    repository_url: "https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant"
+    category: "Industrial Data and Operational Intelligence"
+    status: "Evolving"
+    priority: "Secondary"
+    featured: false
+
+  - name: "Health-Aware Autonomous Drone System"
+    repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
+    category: "Archived Research"
+    status: "Archived / Evolved"
+    priority: "Historical concept"
+    featured: false

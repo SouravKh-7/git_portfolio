@@ -28,12 +28,14 @@
         <div class="nav-links" id="nav-links">
           <a href="#home">Home</a>
           <a href="#why">Why</a>
+          <a href="#demo">Demo</a>
           <a href="#paths">Paths</a>
+          <a href="#approach">Approach</a>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#flagship">Flagship</a>
           <a href="#projects">Projects</a>
+          <a href="#tracker">Tracker</a>
           <a href="#research">Research</a>
-          <a href="#now">Now</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -46,9 +48,11 @@
           <p class="eyebrow">Data engineering · operational intelligence · research</p>
           <h1 id="hero-title">Building reliable data systems for real-world operations.</h1>
           <p class="hero-summary">I design data platforms, project case studies, AI-ready workflows, and operational intelligence systems that connect engineering, research, and business decision-making.</p>
-          <div class="button-row">
+          <p class="hero-story">This portfolio is a growing map of systems, experiments, and case studies. It connects data engineering, reliability, automation, industrial intelligence, optimization, and product thinking into a practical learning and building journey.</p>
+          <div class="button-row hero-actions">
             <a class="button button-primary" href="#projects">Explore Work <span aria-hidden="true">↓</span></a>
-            <a class="button button-secondary" href="#ecosystem">View Project Map</a>
+            <a class="button button-secondary" href="#demo">See Data Engineering Demo</a>
+            <a class="button button-secondary" href="#tracker">View Progress</a>
             <a class="text-link" href="#contact">Contact <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -72,88 +76,139 @@
       <section class="section section-shell" id="why" aria-labelledby="why-title">
         <div class="section-heading editorial-heading">
           <p class="eyebrow">Why this portfolio exists</p>
-          <h2 id="why-title">A growing map of systems, experiments, and technical notes.</h2>
-          <p>This is more than a list of repositories. It connects data engineering, reliability, AI-ready workflows, industrial systems, optimization, and business decisions into one evolving body of work.</p>
+          <h2 id="why-title">A place to organize work around real systems.</h2>
+        </div>
+        <div class="story-copy">
+          <p>This website is not only a list of repositories. It is a place where I organize my work around real-world systems: how data is collected, cleaned, tested, transformed, monitored, and used for decisions.</p>
+          <p>The aim is to show not only what I built, but also how I think about problems, architecture, evidence, limitations, project maturity, and future improvements.</p>
         </div>
 
         <div class="principle-grid">
           <article class="soft-card principle-card">
             <span class="card-number">01</span>
             <h3>Data Foundations</h3>
-            <p>Reliable pipelines, validation, reproducibility, and trusted data products that can support meaningful work.</p>
+            <p>Reliable pipelines, validation, reproducibility, and trusted data products.</p>
           </article>
           <article class="soft-card principle-card">
             <span class="card-number">02</span>
             <h3>Operational Intelligence</h3>
-            <p>Systems that convert messy operational data into decisions, reports, and workflows people can use.</p>
+            <p>Systems that convert messy operational data into decisions, reports, and workflows.</p>
           </article>
           <article class="soft-card principle-card">
             <span class="card-number">03</span>
             <h3>Human-Controlled Automation</h3>
-            <p>AI-ready workflows where automation supports people without replacing judgment or accountability.</p>
+            <p>AI-ready workflows where automation supports people instead of replacing judgment.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+        <div class="section-shell">
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">Data engineering demonstrations</p>
+            <h2 id="demo-title">How Data Engineering Work Looks in My Projects</h2>
+            <p>Most of my projects follow a simple idea: collect raw data, check its quality, transform it into useful tables, monitor the pipeline, and finally make the data ready for reports, business decisions, or AI-assisted workflows.</p>
+          </div>
+
+          <div class="demo-stack">
+            <figure class="demo-figure">
+              <figcaption><span>Demo 01</span><strong>From raw data to trusted data product</strong></figcaption>
+              <div class="pipeline-demo" aria-label="Raw files, API, and database flow through ingestion, bronze, cleaning, silver, business tables, and dashboard or decision">
+                <div class="demo-node demo-source"><small>Sources</small><b>Raw Files</b><b>API</b><b>Database</b></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="demo-node"><small>01</small><b>Ingestion</b></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="demo-node layer-bronze"><small>02</small><b>Bronze Layer</b></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="demo-node"><small>03</small><b>Cleaning &amp; Validation</b></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="demo-node layer-silver"><small>04</small><b>Silver Layer</b></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="demo-node"><small>05</small><b>Business Tables</b></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="demo-node demo-outcome"><small>Outcome</small><b>Dashboard / Decision</b></div>
+              </div>
+            </figure>
+
+            <figure class="demo-figure">
+              <figcaption><span>Demo 02</span><strong>How quality checks make data more trustworthy</strong></figcaption>
+              <div class="quality-demo">
+                <div class="quality-column quality-before">
+                  <small>Before · incoming issues</small>
+                  <ul><li>missing customer_id</li><li>duplicate order_id</li><li>wrong date format</li><li>late source file</li></ul>
+                </div>
+                <span class="quality-arrow" aria-hidden="true">→</span>
+                <div class="quality-column quality-checks">
+                  <small>Checks · clear rules</small>
+                  <ul><li>null check</li><li>duplicate check</li><li>schema check</li><li>freshness check</li></ul>
+                </div>
+                <span class="quality-arrow" aria-hidden="true">→</span>
+                <div class="quality-column quality-after">
+                  <small>After · useful evidence</small>
+                  <ul><li>valid records</li><li>rejected / quarantined</li><li>quality report</li><li>evidence log</li></ul>
+                </div>
+              </div>
+            </figure>
+
+            <figure class="demo-figure">
+              <figcaption><span>Demo 03</span><strong>How a data issue becomes an explainable workflow</strong></figcaption>
+              <div class="incident-demo" aria-label="Pipeline run passes through freshness check, failed rule, evidence table, root cause note, human review, and fix or rerun">
+                <div class="incident-step"><span>01</span><b>Pipeline Run</b></div><i aria-hidden="true">→</i>
+                <div class="incident-step"><span>02</span><b>Freshness Check</b></div><i aria-hidden="true">→</i>
+                <div class="incident-step issue-step"><span>03</span><b>Failed Rule</b></div><i aria-hidden="true">→</i>
+                <div class="incident-step"><span>04</span><b>Evidence Table</b></div><i aria-hidden="true">→</i>
+                <div class="incident-step"><span>05</span><b>Root Cause Note</b></div><i aria-hidden="true">→</i>
+                <div class="incident-step review-step"><span>06</span><b>Human Review</b></div><i aria-hidden="true">→</i>
+                <div class="incident-step outcome-step"><span>07</span><b>Fix / Rerun</b></div>
+              </div>
+            </figure>
+          </div>
         </div>
       </section>
 
       <section class="section section-shell" id="paths" aria-labelledby="paths-title">
         <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">A useful place to begin</p>
-            <h2 id="paths-title">Choose Your Path</h2>
-          </div>
+          <div><p class="eyebrow">A useful place to begin</p><h2 id="paths-title">Choose Your Path</h2></div>
           <p>Select the perspective closest to your work. The project gallery will open with the most relevant cases.</p>
         </div>
-
         <div class="path-grid">
-          <article class="path-card">
-            <span class="path-number">01</span>
-            <h3>Recruiters</h3>
-            <p>Start with the flagship and the projects currently moving forward.</p>
-            <button type="button" data-path-filter="recruiter">View selected work <span aria-hidden="true">→</span></button>
-          </article>
-          <article class="path-card">
-            <span class="path-number">02</span>
-            <h3>Engineers</h3>
-            <p>Explore technical systems, reliability work, and implementation details.</p>
-            <button type="button" data-path-filter="engineer">Explore systems <span aria-hidden="true">→</span></button>
-          </article>
-          <article class="path-card">
-            <span class="path-number">03</span>
-            <h3>Researchers</h3>
-            <p>Follow the optimization, architecture, and system experiments.</p>
-            <button type="button" data-path-filter="researcher">Open research path <span aria-hidden="true">→</span></button>
-          </article>
-          <article class="path-card">
-            <span class="path-number">04</span>
-            <h3>Business Readers</h3>
-            <p>Browse industrial and business cases through an operational lens.</p>
-            <button type="button" data-path-filter="business">View business cases <span aria-hidden="true">→</span></button>
-          </article>
-          <article class="path-card">
-            <span class="path-number">05</span>
-            <h3>AI Systems Readers</h3>
-            <p>Study AI-ready workflows and carefully bounded automation.</p>
-            <button type="button" data-path-filter="ai-reader">Explore AI workflows <span aria-hidden="true">→</span></button>
-          </article>
+          <article class="path-card"><span class="path-number">01</span><h3>Recruiters</h3><p>View the flagship and active projects.</p><button type="button" data-path-filter="recruiter">View selected work <span aria-hidden="true">→</span></button></article>
+          <article class="path-card"><span class="path-number">02</span><h3>Engineers</h3><p>Explore technical systems, reliability work, and implementation details.</p><button type="button" data-path-filter="engineer">Explore systems <span aria-hidden="true">→</span></button></article>
+          <article class="path-card"><span class="path-number">03</span><h3>Researchers</h3><p>Explore optimization, architecture, and system experiments.</p><button type="button" data-path-filter="researcher">Open research path <span aria-hidden="true">→</span></button></article>
+          <article class="path-card"><span class="path-number">04</span><h3>Business Readers</h3><p>Explore industrial and business case studies.</p><button type="button" data-path-filter="business-reader">View business cases <span aria-hidden="true">→</span></button></article>
+          <article class="path-card"><span class="path-number">05</span><h3>AI Systems Readers</h3><p>Explore AI-ready workflows and human-controlled automation.</p><button type="button" data-path-filter="ai-reader">Explore AI workflows <span aria-hidden="true">→</span></button></article>
+        </div>
+      </section>
+
+      <section class="section approach-section" id="approach" aria-labelledby="approach-title">
+        <div class="section-shell">
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">How I think about systems</p>
+            <h2 id="approach-title">Start with the problem. Build toward a useful outcome.</h2>
+          </div>
+          <p class="approach-intro">I usually begin with the operational problem, not the technology. Then I move toward requirements, data sources, constraints, quality checks, architecture, and finally the workflow or decision that the system should support.</p>
+          <ol class="system-flow">
+            <li><span>01</span><b>Business / Operational Problem</b></li>
+            <li><span>02</span><b>Requirements &amp; Constraints</b></li>
+            <li><span>03</span><b>Data &amp; System Design</b></li>
+            <li><span>04</span><b>Ingestion &amp; Processing</b></li>
+            <li><span>05</span><b>Quality, Security &amp; Observability</b></li>
+            <li><span>06</span><b>Trusted Data Products</b></li>
+            <li><span>07</span><b>Analytics / AI-Assisted Workflow</b></li>
+            <li><span>08</span><b>Human-Controlled Outcome</b></li>
+          </ol>
         </div>
       </section>
 
       <section class="section ecosystem-section" id="ecosystem" aria-labelledby="ecosystem-title">
         <div class="section-shell">
-          <div class="section-heading split-heading">
-            <div>
-              <p class="eyebrow">A living system</p>
-              <h2 id="ecosystem-title">Project Ecosystem</h2>
-            </div>
-            <p>Independent projects share methods, evidence, and questions. Together they form a practical research map—not one integrated production system.</p>
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">A living system</p>
+            <h2 id="ecosystem-title">Project Ecosystem</h2>
           </div>
-
+          <p class="ecosystem-intro">My projects are organized as a connected ecosystem rather than isolated repositories. Some projects are active builds, some are research directions, and some are parked or evolved ideas that still show useful thinking.</p>
           <div class="ecosystem-map">
-            <article class="ecosystem-core">
-              <p>Portfolio center</p>
-              <h3>git_portfolio</h3>
-              <span>Engineering · research · business</span>
-            </article>
+            <article class="ecosystem-core"><p>Portfolio center</p><h3>git_portfolio</h3><span>Engineering · research · business</span></article>
             <div class="ecosystem-tracks">
               <article><span>01</span><h3>Data Platforms &amp; Reliability</h3><p>Contracts, validation, observability, and performance.</p></article>
               <article><span>02</span><h3>Industrial and Business Data Products</h3><p>Operational models, service intelligence, and trusted KPIs.</p></article>
@@ -166,17 +221,15 @@
       </section>
 
       <section class="section section-shell" id="flagship" aria-labelledby="flagship-title">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Flagship case study</p>
-        </div>
+        <div class="section-heading compact-heading"><p class="eyebrow">Flagship case study</p></div>
         <article class="flagship-card">
           <div class="flagship-intro">
-            <div class="project-meta">
-              <span class="status status-reference">Reference Implementation</span>
-              <span>Data Platforms &amp; Reliability</span>
-            </div>
+            <div class="project-meta"><span class="status status-reference">Reference Implementation</span><span>Data Platforms &amp; Reliability</span></div>
             <h2 id="flagship-title">AI-Assisted Data Reliability Platform</h2>
             <p class="flagship-lead">A local, production-style reference system for finding the data failures that apparently successful pipelines can still hide—and for preparing safe, evidence-based incident responses.</p>
+            <div class="flagship-mini-flow" aria-label="Pipeline data moves through validation and evidence to AI-assisted explanation and human review">
+              <span>Pipeline data</span><i aria-hidden="true">→</i><span>Validation</span><i aria-hidden="true">→</i><span>Evidence</span><i aria-hidden="true">→</i><span>AI-assisted explanation</span><i aria-hidden="true">→</i><span>Human review</span>
+            </div>
             <div class="button-row">
               <a class="button button-light" href="https://github.com/SouravKh-7/ai-data-reliability-platform">View Repo <span aria-hidden="true">↗</span></a>
               <a class="text-link text-link-light" href="#ai-assisted-data-reliability-platform">Read Details <span aria-hidden="true">↓</span></a>
@@ -195,13 +248,9 @@
 
       <section class="section section-shell" id="projects" aria-labelledby="projects-title">
         <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">Browse by maturity or theme</p>
-            <h2 id="projects-title">Project Gallery</h2>
-          </div>
+          <div><p class="eyebrow">Browse by maturity or theme</p><h2 id="projects-title">Project Gallery</h2></div>
           <p><strong data-project-count>10</strong> projects shown. Each card separates current evidence from the next intended step.</p>
         </div>
-
         <div class="filter-wrap" aria-label="Filter projects">
           <div class="filter-bar" role="group" aria-label="Project filters">
             <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
@@ -216,199 +265,67 @@
           <p class="filter-feedback" data-filter-feedback aria-live="polite">Showing the complete project ecosystem.</p>
           <button class="clear-filter" type="button" data-clear-filter hidden>Clear selection</button>
         </div>
+        <div class="project-grid" data-project-grid></div>
+        <noscript><p class="noscript-note">JavaScript is needed to display and filter the project gallery.</p></noscript>
+        <div class="empty-state" data-empty-state hidden><p>No projects match this view.</p><button type="button" data-reset-empty>Show all projects</button></div>
+      </section>
 
-        <div class="project-grid">
-          <article class="project-card" id="ai-assisted-data-reliability-platform" data-project-card data-filters="flagship active ai-ready" data-audiences="recruiter engineer ai-reader">
-            <div class="project-meta"><span class="status status-reference">Reference Implementation</span><span>Data Platforms &amp; Reliability</span></div>
-            <h3>AI-Assisted Data Reliability Platform</h3>
-            <p class="project-problem"><strong>Problem</strong> Successful runs can still hide stale, incomplete, invalid, or unreconciled data.</p>
-            <p class="project-description">A production-style local reference system for trustworthy processing and guarded incident response.</p>
-            <ul class="tag-list"><li>Python</li><li>Data Quality</li><li>Observability</li><li>FastAPI</li></ul>
-            <p class="milestone"><span>Next milestone</span> Strengthen reproducibility, metadata, and operational evidence.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/ai-data-reliability-platform">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-reliability">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-reliability" hidden><h4>Why it matters</h4><p>Reports, decisions, and AI tools are only as dependable as their source data. This project makes failures visible before higher-level automation is trusted.</p><p class="limitation"><strong>Limitation:</strong> Local reference implementation; not a deployed production system.</p></div>
-          </article>
+      <section class="section tracker-section" id="tracker" aria-labelledby="tracker-title">
+        <div class="section-shell">
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">A progress journal</p>
+            <h2 id="tracker-title">Current Status &amp; Progress Tracker</h2>
+            <p>This portfolio is active and evolving. The current focus is to turn project ideas into reproducible repositories, stronger documentation, measurable evidence, visual architecture diagrams, and business-facing case studies.</p>
+          </div>
 
-          <article class="project-card" id="data-pipeline-optimization-framework" data-project-card data-filters="active research" data-audiences="recruiter engineer researcher">
-            <div class="project-meta"><span class="status status-active">Active Development</span><span>Performance &amp; Reliability</span></div>
-            <h3>Data Pipeline Optimization Framework</h3>
-            <p class="project-problem"><strong>Problem</strong> Pipeline improvements need reproducible baselines, correctness checks, and comparable measurements.</p>
-            <p class="project-description">A measured before-and-after case study for improving an inefficient data pipeline without losing trust.</p>
-            <ul class="tag-list"><li>Parquet</li><li>Partitioning</li><li>Benchmarking</li><li>Validation</li></ul>
-            <p class="milestone"><span>Next milestone</span> Publish measured benchmarks with correctness validation.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/data-pipeline-optimization-framework">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-pipeline">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-pipeline" hidden><h4>Why it matters</h4><p>Performance claims are useful only when the same data, workload, and quality expectations can be compared fairly.</p><p class="limitation"><strong>Limitation:</strong> No improvement is claimed until reproducible measurements are published.</p></div>
-          </article>
+          <div class="status-summary">
+            <article><span>01</span><h3>Currently Building</h3><p>Data reliability platform, pipeline optimization benchmarks, and industrial service intelligence MVP.</p></article>
+            <article><span>02</span><h3>Currently Strengthening</h3><p>Testing, reproducibility, documentation, observability, and project evidence.</p></article>
+            <article><span>03</span><h3>Currently Researching</h3><p>Health-aware fleet scheduling, optimization, industrial AI, and business case design.</p></article>
+            <article><span>04</span><h3>Next Direction</h3><p>Publish stronger project evidence, architecture diagrams, README case studies, and PM/business case studies.</p></article>
+          </div>
 
-          <article class="project-card" id="industrial-service-intelligence-platform" data-project-card data-filters="active industrial ai-ready" data-audiences="recruiter engineer business ai-reader">
-            <div class="project-meta"><span class="status status-active">Active Development</span><span>Industrial Data Product</span></div>
-            <h3>Industrial Service Intelligence Platform</h3>
-            <p class="project-problem"><strong>Problem</strong> Machine, service, warranty, maintenance, customer, dealer, and parts data are fragmented.</p>
-            <p class="project-description">An after-sales data platform for trusted service KPIs and evidence-led decision support.</p>
-            <ul class="tag-list"><li>Data Modeling</li><li>Service KPIs</li><li>Industrial Data</li><li>Decision Support</li></ul>
-            <p class="milestone"><span>Next milestone</span> Complete and document the MVP, then add root-cause support.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/industrial-service-intelligence-platform">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-industrial">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-industrial" hidden><h4>Why it matters</h4><p>Reliable operational models can shorten the path from scattered service records to decisions that improve visibility and coordination.</p><p class="limitation"><strong>Limitation:</strong> The MVP remains in development; planned capabilities are not presented as complete.</p></div>
-          </article>
+          <div class="tracker-layout">
+            <section class="progress-panel" aria-labelledby="progress-title">
+              <div class="panel-heading"><span>Part B</span><h3 id="progress-title">Progress by workstream</h3></div>
+              <div class="progress-list" data-progress-list></div>
+              <p class="tracker-note">Progress represents portfolio maturity: planning, documentation, implementation, evidence, and publication. It does not imply production deployment.</p>
+            </section>
 
-          <article class="project-card" id="health-aware-robotic-fleet-optimization-system" data-project-card data-filters="research industrial" data-audiences="engineer researcher business">
-            <div class="project-meta"><span class="status status-research">Design / Blueprint</span><span>Research &amp; Optimization</span></div>
-            <h3>Health-Aware Robotic Fleet Optimization System</h3>
-            <p class="project-problem"><strong>Problem</strong> Fleet scheduling must consider health, availability, battery, capacity, location, and route conflicts.</p>
-            <p class="project-description">Research into scheduling, routing, simulation, and fleet-level optimization under operational constraints.</p>
-            <ul class="tag-list"><li>Scheduling</li><li>Simulation</li><li>Optimization</li><li>Fleet Health</li></ul>
-            <p class="milestone"><span>Next milestone</span> Build a simulator and deterministic optimization baseline.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-fleet">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-fleet" hidden><h4>Why it matters</h4><p>Planning becomes more realistic when asset condition and operational constraints are part of the model—not afterthoughts.</p><p class="limitation"><strong>Limitation:</strong> Implementation evidence is limited; this is not presented as a completed industrial AI system.</p></div>
-          </article>
-
-          <article class="project-card" id="retail-sales-and-inventory-intelligence-platform" data-project-card data-filters="business parked" data-audiences="business">
-            <div class="project-meta"><span class="status status-parked">Parked</span><span>Business Data Product</span></div>
-            <h3>Retail Sales and Inventory Intelligence Platform</h3>
-            <p class="project-problem"><strong>Problem</strong> Sales and inventory decisions depend on consistent data across products, stores, transactions, and stock movements.</p>
-            <p class="project-description">A paused domain-transfer project applying reliable data patterns to retail operations.</p>
-            <ul class="tag-list"><li>Retail Data</li><li>Inventory</li><li>Data Quality</li><li>Analytics</li></ul>
-            <p class="milestone"><span>Next milestone</span> Resume after the three core portfolio projects have stronger evidence.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-retail">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-retail" hidden><h4>Why it matters</h4><p>The domain is a useful test of whether reusable data engineering patterns can transfer to a different operating context.</p><p class="limitation"><strong>Limitation:</strong> Intentionally paused; forecasting, APIs, dashboards, and recommendations are not presented as complete.</p></div>
-          </article>
-
-          <article class="project-card" id="manufacturing-root-cause-analysis-assistant" data-project-card data-filters="industrial ai-ready parked" data-audiences="business ai-reader engineer">
-            <div class="project-meta"><span class="status status-evolving">Evolving</span><span>Industrial Decision Support</span></div>
-            <h3>Manufacturing Root-Cause Analysis Assistant</h3>
-            <p class="project-problem"><strong>Problem</strong> Investigations require traceable evidence across records, procedures, incidents, and sensor summaries.</p>
-            <p class="project-description">An earlier retrieval and decision-support concept now being consolidated into the industrial platform.</p>
-            <ul class="tag-list"><li>Evidence Retrieval</li><li>RAG</li><li>Manufacturing</li><li>Human Review</li></ul>
-            <p class="milestone"><span>Next milestone</span> Define the root-cause module inside the service intelligence platform.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-rca">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-rca" hidden><h4>Why it matters</h4><p>Evidence preparation can help engineers investigate faster while leaving the technical conclusion and action with accountable people.</p><p class="limitation"><strong>Limitation:</strong> No longer independently prioritized; its ideas are being incorporated into another project.</p></div>
-          </article>
-
-          <article class="project-card" id="health-aware-autonomous-drone-system" data-project-card data-filters="research parked" data-audiences="researcher">
-            <div class="project-meta"><span class="status status-archived">Archived / Evolved</span><span>Research History</span></div>
-            <h3>Health-Aware Autonomous Drone System</h3>
-            <p class="project-problem"><strong>Problem</strong> Route planning can account for component condition and mission risk, not navigation alone.</p>
-            <p class="project-description">An earlier health-aware routing concept that evolved into broader robotic-fleet research.</p>
-            <ul class="tag-list"><li>Routing</li><li>Asset Health</li><li>Risk</li><li>Research</li></ul>
-            <p class="milestone"><span>Next milestone</span> Retain as research history; continue through fleet optimization work.</p>
-            <div class="project-actions">
-              <a href="https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System">View Repo ↗</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-drone">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-drone" hidden><h4>Why it matters</h4><p>The project records how a narrow routing idea developed into a broader systems research question.</p><p class="limitation"><strong>Limitation:</strong> Historical concept; no current autonomous-system claim.</p></div>
-          </article>
-
-          <article class="project-card" id="ai-data-product-strategy-notes" data-project-card data-filters="business ai-ready" data-audiences="business ai-reader">
-            <div class="project-meta"><span class="status status-planned">Planned</span><span>Product Strategy</span></div>
-            <h3>AI/Data Product Strategy Notes</h3>
-            <p class="project-problem"><strong>Problem</strong> Useful products must connect user value, evidence quality, risk, and delivery choices.</p>
-            <p class="project-description">Concise notes translating system architecture into product choices, controls, metrics, and adoption paths.</p>
-            <ul class="tag-list"><li>Product Strategy</li><li>AI Systems</li><li>Metrics</li><li>Risk</li></ul>
-            <p class="milestone"><span>Next milestone</span> Publish the first evidence-to-decision product brief.</p>
-            <div class="project-actions">
-              <a class="is-placeholder" aria-disabled="true">View Repo</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-strategy">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-strategy" hidden><h4>Why it matters</h4><p>Strong engineering becomes a product only when its users, value, controls, and measurable outcomes are clear.</p><p class="limitation"><strong>Limitation:</strong> Planned; no published note library is claimed yet.</p></div>
-          </article>
-
-          <article class="project-card" id="industrial-operations-business-cases" data-project-card data-filters="business industrial active" data-audiences="business recruiter">
-            <div class="project-meta"><span class="status status-active">Building</span><span>Industrial Business Systems</span></div>
-            <h3>Industrial Operations Business Cases</h3>
-            <p class="project-problem"><strong>Problem</strong> Technical work needs a clear line to service friction, risk, downtime, or decision latency.</p>
-            <p class="project-description">A case-study track connecting industrial designs to stakeholders, KPIs, value hypotheses, and adoption constraints.</p>
-            <ul class="tag-list"><li>Operations</li><li>KPIs</li><li>Value Mapping</li><li>Adoption</li></ul>
-            <p class="milestone"><span>Next milestone</span> Document a service-operations case around the industrial MVP.</p>
-            <div class="project-actions">
-              <a class="is-placeholder" aria-disabled="true">View Repo</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-ops-cases">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-ops-cases" hidden><h4>Why it matters</h4><p>Industrial systems succeed when technical architecture connects to an observable operational and business outcome.</p><p class="limitation"><strong>Limitation:</strong> Examples will be labeled as cases, not deployed outcomes.</p></div>
-          </article>
-
-          <article class="project-card" id="pm-case-study-library" data-project-card data-filters="business" data-audiences="business recruiter">
-            <div class="project-meta"><span class="status status-planned">Planned</span><span>Product Management</span></div>
-            <h3>PM Case Study Library</h3>
-            <p class="project-problem"><strong>Problem</strong> Complex technical systems must be framed through users, trade-offs, priorities, metrics, and roadmaps.</p>
-            <p class="project-description">Structured product cases drawn from the portfolio’s data, reliability, AI, and industrial themes.</p>
-            <ul class="tag-list"><li>Discovery</li><li>Prioritization</li><li>Roadmaps</li><li>Metrics</li></ul>
-            <p class="milestone"><span>Next milestone</span> Create the first complete case with problem framing and success measures.</p>
-            <div class="project-actions">
-              <a class="is-placeholder" aria-disabled="true">View Repo</a>
-              <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-pm">Read Details</button>
-            </div>
-            <div class="project-detail" id="detail-pm" hidden><h4>Why it matters</h4><p>Clear product reasoning helps engineers, domain experts, and business stakeholders make better shared decisions.</p><p class="limitation"><strong>Limitation:</strong> Planned; no completed case-study library is claimed.</p></div>
-          </article>
-        </div>
-
-        <div class="empty-state" data-empty-state hidden>
-          <p>No projects match this view.</p>
-          <button type="button" data-reset-empty>Show all projects</button>
+            <section class="timeline-panel" aria-labelledby="timeline-title">
+              <div class="panel-heading"><span>Part C</span><h3 id="timeline-title">Milestones</h3></div>
+              <ol class="timeline-list" data-timeline-list></ol>
+            </section>
+          </div>
         </div>
       </section>
 
       <section class="section notes-section" id="research" aria-labelledby="research-title">
         <div class="section-shell">
           <div class="section-heading editorial-heading">
-            <p class="eyebrow">Research, architecture &amp; business cases</p>
+            <p class="eyebrow">Research, architecture &amp; business thinking</p>
             <h2 id="research-title">Notes from the work around the work.</h2>
-            <p>Short-form thinking for readers interested in how systems are designed, evaluated, and connected to operational value.</p>
           </div>
-          <div class="notes-grid">
-            <a class="note-card" href="#ecosystem"><span>Architecture notes</span><h3>Boundaries, flows, and evidence</h3><p>How systems connect without pretending every project is already integrated.</p><strong>Review the project map →</strong></a>
-            <a class="note-card" href="#capabilities"><span>Product thinking</span><h3>From system capability to user value</h3><p>Questions about users, controls, adoption, and meaningful measures.</p><strong>Explore capabilities →</strong></a>
-            <a class="note-card" href="roadmap/"><span>Operational improvement</span><h3>Measured progress over broad claims</h3><p>A roadmap centered on evidence, documentation, and reliable delivery.</p><strong>Read roadmap →</strong></a>
-            <article class="note-card"><span>Research questions</span><h3>What changes when asset health becomes a constraint?</h3><p>Exploring scheduling, routing, simulation, and the limits of simplified models.</p><strong>Developing note</strong></article>
-            <article class="note-card"><span>Optimization notes</span><h3>Baselines before optimization</h3><p>Why correctness and reproducibility belong beside runtime improvements.</p><strong>Developing note</strong></article>
-            <article class="note-card"><span>Business case studies</span><h3>Connecting architecture to operating outcomes</h3><p>Translating systems into stakeholders, frictions, measures, risks, and choices.</p><strong>Developing series</strong></article>
-          </div>
+          <p class="research-intro">I want this portfolio to also capture thinking that does not always fit inside code repositories: architecture notes, product questions, business cases, operational trade-offs, optimization ideas, and research directions.</p>
+          <div class="notes-grid" data-research-notes></div>
         </div>
       </section>
 
-      <section class="section section-shell" id="now" aria-labelledby="now-title">
-        <div class="section-heading split-heading">
-          <div><p class="eyebrow">Now / Current Direction</p><h2 id="now-title">Measured progress, in public.</h2></div>
-          <p>The portfolio is intentionally explicit about what is built, what is being strengthened, and what remains a research direction.</p>
-        </div>
-        <div class="now-grid">
-          <article><span>01 · Currently Strengthening</span><h3>Evidence and reliability</h3><p>Reproducibility, testing, documentation, observability, and evidence.</p></article>
-          <article><span>02 · Currently Building</span><h3>Three core systems</h3><p>Data reliability, pipeline optimization benchmarks, and an industrial service intelligence MVP.</p></article>
-          <article><span>03 · Currently Researching</span><h3>Operations under constraints</h3><p>Health-aware fleet scheduling, optimization, industrial AI, and business case design.</p></article>
-          <article><span>04 · Next Direction</span><h3>Make the work easier to inspect</h3><p>Publish stronger evidence, architecture diagrams, README case studies, and PM/business cases.</p></article>
+      <section class="section section-shell now-section" id="now" aria-labelledby="now-title">
+        <div class="section-heading editorial-heading"><p class="eyebrow">Now / Current Direction</p><h2 id="now-title">Making each project easier to understand and evaluate.</h2></div>
+        <p class="now-narrative">The current direction is to make each project easier to understand, easier to reproduce, and easier to evaluate. I am focusing on clearer READMEs, practical evidence, honest limitation notes, and architecture diagrams that help both technical and non-technical readers follow the work.</p>
+        <div class="now-list">
+          <p><span>Currently Strengthening</span> Reproducibility, testing, documentation, observability, and evidence.</p>
+          <p><span>Currently Building</span> Three core data and operational intelligence projects.</p>
+          <p><span>Currently Researching</span> Optimization, fleet health, industrial AI, and business case design.</p>
+          <p><span>Next Direction</span> Publish stronger evidence and deeper case-study pages.</p>
         </div>
       </section>
 
       <section class="section section-shell" id="capabilities" aria-labelledby="capabilities-title">
-        <div class="section-heading editorial-heading">
-          <p class="eyebrow">Capabilities</p>
-          <h2 id="capabilities-title">A practical toolkit for understanding and improving systems.</h2>
-        </div>
-        <div class="capability-grid">
-          <article><h3>Data Engineering</h3><p>Ingestion, transformation, modeling, batch workflows, APIs, and trusted data products.</p></article>
-          <article><h3>Data Reliability and Platform Engineering</h3><p>Contracts, testing, reconciliation, observability, incident evidence, and reproducibility.</p></article>
-          <article><h3>AI Data Systems</h3><p>Evidence retrieval, structured context, bounded assistance, and human approval workflows.</p></article>
-          <article><h3>Industrial and Operational Intelligence</h3><p>Service data, operational KPIs, maintenance context, and decision-support systems.</p></article>
-          <article><h3>Optimization and Systems Thinking</h3><p>Constraints, scheduling, routing, simulation, trade-offs, and measurable baselines.</p></article>
-          <article><h3>Product and Business Case Thinking</h3><p>Problem framing, users, adoption, metrics, risks, priorities, and operating value.</p></article>
-        </div>
+        <div class="section-heading editorial-heading"><p class="eyebrow">Capabilities</p><h2 id="capabilities-title">Areas I am actively building and strengthening.</h2></div>
+        <p class="capabilities-intro">The capabilities below describe the areas I am actively building and strengthening. Some come from hands-on project work, while others are part of an active learning roadmap.</p>
+        <div class="capability-grid" data-capabilities></div>
         <blockquote class="capability-note">These capabilities combine working knowledge with an active learning roadmap. They are not claims that every technique has been deployed in production.</blockquote>
       </section>
 
@@ -416,8 +333,8 @@
         <div class="contact-panel">
           <div>
             <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Let’s continue the conversation.</h2>
-            <p>Explore the project map, read the repositories, or get in touch about roles, collaboration, research discussion, and thoughtful feedback.</p>
+            <h2 id="contact-title">A starting point for conversation.</h2>
+            <p>If you are interested in data platforms, industrial intelligence, AI-ready workflows, research-led systems, or business-facing technical projects, this portfolio is designed as a starting point for conversation.</p>
           </div>
           <div class="contact-links">
             <a href="https://github.com/SouravKh-7"><span>GitHub</span><strong>Explore repositories ↗</strong></a>
@@ -434,7 +351,6 @@
       <p>Reliable systems · measured progress · human judgment</p>
       <a href="#home">Return to the beginning ↑</a>
     </footer>
-
     <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
   </body>
 </html>

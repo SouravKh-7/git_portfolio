@@ -14,6 +14,7 @@
       description: "A production-style local reference system for trustworthy processing and guarded incident response.",
       tags: ["Python", "Data Quality", "Observability", "FastAPI"],
       nextMilestone: "Strengthen reproducibility, metadata, and operational evidence.",
+      caseStudy: "projects/ai-data-reliability.html",
       repo: "https://github.com/SouravKh-7/ai-data-reliability-platform",
       why: "Reports, decisions, and AI tools are only as dependable as their source data. This project makes failures visible before higher-level automation is trusted.",
       limitation: "Local reference implementation; not a deployed production system.",
@@ -30,6 +31,7 @@
       description: "A measured before-and-after case study for improving an inefficient data pipeline without losing trust.",
       tags: ["Parquet", "Partitioning", "Benchmarking", "Validation"],
       nextMilestone: "Publish measured benchmarks with correctness validation.",
+      caseStudy: "projects/pipeline-optimization.html",
       repo: "https://github.com/SouravKh-7/data-pipeline-optimization-framework",
       why: "Performance claims are useful only when the same data, workload, and quality expectations can be compared fairly.",
       limitation: "No improvement is claimed until reproducible measurements are published.",
@@ -46,6 +48,7 @@
       description: "An after-sales data platform for trusted service KPIs and evidence-led decision support.",
       tags: ["Data Modeling", "Service KPIs", "Industrial Data", "Decision Support"],
       nextMilestone: "Complete and document the MVP, then add root-cause support.",
+      caseStudy: "projects/industrial-service-intelligence.html",
       repo: "https://github.com/SouravKh-7/industrial-service-intelligence-platform",
       why: "Reliable operational models can shorten the path from scattered service records to decisions that improve visibility and coordination.",
       limitation: "The MVP remains in development; planned capabilities are not presented as complete.",
@@ -62,6 +65,7 @@
       description: "Research into scheduling, routing, simulation, and fleet-level optimization under operational constraints.",
       tags: ["Scheduling", "Simulation", "Optimization", "Fleet Health"],
       nextMilestone: "Build a simulator and deterministic optimization baseline.",
+      caseStudy: "projects/robotic-fleet-optimization.html",
       repo: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System",
       why: "Planning becomes more realistic when asset condition and operational constraints are part of the model—not afterthoughts.",
       limitation: "Implementation evidence is limited; this is not presented as a completed industrial AI system.",
@@ -78,6 +82,7 @@
       description: "A paused domain-transfer project applying reliable data patterns to retail operations.",
       tags: ["Retail Data", "Inventory", "Data Quality", "Analytics"],
       nextMilestone: "Resume after the three core portfolio projects have stronger evidence.",
+      caseStudy: "projects/retail-inventory-intelligence.html",
       repo: "https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform",
       why: "The domain is a useful test of whether reusable data engineering patterns can transfer to a different operating context.",
       limitation: "Intentionally paused; forecasting, APIs, dashboards, and recommendations are not presented as complete.",
@@ -94,6 +99,7 @@
       description: "An earlier retrieval and decision-support concept now being consolidated into the industrial platform.",
       tags: ["Evidence Retrieval", "RAG", "Manufacturing", "Human Review"],
       nextMilestone: "Define the root-cause module inside the service intelligence platform.",
+      caseStudy: "projects/manufacturing-root-cause.html",
       repo: "https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant",
       why: "Evidence preparation can help engineers investigate faster while leaving the technical conclusion and action with accountable people.",
       limitation: "No longer independently prioritized; its ideas are being incorporated into another project.",
@@ -110,6 +116,7 @@
       description: "An earlier health-aware routing concept that evolved into broader robotic-fleet research.",
       tags: ["Routing", "Asset Health", "Risk", "Research"],
       nextMilestone: "Retain as research history; continue through fleet optimization work.",
+      caseStudy: "projects/robotic-fleet-optimization.html",
       repo: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System",
       why: "The project records how a narrow routing idea developed into a broader systems research question.",
       limitation: "Historical concept; no current autonomous-system claim.",
@@ -126,6 +133,7 @@
       description: "Concise notes translating system architecture into product choices, controls, metrics, and adoption paths.",
       tags: ["Product Strategy", "AI Systems", "Metrics", "Risk"],
       nextMilestone: "Publish the first evidence-to-decision product brief.",
+      caseStudy: "projects/business-case-studies.html",
       repo: "",
       why: "Strong engineering becomes a product only when its users, value, controls, and measurable outcomes are clear.",
       limitation: "Planned; no published note library is claimed yet.",
@@ -142,6 +150,7 @@
       description: "A case-study track connecting industrial designs to stakeholders, KPIs, value hypotheses, and adoption constraints.",
       tags: ["Operations", "KPIs", "Value Mapping", "Adoption"],
       nextMilestone: "Document a service-operations case around the industrial MVP.",
+      caseStudy: "projects/business-case-studies.html",
       repo: "",
       why: "Industrial systems succeed when technical architecture connects to an observable operational and business outcome.",
       limitation: "Examples will be labeled as cases, not deployed outcomes.",
@@ -158,6 +167,7 @@
       description: "Structured product cases drawn from the portfolio’s data, reliability, AI, and industrial themes.",
       tags: ["Discovery", "Prioritization", "Roadmaps", "Metrics"],
       nextMilestone: "Create the first complete case with problem framing and success measures.",
+      caseStudy: "projects/business-case-studies.html",
       repo: "",
       why: "Clear product reasoning helps engineers, domain experts, and business stakeholders make better shared decisions.",
       limitation: "Planned; no completed case-study library is claimed.",
@@ -479,8 +489,8 @@
     if (!projectGrid) return;
     projectGrid.innerHTML = projects.map((project) => {
       const repoControl = project.repo
-        ? `<a href="${project.repo}">View Repo ↗</a>`
-        : `<button class="is-placeholder" type="button" disabled>View Repo</button>`;
+        ? `<a href="${project.repo}">View GitHub Repo ↗</a>`
+        : `<button class="is-placeholder" type="button" disabled>GitHub Repo Planned</button>`;
 
       return `
         <article class="project-card" id="${project.id}" data-project-card data-filters="${project.filters.join(" ")}" data-audiences="${project.audiences.join(" ")}">
@@ -499,48 +509,13 @@
           </div>
           <p class="milestone"><span>Next milestone</span> ${project.nextMilestone}</p>
           <div class="project-actions">
-            ${repoControl}
-            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="detail-${project.id}" data-open-label="Read Details" data-close-label="Close Details">Read Details</button>
+            <a href="${project.caseStudy}">Read Case Study</a>
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="flow-${project.id}" data-open-label="View Architecture" data-close-label="Close Architecture">View Architecture</button>
-            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="demo-${project.id}" data-open-label="Demo Plan" data-close-label="Close Demo Plan">Demo Plan</button>
+            ${repoControl}
           </div>
           <div class="project-flow-panel" id="flow-${project.id}" hidden>
             <div class="project-panel-heading"><span>Architecture / system flow</span><h4>How the system works</h4></div>
             <div class="full-system-flow">${project.systemFlow.map((step, index) => `${index ? '<i aria-hidden="true">→</i>' : ""}<span>${step}</span>`).join("")}</div>
-          </div>
-          <div class="project-demo-panel" id="demo-${project.id}" hidden>
-            <div class="project-panel-heading"><span>Free / local demonstration</span><h4>Demo plan</h4></div>
-            <p>${project.demoPlan}</p>
-          </div>
-          <div class="project-detail" id="detail-${project.id}" hidden>
-            <div class="project-panel-heading"><span>Project problem</span><h4>What this project is trying to solve</h4></div>
-            <p class="problem-copy">${project.problemSolved}</p>
-            <h5 class="detail-subheading">Why it matters</h5>
-            <p class="why-copy">${project.businessValue}</p>
-            <div class="project-story-grid">
-              <section class="project-story-block"><h5>Data sources</h5><ul class="story-chip-list">${project.dataSources.map((item) => `<li>${item}</li>`).join("")}</ul></section>
-              <section class="project-story-block"><h5>Technical concepts</h5><ul class="story-chip-list">${project.technicalConcepts.map((item) => `<li>${item}</li>`).join("")}</ul></section>
-              <section class="project-story-block story-block-wide"><h5>Data engineering design</h5><p>${project.design}</p></section>
-              <section class="project-story-block story-block-wide demo-plan-block"><h5>Demo plan · free / local resources</h5><p>${project.demoPlan}</p></section>
-            </div>
-            <div class="evidence-grid challenge-pair">
-              <div><h5>Challenges faced</h5><ul>${project.challengesFaced.map((item) => `<li>${item}</li>`).join("")}</ul></div>
-              <div><h5>Future challenges</h5><ul>${project.futureChallenges.map((item) => `<li>${item}</li>`).join("")}</ul></div>
-            </div>
-            <div class="evidence-grid">
-              <div><h5>Evidence so far</h5><ul>${project.evidence.map((item) => `<li>${item}</li>`).join("")}</ul></div>
-              <div><h5>Still improving</h5><ul>${project.improving.map((item) => `<li>${item}</li>`).join("")}</ul></div>
-            </div>
-            <div class="project-value-grid">
-              <section><h5>Future Agentic AI extension</h5><p>${project.agenticAiIdea}</p></section>
-              <section><h5>Business / hiring value</h5><p>${project.sellingPoint}</p></section>
-            </div>
-            <div class="project-timeline-wrap">
-              <h5>Project maturity</h5>
-              <ol class="project-timeline">${project.maturity.map((item, index) => `<li class="milestone-${statusSlug(item.status)}"><span>Phase ${index + 1}</span><b>${item.name}</b><small>${item.status}</small></li>`).join("")}</ol>
-            </div>
-            <p class="project-next-step"><strong>Next step:</strong> ${project.nextMilestone}</p>
-            <p class="limitation"><strong>Limitation:</strong> ${project.limitation}</p>
           </div>
         </article>`;
     }).join("");

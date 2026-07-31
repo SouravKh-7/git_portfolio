@@ -549,6 +549,11 @@ button {
   line-height: 1.55;
 }
 
+.story-copy p:last-child {
+  grid-column: 1 / -1;
+  max-width: 760px;
+}
+
 .split-heading {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
@@ -958,6 +963,22 @@ button {
 
 .system-flow li:nth-child(4)::after,
 .system-flow li:last-child::after {
+  display: none;
+}
+
+.system-flow-long {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.system-flow-long li:nth-child(4)::after {
+  display: grid;
+}
+
+.system-flow-long li:nth-child(3n)::after {
+  display: none;
+}
+
+.system-flow-long li:last-child::after {
   display: none;
 }
 
@@ -1609,6 +1630,59 @@ button {
   line-height: 1.55;
 }
 
+.project-story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.project-story-block {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.34);
+  border-radius: var(--radius-sm);
+}
+
+.project-story-block h5,
+.project-next-step strong {
+  color: var(--moss);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-story-block h5 {
+  margin: 0 0 11px;
+}
+
+.project-story-block.story-block-wide {
+  grid-column: 1 / -1;
+}
+
+.project-story-block.demo-plan-block {
+  background: rgba(191, 184, 113, 0.16);
+  border-left: 3px solid var(--gold);
+}
+
+.story-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.story-chip-list li {
+  padding: 6px 8px;
+  color: var(--moss);
+  background: rgba(120, 129, 96, 0.1);
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
 .evidence-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1712,6 +1786,14 @@ button {
   border-top: 1px solid var(--line-light);
 }
 
+.project-detail .project-next-step {
+  padding: 14px 16px;
+  margin-top: 20px;
+  background: rgba(120, 129, 96, 0.1);
+  border-left: 3px solid var(--olive);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
 .empty-state {
   padding: 48px;
   margin-top: 20px;
@@ -1797,6 +1879,61 @@ button {
 .architecture-note-grid b {
   color: rgba(37, 41, 31, 0.5);
   font-size: 0.7rem;
+}
+
+.challenges-section {
+  color: var(--cream);
+  background: var(--soil-soft);
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.challenges-intro {
+  max-width: 860px;
+  margin: -14px 0 50px;
+  color: rgba(242, 237, 223, 0.72);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.55;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.challenges-grid article {
+  grid-column: span 2;
+  min-height: 220px;
+  padding: 25px;
+  background: rgba(242, 237, 223, 0.035);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-md);
+}
+
+.challenges-grid article:nth-child(4),
+.challenges-grid article:nth-child(5) {
+  grid-column: span 3;
+}
+
+.challenges-grid span {
+  color: var(--olive-light);
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.challenges-grid h3 {
+  margin: 34px 0 12px;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.challenges-grid p {
+  margin: 0;
+  color: rgba(242, 237, 223, 0.62);
+  font-size: 0.88rem;
 }
 
 .tracker-section {
@@ -2396,7 +2533,10 @@ a.note-card:hover {
 
   .architecture-note-grid article,
   .architecture-note-grid article:nth-child(4),
-  .architecture-note-grid article:nth-child(5) {
+  .architecture-note-grid article:nth-child(5),
+  .challenges-grid article,
+  .challenges-grid article:nth-child(4),
+  .challenges-grid article:nth-child(5) {
     grid-column: span 3;
   }
 
@@ -2423,6 +2563,15 @@ a.note-card:hover {
   }
 
   .system-flow li:nth-child(2n)::after {
+    display: none;
+  }
+
+  .system-flow-long li:nth-child(3n)::after {
+    display: grid;
+  }
+
+  .system-flow-long li:nth-child(2n)::after,
+  .system-flow-long li:last-child::after {
     display: none;
   }
 
@@ -2491,8 +2640,13 @@ a.note-card:hover {
   }
 
   .maturity-legend dl,
-  .evidence-grid {
+  .evidence-grid,
+  .project-story-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-story-block.story-block-wide {
+    grid-column: auto;
   }
 
   .project-progress-block > div:first-child {
@@ -2519,9 +2673,16 @@ a.note-card:hover {
     grid-template-columns: 1fr;
   }
 
+  .challenges-grid {
+    grid-template-columns: 1fr;
+  }
+
   .architecture-note-grid article,
   .architecture-note-grid article:nth-child(4),
-  .architecture-note-grid article:nth-child(5) {
+  .architecture-note-grid article:nth-child(5),
+  .challenges-grid article,
+  .challenges-grid article:nth-child(4),
+  .challenges-grid article:nth-child(5) {
     grid-column: auto;
   }
 

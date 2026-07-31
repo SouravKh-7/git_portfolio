@@ -76,22 +76,23 @@
       <section class="build-strip" aria-labelledby="build-strip-title">
         <div class="section-shell build-strip-shell">
           <div class="build-strip-heading">
-            <p class="eyebrow">Current Build Status</p>
-            <h2 id="build-strip-title">A compact view of what is moving.</h2>
+            <p class="eyebrow">Current project maturity</p>
+            <h2 id="build-strip-title">A compact view of the work itself.</h2>
           </div>
           <div class="build-strip-items" data-top-progress></div>
-          <p class="build-strip-note">Progress represents portfolio maturity: planning, documentation, implementation, evidence, and publication. It does not mean production deployment.</p>
+          <p class="build-strip-note">Demo maturity estimate, not production readiness. Each measure reflects project framing, architecture, implementation, testing, evidence, and documentation.</p>
         </div>
       </section>
 
       <section class="section section-shell" id="why" aria-labelledby="why-title">
         <div class="section-heading editorial-heading">
           <p class="eyebrow">Why this portfolio exists</p>
-          <h2 id="why-title">A place to organize work around real systems.</h2>
+          <h2 id="why-title">Why I Am Building These Projects</h2>
         </div>
         <div class="story-copy">
-          <p>This website is not only a list of repositories. It is a place where I organize my work around real-world systems: how data is collected, cleaned, tested, transformed, monitored, and used for decisions.</p>
-          <p>The aim is to show not only what I built, but also how I think about problems, architecture, evidence, limitations, project maturity, and future improvements.</p>
+          <p>I am building this portfolio to show how I think through data engineering problems. I do not want to show only final code. I want to show the problem, the data source, the pipeline design, the quality checks, the architecture, the demo plan, the challenges, and the next improvement.</p>
+          <p>For me, data engineering is not only about moving data. It is about making data useful, reliable, testable, and explainable. Each project is a small attempt to understand how real systems work and how raw data can become a trusted data product, dashboard, business insight, or AI-ready workflow.</p>
+          <p>This portfolio is still evolving. Some projects are active, some are in design stage, and some are future ideas. I want visitors to see the maturity of each project honestly.</p>
         </div>
 
         <div class="principle-grid">
@@ -110,6 +111,29 @@
             <h3>Human-Controlled Automation</h3>
             <p>AI-ready workflows where automation supports people instead of replacing judgment.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section approach-section" id="approach" aria-labelledby="approach-title">
+        <div class="section-shell">
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">Architecture near the problem</p>
+            <h2 id="approach-title">How I Think About a Data Engineering Project</h2>
+          </div>
+          <p class="approach-intro">I start with the decision the system should support, then design a readable path from source to trusted output. ETL or ELT, batch or incremental loading, and medallion layers are choices—not goals by themselves.</p>
+          <ol class="system-flow system-flow-long">
+            <li><span>01</span><b>Business / Operational Problem</b><p>Define the user, decision, and measurable need before choosing tools.</p></li>
+            <li><span>02</span><b>Data Sources</b><p>Understand files, APIs, tables, logs, ownership, and data contracts.</p></li>
+            <li><span>03</span><b>Ingestion</b><p>Choose batch ingestion or incremental loading with reproducible inputs.</p></li>
+            <li><span>04</span><b>Raw / Bronze Layer</b><p>Preserve source-shaped data, metadata, audit logs, and lineage.</p></li>
+            <li><span>05</span><b>Cleaning &amp; Transformation</b><p>Apply ETL / ELT rules, standardization, joins, and documented logic.</p></li>
+            <li><span>06</span><b>Data Quality Checks</b><p>Test schema, nulls, duplicates, freshness, and reconciliation.</p></li>
+            <li><span>07</span><b>Silver / Trusted Layer</b><p>Publish validated, explainable records with clear quality boundaries.</p></li>
+            <li><span>08</span><b>Gold / Business Layer</b><p>Model useful facts, dimensions, metrics, and decision-ready tables.</p></li>
+            <li><span>09</span><b>Monitoring &amp; Observability</b><p>Track tests, logs, freshness, incidents, metadata, and pipeline health.</p></li>
+            <li><span>10</span><b>Dashboard / API / AI-Ready Output</b><p>Serve a useful interface with traceable, well-scoped context.</p></li>
+            <li><span>11</span><b>Business or Research Decision</b><p>Close the loop with evidence, documentation, and reproducible results.</p></li>
+          </ol>
         </div>
       </section>
 
@@ -188,26 +212,6 @@
           <article class="path-card"><span class="path-number">03</span><h3>Researchers</h3><p>Explore optimization, architecture, and system experiments.</p><button type="button" data-path-filter="researcher">Open research path <span aria-hidden="true">→</span></button></article>
           <article class="path-card"><span class="path-number">04</span><h3>Business Readers</h3><p>Explore industrial and business case studies.</p><button type="button" data-path-filter="business-reader">View business cases <span aria-hidden="true">→</span></button></article>
           <article class="path-card"><span class="path-number">05</span><h3>AI Systems Readers</h3><p>Explore AI-ready workflows and human-controlled automation.</p><button type="button" data-path-filter="ai-reader">Explore AI workflows <span aria-hidden="true">→</span></button></article>
-        </div>
-      </section>
-
-      <section class="section approach-section" id="approach" aria-labelledby="approach-title">
-        <div class="section-shell">
-          <div class="section-heading editorial-heading">
-            <p class="eyebrow">Thought process</p>
-            <h2 id="approach-title">How I Think Like a Data Engineer</h2>
-          </div>
-          <p class="approach-intro">For every project, I start from the problem, not from the tool. I try to understand what decision the data should support, where the data comes from, what can go wrong, how quality should be checked, and how the final output can become useful for people, dashboards, systems, or AI workflows.</p>
-          <ol class="system-flow">
-            <li><span>01</span><b>Problem Understanding</b><p>What decision or workflow needs better data?</p></li>
-            <li><span>02</span><b>Data Sources</b><p>Files, APIs, databases, logs, or operational systems.</p></li>
-            <li><span>03</span><b>Data Risks</b><p>Missing values, duplicates, schema changes, stale data, or wrong formats.</p></li>
-            <li><span>04</span><b>Pipeline Design</b><p>Ingestion, transformation, validation, and storage.</p></li>
-            <li><span>05</span><b>Quality Checks</b><p>Nulls, duplicates, reconciliation, freshness, and business rules.</p></li>
-            <li><span>06</span><b>Storage / Modeling</b><p>Tables, layers, marts, metadata, or lakehouse structure.</p></li>
-            <li><span>07</span><b>Monitoring</b><p>Logs, alerts, incidents, evidence, and rerun decisions.</p></li>
-            <li><span>08</span><b>Business or AI-Ready Output</b><p>Dashboard, report, API, data product, or useful context.</p></li>
-          </ol>
         </div>
       </section>
 
@@ -309,12 +313,29 @@
         </div>
       </section>
 
+      <section class="section challenges-section" id="challenges" aria-labelledby="challenges-title">
+        <div class="section-shell">
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">Learning in public</p>
+            <h2 id="challenges-title">Challenges I Am Learning Through</h2>
+          </div>
+          <p class="challenges-intro">These projects are not only for showing finished work. They are also for learning how real data systems become difficult: messy data, unclear requirements, changing schemas, weak documentation, performance issues, and the challenge of explaining technical work to different audiences.</p>
+          <div class="challenges-grid">
+            <article><span>01</span><h3>Data Reality</h3><p>Real data is messy: missing values, duplicates, wrong formats, late files, and changing schemas.</p></article>
+            <article><span>02</span><h3>Architecture Choices</h3><p>A project needs decisions about storage, transformations, quality checks, monitoring, and outputs.</p></article>
+            <article><span>03</span><h3>Evidence and Testing</h3><p>A portfolio project becomes stronger when it shows tests, logs, screenshots, sample data, and reproducible steps.</p></article>
+            <article><span>04</span><h3>Communication</h3><p>A good data engineering project should be understandable to engineers, business people, and researchers.</p></article>
+            <article><span>05</span><h3>Future Scale</h3><p>A local demo is useful, but future challenges include larger data, orchestration, deployment, security, governance, and cost.</p></article>
+          </div>
+        </div>
+      </section>
+
       <section class="section tracker-section" id="tracker" aria-labelledby="tracker-title">
         <div class="section-shell">
           <div class="section-heading editorial-heading">
-            <p class="eyebrow">A progress journal</p>
-            <h2 id="tracker-title">Current Status &amp; Progress Tracker</h2>
-            <p>This portfolio is active and evolving. The current focus is to turn project ideas into reproducible repositories, stronger documentation, measurable evidence, visual architecture diagrams, and business-facing case studies.</p>
+            <p class="eyebrow">Project maturity journal</p>
+            <h2 id="tracker-title">What Is Built, Moving, and Next</h2>
+            <p>This view tracks actual project work: problem framing, architecture, datasets, pipeline implementation, quality checks, testing, demos, evidence, and case-study documentation.</p>
           </div>
 
           <div class="status-summary">
@@ -326,9 +347,9 @@
 
           <div class="tracker-layout">
             <section class="progress-panel" aria-labelledby="progress-title">
-              <div class="panel-heading"><span>Part B</span><h3 id="progress-title">Progress by workstream</h3></div>
+              <div class="panel-heading"><span>Part B</span><h3 id="progress-title">Maturity by project</h3></div>
               <div class="progress-list" data-progress-list></div>
-              <p class="tracker-note">Progress represents portfolio maturity: planning, documentation, implementation, evidence, and publication. It does not imply production deployment.</p>
+              <p class="tracker-note">Demo maturity estimate, not production readiness. Percentages summarize evidence across project framing, architecture, implementation, testing, demo, and documentation.</p>
             </section>
 
             <section class="timeline-panel" aria-labelledby="timeline-title">

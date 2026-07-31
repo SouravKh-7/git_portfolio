@@ -289,31 +289,114 @@
     }
   };
 
-  projects.forEach((project) => Object.assign(project, projectJournal[project.id]));
+  const projectStories = {
+    "ai-assisted-data-reliability-platform": {
+      dataSources: ["Sample CSV / JSON files", "API extracts", "Mock operational tables", "Pipeline audit logs"],
+      technicalIdeas: ["Schema validation", "Freshness and null checks", "Duplicate checks", "Source-target reconciliation", "Data contracts", "Audit evidence"],
+      design: "Batch ingestion preserves raw inputs, then validation rules route good records to a trusted layer and failed records to quarantine. Evidence tables, metadata, and audit logs support an incident summary before any AI-assisted explanation is reviewed by a person.",
+      demoPlan: "Run locally with intentional data issues in CSV files, Python/Pandas or PySpark transformations, DuckDB, SQLite, or local PostgreSQL, and a Streamlit or FastAPI interface. The first version needs no paid cloud service.",
+      challengesFaced: ["Designing realistic quality rules", "Grounding explanations in traceable evidence", "Keeping production-style design separate from production claims"],
+      futureChallenges: ["Broader automated tests and realistic datasets", "Incident history, lineage, and observability", "A stronger human approval workflow"]
+    },
+    "data-pipeline-optimization-framework": {
+      dataSources: ["Synthetic workload data", "CSV and Parquet files", "Local runtime metrics", "Spark execution logs"],
+      technicalIdeas: ["PySpark local mode", "Partitioning", "Caching", "Join strategy", "File formats", "Benchmarking"],
+      design: "A baseline and an optimized pipeline process the same reproducible workload. Correctness checks run before runtime, partition, and resource measures are compared, so a faster result is not accepted if it changes the data.",
+      demoPlan: "Generate synthetic data locally, run both pipelines in PySpark local mode, store benchmark results in CSV or DuckDB, and publish a notebook or simple comparison report with the assumptions and machine profile.",
+      challengesFaced: ["Creating meaningful test data", "Measuring performance consistently", "Explaining optimization without overclaiming"],
+      futureChallenges: ["Larger and more varied workloads", "Spark UI evidence and deeper observability", "Parquet versus CSV trade-off studies"]
+    },
+    "industrial-service-intelligence-platform": {
+      dataSources: ["Mock service records", "Customer and asset tables", "Tickets and SLA events", "Parts and warranty records"],
+      technicalIdeas: ["Dimensional modeling", "Fact and dimension tables", "Joins", "SLA metrics", "Data quality rules", "Operational dashboards"],
+      design: "Raw service domains are standardized and joined around customer, asset, ticket, time, parts, and warranty keys. Trusted fact and dimension tables feed service metrics and a decision-support view with visible quality checks.",
+      demoPlan: "Build a small local pipeline with Python and SQL, store modeled tables in DuckDB or PostgreSQL, and show service delays, SLA performance, and customer impact in Streamlit using synthetic records.",
+      challengesFaced: ["Designing realistic business metrics", "Resolving relationships across fragmented records", "Connecting technical fields to business meaning"],
+      futureChallenges: ["Time-series and anomaly analysis", "Region and asset comparisons", "Stronger business-case evidence"]
+    },
+    "health-aware-robotic-fleet-optimization-system": {
+      dataSources: ["Synthetic fleet state", "Battery and health scores", "Task distance and priority", "Capacity and location constraints"],
+      technicalIdeas: ["Constraint-based scheduling", "Health-aware assignment", "Simulation", "Optimization", "Baseline comparison", "Operational research"],
+      design: "A reproducible simulation combines fleet state, asset health, and the task queue. Deterministic scheduling provides a baseline before health-aware constraints and optimization logic are compared using clear operational measures.",
+      demoPlan: "Create synthetic robot and task data in Python, run a local scheduling simulation in a Jupyter Notebook, and compare availability-only assignment with a health-aware policy using simple charts.",
+      challengesFaced: ["Balancing explainability with realism", "Choosing useful constraints", "Defining a fair baseline"],
+      futureChallenges: ["Dynamic scheduling and changing fleet state", "Richer simulation visuals", "Sensitivity analysis across constraints"]
+    },
+    "retail-sales-and-inventory-intelligence-platform": {
+      dataSources: ["Public or mock retail CSV files", "Product and store records", "Daily sales", "Inventory movements"],
+      technicalIdeas: ["Star schema", "SQL analytics", "Stockout detection", "Inventory metrics", "Data quality", "Dashboarding"],
+      design: "Sales and stock records are cleaned and modeled by product, store, and date. A trusted star schema supports inventory risk, sell-through, and stockout measures rather than a disconnected collection of dashboard charts.",
+      demoPlan: "Use a public or synthetic retail dataset, Python and SQL transformations, DuckDB for local analytics, and Streamlit for a focused sales and inventory view. Document the workflow in the repository README.",
+      challengesFaced: ["Choosing useful business measures", "Separating signal from generic dashboard work", "Keeping product, store, and time grains consistent"],
+      futureChallenges: ["Demand forecasting", "Inventory alerts", "A stronger value and decision case"]
+    },
+    "manufacturing-root-cause-analysis-assistant": {
+      dataSources: ["Mock manufacturing events", "Machine and shift records", "Defect and delay codes", "Process-step context"],
+      technicalIdeas: ["Defect tracking", "Process lineage", "Root-cause categories", "Quality checks", "Evidence retrieval", "Human review"],
+      design: "Event, defect, delay, and process context are standardized into a traceable incident view. Rules and retrieved evidence create root-cause clues; the output is an explanation note for human review, not an automated certainty claim.",
+      demoPlan: "Use local CSV or JSON manufacturing events, analyze them with Python and SQL, and create a small notebook or Streamlit workflow that links every explanation back to its supporting records.",
+      challengesFaced: ["Creating credible manufacturing data", "Representing uncertainty honestly", "Keeping explanations tied to sources"],
+      futureChallenges: ["Time-series and sensor-like signals", "Richer process lineage", "Evaluation of explanation quality"]
+    },
+    "health-aware-autonomous-drone-system": {
+      dataSources: ["Synthetic drone telemetry", "Battery and component health", "Mission priorities", "Route and risk constraints"],
+      technicalIdeas: ["Health-aware routing", "Constraint modeling", "Risk scoring", "Simulation", "Baseline comparison", "Human control"],
+      design: "A local simulation joins telemetry and mission context, evaluates asset health and risk constraints, and compares a simple route baseline with a health-aware decision while preserving a human-controlled action boundary.",
+      demoPlan: "Use synthetic telemetry in CSV, a Python notebook for route simulation, and local plots for risk and battery comparisons. Keep this as documented research history rather than a deployed autonomy claim.",
+      challengesFaced: ["Modeling risk without real flight data", "Keeping scope small and explainable", "Separating research questions from capabilities"],
+      futureChallenges: ["Dynamic mission conditions", "Better simulation fidelity", "Validation with representative data"]
+    },
+    "ai-data-product-strategy-notes": {
+      dataSources: ["Public research", "Project evidence", "User and stakeholder assumptions", "Example metrics"],
+      technicalIdeas: ["Problem framing", "User value", "AI risk", "Product metrics", "Data requirements", "Decision workflows"],
+      design: "Each note starts with a user decision, maps the evidence and data needed, and defines controls, measures, trade-offs, and a delivery path. Technical architecture is connected to adoption rather than treated as the product itself.",
+      demoPlan: "Publish Markdown case studies in GitHub README files using public research and clearly labeled assumptions. Include the problem, users, evidence, proposed system, metrics, risks, and next step.",
+      challengesFaced: ["Connecting system design to user value", "Writing concise and testable assumptions", "Defining useful success measures"],
+      futureChallenges: ["Stronger examples and market research", "Feedback from representative readers", "Financial and adoption assumptions"]
+    },
+    "industrial-operations-business-cases": {
+      dataSources: ["Process and service data", "Operational KPI examples", "Cost and delay assumptions", "Stakeholder workflows"],
+      technicalIdeas: ["ROI framing", "Operational metrics", "Guesstimates", "Value mapping", "Risk analysis", "Decision notes"],
+      design: "Each case follows an operational problem through the data needed, current friction, technical proposal, measurable effect, adoption constraints, and recommendation. Assumptions remain visible and separate from observed evidence.",
+      demoPlan: "Use Markdown and a small notebook or spreadsheet-style dataset to explain one narrow service-operations case. Calculate transparent value ranges locally and publish the assumptions with the case.",
+      challengesFaced: ["Avoiding invented business outcomes", "Finding a narrow testable case", "Linking architecture to measurable value"],
+      futureChallenges: ["Better market and cost evidence", "Sensitivity analysis", "Validation with domain feedback"]
+    },
+    "pm-case-study-library": {
+      dataSources: ["Case prompts", "Public research", "User assumptions", "Example feedback and metrics"],
+      technicalIdeas: ["Personas", "Product requirements", "Prioritization", "Roadmaps", "Metrics", "Risk and trade-offs"],
+      design: "A repeatable case structure moves from user problem and assumptions to solution choices, data needs, success metrics, risks, prioritization, and recommendation. Revision notes show how evidence changes the decision.",
+      demoPlan: "Create self-contained Markdown cases in GitHub README files. Use free public references and simple local calculations, then document assumptions, users, proposed solution, measures, risks, and next steps.",
+      challengesFaced: ["Writing clear business logic", "Keeping cases specific", "Connecting product choices to data systems"],
+      futureChallenges: ["More representative examples", "Feedback and revision history", "Stronger market and financial reasoning"]
+    }
+  };
+
+  projects.forEach((project) => Object.assign(project, projectJournal[project.id], projectStories[project.id]));
 
   const topProgressItems = [
-    { title: "Portfolio Website", progress: 70 },
-    { title: "GitHub Portfolio Index", progress: 60 },
     { title: "AI Data Reliability Platform", progress: 45 },
-    { title: "Project Documentation", progress: 35 },
-    { title: "PM / Business Case Studies", progress: 20 }
+    { title: "Pipeline Optimization", progress: 35 },
+    { title: "Industrial Service Intelligence", progress: 30 },
+    { title: "Fleet Optimization Research", progress: 25 },
+    { title: "Business Case Studies", progress: 20 }
   ];
 
   const progressItems = [
-    { title: "Portfolio Website", progress: 70, status: "In progress", description: "Improving navigation, story flow, project cards, demo visuals, and tracker sections." },
-    { title: "GitHub Portfolio Index", progress: 60, status: "In progress", description: "Organizing repositories, project maturity, navigation, and evidence." },
-    { title: "AI-Assisted Data Reliability Platform", progress: 45, status: "Reference build", description: "Strengthening reproducibility, metadata, observability, and documentation." },
-    { title: "Data Pipeline Optimization Framework", progress: 35, status: "Active build", description: "Preparing a measurable baseline and correctness-backed benchmarks." },
-    { title: "Industrial Service Intelligence Platform", progress: 30, status: "Active build", description: "Building the MVP data model, service metrics, and decision-support foundation." },
-    { title: "Research / Optimization Notes", progress: 25, status: "Researching", description: "Developing fleet-health, scheduling, simulation, and optimization questions." },
-    { title: "PM & Business Case Studies", progress: 20, status: "Planned", description: "Turning technical projects into structured product and business cases." }
+    { title: "AI-Assisted Data Reliability Platform", progress: 45, status: "MVP in progress", description: "Architecture is defined; sample ingestion, validation, evidence, and testing are being strengthened before the demo." },
+    { title: "Data Pipeline Optimization Framework", progress: 35, status: "Benchmark build", description: "Problem and architecture are framed; the reproducible baseline, measurements, and comparison report are next." },
+    { title: "Industrial Service Intelligence Platform", progress: 30, status: "MVP foundation", description: "Service domains and metrics are scoped; the data model, quality evidence, and end-to-end demo are moving forward." },
+    { title: "Health-Aware Robotic Fleet Optimization", progress: 25, status: "Research blueprint", description: "The constraint model and flow are outlined; a deterministic simulator and comparison metrics come next." },
+    { title: "Manufacturing Root-Cause Assistant", progress: 25, status: "Evolving concept", description: "The evidence-first concept is defined and is being consolidated into a smaller industrial root-cause module." },
+    { title: "Retail Sales & Inventory Intelligence", progress: 15, status: "Parked after framing", description: "The domain, core entities, and demo approach are documented; implementation is intentionally paused." },
+    { title: "Product & Business Case Studies", progress: 20, status: "First cases planned", description: "Reusable case structures are defined; the next evidence is a complete, assumption-led published case." }
   ];
 
   const timelineItems = [
-    { phase: "Foundation", status: "Completed", when: "Past", description: "Organized the portfolio direction around data systems, reliability, AI-ready workflows, industrial intelligence, and business cases.", progress: 100 },
-    { phase: "Current Build", status: "In Progress", when: "Now", description: "Improving the GitHub Pages website, project cards, repo navigation, visual diagrams, and flagship project presentation.", progress: 55 },
-    { phase: "Next Milestone", status: "Next", when: "Next", description: "Add stronger project READMEs, architecture diagrams, evidence sections, and reproducible setup instructions.", progress: 15 },
-    { phase: "Later Direction", status: "Later", when: "Later", description: "Add PM/business case studies, research notes, and deeper project case-study pages.", progress: 5 }
+    { phase: "Problem and Architecture", status: "Completed", when: "Defined", description: "Core projects now state the operational problem, data sources, system flow, scope boundary, and intended decision.", progress: 100 },
+    { phase: "Local Data and Pipelines", status: "In Progress", when: "Now", description: "Build reproducible sample datasets, transformations, quality checks, evidence tables, and measurable baselines.", progress: 45 },
+    { phase: "Testing and Demo Evidence", status: "Next", when: "Next", description: "Add test results, logs, screenshots, benchmark comparisons, and free/local demonstration walkthroughs.", progress: 20 },
+    { phase: "Documentation and Case Studies", status: "Later", when: "Later", description: "Publish project READMEs and product or business cases that connect system evidence to decisions and trade-offs.", progress: 10 }
   ];
 
   const researchNotes = [
@@ -378,14 +461,25 @@
           <div class="project-detail" id="detail-${project.id}" hidden>
             <div class="project-panel-heading"><span>Project journal</span><h4>Why it matters</h4></div>
             <p class="why-copy">${project.why}</p>
+            <div class="project-story-grid">
+              <section class="project-story-block"><h5>Data sources</h5><ul class="story-chip-list">${project.dataSources.map((item) => `<li>${item}</li>`).join("")}</ul></section>
+              <section class="project-story-block"><h5>Technical ideas</h5><ul class="story-chip-list">${project.technicalIdeas.map((item) => `<li>${item}</li>`).join("")}</ul></section>
+              <section class="project-story-block story-block-wide"><h5>Data engineering design</h5><p>${project.design}</p></section>
+              <section class="project-story-block story-block-wide demo-plan-block"><h5>Demo plan · free / local resources</h5><p>${project.demoPlan}</p></section>
+            </div>
+            <div class="evidence-grid challenge-pair">
+              <div><h5>Challenges faced</h5><ul>${project.challengesFaced.map((item) => `<li>${item}</li>`).join("")}</ul></div>
+              <div><h5>Future challenges</h5><ul>${project.futureChallenges.map((item) => `<li>${item}</li>`).join("")}</ul></div>
+            </div>
             <div class="evidence-grid">
               <div><h5>Evidence so far</h5><ul>${project.evidence.map((item) => `<li>${item}</li>`).join("")}</ul></div>
               <div><h5>Still improving</h5><ul>${project.improving.map((item) => `<li>${item}</li>`).join("")}</ul></div>
             </div>
             <div class="project-timeline-wrap">
-              <h5>Project timeline</h5>
+              <h5>Project maturity</h5>
               <ol class="project-timeline">${project.milestones.map((item, index) => `<li class="milestone-${statusSlug(item.status)}"><span>Phase ${index + 1}</span><b>${item.name}</b><small>${item.status}</small></li>`).join("")}</ol>
             </div>
+            <p class="project-next-step"><strong>Next step:</strong> ${project.nextMilestone}</p>
             <p class="limitation"><strong>Limitation:</strong> ${project.limitation}</p>
           </div>
         </article>`;
@@ -416,7 +510,7 @@
     timelineList.innerHTML = timelineItems.map((item) => `
       <li class="timeline-item timeline-${item.status.toLowerCase().replaceAll(" ", "-")}">
         <div class="timeline-marker"><span>${item.when}</span></div>
-        <div class="timeline-copy"><div><h4>${item.phase}</h4><span>${item.status}</span></div><p>${item.description}</p><small>${item.progress}% portfolio maturity for this phase</small></div>
+        <div class="timeline-copy"><div><h4>${item.phase}</h4><span>${item.status}</span></div><p>${item.description}</p><small>${item.progress}% maturity estimate for this project phase</small></div>
       </li>`).join("");
   };
 

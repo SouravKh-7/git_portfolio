@@ -166,6 +166,139 @@
     }
   ];
 
+  const projectJournal = {
+    "ai-assisted-data-reliability-platform": {
+      progress: 45,
+      progressLabel: "MVP in progress",
+      systemFlow: ["Source files / API", "Pipeline run", "Validation checks", "Evidence table", "Incident summary", "AI-assisted explanation", "Human review"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Done" },
+        { name: "MVP / prototype", status: "In progress" }, { name: "Testing and evidence", status: "In progress" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Local ingestion, validation, quarantine, and reconciliation flows", "API, tests, Docker, CI/CD, and operational notes", "Guarded incident-response workflow with human approval"],
+      improving: ["More reproducible sample runs", "Stronger operational metadata and observability", "Clearer screenshots and a complete demo walkthrough"]
+    },
+    "data-pipeline-optimization-framework": {
+      progress: 35,
+      progressLabel: "Benchmark baseline in progress",
+      systemFlow: ["Dataset / workload", "Baseline pipeline", "Performance measurement", "Optimization experiment", "Comparison report", "Recommendation"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Done" },
+        { name: "MVP / prototype", status: "In progress" }, { name: "Testing and evidence", status: "Next" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Optimization case-study direction is defined", "Incremental loading, Parquet, partitioning, and measurement scope", "Correctness checks are part of the planned comparison"],
+      improving: ["Publish the reproducible baseline", "Add before-and-after measurements", "Document hardware, workload, and data assumptions"]
+    },
+    "industrial-service-intelligence-platform": {
+      progress: 30,
+      progressLabel: "MVP foundation in progress",
+      systemFlow: ["Service data", "Customer / asset records", "Cleaning and joining", "Service metrics", "Operational dashboard", "Business insight"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "In progress" },
+        { name: "MVP / prototype", status: "In progress" }, { name: "Testing and evidence", status: "Next" },
+        { name: "Documentation and demo", status: "Pending" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Industrial service problem and data domains are defined", "MVP scope separates built, in-progress, and planned work", "Service KPI and decision-support direction is documented"],
+      improving: ["Complete the core data model", "Add stronger data-quality evidence", "Publish an end-to-end service workflow demo"]
+    },
+    "health-aware-robotic-fleet-optimization-system": {
+      progress: 25,
+      progressLabel: "Research blueprint",
+      systemFlow: ["Robot / fleet state", "Health signal", "Task queue", "Scheduling logic", "Optimization result", "Fleet decision"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "In progress" },
+        { name: "MVP / prototype", status: "Next" }, { name: "Testing and evidence", status: "Pending" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Requirements cover telemetry, health, task queues, and constraints", "Architecture direction for scheduling and simulation", "Research questions connect asset condition with fleet decisions"],
+      improving: ["Build a small deterministic simulator", "Define comparison metrics and constraints", "Publish a reproducible optimization baseline"]
+    },
+    "retail-sales-and-inventory-intelligence-platform": {
+      progress: 15,
+      progressLabel: "Parked after problem framing",
+      systemFlow: ["Sales and inventory data", "Data cleaning", "Product / store model", "Inventory metrics", "Sales dashboard", "Business decision"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Parked" },
+        { name: "MVP / prototype", status: "Parked" }, { name: "Testing and evidence", status: "Parked" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Parked" }
+      ],
+      evidence: ["Retail domain-transfer problem is defined", "Core sales, product, store, and stock entities are identified", "Scope is intentionally labeled as paused"],
+      improving: ["Resume only after core portfolio projects mature", "Create a smaller first dataset and metric set", "Avoid claiming planned forecasting or recommendation features"]
+    },
+    "manufacturing-root-cause-analysis-assistant": {
+      progress: 25,
+      progressLabel: "Evolving into industrial platform",
+      systemFlow: ["Manufacturing event", "Defect / delay data", "Process context", "Root-cause clues", "Explanation note", "Human review"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Evolving" },
+        { name: "MVP / prototype", status: "Evolving" }, { name: "Testing and evidence", status: "Next" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Evolving" }
+      ],
+      evidence: ["Earlier retrieval and decision-support concept is retained", "Evidence-first human-review boundary is clear", "Consolidation path into the service intelligence platform is defined"],
+      improving: ["Define the smaller root-cause module", "Add traceable source references", "Show how an engineer reviews and rejects a weak explanation"]
+    },
+    "health-aware-autonomous-drone-system": {
+      progress: 20,
+      progressLabel: "Archived research direction",
+      systemFlow: ["Drone telemetry", "Battery / health signal", "Mission constraints", "Route / task decision", "Risk check", "Human-controlled action"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Done" },
+        { name: "MVP / prototype", status: "Parked" }, { name: "Testing and evidence", status: "Parked" },
+        { name: "Documentation and demo", status: "Evolving" }, { name: "Future improvement", status: "Evolving" }
+      ],
+      evidence: ["Historical health-aware routing idea is documented", "Mission risk and component condition are part of the concept", "The evolution into broader fleet research is explicit"],
+      improving: ["Keep as research history rather than an active claim", "Connect lessons to the fleet optimization project", "Clarify which ideas were conceptual only"]
+    },
+    "ai-data-product-strategy-notes": {
+      progress: 15,
+      progressLabel: "First note planned",
+      systemFlow: ["User problem", "Product question", "Data needed", "System idea", "Business value", "Case study note"],
+      milestones: [
+        { name: "Problem framing", status: "In progress" }, { name: "Architecture design", status: "Next" },
+        { name: "MVP / prototype", status: "Pending" }, { name: "Testing and evidence", status: "Pending" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Product strategy themes are defined", "Notes will connect user value, evidence, controls, and delivery", "First evidence-to-decision brief is scoped"],
+      improving: ["Publish the first complete note", "Use one project as a concrete example", "Add measures, risks, and adoption assumptions"]
+    },
+    "industrial-operations-business-cases": {
+      progress: 20,
+      progressLabel: "First case in progress",
+      systemFlow: ["Operational problem", "Process data", "Cost / delay factor", "Improvement idea", "ROI logic", "Decision note"],
+      milestones: [
+        { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "In progress" },
+        { name: "MVP / prototype", status: "Next" }, { name: "Testing and evidence", status: "Pending" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Operational value themes and stakeholders are identified", "Service friction, risk, downtime, and decision latency are candidate measures", "The first case will connect to the industrial MVP"],
+      improving: ["Choose one narrow service-operations case", "Document assumptions instead of inventing outcomes", "Add a simple value and adoption model"]
+    },
+    "pm-case-study-library": {
+      progress: 10,
+      progressLabel: "Library planned",
+      systemFlow: ["Case prompt", "Assumptions", "User problem", "Product solution", "Metrics", "Recommendation"],
+      milestones: [
+        { name: "Problem framing", status: "In progress" }, { name: "Architecture design", status: "Pending" },
+        { name: "MVP / prototype", status: "Pending" }, { name: "Testing and evidence", status: "Pending" },
+        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+      ],
+      evidence: ["Case-study structure and portfolio themes are identified", "User, trade-off, priority, roadmap, and metric questions are scoped", "No completed library is claimed"],
+      improving: ["Create the first end-to-end case", "Use explicit assumptions and success measures", "Add feedback and revision notes after publication"]
+    }
+  };
+
+  projects.forEach((project) => Object.assign(project, projectJournal[project.id]));
+
+  const topProgressItems = [
+    { title: "Portfolio Website", progress: 70 },
+    { title: "GitHub Portfolio Index", progress: 60 },
+    { title: "AI Data Reliability Platform", progress: 45 },
+    { title: "Project Documentation", progress: 35 },
+    { title: "PM / Business Case Studies", progress: 20 }
+  ];
+
   const progressItems = [
     { title: "Portfolio Website", progress: 70, status: "In progress", description: "Improving navigation, story flow, project cards, demo visuals, and tracker sections." },
     { title: "GitHub Portfolio Index", progress: 60, status: "In progress", description: "Organizing repositories, project maturity, navigation, and evidence." },
@@ -202,10 +335,13 @@
   ];
 
   const projectGrid = document.querySelector("[data-project-grid]");
+  const topProgress = document.querySelector("[data-top-progress]");
   const progressList = document.querySelector("[data-progress-list]");
   const timelineList = document.querySelector("[data-timeline-list]");
   const researchNotesGrid = document.querySelector("[data-research-notes]");
   const capabilitiesGrid = document.querySelector("[data-capabilities]");
+
+  const statusSlug = (status) => status.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
   const renderProjects = () => {
     if (!projectGrid) return;
@@ -221,18 +357,48 @@
           <p class="project-problem"><strong>Problem</strong> ${project.problem}</p>
           <p class="project-description">${project.description}</p>
           <ul class="tag-list">${project.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
+          <div class="project-progress-block">
+            <div><span>Project progress</span><strong>${project.progress}% · ${project.progressLabel}</strong></div>
+            <div class="project-progress-track" role="progressbar" aria-label="${project.title} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${project.progress}"><span style="--project-progress: ${project.progress}%"></span></div>
+          </div>
+          <div class="system-preview" aria-label="Architecture preview for ${project.title}">
+            ${project.systemFlow.slice(0, 3).map((step, index) => `${index ? '<i aria-hidden="true">→</i>' : ""}<span>${step}</span>`).join("")}
+            <i aria-hidden="true">…</i><span>${project.systemFlow.at(-1)}</span>
+          </div>
           <p class="milestone"><span>Next milestone</span> ${project.nextMilestone}</p>
           <div class="project-actions">
             ${repoControl}
-            <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-${project.id}">Read Details</button>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="detail-${project.id}" data-open-label="Read Details" data-close-label="Close Details">Read Details</button>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="flow-${project.id}" data-open-label="View System Flow" data-close-label="Close System Flow">View System Flow</button>
+          </div>
+          <div class="project-flow-panel" id="flow-${project.id}" hidden>
+            <div class="project-panel-heading"><span>Architecture preview</span><h4>${project.title} system flow</h4></div>
+            <div class="full-system-flow">${project.systemFlow.map((step, index) => `${index ? '<i aria-hidden="true">→</i>' : ""}<span>${step}</span>`).join("")}</div>
           </div>
           <div class="project-detail" id="detail-${project.id}" hidden>
-            <h4>Why it matters</h4>
-            <p>${project.why}</p>
+            <div class="project-panel-heading"><span>Project journal</span><h4>Why it matters</h4></div>
+            <p class="why-copy">${project.why}</p>
+            <div class="evidence-grid">
+              <div><h5>Evidence so far</h5><ul>${project.evidence.map((item) => `<li>${item}</li>`).join("")}</ul></div>
+              <div><h5>Still improving</h5><ul>${project.improving.map((item) => `<li>${item}</li>`).join("")}</ul></div>
+            </div>
+            <div class="project-timeline-wrap">
+              <h5>Project timeline</h5>
+              <ol class="project-timeline">${project.milestones.map((item, index) => `<li class="milestone-${statusSlug(item.status)}"><span>Phase ${index + 1}</span><b>${item.name}</b><small>${item.status}</small></li>`).join("")}</ol>
+            </div>
             <p class="limitation"><strong>Limitation:</strong> ${project.limitation}</p>
           </div>
         </article>`;
     }).join("");
+  };
+
+  const renderTopProgress = () => {
+    if (!topProgress) return;
+    topProgress.innerHTML = topProgressItems.map((item) => `
+      <article class="build-strip-item">
+        <div><span>${item.title}</span><strong>${item.progress}%</strong></div>
+        <div class="build-strip-track" role="progressbar" aria-label="${item.title}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${item.progress}"><span style="--strip-progress: ${item.progress}%"></span></div>
+      </article>`).join("");
   };
 
   const renderProgress = () => {
@@ -267,6 +433,7 @@
   };
 
   renderProjects();
+  renderTopProgress();
   renderProgress();
   renderTimeline();
   renderResearchNotes();
@@ -279,7 +446,7 @@
   const projectCards = [...document.querySelectorAll("[data-project-card]")];
   const filterButtons = [...document.querySelectorAll("[data-filter]")];
   const pathButtons = [...document.querySelectorAll("[data-path-filter]")];
-  const detailButtons = [...document.querySelectorAll(".detail-toggle")];
+  const projectToggles = [...document.querySelectorAll(".project-toggle")];
   const clearFilter = document.querySelector("[data-clear-filter]");
   const emptyReset = document.querySelector("[data-reset-empty]");
   const emptyState = document.querySelector("[data-empty-state]");
@@ -337,14 +504,14 @@
   clearFilter?.addEventListener("click", () => setFilter("all"));
   emptyReset?.addEventListener("click", () => setFilter("all"));
 
-  detailButtons.forEach((button) => {
+  projectToggles.forEach((button) => {
     button.addEventListener("click", () => {
-      const detail = document.getElementById(button.getAttribute("aria-controls"));
-      if (!detail) return;
-      const willOpen = detail.hidden;
-      detail.hidden = !willOpen;
+      const panel = document.getElementById(button.getAttribute("aria-controls"));
+      if (!panel) return;
+      const willOpen = panel.hidden;
+      panel.hidden = !willOpen;
       button.setAttribute("aria-expanded", String(willOpen));
-      button.textContent = willOpen ? "Close Details" : "Read Details";
+      button.textContent = willOpen ? button.dataset.closeLabel : button.dataset.openLabel;
     });
   });
 

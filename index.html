@@ -73,6 +73,17 @@
         </div>
       </section>
 
+      <section class="build-strip" aria-labelledby="build-strip-title">
+        <div class="section-shell build-strip-shell">
+          <div class="build-strip-heading">
+            <p class="eyebrow">Current Build Status</p>
+            <h2 id="build-strip-title">A compact view of what is moving.</h2>
+          </div>
+          <div class="build-strip-items" data-top-progress></div>
+          <p class="build-strip-note">Progress represents portfolio maturity: planning, documentation, implementation, evidence, and publication. It does not mean production deployment.</p>
+        </div>
+      </section>
+
       <section class="section section-shell" id="why" aria-labelledby="why-title">
         <div class="section-heading editorial-heading">
           <p class="eyebrow">Why this portfolio exists</p>
@@ -183,19 +194,19 @@
       <section class="section approach-section" id="approach" aria-labelledby="approach-title">
         <div class="section-shell">
           <div class="section-heading editorial-heading">
-            <p class="eyebrow">How I think about systems</p>
-            <h2 id="approach-title">Start with the problem. Build toward a useful outcome.</h2>
+            <p class="eyebrow">Thought process</p>
+            <h2 id="approach-title">How I Think Like a Data Engineer</h2>
           </div>
-          <p class="approach-intro">I usually begin with the operational problem, not the technology. Then I move toward requirements, data sources, constraints, quality checks, architecture, and finally the workflow or decision that the system should support.</p>
+          <p class="approach-intro">For every project, I start from the problem, not from the tool. I try to understand what decision the data should support, where the data comes from, what can go wrong, how quality should be checked, and how the final output can become useful for people, dashboards, systems, or AI workflows.</p>
           <ol class="system-flow">
-            <li><span>01</span><b>Business / Operational Problem</b></li>
-            <li><span>02</span><b>Requirements &amp; Constraints</b></li>
-            <li><span>03</span><b>Data &amp; System Design</b></li>
-            <li><span>04</span><b>Ingestion &amp; Processing</b></li>
-            <li><span>05</span><b>Quality, Security &amp; Observability</b></li>
-            <li><span>06</span><b>Trusted Data Products</b></li>
-            <li><span>07</span><b>Analytics / AI-Assisted Workflow</b></li>
-            <li><span>08</span><b>Human-Controlled Outcome</b></li>
+            <li><span>01</span><b>Problem Understanding</b><p>What decision or workflow needs better data?</p></li>
+            <li><span>02</span><b>Data Sources</b><p>Files, APIs, databases, logs, or operational systems.</p></li>
+            <li><span>03</span><b>Data Risks</b><p>Missing values, duplicates, schema changes, stale data, or wrong formats.</p></li>
+            <li><span>04</span><b>Pipeline Design</b><p>Ingestion, transformation, validation, and storage.</p></li>
+            <li><span>05</span><b>Quality Checks</b><p>Nulls, duplicates, reconciliation, freshness, and business rules.</p></li>
+            <li><span>06</span><b>Storage / Modeling</b><p>Tables, layers, marts, metadata, or lakehouse structure.</p></li>
+            <li><span>07</span><b>Monitoring</b><p>Logs, alerts, incidents, evidence, and rerun decisions.</p></li>
+            <li><span>08</span><b>Business or AI-Ready Output</b><p>Dashboard, report, API, data product, or useful context.</p></li>
           </ol>
         </div>
       </section>
@@ -251,6 +262,17 @@
           <div><p class="eyebrow">Browse by maturity or theme</p><h2 id="projects-title">Project Gallery</h2></div>
           <p><strong data-project-count>10</strong> projects shown. Each card separates current evidence from the next intended step.</p>
         </div>
+        <aside class="maturity-legend" aria-labelledby="maturity-legend-title">
+          <div><p class="eyebrow">Project Maturity Legend</p><h3 id="maturity-legend-title">How to Read Project Status</h3></div>
+          <dl>
+            <div><dt>Reference Implementation</dt><dd>Working portfolio or local implementation, not production deployment.</dd></div>
+            <div><dt>Active Development</dt><dd>Currently being built or improved.</dd></div>
+            <div><dt>Design / Blueprint</dt><dd>Architecture or idea stage.</dd></div>
+            <div><dt>Researching</dt><dd>Concept, experiment, or study direction.</dd></div>
+            <div><dt>Parked / Evolved</dt><dd>Paused, archived, or moved into another direction.</dd></div>
+            <div><dt>Planned</dt><dd>Not fully built yet.</dd></div>
+          </dl>
+        </aside>
         <div class="filter-wrap" aria-label="Filter projects">
           <div class="filter-bar" role="group" aria-label="Project filters">
             <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
@@ -268,6 +290,23 @@
         <div class="project-grid" data-project-grid></div>
         <noscript><p class="noscript-note">JavaScript is needed to display and filter the project gallery.</p></noscript>
         <div class="empty-state" data-empty-state hidden><p>No projects match this view.</p><button type="button" data-reset-empty>Show all projects</button></div>
+      </section>
+
+      <section class="section architecture-notes-section" id="architecture-notes" aria-labelledby="architecture-notes-title">
+        <div class="section-shell">
+          <div class="section-heading editorial-heading">
+            <p class="eyebrow">Shared architecture patterns</p>
+            <h2 id="architecture-notes-title">Architecture Notes Across Projects</h2>
+          </div>
+          <p class="architecture-notes-intro">Across projects, I try to show architecture before implementation. This helps explain what the system is supposed to do, what data moves through it, where checks happen, and how the output becomes useful.</p>
+          <div class="architecture-note-grid">
+            <article><span>Pipeline flow</span><div><i>Source</i><b>→</b><i>Ingest</i><b>→</b><i>Transform</i><b>→</b><i>Output</i></div></article>
+            <article><span>Quality and monitoring flow</span><div><i>Rule</i><b>→</b><i>Evidence</i><b>→</b><i>Alert</i><b>→</b><i>Review</i></div></article>
+            <article><span>Lakehouse / data layer flow</span><div><i>Raw</i><b>→</b><i>Bronze</i><b>→</b><i>Silver</i><b>→</b><i>Mart</i></div></article>
+            <article><span>AI-assisted workflow</span><div><i>Context</i><b>→</b><i>Explain</i><b>→</b><i>Guard</i><b>→</b><i>Human</i></div></article>
+            <article><span>Business decision flow</span><div><i>Problem</i><b>→</b><i>Metric</i><b>→</b><i>Insight</i><b>→</b><i>Choice</i></div></article>
+          </div>
+        </div>
       </section>
 
       <section class="section tracker-section" id="tracker" aria-labelledby="tracker-title">

@@ -26,7 +26,7 @@
       status: "Active Development",
       statusClass: "active",
       category: "Performance & Reliability",
-      problem: "Pipeline improvements need reproducible baselines, correctness checks, and comparable measurements.",
+      problem: "Data pipelines become slow and expensive when volume grows, joins are inefficient, partitions are poorly designed, or transformations are not measured.",
       description: "A measured before-and-after case study for improving an inefficient data pipeline without losing trust.",
       tags: ["Parquet", "Partitioning", "Benchmarking", "Validation"],
       nextMilestone: "Publish measured benchmarks with correctness validation.",
@@ -42,7 +42,7 @@
       status: "Active Development",
       statusClass: "active",
       category: "Industrial Data Product",
-      problem: "Machine, service, warranty, maintenance, customer, dealer, and parts data are fragmented.",
+      problem: "Service, customer, asset, spare-part, and ticket data are scattered across systems, hiding delays, repeated failures, SLA risk, and customer impact.",
       description: "An after-sales data platform for trusted service KPIs and evidence-led decision support.",
       tags: ["Data Modeling", "Service KPIs", "Industrial Data", "Decision Support"],
       nextMilestone: "Complete and document the MVP, then add root-cause support.",
@@ -58,7 +58,7 @@
       status: "Design / Blueprint",
       statusClass: "research",
       category: "Research & Optimization",
-      problem: "Fleet scheduling must consider health, availability, battery, capacity, location, and route conflicts.",
+      problem: "Fleet tasks should not be assigned by availability alone; health, battery, distance, workload, priority, and risk also affect the decision.",
       description: "Research into scheduling, routing, simulation, and fleet-level optimization under operational constraints.",
       tags: ["Scheduling", "Simulation", "Optimization", "Fleet Health"],
       nextMilestone: "Build a simulator and deterministic optimization baseline.",
@@ -74,7 +74,7 @@
       status: "Parked",
       statusClass: "parked",
       category: "Business Data Product",
-      problem: "Sales and inventory decisions depend on consistent data across products, stores, transactions, and stock movements.",
+      problem: "Retail teams need trusted sales and inventory data to identify stockouts, overstock, slow-moving items, and product or store risk.",
       description: "A paused domain-transfer project applying reliable data patterns to retail operations.",
       tags: ["Retail Data", "Inventory", "Data Quality", "Analytics"],
       nextMilestone: "Resume after the three core portfolio projects have stronger evidence.",
@@ -90,7 +90,7 @@
       status: "Evolving",
       statusClass: "evolving",
       category: "Industrial Decision Support",
-      problem: "Investigations require traceable evidence across records, procedures, incidents, and sensor summaries.",
+      problem: "Manufacturing defects, downtime, delays, and quality failures are difficult to investigate when machine, shift, process, and inspection data are scattered.",
       description: "An earlier retrieval and decision-support concept now being consolidated into the industrial platform.",
       tags: ["Evidence Retrieval", "RAG", "Manufacturing", "Human Review"],
       nextMilestone: "Define the root-cause module inside the service intelligence platform.",
@@ -170,11 +170,11 @@
     "ai-assisted-data-reliability-platform": {
       progress: 45,
       progressLabel: "MVP in progress",
-      systemFlow: ["Source files / API", "Pipeline run", "Validation checks", "Evidence table", "Incident summary", "AI-assisted explanation", "Human review"],
+      systemFlow: ["Source files / API", "Ingestion", "Schema validation", "Data quality checks", "Reconciliation", "Evidence table", "Incident summary", "AI-assisted explanation", "Human review", "Approved action"],
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Done" },
         { name: "MVP / prototype", status: "In progress" }, { name: "Testing and evidence", status: "In progress" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Local ingestion, validation, quarantine, and reconciliation flows", "API, tests, Docker, CI/CD, and operational notes", "Guarded incident-response workflow with human approval"],
       improving: ["More reproducible sample runs", "Stronger operational metadata and observability", "Clearer screenshots and a complete demo walkthrough"]
@@ -186,7 +186,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Done" },
         { name: "MVP / prototype", status: "In progress" }, { name: "Testing and evidence", status: "Next" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Optimization case-study direction is defined", "Incremental loading, Parquet, partitioning, and measurement scope", "Correctness checks are part of the planned comparison"],
       improving: ["Publish the reproducible baseline", "Add before-and-after measurements", "Document hardware, workload, and data assumptions"]
@@ -198,7 +198,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "In progress" },
         { name: "MVP / prototype", status: "In progress" }, { name: "Testing and evidence", status: "Next" },
-        { name: "Documentation and demo", status: "Pending" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Pending" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Industrial service problem and data domains are defined", "MVP scope separates built, in-progress, and planned work", "Service KPI and decision-support direction is documented"],
       improving: ["Complete the core data model", "Add stronger data-quality evidence", "Publish an end-to-end service workflow demo"]
@@ -210,7 +210,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "In progress" },
         { name: "MVP / prototype", status: "Next" }, { name: "Testing and evidence", status: "Pending" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Requirements cover telemetry, health, task queues, and constraints", "Architecture direction for scheduling and simulation", "Research questions connect asset condition with fleet decisions"],
       improving: ["Build a small deterministic simulator", "Define comparison metrics and constraints", "Publish a reproducible optimization baseline"]
@@ -222,7 +222,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Parked" },
         { name: "MVP / prototype", status: "Parked" }, { name: "Testing and evidence", status: "Parked" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Parked" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Parked" }
       ],
       evidence: ["Retail domain-transfer problem is defined", "Core sales, product, store, and stock entities are identified", "Scope is intentionally labeled as paused"],
       improving: ["Resume only after core portfolio projects mature", "Create a smaller first dataset and metric set", "Avoid claiming planned forecasting or recommendation features"]
@@ -234,7 +234,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Evolving" },
         { name: "MVP / prototype", status: "Evolving" }, { name: "Testing and evidence", status: "Next" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Evolving" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Evolving" }
       ],
       evidence: ["Earlier retrieval and decision-support concept is retained", "Evidence-first human-review boundary is clear", "Consolidation path into the service intelligence platform is defined"],
       improving: ["Define the smaller root-cause module", "Add traceable source references", "Show how an engineer reviews and rejects a weak explanation"]
@@ -246,7 +246,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "Done" },
         { name: "MVP / prototype", status: "Parked" }, { name: "Testing and evidence", status: "Parked" },
-        { name: "Documentation and demo", status: "Evolving" }, { name: "Future improvement", status: "Evolving" }
+        { name: "Documentation and demo", status: "Evolving" }, { name: "Agentic AI / future extension", status: "Evolving" }
       ],
       evidence: ["Historical health-aware routing idea is documented", "Mission risk and component condition are part of the concept", "The evolution into broader fleet research is explicit"],
       improving: ["Keep as research history rather than an active claim", "Connect lessons to the fleet optimization project", "Clarify which ideas were conceptual only"]
@@ -258,7 +258,7 @@
       milestones: [
         { name: "Problem framing", status: "In progress" }, { name: "Architecture design", status: "Next" },
         { name: "MVP / prototype", status: "Pending" }, { name: "Testing and evidence", status: "Pending" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Product strategy themes are defined", "Notes will connect user value, evidence, controls, and delivery", "First evidence-to-decision brief is scoped"],
       improving: ["Publish the first complete note", "Use one project as a concrete example", "Add measures, risks, and adoption assumptions"]
@@ -270,7 +270,7 @@
       milestones: [
         { name: "Problem framing", status: "Done" }, { name: "Architecture design", status: "In progress" },
         { name: "MVP / prototype", status: "Next" }, { name: "Testing and evidence", status: "Pending" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Operational value themes and stakeholders are identified", "Service friction, risk, downtime, and decision latency are candidate measures", "The first case will connect to the industrial MVP"],
       improving: ["Choose one narrow service-operations case", "Document assumptions instead of inventing outcomes", "Add a simple value and adoption model"]
@@ -282,7 +282,7 @@
       milestones: [
         { name: "Problem framing", status: "In progress" }, { name: "Architecture design", status: "Pending" },
         { name: "MVP / prototype", status: "Pending" }, { name: "Testing and evidence", status: "Pending" },
-        { name: "Documentation and demo", status: "Next" }, { name: "Future improvement", status: "Pending" }
+        { name: "Documentation and demo", status: "Next" }, { name: "Agentic AI / future extension", status: "Pending" }
       ],
       evidence: ["Case-study structure and portfolio themes are identified", "User, trade-off, priority, roadmap, and metric questions are scoped", "No completed library is claimed"],
       improving: ["Create the first end-to-end case", "Use explicit assumptions and success measures", "Add feedback and revision notes after publication"]
@@ -372,7 +372,56 @@
     }
   };
 
-  projects.forEach((project) => Object.assign(project, projectJournal[project.id], projectStories[project.id]));
+  const projectExtensions = {
+    "ai-assisted-data-reliability-platform": {
+      agenticAiIdea: "A reliability assistant can summarize failed checks, explain evidence-backed root-cause possibilities, suggest SQL or PySpark validation rules, and draft incident notes. It must never change production data or approve a fix or rerun without human review.",
+      sellingPoint: "Demonstrates data reliability, quality engineering, observability, incident handling, and responsible AI-assisted workflow design."
+    },
+    "data-pipeline-optimization-framework": {
+      agenticAiIdea: "A pipeline review assistant can summarize runtime metrics, compare baseline and optimized runs, identify expensive joins, and draft tuning options. Any generated code change remains a reviewed suggestion.",
+      sellingPoint: "Demonstrates performance thinking, benchmarking discipline, Spark optimization awareness, correctness checks, and troubleshooting."
+    },
+    "industrial-service-intelligence-platform": {
+      agenticAiIdea: "A service intelligence assistant can summarize SLA and failure patterns, draft evidence-based root-cause hypotheses, and support natural-language questions over trusted marts. It cannot invent causes or initiate operational action.",
+      sellingPoint: "Connects data engineering with service operations, dimensional modeling, analytical metrics, and business decision support."
+    },
+    "health-aware-robotic-fleet-optimization-system": {
+      agenticAiIdea: "An operations assistant can explain why an asset was assigned or skipped, summarize fleet risk, suggest schedule changes, and answer what-changed questions. It supports operators and does not control assets autonomously.",
+      sellingPoint: "Shows systems thinking, telemetry modeling, constraint-based optimization, simulation, and industrial decision-support direction."
+    },
+    "retail-sales-and-inventory-intelligence-platform": {
+      agenticAiIdea: "A retail analyst assistant can summarize inventory risk, explain stockout signals, highlight products needing attention, and answer questions over trusted tables. Inventory actions still require business approval.",
+      sellingPoint: "Shows SQL analytics, dimensional modeling, dashboard serving, retail data understanding, and business-facing data product thinking."
+    },
+    "manufacturing-root-cause-analysis-assistant": {
+      agenticAiIdea: "A root-cause assistant can summarize defect patterns, compare machines or shifts, propose hypotheses, and suggest added checks. It must not claim a final cause without traceable evidence and engineer validation.",
+      sellingPoint: "Connects manufacturing context, data modeling, quality controls, root-cause reasoning, and evidence-led operational analysis."
+    },
+    "health-aware-autonomous-drone-system": {
+      agenticAiIdea: "A research assistant can explain route-risk trade-offs, summarize telemetry changes, and draft simulation notes. It remains outside the control loop and cannot execute a mission decision.",
+      sellingPoint: "Documents the evolution of a health-aware routing question into broader fleet, risk, and optimization research."
+    },
+    "ai-data-product-strategy-notes": {
+      agenticAiIdea: "A case assistant can draft problem framing, compare options, propose metrics, and summarize risks using the note's explicit evidence and assumptions. Final product judgment remains human-owned.",
+      sellingPoint: "Shows how technical architecture, trustworthy data, users, controls, adoption, and measurable product outcomes connect."
+    },
+    "industrial-operations-business-cases": {
+      agenticAiIdea: "A business-case assistant can organize assumptions, generate metric candidates, compare scenarios, and draft trade-off summaries. It cannot present estimated value as observed evidence.",
+      sellingPoint: "Demonstrates the ability to connect data platforms with operating friction, measurable value, adoption constraints, and risk."
+    },
+    "pm-case-study-library": {
+      agenticAiIdea: "A case-study assistant can create a first draft, suggest metrics, compare priorities, and prepare interview-style notes. It supports structured thinking but does not replace final judgment or validation.",
+      sellingPoint: "Shows product framing, prioritization, metrics, roadmap reasoning, and communication across technical and business audiences."
+    }
+  };
+
+  projects.forEach((project) => {
+    Object.assign(project, projectJournal[project.id], projectStories[project.id], projectExtensions[project.id]);
+    project.problemSolved = project.problem;
+    project.businessValue = project.why;
+    project.technicalConcepts = project.technicalIdeas;
+    project.maturity = project.milestones;
+  });
 
   const topProgressItems = [
     { title: "AI Data Reliability Platform", progress: 45 },
@@ -441,7 +490,7 @@
           <p class="project-description">${project.description}</p>
           <ul class="tag-list">${project.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
           <div class="project-progress-block">
-            <div><span>Project progress</span><strong>${project.progress}% · ${project.progressLabel}</strong></div>
+            <div><span>Project maturity</span><strong>${project.progress}% · ${project.progressLabel}</strong></div>
             <div class="project-progress-track" role="progressbar" aria-label="${project.title} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${project.progress}"><span style="--project-progress: ${project.progress}%"></span></div>
           </div>
           <div class="system-preview" aria-label="Architecture preview for ${project.title}">
@@ -452,18 +501,25 @@
           <div class="project-actions">
             ${repoControl}
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="detail-${project.id}" data-open-label="Read Details" data-close-label="Close Details">Read Details</button>
-            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="flow-${project.id}" data-open-label="View System Flow" data-close-label="Close System Flow">View System Flow</button>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="flow-${project.id}" data-open-label="View Architecture" data-close-label="Close Architecture">View Architecture</button>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="demo-${project.id}" data-open-label="Demo Plan" data-close-label="Close Demo Plan">Demo Plan</button>
           </div>
           <div class="project-flow-panel" id="flow-${project.id}" hidden>
-            <div class="project-panel-heading"><span>Architecture preview</span><h4>${project.title} system flow</h4></div>
+            <div class="project-panel-heading"><span>Architecture / system flow</span><h4>How the system works</h4></div>
             <div class="full-system-flow">${project.systemFlow.map((step, index) => `${index ? '<i aria-hidden="true">→</i>' : ""}<span>${step}</span>`).join("")}</div>
           </div>
+          <div class="project-demo-panel" id="demo-${project.id}" hidden>
+            <div class="project-panel-heading"><span>Free / local demonstration</span><h4>Demo plan</h4></div>
+            <p>${project.demoPlan}</p>
+          </div>
           <div class="project-detail" id="detail-${project.id}" hidden>
-            <div class="project-panel-heading"><span>Project journal</span><h4>Why it matters</h4></div>
-            <p class="why-copy">${project.why}</p>
+            <div class="project-panel-heading"><span>Project problem</span><h4>What this project is trying to solve</h4></div>
+            <p class="problem-copy">${project.problemSolved}</p>
+            <h5 class="detail-subheading">Why it matters</h5>
+            <p class="why-copy">${project.businessValue}</p>
             <div class="project-story-grid">
               <section class="project-story-block"><h5>Data sources</h5><ul class="story-chip-list">${project.dataSources.map((item) => `<li>${item}</li>`).join("")}</ul></section>
-              <section class="project-story-block"><h5>Technical ideas</h5><ul class="story-chip-list">${project.technicalIdeas.map((item) => `<li>${item}</li>`).join("")}</ul></section>
+              <section class="project-story-block"><h5>Technical concepts</h5><ul class="story-chip-list">${project.technicalConcepts.map((item) => `<li>${item}</li>`).join("")}</ul></section>
               <section class="project-story-block story-block-wide"><h5>Data engineering design</h5><p>${project.design}</p></section>
               <section class="project-story-block story-block-wide demo-plan-block"><h5>Demo plan · free / local resources</h5><p>${project.demoPlan}</p></section>
             </div>
@@ -475,9 +531,13 @@
               <div><h5>Evidence so far</h5><ul>${project.evidence.map((item) => `<li>${item}</li>`).join("")}</ul></div>
               <div><h5>Still improving</h5><ul>${project.improving.map((item) => `<li>${item}</li>`).join("")}</ul></div>
             </div>
+            <div class="project-value-grid">
+              <section><h5>Future Agentic AI extension</h5><p>${project.agenticAiIdea}</p></section>
+              <section><h5>Business / hiring value</h5><p>${project.sellingPoint}</p></section>
+            </div>
             <div class="project-timeline-wrap">
               <h5>Project maturity</h5>
-              <ol class="project-timeline">${project.milestones.map((item, index) => `<li class="milestone-${statusSlug(item.status)}"><span>Phase ${index + 1}</span><b>${item.name}</b><small>${item.status}</small></li>`).join("")}</ol>
+              <ol class="project-timeline">${project.maturity.map((item, index) => `<li class="milestone-${statusSlug(item.status)}"><span>Phase ${index + 1}</span><b>${item.name}</b><small>${item.status}</small></li>`).join("")}</ol>
             </div>
             <p class="project-next-step"><strong>Next step:</strong> ${project.nextMilestone}</p>
             <p class="limitation"><strong>Limitation:</strong> ${project.limitation}</p>

@@ -10,6 +10,9 @@ posts.md
 projects/
 _posts/
 assets/
+!assets/
+assets/*
+!assets/main.scss
 
 # Publish the static project case-study pages while keeping other project files local.
 !projects/

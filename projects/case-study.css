@@ -3,6 +3,23 @@
   background: var(--paper);
 }
 
+.project-page a { color: var(--link); }
+.project-page .case-brand { color: var(--text-on-olive); }
+.project-page .skip-link { color: var(--text-on-olive); background: var(--olive-950); }
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  padding: 0 18px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+.button:hover { transform: translateY(-1px); }
+
 .project-page::before {
   opacity: 0.28;
 }
@@ -264,7 +281,7 @@
 }
 
 .architecture-section {
-  background: var(--olive-light);
+  background: var(--olive-100);
 }
 
 .architecture-flow {
@@ -559,7 +576,8 @@
 }
 
 .value-section {
-  background: var(--olive-light);
+  color: var(--text-on-honey);
+  background: var(--honey-100);
 }
 
 .value-grid {
@@ -700,6 +718,25 @@
 .case-footer a {
   color: var(--cream);
 }
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 40;
+  width: 3rem;
+  height: 3rem;
+  color: var(--text-on-olive);
+  background: var(--olive-800);
+  border: 1px solid var(--olive-400);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.75rem);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: none; }
 
 @media (max-width: 1080px) {
   .case-nav > div {

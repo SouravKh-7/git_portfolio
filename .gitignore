@@ -11,6 +11,13 @@ projects/
 _posts/
 assets/
 
+# Publish the static project case-study pages while keeping other project files local.
+!projects/
+projects/*
+!projects/*.html
+!projects/case-study.css
+!projects/case-study.js
+
 _resume.md
 CHANGELOG.md
 

@@ -4,8 +4,6 @@ title: Roadmap
 permalink: /roadmap/
 ---
 
-# Portfolio Roadmap
-
 The roadmap prioritizes evidence and depth over the number of repositories.
 
 1. **Polish and document the AI-Assisted Data Reliability Platform.** Strengthen reproducibility, tests, observability, runbooks, and the boundary between deterministic controls and optional AI explanation.

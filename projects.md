@@ -4,8 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-# Project Catalog
-
 This catalog separates working evidence from active, parked, evolving, and archived work. A project brief or roadmap is not presented as completed implementation.
 
 ## Status Guide

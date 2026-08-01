@@ -9,7 +9,7 @@
       subtitle: "A reference implementation for detecting data quality issues, logging evidence, and supporting human-reviewed incident explanation.",
       status: "Reference Implementation",
       focus: ["Data Reliability", "Data Quality", "Observability", "Incident Evidence", "AI-Ready Workflow"],
-      tools: ["Python", "Pandas", "PySpark local mode", "DuckDB / SQLite", "FastAPI / Streamlit"],
+      tools: ["Python", "Pandas / PyArrow", "Parquet / DuckDB", "FastAPI / Pydantic", "Pytest / Docker Compose"],
       problem: [
         "Data pipelines can finish successfully but still produce bad data. A job may run without failure while its output contains stale files, missing values, duplicate records, schema drift, failed business rules, or source-to-target mismatches.",
         "This project explores how a data engineering workflow can detect these issues earlier, record evidence, and support human review before bad data reaches dashboards, downstream tables, reports, or AI workflows."
@@ -19,20 +19,20 @@
       dataFlow: "Raw CSV and API-style JSON enter a batch ingestion layer with run metadata. Schema, null, duplicate, freshness, and business-rule checks separate trusted records from rejected or quarantined records. Source and target measures are reconciled, and every failed check writes evidence that can be traced to the run. The incident summary is generated from that deterministic evidence before it reaches an optional explanation layer and human review.",
       decisions: [
         ["Local-first architecture", "Keeps the demonstration reproducible without a paid cloud account."],
-        ["DuckDB or SQLite", "Provides lightweight analytical storage for run, rule, and evidence tables."],
-        ["Pandas or local PySpark", "Allows the same validation concepts to be shown at two levels of data volume."],
-        ["Evidence table", "Makes every incident explanation traceable to failed rules and affected records."],
+        ["Parquet plus DuckDB", "Preserves typed local layers and provides SQL analytics without a database server."],
+        ["Atomic JSON metadata", "Keeps single-process local runs transparent while isolating the store for a future transactional replacement."],
+        ["Evidence-derived incidents", "Makes every impact statement traceable to failed rules, reconciliations, and affected records."],
         ["Deterministic checks first", "AI receives validated incident context rather than inspecting uncontrolled raw data."],
         ["Approval before remediation", "No fix, rerun, or data change happens without accountable human review."]
       ],
-      demoPlan: "Use local CSV or JSON files, Python, Pandas or PySpark local mode, DuckDB or SQLite, and Streamlit or FastAPI. The demo intentionally introduces missing customer IDs, duplicate order IDs, a stale file date, a wrong schema, and a source-target count mismatch. It then shows the failed rules, affected rows, evidence records, and the review summary.",
-      maturity: [["Problem framing", "Done"], ["Architecture design", "Done"], ["Sample data design", "In progress"], ["Validation rules", "In progress"], ["Evidence logging", "Next"], ["Streamlit / FastAPI demo", "Next"], ["Documentation", "In progress"], ["Agentic AI extension", "Future"]],
+      demoPlan: "Run the deterministic local scenarios for baseline, missing payments, and schema drift. Inspect raw, validated, quarantine, and curated Parquet outputs; review quality and reconciliation metadata; then use the FastAPI health, incident, agent-run, approval, and documentation endpoints. The same response logic is used by the CLI, API, and optional Airflow workflow.",
+      maturity: [["Problem framing", "Demonstrated"], ["Architecture design", "Demonstrated"], ["Local implementation", "Demonstrated"], ["Validation and quarantine", "Demonstrated"], ["Evidence and incidents", "Demonstrated"], ["Tests and reproducibility", "Demonstrated"], ["Container configuration", "Available"], ["Production operations", "Next"]],
       challenges: ["Designing realistic data quality rules", "Keeping validation logic simple but meaningful", "Avoiding unsupported production claims", "Grounding every AI explanation in evidence", "Showing the workflow without paid cloud tools"],
-      futureChallenges: ["Lineage tracking", "Orchestration and alerting", "Incident history", "Role-based approval", "Cloud deployment later", "Stronger automated test coverage"],
+      futureChallenges: ["Production lineage and telemetry", "Concurrent transactional metadata", "Authentication and role-based access", "Runtime container verification", "Secrets and environment management", "Recovery and larger-scale scenarios"],
       agenticHelp: ["Summarize failed checks", "Suggest validation rules", "Draft incident notes", "Explain possible root causes", "Help write documentation"],
       agenticLimits: ["Modify production data", "Approve fixes automatically", "Rerun pipelines without review", "Invent root causes without evidence", "Change pipeline logic without approval"],
       businessValue: "This project demonstrates data reliability, observability, source-to-target reconciliation, incident handling, audit evidence, and responsible AI-assisted workflow thinking.",
-      evidence: [["Architecture diagram", "Available", "Source-to-review flow documented on this page."], ["Sample dataset", "In progress", "Intentional quality failures are being designed."], ["Data flow", "Available", "Validation and evidence boundaries are documented."], ["Validation output", "In progress", "Rule-result format is being strengthened."], ["Dashboard mockup", "Planned", "Streamlit or FastAPI review interface."], ["Test cases", "In progress", "Core validation and reconciliation tests."], ["README documentation", "Available", "Repository setup and implementation notes."], ["Future screenshots", "Planned", "Demo evidence will be added after reproducible runs."]],
+      evidence: [["Architecture documentation", "Available", "Source-to-review flow and technology trade-offs are documented."], ["Deterministic scenarios", "Available", "Baseline, missing-payment, and schema-drift paths are verified."], ["Quality and quarantine", "Available", "Contracts and invalid-record preservation are implemented."], ["Reconciliation output", "Available", "Counts and payment totals persist PASS, WARN, or FAIL evidence."], ["FastAPI interface", "Available", "Health, incidents, agent runs, approvals, and docs returned HTTP 200 locally."], ["Automated tests", "Available", "23 tests pass with 85% coverage across 585 statements."], ["CI and lint", "Available", "Ruff, tests, coverage, and Compose configuration checks pass."], ["Docker runtime", "Planned", "Container configuration exists; local runtime was not verified."]],
       repo: "https://github.com/SouravKh-7/ai-data-reliability-platform"
     },
     "pipeline-optimization": {
@@ -187,7 +187,7 @@
     <header class="case-header">
       <nav class="case-nav" aria-label="Project case study navigation">
         <a class="case-brand" href="../index.html"><span aria-hidden="true">SK</span><b>Sourav Khandai — Data Engineering Portfolio</b></a>
-        <div><a href="../index.html">Home</a><a href="../index.html#projects">Project Gallery</a><a href="#architecture">Architecture</a><a href="#evidence">Evidence</a></div>
+        <div><a href="../index.html">Home</a><a href="../index.html#projects">Project Gallery</a><a href="../system-design.html">System Design</a><a href="#evidence">Evidence</a></div>
       </nav>
     </header>
 
@@ -236,10 +236,9 @@
       </section>
 
       <section class="case-study-section case-shell" id="maturity">
-        <div class="case-section-heading"><p>05 · Current state</p><h2>Project maturity and timeline</h2></div>
-        <p class="maturity-note">This is a maturity record, not a production-readiness claim.</p>
-        <div class="maturity-list">${project.maturity.map(([name, status]) => `<article><span>${name}</span><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>
-        <ol class="timeline case-timeline">${project.maturity.map(([name, status], index) => `<li class="timeline-item"><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${name}</h3><p>${status}</p></div></li>`).join("")}</ol>
+        <div class="case-section-heading"><p>05 · Current state</p><h2>Project maturity record</h2></div>
+        <p class="maturity-note">Each labeled state is supported by the evidence section below; this is not a percentage or a production-readiness claim.</p>
+        <div class="maturity-list">${project.maturity.map(([name, status], index) => `<article><span>${String(index + 1).padStart(2, "0")} · ${name}</span><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>
       </section>
 
       <section class="case-study-section challenge-section" id="challenges">

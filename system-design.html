@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="System design and data architecture study for Sourav Khandai's AI-Assisted Data Reliability Platform.">
+    <meta name="theme-color" content="#f7f4e9">
+    <link rel="canonical" href="https://souravkh-7.github.io/git_portfolio/system-design.html">
+    <title>System Design and Data Architecture | Sourav Khandai</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="system-design.css">
+  </head>
+  <body class="design-page">
+    <a class="skip-link" href="#design-main">Skip to architecture study</a>
+    <header class="design-header">
+      <nav class="design-nav page-shell" aria-label="System design navigation">
+        <a class="design-brand" href="index.html"><span aria-hidden="true">SK</span><b>Sourav Khandai</b><small>System Design and Data Architecture</small></a>
+        <div><a href="index.html">Portfolio</a><a href="projects/ai-data-reliability.html">Flagship case</a><a href="#current-target">Current vs target</a><a href="#data-model">Data model</a></div>
+      </nav>
+    </header>
+
+    <main id="design-main">
+      <section class="design-hero">
+        <div class="page-shell design-hero-grid">
+          <div>
+            <p class="context-line">Flagship architecture study · evidence-led</p>
+            <h1>System design from source boundary to accountable action.</h1>
+            <p>This page explains how the AI-Assisted Data Reliability Platform currently moves, validates, models, and serves data—and where a production target must become stronger. Current implementation and planned architecture are intentionally shown as different states.</p>
+          </div>
+          <aside class="design-scope" aria-label="Architecture scope and status key">
+            <p><strong>System studied</strong>AI-Assisted Data Reliability Platform</p>
+            <p><strong>Current runtime</strong>Local Python, Parquet, DuckDB, JSON metadata and FastAPI</p>
+            <div class="status-key"><span class="status-current">Current</span><span class="status-mixed">Current + target</span><span class="status-planned">Planned</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <nav class="diagram-index page-shell" aria-label="Diagram index">
+        <a href="#context">01 Context</a><a href="#end-to-end">02 End-to-end</a><a href="#medallion">03 Medallion</a><a href="#movement">04 Batch / streaming</a><a href="#quality">05 Quality gates</a><a href="#failure">06 Failure</a><a href="#lineage">07 Lineage</a><a href="#current-target">08 Current / target</a><a href="#deployment">09 Deployment</a><a href="#data-model">10 Data model</a>
+      </nav>
+
+      <section class="diagram-section" id="context" aria-labelledby="context-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>01 · System context</p><h2 id="context-title">What is inside the trust boundary?</h2><span>Purpose: identify actors, inputs, outputs, and the platform boundary.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 01 · System context</strong><span class="figure-status status-current">Current</span></figcaption>
+            <div class="context-diagram" role="img" aria-label="Generated source feeds, application logs and pipeline events enter the reliability platform. The platform produces curated products, incident evidence and API responses for a data engineer or reviewer. Risky actions require human approval.">
+              <div class="diagram-stack"><span>Generated source feeds</span><span>Application logs</span><span>Pipeline run events</span></div>
+              <i aria-hidden="true">→</i>
+              <div class="system-boundary"><small>System boundary</small><strong>AI-Assisted Data Reliability Platform</strong><span>Ingestion · quality · modeling · incidents · guarded response</span></div>
+              <i aria-hidden="true">→</i>
+              <div class="diagram-stack"><span>Curated data products</span><span>Incident evidence + API</span><span>Data engineer / reviewer</span><span class="human-node">Human approval</span></div>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>Generated CSV, JSON, API-like, database-like, log, and pipeline-run data enter one local reliability platform. The platform ingests, validates, models, records incidents, and prepares guarded responses. Curated products and operational evidence are served to a data engineer or reviewer; consequential actions cross a human approval boundary.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section section-olive" id="end-to-end" aria-labelledby="end-to-end-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>02 · End-to-end data flow</p><h2 id="end-to-end-title">How does a record become evidence?</h2><span>Purpose: show the implemented path and its two failure branches.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 02 · End-to-end data flow</strong><span class="figure-status status-current">Current</span></figcaption>
+            <div class="flow-diagram" role="img" aria-label="Sources move through idempotent ingestion into raw Parquet, contracts and quality checks. Valid records move to validated data, DuckDB models, curated products, reconciliation, incidents and FastAPI. Invalid records move to quarantine. Risky agent actions move to a pending approval queue.">
+              <div>Sources<small>CSV · JSON · logs</small></div><i>→</i><div>Idempotent ingestion<small>Run ID · hash · timestamps</small></div><i>→</i><div>Raw Parquet<small>Source-shaped record</small></div><i>→</i><div class="gate-node">Contracts + quality<small>Fail closed</small></div><i>→</i><div>Validated<small>Trusted records</small></div><i>→</i><div>DuckDB models<small>Facts · dimensions</small></div><i>→</i><div>Evidence + API<small>Products · incidents · review</small></div>
+              <div class="branch branch-quarantine">Quality failure → quarantine with rule, reason, run and timestamp</div>
+              <div class="branch branch-approval">Risky response → pending human approval; model text never authorizes action</div>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>Idempotent ingestion preserves source-shaped Parquet with run metadata. Contracts and quality checks split valid records from quarantined failures. Valid data is modeled in DuckDB, published as curated products, reconciled, and exposed with incident evidence through FastAPI. The response agent may execute allow-listed low-risk tools; risky work creates a pending human approval.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section" id="medallion" aria-labelledby="medallion-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>03 · Layered data architecture</p><h2 id="medallion-title">A Medallion interpretation of the implemented folders</h2><span>Purpose: relate current raw, validated, and curated layers to a familiar architecture vocabulary without claiming an enterprise lakehouse.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 03 · Bronze / Silver / Gold mapping</strong><span class="figure-status status-current">Current reference mapping</span></figcaption>
+            <div class="medallion-diagram" role="img" aria-label="Bronze maps to immutable source-shaped raw Parquet. Silver maps to validated and conformed records plus separate quarantine. Gold maps to DuckDB-modeled curated facts, dimensions and summary products. Quality, reconciliation and metadata controls cross all layers.">
+              <article><span>Bronze · raw</span><h3>Preserve the source</h3><p>Source-aligned Parquet, hashes, event and ingestion timestamps, run and source metadata.</p></article><i>→</i>
+              <article><span>Silver · validated</span><h3>Establish trust</h3><p>Contracts, typed and conformed records, reference checks, with invalid records preserved in quarantine.</p></article><i>→</i>
+              <article><span>Gold · curated</span><h3>Serve meaning</h3><p>DuckDB facts, dimensions, reconciled measures, daily summaries and operational evidence.</p></article>
+              <div class="cross-cutting">Cross-cutting: quality results · reconciliation · run metadata · incidents · audit evidence</div>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>The repository calls its physical layers raw, validated, quarantine, and curated. Bronze, Silver, and Gold are used here only as a reference interpretation: raw maps to Bronze, validated plus quarantine maps to Silver controls, and curated facts, dimensions, and summaries map to Gold.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section section-honey" id="movement" aria-labelledby="movement-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>04 · Movement patterns</p><h2 id="movement-title">Batch now; streaming only when the problem requires it</h2><span>Purpose: compare demonstrated movement with a deliberately tool-neutral future path.</span></header>
+          <figure class="design-figure comparison-figure">
+            <figcaption><strong>Figure 04 · Batch vs planned streaming</strong><span class="figure-status status-mixed">Current + planned</span></figcaption>
+            <div class="movement-diagram" role="img" aria-label="The current batch path loads bounded source snapshots, assigns a run ID, applies idempotent processing, validates, models and publishes. A planned streaming path would receive events, manage identity and ordering, validate continuously, update state and publish with replay and dead-letter recovery; no streaming technology is selected or implemented.">
+              <article class="current-panel"><span class="status-current">Current batch</span><ol><li>Bounded source snapshot</li><li>Run ID + record hash</li><li>Validate and quarantine</li><li>Model and reconcile</li><li>Publish atomic outputs</li></ol><p>Best fit for the small, inspectable reference workload.</p></article>
+              <article class="planned-panel"><span class="status-planned">Planned / exploratory</span><ol><li>Receive events</li><li>Identity, ordering + lateness</li><li>Continuous validation</li><li>Stateful updates</li><li>Replay + dead-letter recovery</li></ol><p>No streaming engine is selected or implemented.</p></article>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>The current system processes bounded batches with stable run IDs and record hashes. A future streaming design would need event identity, ordering, late-data policy, state, replay, and dead-letter recovery before it could make the same reliability claims. That path is exploratory.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section" id="quality" aria-labelledby="quality-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>05 · Data quality gates</p><h2 id="quality-title">Where can a record or product be stopped?</h2><span>Purpose: make the validation and publication boundaries explicit.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 05 · Quality gate chain</strong><span class="figure-status status-current">Current</span></figcaption>
+            <div class="quality-diagram" role="img" aria-label="Five gates check schema and required fields, row validity and uniqueness, references and allowed values, freshness and volume, then source-target counts and payment totals. Row failures go to quarantine; dataset failures create incident evidence and can pause publication.">
+              <article><span>Gate 1</span><b>Contract</b><small>Schema · required fields · drift</small></article><i>→</i><article><span>Gate 2</span><b>Record</b><small>Nulls · keys · email · amount</small></article><i>→</i><article><span>Gate 3</span><b>Reference</b><small>Customers · statuses · currency</small></article><i>→</i><article><span>Gate 4</span><b>Dataset</b><small>Freshness · volume</small></article><i>→</i><article><span>Gate 5</span><b>Reconcile</b><small>Counts · payment totals</small></article>
+              <p><strong>Row-level fail:</strong> preserve in quarantine. <strong>Dataset-level fail:</strong> persist evidence, create incident, and pause unsafe publication.</p>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>Contracts check schema and required fields. Record checks cover nulls, uniqueness, email shape, and positive amounts. Reference checks validate customers, allowed statuses, and currencies. Dataset checks evaluate freshness and volume. Reconciliation compares row counts and payment totals using PASS, WARN, or FAIL results.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section section-dark" id="failure" aria-labelledby="failure-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>06 · Failure sequence</p><h2 id="failure-title">What happens after a reliability signal fails?</h2><span>Purpose: show deterministic investigation and the authority boundary.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 06 · Failure-to-response sequence</strong><span class="figure-status status-current">Current</span></figcaption>
+            <ol class="sequence-diagram" aria-label="A failed quality or reconciliation check persists evidence, creates a deterministic incident, derives customer and revenue impact, builds a response plan, checks policy and preconditions, executes a safe idempotent tool or requests approval, and records the decision history.">
+              <li><span>01</span><b>Check fails</b><small>Quality or reconciliation</small></li><li><span>02</span><b>Evidence persists</b><small>Rule, run, reason, data</small></li><li><span>03</span><b>Incident opens</b><small>Stable deterministic ID</small></li><li><span>04</span><b>Impact derives</b><small>Customer + revenue evidence</small></li><li><span>05</span><b>Plan forms</b><small>Bounded response</small></li><li><span>06</span><b>Policy checks</b><small>Allow-list + preconditions</small></li><li><span>07</span><b>Act or approve</b><small>Safe tool / human queue</small></li><li><span>08</span><b>History records</b><small>Actor, reason, state</small></li>
+            </ol>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>A failed check is stored as evidence and becomes a deterministic incident. Impact is derived from the data, not invented. The agent prepares a bounded plan, then code-defined policy and preconditions decide whether an idempotent safe tool may run or a human approval must be requested. The decision and actor history are recorded.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section" id="lineage" aria-labelledby="lineage-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>07 · Representative lineage</p><h2 id="lineage-title">Trace a payment measure back to its source</h2><span>Purpose: show logical lineage supported by run metadata; a production lineage service is not implemented.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 07 · Payment and revenue lineage</strong><span class="figure-status status-current">Current logical trace</span></figcaption>
+            <div class="lineage-diagram" role="img" aria-label="A source payment record with payment ID, customer ID, status and amount enters raw payments Parquet with record hash and timestamps. Contract and quality results decide validated payments or quarantine. Valid records become fact_payment in DuckDB and daily payment or revenue summaries, which support reconciliation, impact evidence, incidents and API responses.">
+              <div><span>Source</span><b>Payment record</b><small>payment_id · customer_id · status · amount</small></div><i>→</i><div><span>Raw</span><b>payments Parquet</b><small>record hash · event / ingest time · run ID</small></div><i>→</i><div><span>Validation</span><b>Quality result</b><small>validated or quarantine</small></div><i>→</i><div><span>Model</span><b>fact_payment</b><small>one payment attempt</small></div><i>→</i><div><span>Product</span><b>Daily payment summaries</b><small>counts · successful / failed totals</small></div><i>→</i><div><span>Evidence</span><b>Reconciliation + incident</b><small>API and reviewer context</small></div>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>Payment identity and values remain connected to raw Parquet through hashes, timestamps, source metadata, and run IDs. Quality results determine validation or quarantine. Valid payments feed fact_payment and summary products. Reconciliation and incident evidence can therefore be connected back to the source record. This is logical traceability, not an automated production lineage catalog.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section section-olive" id="current-target" aria-labelledby="current-target-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>08 · Evolution path</p><h2 id="current-target-title">What changes between the current reference system and a production target?</h2><span>Purpose: state the scaling and governance gaps without overstating readiness.</span></header>
+          <figure class="design-figure comparison-figure">
+            <figcaption><strong>Figure 08 · Current vs target architecture</strong><span class="figure-status status-mixed">Current + target</span></figcaption>
+            <div class="current-target-diagram" role="img" aria-label="The current system is single-machine Python with local Parquet, DuckDB analytics, atomic JSON metadata, FastAPI, optional local explanation and manual operation. The target would add shared object storage, transactional PostgreSQL metadata, authentication and role-based access, managed scheduling, secrets, production telemetry and lineage, concurrency controls and environment-specific deployment.">
+              <article><span class="status-current">Current reference</span><ul><li>Single-machine Python execution</li><li>Local Parquet + DuckDB analytics</li><li>Atomic JSON operational metadata</li><li>FastAPI operational interface</li><li>Optional local Ollama explanation</li><li>Manual local operation</li></ul></article>
+              <i aria-hidden="true">→</i>
+              <article><span class="status-planned">Production target</span><ul><li>Shared object storage</li><li>Transactional PostgreSQL metadata</li><li>Authentication + role-based access</li><li>Managed scheduling and secrets</li><li>Production metrics, traces and lineage</li><li>Concurrency, environments and recovery controls</li></ul></article>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>The local reference prioritizes determinism and inspection with files and a single process. A production target needs shared durable stores, authenticated and authorized access, deployment environments, secrets management, concurrency-safe state, production telemetry and lineage, and tested recovery. No cloud vendor or orchestration platform is selected here.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section" id="deployment" aria-labelledby="deployment-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>09 · Deployment view</p><h2 id="deployment-title">What can be run, what is checked, and what is still missing?</h2><span>Purpose: separate host execution, container configuration, CI evidence, and an unimplemented production environment.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 09 · Deployment topology</strong><span class="figure-status status-mixed">Partially demonstrated</span></figcaption>
+            <div class="deployment-diagram" role="img" aria-label="A developer host currently runs the CLI pipeline, local Parquet and DuckDB, JSON metadata and FastAPI. Docker Compose defines an API and PostgreSQL service, and CI validates lint, tests, coverage and Compose configuration. Docker runtime was not locally verified. A production environment with shared stores, authentication, secrets and telemetry is planned.">
+              <article><span class="status-current">Developer host · verified</span><div><b>CLI pipeline</b><b>Parquet + DuckDB</b><b>JSON metadata</b><b>FastAPI</b></div></article>
+              <article><span class="status-mixed">Container + CI · config verified</span><div><b>API image</b><b>PostgreSQL service shape</b><b>Tests + coverage</b><b>Compose validation</b></div><p>Docker runtime was unavailable for local verification.</p></article>
+              <article><span class="status-planned">Production environment · planned</span><div><b>Shared data store</b><b>Durable metadata</b><b>Auth + secrets</b><b>Telemetry + recovery</b></div></article>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>The verified path runs directly on a developer host. Container definitions and a PostgreSQL-shaped service exist, while CI verifies lint, tests, coverage, and Compose configuration. Local Docker runtime was not available during verification. A production environment remains a target.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="diagram-section section-honey" id="data-model" aria-labelledby="data-model-title">
+        <div class="page-shell">
+          <header class="diagram-heading"><p>10 · Compact data model</p><h2 id="data-model-title">Facts preserve events; dimensions add stable context</h2><span>Purpose: summarize the documented analytical model and representative relationships.</span></header>
+          <figure class="design-figure">
+            <figcaption><strong>Figure 10 · Star-schema overview</strong><span class="figure-status status-current">Current documented model</span></figcaption>
+            <div class="model-diagram" role="img" aria-label="Dimensions include dim_customer, dim_plan, dim_date and dim_service. Facts include fact_payment, fact_subscription, fact_support_ticket, fact_application_error, fact_pipeline_run and fact_quality_result. Customer connects to payments, subscriptions and support tickets; plan connects to subscriptions; service connects to application errors. Facts feed seven summary products.">
+              <div class="model-dimensions"><span>Dimensions</span><b>dim_customer</b><b>dim_plan</b><b>dim_date</b><b>dim_service</b></div>
+              <i aria-hidden="true">↔</i>
+              <div class="model-facts"><span>Event and operational facts</span><b>fact_payment</b><b>fact_subscription</b><b>fact_support_ticket</b><b>fact_application_error</b><b>fact_pipeline_run</b><b>fact_quality_result</b></div>
+              <i aria-hidden="true">→</i>
+              <div class="model-products"><span>Serving products</span><strong>Seven summaries</strong><small>By day · customer · service · pipeline · dataset</small></div>
+            </div>
+            <details class="text-alternative"><summary>Read this diagram as text</summary><p>dim_customer relates to fact_payment, fact_subscription, and fact_support_ticket. dim_plan relates to fact_subscription. dim_service relates to fact_application_error. dim_date provides conformed calendar context. Pipeline and quality facts preserve operational history. Seven documented summaries aggregate the facts by day, customer, service, pipeline, or dataset.</p></details>
+          </figure>
+        </div>
+      </section>
+
+      <section class="design-closing">
+        <div class="page-shell"><p class="context-line">Architecture is a claim about boundaries and trade-offs.</p><h2>The diagrams show what the system does today, what the evidence supports, and what must change before production.</h2><div><a class="primary-action" href="projects/ai-data-reliability.html">Read the flagship case study</a><a href="index.html#progress">Review the evidence map →</a></div></div>
+      </section>
+    </main>
+
+    <footer class="design-footer"><div class="page-shell"><p>© 2026 Sourav Khandai</p><a href="#design-main">Back to top ↑</a></div></footer>
+  </body>
+</html>

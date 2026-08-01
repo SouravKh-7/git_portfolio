@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-# About
-
 I am a Data Engineer focused on reliable data platforms, AI-ready data systems, and applied operational intelligence. I am interested in the full path from a business or operational requirement to a tested pipeline, a trusted data product, observable system behavior, and an accountable decision.
 
 My manufacturing and process-engineering background is a domain advantage. It helps me reason about physical assets, maintenance, service operations, process variation, quality, reliability, constraints, and the practical consequences of incomplete data.

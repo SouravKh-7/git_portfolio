@@ -4,8 +4,6 @@ title: Project Ecosystem
 permalink: /ecosystem/
 ---
 
-# Project Ecosystem
-
 The repositories are independent portfolio projects that share engineering patterns. They are not presented as one deployed, integrated system.
 
 ```mermaid

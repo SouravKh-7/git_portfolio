@@ -388,7 +388,7 @@
       return `<div class="enterprise-maturity-chart">${stages.map(([label, status], index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><strong>${label}</strong><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>`;
     }
 
-    const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3>${title}</h3>${list(items)}</article>`;
+    const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3 class="thinking-branch-title${title.length > 16 ? " thinking-branch-title-long" : ""}">${title}</h3>${list(items)}</article>`;
     const architectureDecisions = project.decisions.slice(0, 5).map(([title, why], index) => ({
       title,
       context: `Decision ${String(index + 1).padStart(2, "0")} addresses a constraint in the current reference design.`,
@@ -494,7 +494,7 @@
   const researchQuestions = project.researchQuestions || project.futureChallenges.map((item) => `How should ${item.charAt(0).toLowerCase()}${item.slice(1)} be designed and evaluated?`).slice(0, 5);
   const agenticFlow = project.agenticFlow || ["Trusted Evidence", "Context Builder", "Agent", "Recommendation", "Policy Validation", "Human Approval", "Controlled Action"];
   const roadmap = project.roadmap || project.maturity;
-  const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3>${title}</h3>${list(items)}</article>`;
+  const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3 class="thinking-branch-title${title.length > 16 ? " thinking-branch-title-long" : ""}">${title}</h3>${list(items)}</article>`;
 
   root.innerHTML = `
     <a class="skip-link" href="#case-main">Skip to case study</a>

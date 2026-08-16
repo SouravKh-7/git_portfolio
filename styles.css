@@ -228,13 +228,13 @@ h1, h2, h3 { text-wrap: balance; }
 .portfolio-map-connectors i:nth-child(6) { transform: rotate(128deg); }
 .portfolio-map-connectors i:nth-child(7) { transform: rotate(52deg); }
 .portfolio-map-connectors i:nth-child(8) { transform: rotate(25deg); }
-.portfolio-map-center { position: absolute; z-index: 2; top: 50%; left: 50%; width: clamp(21rem, 38vw, 31rem); min-height: clamp(22rem, 30vw, 27rem); padding: clamp(3rem, 5vw, 5rem); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-on-olive); background: var(--olive-800); border-radius: 50% 50% 48% 52% / 45% 48% 52% 55%; text-align: center; transform: translate(-50%, -50%); }
+.portfolio-map-center { position: absolute; z-index: 2; top: 50%; left: 50%; width: clamp(21rem, 38vw, 31rem); min-height: clamp(22rem, 30vw, 27rem); padding: clamp(3rem, 5vw, 5rem); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-on-olive); background: var(--olive-800); border-radius: 3rem; text-align: center; transform: translate(-50%, -50%); }
 .portfolio-map-center > span { color: var(--honey-200); font-size: 0.68rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; }
 .portfolio-map-center strong { max-width: 10ch; margin: 1.15rem auto 0; display: grid; font-family: var(--serif); font-size: clamp(2rem, 3.25vw, 3.55rem); font-weight: 400; letter-spacing: -0.035em; line-height: 0.96; text-wrap: balance; }
 .portfolio-map-center strong span { color: inherit; font: inherit; letter-spacing: inherit; text-transform: none; }
 .portfolio-map-center small { margin-top: 1.4rem; color: var(--olive-100); font-size: clamp(0.72rem, 1vw, 0.86rem); line-height: 1.55; }
 .portfolio-map-branches { position: absolute; inset: 0; }
-.portfolio-map-branches article { position: absolute; z-index: 1; width: clamp(12.5rem, 18vw, 15.5rem); min-height: clamp(11.5rem, 17vw, 14rem); padding: clamp(1.7rem, 2.4vw, 2.4rem); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.15rem; background: var(--surface); border: 1px solid var(--olive-200); border-radius: 48% 52% 46% 54% / 52% 44% 56% 48%; text-align: center; }
+.portfolio-map-branches article { position: absolute; z-index: 1; width: clamp(12.5rem, 18vw, 15.5rem); min-height: clamp(11.5rem, 17vw, 14rem); padding: clamp(1.7rem, 2.4vw, 2.4rem); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.15rem; background: var(--surface); border: 1px solid var(--olive-200); border-radius: 2.25rem; text-align: center; }
 .portfolio-map-branches article:nth-child(1) { top: 5%; left: 1%; }
 .portfolio-map-branches article:nth-child(2) { top: 0; left: 23%; transform: rotate(-1.2deg); }
 .portfolio-map-branches article:nth-child(3) { top: 0; right: 23%; transform: rotate(1deg); }
@@ -243,7 +243,7 @@ h1, h2, h3 { text-wrap: balance; }
 .portfolio-map-branches article:nth-child(6) { bottom: 0; left: 23%; transform: rotate(1deg); }
 .portfolio-map-branches article:nth-child(7) { right: 23%; bottom: 0; transform: rotate(-1deg); }
 .portfolio-map-branches article:nth-child(8) { right: 1%; bottom: 7%; }
-.portfolio-map-branches article:nth-child(3n) { background: var(--olive-50); border-radius: 54% 46% 50% 50% / 44% 56% 45% 55%; }
+.portfolio-map-branches article:nth-child(3n) { background: var(--olive-50); border-radius: 2.75rem 2rem 2.5rem 2.25rem; }
 .portfolio-map-branches article:last-child { background: var(--honey-50); }
 .portfolio-map-branches h3 { max-width: 11ch; margin: 0 auto; font-family: var(--serif); font-size: clamp(1.18rem, 1.55vw, 1.55rem); font-weight: 400; line-height: 1.08; overflow-wrap: normal; text-wrap: balance; }
 .portfolio-map-branches p { max-width: 25ch; margin: 0 auto; color: var(--text-secondary); font-size: clamp(0.68rem, 0.75vw, 0.76rem); line-height: 1.55; text-wrap: pretty; }
@@ -574,9 +574,9 @@ h1, h2, h3 { text-wrap: balance; }
   .hero-navigation-tiles { order: 2; grid-template-columns: 1fr; }
   .hero-navigation-tiles a { min-height: 11rem; }
   .portfolio-map-branches, .enterprise-evolution-flow { grid-template-columns: 1fr; }
-  .portfolio-map-center { width: 100%; min-height: 20rem; padding: 2.75rem 2.15rem; border-radius: 46% 54% 48% 52% / 44% 47% 53% 56%; }
+  .portfolio-map-center { width: 100%; min-height: 20rem; padding: 2.75rem 2.15rem; border-radius: 2.5rem; }
   .portfolio-map-center strong { font-size: clamp(2.05rem, 10vw, 3rem); }
-  .portfolio-map-branches article:nth-child(n) { min-height: 9.5rem; padding: 1.45rem 2rem; display: grid; grid-template-columns: minmax(7.5rem, 0.42fr) minmax(0, 1fr); gap: 1.25rem; align-items: center; border-radius: 999px; text-align: left; }
+  .portfolio-map-branches article:nth-child(n) { min-height: 9.5rem; padding: 1.45rem 2rem; display: grid; grid-template-columns: minmax(7.5rem, 0.42fr) minmax(0, 1fr); gap: 1.25rem; align-items: center; border-radius: 2rem; text-align: left; }
   .portfolio-map-branches article::before { top: -1.4rem; }
   .portfolio-map-branches h3, .portfolio-map-branches p { max-width: none; margin: 0; text-align: left; }
   .enterprise-evolution-flow li { min-height: 7rem; }

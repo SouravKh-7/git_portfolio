@@ -299,7 +299,7 @@
   justify-content: center;
   color: var(--cream);
   background: var(--moss);
-  border-radius: 50% 50% 47% 53% / 44% 47% 53% 56%;
+  border-radius: 3rem;
   text-align: center;
 }
 
@@ -346,11 +346,11 @@
   justify-content: center;
   background: var(--paper);
   border: 1px solid var(--line-light);
-  border-radius: 40px 52px 44px 56px;
+  border-radius: 2.25rem;
   text-align: center;
 }
 
-.thinking-branch:nth-child(3n) { border-radius: 54px 40px 56px 44px; }
+.thinking-branch:nth-child(3n) { border-radius: 2.75rem 2rem 2.5rem 2.25rem; }
 .thinking-branch:nth-child(even) { background: rgba(244, 242, 231, 0.74); }
 
 .thinking-branch h3 {

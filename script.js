@@ -95,6 +95,30 @@
         filters: ["research", "blueprint"]
       },
       {
+        title: "Supply Chain Digital Twin Research Lab",
+        description: "A reproducible simulation blueprint for comparing inventory, backlog, disruption, allocation, and recovery policies against the same validated operating state.",
+        problem: "Supply-chain policies are difficult to compare when demand, lead time, capacity, inventory, and disruption assumptions are inconsistent.",
+        maturity: "Research blueprint",
+        area: "Digital twins, simulation, and operations research",
+        href: "projects/supply-chain-digital-twin.html",
+        architecture: "Operational state → scenario builder → simulation → policy comparison → reviewed recommendation",
+        research: "Parallel scenarios, uncertainty analysis, recovery policy, and cost-aware decision deadlines.",
+        next: "Build the validated state model and deterministic baseline simulation.",
+        filters: ["research", "blueprint"]
+      },
+      {
+        title: "Database Performance and Workload Lab",
+        description: "A controlled research lab for studying query plans, indexing, concurrency, partitioning, storage overhead, and workload stability without presenting local results as production evidence.",
+        problem: "Performance claims are unreliable when workload, cache state, skew, concurrency, hardware, and correctness are not comparable.",
+        maturity: "Research blueprint",
+        area: "Database systems and performance engineering",
+        href: "projects/database-performance-lab.html",
+        architecture: "Versioned data → workload generator → baseline → candidate plan → metrics and correctness",
+        research: "Tail latency, plan regression, read/write trade-offs, and workload isolation.",
+        next: "Define the workload model and publish the first reproducible baseline.",
+        filters: ["research", "blueprint"]
+      },
+      {
         title: "Manufacturing Root-Cause Analysis Assistant",
         description: "An earlier evidence-retrieval and decision-support concept that is being consolidated into the industrial platform. The useful idea is retained: prepare traceable evidence for an engineer without allowing the system to determine the final cause on its own.",
         problem: "Investigations are slow when machine, process, inspection, maintenance, and incident records remain scattered.",
@@ -215,6 +239,16 @@
       ["Distributed systems", "Studying", "Idempotency and failure boundaries", "Design notes and deterministic retries", "Test concurrency and partition behavior"],
       ["Responsible AI", "Applied", "Bounded tools and approvals", "Guarded agent tests and decision history", "Add formal evaluations and auth"]
     ],
+    coverageRadar: [
+      ["Data Engineering", 5, "The portfolio is anchored in ingestion, transformation, quality, testing, and serving."],
+      ["Data Architecture", 4, "Projects document source boundaries, modeling, metadata, lineage, and target-state design."],
+      ["Reliability", 5, "Contracts, quarantine, reconciliation, incident evidence, and recovery are recurring concerns."],
+      ["Distributed Systems", 3, "Spark, partitioning, concurrency, backpressure, and fault tolerance are active research directions."],
+      ["Operations Research", 3, "Scheduling, routing, simulation, and optimization are represented through blueprint and experiment work."],
+      ["Industrial AI", 4, "Industrial service, manufacturing, digital-twin, and fleet contexts shape the operating problems."],
+      ["Business Thinking", 4, "Projects connect technical intervention to operational decisions and measurable hypotheses."],
+      ["Governed Agentic AI", 3, "Agents remain a controlled future layer over deterministic evidence, policy, approval, and audit records."]
+    ],
     radar: [
       ["Data ingestion", 4, "Idempotent multi-source ingestion is implemented and tested."],
       ["Data quality", 4, "Contracts, quarantine and broad validation checks are implemented."],
@@ -247,6 +281,20 @@
         category: "Operations research",
         time: "5 minute outline",
         href: "projects/robotic-fleet-optimization.html"
+      },
+      {
+        title: "How many scenarios can be evaluated before the decision deadline?",
+        summary: "A digital-twin research direction connecting validated supply-chain state, parallel simulation, policy comparison, uncertainty, and recovery evidence.",
+        category: "Simulation and operations research",
+        time: "Research blueprint",
+        href: "projects/supply-chain-digital-twin.html"
+      },
+      {
+        title: "When does an index improve the workload rather than one query?",
+        summary: "A database research direction measuring query plans, p50 and p95 latency, throughput, write overhead, storage cost, and concurrency.",
+        category: "Database systems",
+        time: "Research blueprint",
+        href: "projects/database-performance-lab.html"
       },
       {
         title: "From technical architecture to operating value",
@@ -326,27 +374,28 @@
     learningLandscape.innerHTML = portfolio.learningLandscape.map(([area, current, practised, evidence, next]) => `<tr><th scope="row">${area}</th><td data-label="Current">${current}</td><td data-label="Practised">${practised}</td><td data-label="Evidence">${evidence}</td><td data-label="Next">${next}</td></tr>`).join("");
   }
 
-  const radar = document.querySelector("[data-radar]");
-  if (radar) {
+  function renderRadarChart(target, data, options = {}) {
+    if (!target) return;
     const width = 720;
     const height = 650;
     const centerX = 360;
     const centerY = 310;
     const radius = 205;
-    const count = portfolio.radar.length;
+    const count = data.length;
+    const id = options.id || "radar";
     const point = (index, value, labelRadius = radius) => {
       const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
       const scaled = labelRadius * (value / 5);
       return [centerX + Math.cos(angle) * scaled, centerY + Math.sin(angle) * scaled];
     };
-    const polygon = (value) => portfolio.radar.map((_, index) => point(index, value).map((number) => number.toFixed(1)).join(",")).join(" ");
-    const dataPolygon = portfolio.radar.map(([, value], index) => point(index, value).map((number) => number.toFixed(1)).join(",")).join(" ");
+    const polygon = (value) => data.map((_, index) => point(index, value).map((number) => number.toFixed(1)).join(",")).join(" ");
+    const dataPolygon = data.map(([, value], index) => point(index, value).map((number) => number.toFixed(1)).join(",")).join(" ");
     const rings = [1, 2, 3, 4, 5].map((value) => `<polygon class="radar-ring" points="${polygon(value)}"></polygon><text class="radar-scale" x="${centerX + 6}" y="${(centerY - radius * value / 5) + 14}">${value}</text>`).join("");
-    const axes = portfolio.radar.map(([, , explanation], index) => {
+    const axes = data.map(([, , explanation], index) => {
       const [x, y] = point(index, 5);
       return `<line class="radar-axis" x1="${centerX}" y1="${centerY}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"><title>${explanation}</title></line>`;
     }).join("");
-    const labels = portfolio.radar.map(([label, value, explanation], index) => {
+    const labels = data.map(([label, value, explanation], index) => {
       const [x, y] = point(index, 5, radius + 54);
       const anchor = x < centerX - 20 ? "end" : x > centerX + 20 ? "start" : "middle";
       const lines = label.length > 19 ? label.split(" ").reduce((parts, word) => {
@@ -355,13 +404,28 @@
       }, []) : [label];
       return `<text class="radar-label" x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}"><title>${label}: ${value} of 5. ${explanation}</title>${lines.map((line, lineIndex) => `<tspan x="${x.toFixed(1)}" dy="${lineIndex ? 17 : 0}">${line}${lineIndex === lines.length - 1 ? ` · ${value}` : ""}</tspan>`).join("")}</text>`;
     }).join("");
-    const markers = portfolio.radar.map(([, value], index) => {
+    const markers = data.map(([, value], index) => {
       const [x, y] = point(index, value);
       return `<circle class="radar-marker" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5"></circle>`;
     }).join("");
-    const rows = portfolio.radar.map(([label, value, explanation]) => `<tr><th scope="row">${label}</th><td>${value} / 5</td><td>${explanation}</td></tr>`).join("");
-    radar.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="radar-svg-title radar-svg-desc"><title id="radar-svg-title">Evidence-based implementation coverage radar graph</title><desc id="radar-svg-desc">Eight dimensions scored from zero to five using current repository evidence. Scores range from two for deployment readiness to four for ingestion, data quality, architecture, testing, and documentation.</desc>${rings}${axes}<polygon class="radar-data" points="${dataPolygon}"></polygon>${markers}${labels}</svg><figcaption>Scale: 0 means no repository evidence; 5 means broad implementation and operational evidence. Current scores are intentionally conservative.</figcaption><details class="radar-fallback"><summary>Read the graph as a table</summary><div><table><thead><tr><th>Dimension</th><th>Score</th><th>Evidence basis</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+    const rows = data.map(([label, value, explanation]) => `<tr><th scope="row">${label}</th><td>${value} / 5</td><td>${explanation}</td></tr>`).join("");
+    target.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${options.title || "Portfolio focus radar"}</title><desc id="${id}-desc">${options.description || "Eight editable dimensions shown on a scale from zero to five."}</desc>${rings}${axes}<polygon class="radar-data" points="${dataPolygon}"></polygon>${markers}${labels}</svg><figcaption>${options.caption || "Editable 0–5 focus values."}</figcaption><details class="radar-fallback"><summary>Read the chart as a table</summary><div><table><thead><tr><th>Dimension</th><th>Focus</th><th>Basis</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
   }
+
+  renderRadarChart(document.querySelector("[data-coverage-radar]"), portfolio.coverageRadar, {
+    id: "coverage-radar",
+    title: "Engineering and research portfolio coverage",
+    description: "Eight portfolio focus dimensions from zero to five. These are illustrative concentration values, not proficiency scores.",
+    caption: "ILLUSTRATIVE · Portfolio concentration only; values are editable in script.js."
+  });
+
+  const radar = document.querySelector("[data-radar]");
+  renderRadarChart(radar, portfolio.radar, {
+    id: "evidence-radar",
+    title: "Evidence-based implementation coverage",
+    description: "Eight dimensions scored from zero to five using current repository evidence.",
+    caption: "ILLUSTRATIVE · Evidence coverage interpretation, not an experiment result or personal skill level."
+  });
 
   const readingList = document.querySelector("[data-reading-list]");
   if (readingList) readingList.innerHTML = portfolio.notes.map((note) => `<article class="reading-item reveal${note.featured ? " is-featured" : ""}"><div><h3>${note.title}</h3><p>${note.summary}</p></div><div class="reading-meta"><span>${note.category}</span><span>${note.time}</span></div><a href="${note.href}" aria-label="Read ${note.title}">↗</a></article>`).join("");

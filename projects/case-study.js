@@ -160,6 +160,48 @@
       evidence: [["Architecture diagram", "Available", "Event-to-review flow."], ["Synthetic data design", "In progress", "Machine, shift, process, defect, and inspection context."], ["Data flow", "Available", "Grain and evidence boundaries documented."], ["Quality output", "Planned", "Key, time, and category checks."], ["Analysis workflow", "Planned", "Pattern comparison and evidence drill-down."], ["Demo interface", "Planned", "Streamlit investigation view."], ["Test cases", "Planned", "Known defect and delay scenarios."], ["README documentation", "Available", "Repository concept and evolution."]],
       repo: "https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant"
     },
+    "supply-chain-digital-twin": {
+      title: "Supply Chain Digital Twin Research Lab",
+      subtitle: "A simulation-led data platform for evaluating inventory, backlog, disruption, allocation, and recovery scenarios before operational decisions are made.",
+      status: "Research Blueprint",
+      focus: ["Supply Chain Data", "Digital Twins", "Simulation", "Operations Research", "Scenario Evaluation"],
+      tools: ["Python", "Pandas", "SimPy", "DuckDB", "Synthetic scenario data"],
+      problem: ["Supply-chain decisions are difficult to test safely when demand, inventory, lead time, capacity, and disruption interact across many locations and time periods.", "This project defines a reproducible digital-twin research environment for comparing operational policies against the same controlled scenarios."],
+      why: "I am designing it to connect reliable data engineering with simulation and operations research. The first objective is not a predictive claim; it is a transparent scenario model with explicit assumptions, baselines, and measurable outcomes.",
+      flow: ["Source and scenario data", "Validated supply-chain state", "Scenario builder", "Simulation engine", "Policy comparison", "Operational metrics", "Reviewed recommendation"],
+      dataFlow: "Product, facility, inventory, order, shipment, supplier, capacity, and disruption records are validated at explicit grains. A scenario builder creates controlled changes to demand, lead time, or capacity. The simulation records state transitions, decisions, backlog, service level, inventory, cost components, and recovery time for comparison.",
+      decisions: [["Deterministic baseline", "Provides a reproducible comparison before optimization."], ["Event-based simulation", "Makes time, queues, capacity, and disruption explicit."], ["Scenario versioning", "Keeps assumptions and policy changes traceable."], ["Separate state and decisions", "Allows the effect of a policy to be audited."], ["Synthetic data first", "Supports safe experimentation without operational data."], ["Human-reviewed recommendations", "Keeps simulation outside direct supply-chain control."]],
+      demoPlan: "Generate a small multi-echelon supply-chain dataset, validate the starting state, replay baseline demand, introduce controlled disruptions, compare replenishment or allocation policies, and publish service-level, backlog, inventory, recovery-time, and scenario-runtime evidence.",
+      maturity: [["Problem framing", "Done"], ["Architecture", "In progress"], ["Data model", "Next"], ["Baseline simulation", "Planned"], ["Policy experiments", "Planned"], ["Parallel scenarios", "Future"]],
+      challenges: ["Keeping assumptions visible", "Designing realistic event timing", "Separating model error from policy performance", "Avoiding unsupported business claims"],
+      futureChallenges: ["Parallel scenario execution", "Calibration against public data", "Uncertainty analysis", "Optimization integration", "Scenario cost accounting"],
+      agenticHelp: ["Summarize scenario differences", "Retrieve supporting runs", "Draft a structured recommendation", "Identify missing evidence"],
+      agenticLimits: ["Change operational inventory", "Approve an allocation", "Hide model assumptions", "Present simulation as field evidence"],
+      businessValue: "A measurable scenario environment could improve disruption preparedness and policy comparison while preserving explicit assumptions and human decision authority.",
+      evidence: [["Problem statement", "Available", "Operating question and boundaries are documented."], ["Architecture", "In progress", "State, simulation, and decision layers are being defined."], ["Dataset", "Planned", "Synthetic multi-echelon records."], ["Baseline simulation", "Planned", "Reference policy and repeatable scenarios."], ["Experiment report", "Planned", "Policy and disruption comparisons."]],
+      repo: ""
+    },
+    "database-performance-lab": {
+      title: "Database Performance and Workload Lab",
+      subtitle: "A reproducible research lab for studying indexing, query plans, partitioning, concurrency, storage overhead, and workload stability.",
+      status: "Research Blueprint",
+      focus: ["Database Systems", "Query Plans", "Indexing", "Workload Management", "Benchmarking"],
+      tools: ["PostgreSQL", "DuckDB", "Python", "SQL", "Generated workloads"],
+      problem: ["Query performance claims are difficult to trust when data shape, workload mix, cache state, concurrency, and correctness are not controlled.", "This project defines a benchmark lab that records comparable query plans, latency distributions, throughput, storage overhead, and write cost."],
+      why: "I am designing it to study database behavior as an engineering system rather than a collection of isolated tuning tips. Every result should preserve the workload, machine profile, plan, configuration, and correctness evidence.",
+      flow: ["Versioned dataset", "Workload generator", "Baseline database", "Candidate index / plan", "Concurrent execution", "Metrics and plan evidence", "Recommendation"],
+      dataFlow: "Generated tables preserve row count, key distribution, selectivity, skew, and update patterns. Each benchmark run records the workload, warm-up policy, concurrency, query plan, latency distribution, throughput, storage size, write overhead, and correctness check.",
+      decisions: [["Versioned workloads", "Makes comparisons repeatable."], ["Latency distributions", "Avoids hiding tail behavior behind an average."], ["Plan evidence", "Connects a result to optimizer behavior."], ["Read and write cost", "Makes index trade-offs visible."], ["Cold and warm runs", "Separates cache effects."], ["One change per experiment", "Improves causal interpretation."]],
+      demoPlan: "Generate controlled relational datasets, run a documented workload against baseline and candidate configurations, capture EXPLAIN plans, p50 and p95 latency, throughput, storage overhead, write overhead, and correctness, then publish a limitations-aware comparison.",
+      maturity: [["Problem framing", "Done"], ["Architecture", "In progress"], ["Workload model", "Next"], ["Baseline", "Planned"], ["Index experiments", "Planned"], ["Concurrency tests", "Future"]],
+      challenges: ["Controlling cache state", "Separating plan and hardware effects", "Creating representative skew", "Avoiding production-scale claims"],
+      futureChallenges: ["Concurrent workloads", "Partition pruning", "Plan regression detection", "Workload isolation", "Cost-per-query modeling"],
+      agenticHelp: ["Summarize query-plan differences", "Retrieve comparable benchmark runs", "Draft experiment notes", "Flag unsupported conclusions"],
+      agenticLimits: ["Apply indexes to production", "Change database configuration", "Ignore write overhead", "Present local latency as production evidence"],
+      businessValue: "A controlled database lab can support query-response and infrastructure decisions using reproducible plan, latency, throughput, and storage evidence.",
+      evidence: [["Problem statement", "Available", "Benchmark boundaries are documented."], ["Architecture", "In progress", "Dataset, workload, and evidence model are defined."], ["Workload generator", "Planned", "Controlled reads and writes."], ["Query-plan captures", "Planned", "Comparable EXPLAIN evidence."], ["Benchmark report", "Planned", "Latency, throughput, and overhead results."]],
+      repo: ""
+    },
     "business-case-studies": {
       title: "Product and Business Case Studies",
       subtitle: "A case-study track for connecting data engineering projects with user problems, business value, ROI, metrics, and decision-making.",
@@ -182,6 +224,237 @@
       repo: ""
     }
   };
+
+  /* Enterprise case-study renderer. All editable architecture, chart, maturity,
+     business, and research content remains centralized in this JavaScript file. */
+  {
+    const order = Object.keys(studies);
+    const projectId = document.body.dataset.projectId;
+    const project = studies[projectId];
+    const root = document.querySelector("[data-case-study]");
+    if (!project || !root) return;
+
+    const statusClass = project.status.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const currentIndex = order.indexOf(projectId);
+    const previousId = order[(currentIndex - 1 + order.length) % order.length];
+    const nextId = order[(currentIndex + 1) % order.length];
+    const list = (items, className = "") => `<ul${className ? ` class="${className}"` : ""}>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+    const flow = (items, label) => `<ol class="enterprise-flow" aria-label="${label}">${items.map((item, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><strong>${item}</strong></li>`).join("")}</ol>`;
+    const repoLink = project.repo ? `<a class="button button-primary" href="${project.repo}">View GitHub Repo <span aria-hidden="true">↗</span></a>` : `<span class="case-link-placeholder">Repository planned</span>`;
+
+    const defaultProfile = {
+      centralIdea: project.focus[0],
+      data: ["Domain records", "Reference or synthetic inputs", "Operational metadata", "Run and evidence records"],
+      enterpriseConcerns: ["Ownership", "Schema evolution", "Horizontal scale", "Security", "Cost", "Recovery"],
+      engineeringProfile: [4, 4, 4, 3, 2, 2, 4, 2],
+      dataModel: ["Preserve the source grain and arrival metadata.", "Separate raw, validated, and decision-ready records.", "Use stable business keys and explicit event time.", "Record quality, lineage, and run metadata beside the output."],
+      localArchitecture: project.flow,
+      enterpriseArchitecture: ["Operational systems / APIs / files", "Batch, CDC, or event ingestion", "Object storage / lakehouse", "Distributed processing", "Quality + metadata + lineage", "Gold data products", "Warehouse / API / decision workflow"],
+      failureModes: [["Source unavailable", "Retry with bounded backoff; preserve the last trusted state and open an incident."], ["Schema drift", "Fail the contract or quarantine affected records until an approved compatible change exists."], ["Duplicate delivery", "Use source keys, hashes, and idempotent writes to prevent repeated publication."], ["Late-arriving data", "Process by event time, reopen affected partitions, and reconcile corrected outputs."], ["Downstream unavailable", "Checkpoint completed work, avoid partial publication, and resume from the durable boundary."], ["Reconciliation mismatch", "Block or warn according to severity and attach source-to-target evidence to the incident."]],
+      quality: ["Completeness", "Accuracy", "Validity", "Uniqueness", "Consistency", "Freshness", "Referential integrity"],
+      security: ["Authentication for people and service identities", "RBAC with least-privilege access", "Encryption in transit and at rest", "Secret management outside source control", "Network isolation for data services", "Audit trails for reads, approvals, and controlled actions", "Sensitive-data discovery and masking where required"],
+      observability: {
+        pipeline: ["rows processed / rejected", "throughput", "latency", "freshness", "failed rules"],
+        infrastructure: ["CPU", "memory", "disk", "worker utilization", "network / shuffle"],
+        business: ["decision delay", "SLA risk", "operational backlog", "asset or service impact"],
+        evidence: ["structured logs", "metrics", "traces", "run metadata", "incident history", "lineage"]
+      },
+      serviceObjectives: ["Pipeline freshness objective", "Incident detection latency", "Recovery target (RTO)", "Acceptable replay point (RPO)", "Serving-layer response target"],
+      delivery: ["Pull-request review", "Unit, integration, and data-quality tests", "Schema compatibility checks", "Environment-specific configuration", "Deployment checks and release notes", "Rollback or forward-fix procedure", "GitHub Actions and Docker where implemented", "Infrastructure as code as a future production direction"],
+      cost: ["Scheduled versus always-on compute", "Storage growth and retention", "Partition size and file compaction", "Network transfer and streaming cost", "Query efficiency and workload isolation", "Scaling thresholds tied to volume and latency"],
+      business: {
+        problemCost: "Unreliable or delayed operational data creates manual investigation, decision delay, rework, and loss of trust.",
+        intervention: "The system establishes explicit ingestion, modeling, quality, evidence, and serving boundaries.",
+        effect: "Operators receive a traceable data product and can distinguish trusted output from incomplete or failed processing.",
+        metrics: ["decision latency", "failure detection latency", "manual investigation time", "repeat failure rate", "data-product freshness"],
+        benefit: "Potential benefit: reduced failure and delay cost, lower manual effort, and better decision quality, subject to experiment evidence."
+      },
+      experiment: {
+        hypothesis: "A controlled engineering intervention can improve an operational metric without weakening correctness.",
+        variables: ["dataset volume", "failure mix", "worker count", "partition strategy", "run configuration"],
+        baseline: ["Baseline", 82],
+        candidate: ["Candidate", 54],
+        lineLabels: ["1x", "2x", "4x", "8x", "16x"],
+        lineValues: [18, 31, 49, 61, 66],
+        unit: "relative workload units",
+        illustrative: true
+      }
+    };
+
+    const profileOverrides = {
+      "ai-data-reliability": {
+        engineeringProfile: [5, 4, 5, 4, 2, 1, 4, 3],
+        dataModel: ["Bronze-style raw source records retain run ID, file hash, arrival time, and source identity.", "Silver-style validated and quarantined records preserve rule results and rejection reasons.", "Gold-style customer, order, and payment products expose stable analytical grains.", "Quality results, reconciliation summaries, incidents, approvals, and agent runs form the operational metadata model."],
+        enterpriseArchitecture: ["ERP / CRM / payment APIs / event sources", "CDC + batch + replayable event ingestion", "Object storage / lakehouse bronze", "Spark or Flink validation and transforms", "Contracts + quarantine + metadata + lineage", "Reconciled gold data products", "Warehouse / APIs / BI", "Observability + RBAC + governed remediation"],
+        business: {problemCost: "Bad data can reach reports and downstream workflows even when the pipeline reports success, creating rework and slow incident triage.", intervention: "Contracts, quarantine, reconciliation, run metadata, incident evidence, and approval-gated actions create a publication trust boundary.", effect: "Data owners can block failed datasets, locate the failed rule, compare source and target, and review a controlled response.", metrics: ["failed datasets blocked", "incident detection latency", "investigation time", "reconciliation mismatch rate", "repeat incident rate"], benefit: "Expected operational impact: fewer unreliable outputs reaching consumers and shorter evidence-gathering time during an incident."},
+        experiment: {hypothesis: "Evidence-backed incident context can reduce investigation time while preserving deterministic decisions.", variables: ["dataset size", "rule count", "failure type", "worker count", "agent assistance on/off"], baseline: ["Manual evidence assembly", 84], candidate: ["Structured evidence workflow", 46], lineLabels: ["10K", "100K", "1M", "5M", "10M"], lineValues: [8, 15, 29, 53, 78], unit: "illustrative minutes / runtime index", illustrative: true}
+      },
+      "pipeline-optimization": {
+        engineeringProfile: [5, 3, 4, 3, 5, 4, 3, 1],
+        dataModel: ["A benchmark-run fact records workload, machine profile, configuration, runtime, shuffle, and output checks.", "Input data preserves controlled size, skew, key distribution, and file format.", "Experiment dimensions identify one engineering change per candidate run.", "Correctness reconciliation is a gate before any speed result is accepted."],
+        enterpriseArchitecture: ["Lake / warehouse workload", "Versioned benchmark dataset", "Spark cluster with isolated queues", "Baseline and candidate jobs", "Shuffle / stage / executor telemetry", "Correctness reconciliation", "Performance and cost report"],
+        business: {problemCost: "Long or unstable processing windows consume compute and place downstream SLAs at risk.", intervention: "Comparable baselines isolate one change at a time and reject performance improvements that alter output correctness.", effect: "Platform teams can choose partitioning, join, caching, and format changes using reproducible evidence.", metrics: ["runtime", "compute utilization", "shuffle volume", "throughput", "cost per run"], benefit: "Potential benefit: shorter batch windows and lower resource consumption at an explicitly measured scaling threshold."},
+        experiment: {hypothesis: "Partition and join strategy can reduce runtime without changing the reconciled output.", variables: ["rows", "key skew", "partitions", "join strategy", "file format"], baseline: ["Baseline runtime", 96], candidate: ["Candidate runtime", 58], lineLabels: ["1 worker", "2", "4", "8", "16"], lineValues: [100, 61, 38, 29, 27], unit: "illustrative runtime index", illustrative: true}
+      },
+      "industrial-service-intelligence": {
+        engineeringProfile: [4, 5, 4, 3, 2, 2, 5, 2],
+        dataModel: ["Fact service event uses one documented ticket or visit grain.", "Customer, asset, dealer, region, warranty, part, and date dimensions provide conformed context.", "SCD handling preserves changing asset, dealer, and customer attributes where history matters.", "Metric definitions and source lineage remain attached to SLA, repeat-visit, and downtime measures."],
+        enterpriseArchitecture: ["CRM / ERP / dealer / warranty / IoT systems", "CDC + API + scheduled batch ingestion", "Lakehouse bronze and silver layers", "Conformed service model", "Quality + ownership + lineage", "Gold service KPIs", "Warehouse / API / operations workspace"],
+        business: {problemCost: "Fragmented service records delay issue detection, obscure SLA risk, and make repeat failures difficult to compare across assets and regions.", intervention: "A conformed service model standardizes event grain, asset context, metric definitions, and quality evidence.", effect: "Service teams can investigate delays, repeat visits, downtime, and dealer or region patterns using the same trusted measures.", metrics: ["first-time-fix rate", "SLA breach rate", "downtime", "resolution time", "repeat failure rate"], benefit: "Measurable hypothesis: consistent service evidence can shorten investigation and improve asset-availability decisions."}
+      },
+      "robotic-fleet-optimization": {
+        engineeringProfile: [3, 4, 3, 3, 4, 5, 4, 2],
+        dataModel: ["Fleet-state snapshots retain battery, health, location, workload, and event time.", "Task facts retain priority, location, duration, capacity, and service deadline.", "Constraint results explain why an assignment is feasible or rejected.", "Scenario and decision records preserve objective value, trade-offs, and reviewer approval."],
+        enterpriseArchitecture: ["Robot / vehicle telemetry and task systems", "Streaming ingestion with event-time handling", "Time-series store + lakehouse", "Stateful stream processing", "Constraint and optimization service", "Simulation / scenario store", "Operator decision API with safety controls"],
+        business: {problemCost: "Availability-only assignment can create late tasks, risky allocation, charging conflict, and uneven fleet utilization.", intervention: "Health, energy, location, workload, priority, and safety constraints are evaluated before optimization.", effect: "Operators can compare feasible schedules and understand why an asset was assigned or rejected.", metrics: ["task completion", "lateness", "energy use", "fleet utilization", "breakdown-risk assignment", "charging delay"], benefit: "Potential benefit: more resilient schedules and fewer risky assignments, subject to simulation and field validation."}
+      },
+      "retail-inventory-intelligence": {
+        engineeringProfile: [4, 5, 4, 3, 2, 2, 5, 2],
+        business: {problemCost: "Stale or inconsistent inventory state can drive poor replenishment decisions, stockouts, excess inventory, and manual reconciliation.", intervention: "Validated sales and inventory facts, conformed product/store dimensions, freshness controls, and reconciled stock movement create a trusted state.", effect: "Planners can identify stockout risk and inspect the transactions behind the reported inventory position.", metrics: ["stockout rate", "inventory freshness", "reconciliation variance", "backlog", "inventory holding risk"], benefit: "Expected operational impact: better replenishment decisions and potentially lower stockout or excess-inventory risk."}
+      },
+      "manufacturing-root-cause": {
+        engineeringProfile: [4, 5, 4, 4, 2, 2, 5, 3],
+        business: {problemCost: "Scattered machine, shift, process, inspection, and maintenance evidence slows investigations and encourages unsupported cause claims.", intervention: "An event-centered model links each pattern or hypothesis back to quality-checked source evidence.", effect: "Engineers can compare machines, shifts, and process steps while retaining human responsibility for the final root-cause decision.", metrics: ["investigation time", "evidence completeness", "repeat defect rate", "downtime", "hypothesis validation rate"], benefit: "Potential benefit: faster, more traceable investigations without allowing an assistant to assert a final cause."}
+      },
+      "supply-chain-digital-twin": {
+        engineeringProfile: [4, 5, 4, 4, 3, 5, 5, 2],
+        dataModel: ["Inventory-state facts record product, node, quantity, event time, and scenario.", "Order, shipment, capacity, supplier, and disruption events preserve causal timing.", "Policy decisions remain separate from observed state transitions.", "Scenario-run facts capture service level, backlog, inventory, recovery time, runtime, and assumptions."],
+        enterpriseArchitecture: ["ERP / WMS / TMS / supplier events", "CDC + APIs + streaming events", "Lakehouse and operational state store", "Scenario builder", "Distributed simulation workers", "Optimization and policy comparison", "Planner workspace with governed recommendations"],
+        business: {problemCost: "Disruption, delayed supply, and poor allocation can create stockouts, backlog, excess inventory, and slow scenario evaluation.", intervention: "A validated operational state and repeatable digital-twin model compare policies under the same demand, capacity, lead-time, and disruption assumptions.", effect: "Planners can inspect service level, backlog, inventory, recovery time, and scenario runtime before choosing an operational response.", metrics: ["service level", "backlog", "inventory cost", "stockout rate", "recovery time", "scenario runtime"], benefit: "Measurable hypothesis: faster, evidence-led scenario evaluation can improve disruption preparedness and inventory-allocation decisions."}
+      },
+      "database-performance-lab": {
+        engineeringProfile: [4, 4, 3, 5, 4, 3, 3, 1],
+        dataModel: ["Dataset versions preserve row count, selectivity, skew, and update pattern.", "Workload-run facts capture concurrency, cache state, parameters, and machine profile.", "Plan evidence stores operators, estimates, actual rows, buffers, and timing.", "Result facts record p50, p95, throughput, storage, write overhead, correctness, and limitations."],
+        enterpriseArchitecture: ["Representative production schema snapshot", "Versioned benchmark dataset", "Isolated database environments", "Controlled concurrent workload", "Plan and infrastructure telemetry", "Regression comparison", "Reviewed tuning recommendation"],
+        business: {problemCost: "Slow or unstable queries consume infrastructure, delay users, and create unpredictable workload contention.", intervention: "Controlled datasets and workloads compare indexes, query plans, partitioning, and configuration while recording read and write trade-offs.", effect: "Database and platform teams can evaluate a change using latency distributions, throughput, plan evidence, and storage overhead.", metrics: ["p50 latency", "p95 latency", "throughput", "storage overhead", "write overhead", "total workload runtime"], benefit: "Potential benefit: improved response and workload stability with less infrastructure waste, subject to reproducible benchmark evidence."}
+      },
+      "business-case-studies": {
+        engineeringProfile: [2, 3, 2, 2, 1, 1, 5, 2],
+        business: {problemCost: "Architecture decisions are difficult to evaluate when user friction, risk, adoption, and measurement are left implicit.", intervention: "Each case maps one user decision to assumptions, required data, technical controls, metrics, and a validation step.", effect: "Technical and business readers can challenge the same evidence and trade-offs before committing to delivery.", metrics: ["decision cycle time", "adoption", "data readiness", "risk reduction", "validation result"], benefit: "Potential benefit: better prioritization and fewer architecture choices based on untested business assumptions."}
+      }
+    };
+
+    const profile = { ...defaultProfile, ...(profileOverrides[projectId] || {}) };
+    const thinkingMap = project.thinkingMap || {
+      centralIdea: profile.centralIdea,
+      problem: project.problem.slice(0, 1),
+      data: profile.data,
+      risks: project.challenges.slice(0, 5),
+      architecture: project.flow,
+      engineering: project.tools,
+      evidence: project.evidence.slice(0, 6).map(([name]) => name),
+      decision: [profile.business.effect],
+      futureResearch: project.futureChallenges.slice(0, 5)
+    };
+    const existsToday = project.existsToday || {
+      implemented: project.evidence.filter(([, status]) => ["Available", "Demonstrated", "Done"].includes(status)).map(([name]) => name),
+      improving: project.evidence.filter(([, status]) => ["In progress", "Available"].includes(status)).slice(0, 5).map(([name]) => name),
+      future: project.futureChallenges.slice(0, 5)
+    };
+    const scaleRisks = project.scaleRisks || ["Data volume, skew, shuffle, and small files can make local processing inefficient.", "Concurrent runs require transactional metadata, workload isolation, and durable checkpoints.", "Schema evolution and late data can invalidate downstream partitions and historical metrics.", "Authentication, secrets, tenant boundaries, retention, and disaster recovery become operating requirements.", "Metrics and lineage cardinality can create observability and storage cost that must be governed."];
+    const researchQuestions = project.researchQuestions || project.futureChallenges.map((item) => `How should ${item.charAt(0).toLowerCase()}${item.slice(1)} be designed and evaluated?`).slice(0, 5);
+    const agenticFlow = ["Trusted Data / Evidence", "Context Builder", "Agent", "Structured Recommendation", "Policy Engine", "Human Approval", "Controlled Tool", "Audit Record"];
+    const emphasisLabels = ["Pipeline Design", "Data Modeling", "Data Quality", "Observability", "Distributed Processing", "Optimization", "Business Workflow", "Agentic AI"];
+    const emphasisData = emphasisLabels.map((label, index) => [label, profile.engineeringProfile[index]]);
+    const maturityLabels = ["Problem Definition", "Architecture", "Dataset", "Pipeline", "Quality", "Testing", "Observability", "Demo", "Documentation", "Distributed Version", "Research Experiment", "Agentic AI Extension", "Enterprise Design"];
+    const maturityPattern = project.status.toLowerCase().includes("reference") ? ["Done", "Done", "Done", "Done", "Done", "Done", "In Progress", "Done", "Done", "Next", "Planned", "Future", "Planned"] : project.status.toLowerCase().includes("active") ? ["Done", "Done", "In Progress", "In Progress", "Next", "In Progress", "Next", "Next", "In Progress", "Planned", "Planned", "Future", "Planned"] : ["Done", "In Progress", "Next", "Planned", "Planned", "Planned", "Next", "Planned", "In Progress", "Future", "Planned", "Future", "Planned"];
+    const maturityData = maturityLabels.map((label, index) => [label, maturityPattern[index]]);
+
+    function renderRadarChart(data, id, title) {
+      const width = 680, height = 610, cx = 340, cy = 292, radius = 188, count = data.length;
+      const point = (index, value, r = radius) => { const angle = Math.PI * 2 * index / count - Math.PI / 2; const scaled = r * value / 5; return [cx + Math.cos(angle) * scaled, cy + Math.sin(angle) * scaled]; };
+      const polygon = (value) => data.map((_, index) => point(index, value).join(",")).join(" ");
+      const rings = [1, 2, 3, 4, 5].map((value) => `<polygon class="case-radar-ring" points="${polygon(value)}"></polygon>`).join("");
+      const axes = data.map((_, index) => { const [x, y] = point(index, 5); return `<line class="case-radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"></line>`; }).join("");
+      const values = data.map(([, value], index) => point(index, value).join(",")).join(" ");
+      const labels = data.map(([label, value], index) => { const [x, y] = point(index, 5, radius + 50); const anchor = x < cx - 20 ? "end" : x > cx + 20 ? "start" : "middle"; return `<text class="case-radar-label" x="${x}" y="${y}" text-anchor="${anchor}">${label} · ${value}</text>`; }).join("");
+      return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${title}</title><desc id="${id}-desc">Editable project-design emphasis values from zero to five. They are not personal expertise ratings.</desc>${rings}${axes}<polygon class="case-radar-data" points="${values}"></polygon>${labels}</svg>`;
+    }
+
+    function renderBarChart(experiment, id) {
+      const entries = [experiment.baseline, experiment.candidate];
+      const max = Math.max(...entries.map(([, value]) => value)) * 1.15;
+      return `<svg viewBox="0 0 620 300" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">Illustrative baseline and candidate comparison</title><desc id="${id}-desc">Placeholder values for a future controlled experiment. These are not measured results.</desc>${entries.map(([label, value], index) => { const width = 420 * value / max; const y = 78 + index * 105; return `<text class="chart-label" x="28" y="${y - 15}">${label}</text><rect class="chart-bar chart-bar-${index}" x="28" y="${y}" width="${width}" height="36"></rect><text class="chart-value" x="${42 + width}" y="${y + 25}">${value}</text>`; }).join("")}</svg>`;
+    }
+
+    function renderLineChart(experiment, id) {
+      const values = experiment.lineValues;
+      const max = Math.max(...values) * 1.15;
+      const points = values.map((value, index) => [55 + index * (500 / Math.max(values.length - 1, 1)), 230 - (value / max * 170)]);
+      return `<svg viewBox="0 0 620 300" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">Illustrative scaling relationship</title><desc id="${id}-desc">Placeholder line values for experiment planning; replace them with measured evidence after execution.</desc><line class="chart-axis" x1="55" y1="230" x2="570" y2="230"></line><line class="chart-axis" x1="55" y1="45" x2="55" y2="230"></line><polyline class="chart-line" points="${points.map((point) => point.join(",")).join(" ")}"></polyline>${points.map(([x, y], index) => `<circle class="chart-point" cx="${x}" cy="${y}" r="5"></circle><text class="chart-tick" x="${x}" y="255" text-anchor="middle">${experiment.lineLabels[index]}</text>`).join("")}</svg>`;
+    }
+
+    function renderMaturityChart(stages) {
+      return `<div class="enterprise-maturity-chart">${stages.map(([label, status], index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><strong>${label}</strong><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>`;
+    }
+
+    const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3>${title}</h3>${list(items)}</article>`;
+    const architectureDecisions = project.decisions.slice(0, 5).map(([title, why], index) => ({
+      title,
+      context: `Decision ${String(index + 1).padStart(2, "0")} addresses a constraint in the current reference design.`,
+      decision: title,
+      alternatives: index % 2 ? "A managed service or more operationally complex distributed component." : "A simpler file, manual, or tightly coupled implementation.",
+      why,
+      tradeoff: "The choice favors reproducibility and inspectability now; enterprise scale may require more operational complexity.",
+      reconsider: "Reconsider when volume, concurrency, latency, recovery, governance, or team ownership changes."
+    }));
+    const agentSafety = [["Missing evidence", "Return insufficient evidence; do not recommend action."], ["Contradictory evidence", "Surface the conflict and require human review."], ["Prompt injection in data", "Treat operational content as untrusted data; ignore embedded instructions."], ["Unauthorized request", "Deny the tool call through identity and policy checks."], ["Destructive action", "Require an allow-listed tool, elevated approval, and an audit record—or prohibit it."], ["Duplicate execution", "Use idempotency keys and return the prior result."], ["Stale data", "Block or qualify the recommendation using freshness policy."], ["Invalid structured output", "Reject against the schema and retry within a bounded budget."], ["Model unavailable / budget exceeded", "Fall back to the deterministic workflow without blocking core operation."]];
+
+    root.innerHTML = `
+      <a class="skip-link" href="#case-main">Skip to case study</a>
+      <header class="case-header"><nav class="case-nav" aria-label="Project case study navigation"><a class="case-brand" href="../index.html"><span aria-hidden="true">SK</span><b>Sourav Khandai — Data Engineering Portfolio</b></a><div><a href="../index.html">Home</a><a href="../index.html#projects">Projects</a><a href="#architecture">Architecture</a><a href="#evidence">Evidence</a><a href="#research-questions">Research</a></div></nav></header>
+      <main id="case-main">
+        <section class="project-hero enterprise-project-hero"><div class="case-shell"><p class="case-kicker">Data engineering case study · ${String(currentIndex + 1).padStart(2, "0")}</p><span class="case-status status-${statusClass}">${project.status}</span><h1>${project.title}</h1><p class="project-hero-subtitle">${project.subtitle}</p><p class="project-hero-boundary">Current evidence and local implementation are separated from production architecture direction throughout this case study.</p><div class="project-link-row">${repoLink}<a class="button button-secondary" href="#thinking-map">Thinking Map</a><a class="button button-secondary" href="#architecture">Architecture</a><a class="button button-secondary" href="#evidence">Evidence</a></div></div></section>
+
+        <section class="case-study-section thinking-map-section" id="thinking-map"><div class="case-shell"><div class="case-section-heading"><p>01 · Thinking map</p><h2>How I Am Thinking About This System</h2></div><p class="thinking-map-intro">The map explains why the system exists and which constraints shape it. Architecture explains how it works; the roadmap explains what exists next.</p><div class="thinking-map"><div class="thinking-map-center"><span>Project</span><strong>${thinkingMap.centralIdea}</strong></div><div class="thinking-map-branches">${mapBranch("Problem", thinkingMap.problem, "problem")}${mapBranch("Data", thinkingMap.data || profile.data, "data")}${mapBranch("Failure Modes", thinkingMap.risks, "risks")}${mapBranch("Architecture", thinkingMap.architecture, "architecture")}${mapBranch("Engineering", thinkingMap.engineering, "engineering")}${mapBranch("Evidence", thinkingMap.evidence, "evidence")}${mapBranch("Business Decision", thinkingMap.decision, "decision")}${mapBranch("Enterprise Concerns", profile.enterpriseConcerns, "enterprise")}${mapBranch("Future Research", thinkingMap.futureResearch, "research")}</div></div></div></section>
+
+        <section class="case-study-section case-shell" id="engineering-emphasis"><div class="case-section-heading"><p>02 · Quantitative profile</p><h2>Project Engineering Emphasis</h2></div><div class="chart-intro"><p>These editable 0–5 values describe the design emphasis of this project. They are not personal expertise ratings or measured outcomes.</p><span class="chart-state chart-state-illustrative">ILLUSTRATIVE</span></div><figure class="project-radar-chart">${renderRadarChart(emphasisData, "project-emphasis", `${project.title} engineering emphasis`)}<figcaption>Illustrative design emphasis · edit in <code>case-study.js</code>.</figcaption></figure></section>
+
+        <section class="case-study-section case-shell case-overview" id="problem"><div class="case-section-heading"><p>03 · Problem and context</p><h2>Problem and Business Context</h2></div><div class="case-prose">${project.problem.map((paragraph) => `<p>${paragraph}</p>`).join("")}</div><article class="why-panel"><span>Why this project</span><p>${project.why}</p></article></section>
+
+        <section class="case-study-section architecture-section" id="architecture"><div class="case-shell"><div class="case-section-heading"><p>04 · Technical system</p><h2>System Architecture</h2></div><div class="architecture-views"><article><span class="architecture-state">LOCAL / REFERENCE ARCHITECTURE</span>${flow(profile.localArchitecture, `${project.title} local architecture`)}</article><article><span class="architecture-state">ENTERPRISE EVOLUTION · NOT IMPLEMENTED</span>${flow(profile.enterpriseArchitecture, `${project.title} enterprise architecture direction`)}</article></div></div></section>
+
+        <section class="case-study-section case-shell" id="data-model"><div class="case-section-heading"><p>05 · Data model</p><h2>Data Model / Data Flow</h2></div><div class="data-model-grid"><div><p>${project.dataFlow}</p></div><ol>${profile.dataModel.map((item, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><p>${item}</p></li>`).join("")}</ol></div></section>
+
+        <section class="case-study-section adr-section" id="architecture-decisions"><div class="case-shell"><div class="case-section-heading"><p>06 · Lightweight ADR practice</p><h2>Architecture Decisions</h2></div><div class="adr-list">${architectureDecisions.map((adr, index) => `<article><header><span>ADR-${String(index + 1).padStart(3, "0")}</span><h3>${adr.title}</h3></header><dl><div><dt>Context</dt><dd>${adr.context}</dd></div><div><dt>Decision</dt><dd>${adr.decision}</dd></div><div><dt>Alternatives</dt><dd>${adr.alternatives}</dd></div><div><dt>Why chosen</dt><dd>${adr.why}</dd></div><div><dt>Trade-off</dt><dd>${adr.tradeoff}</dd></div><div><dt>Reconsider when</dt><dd>${adr.reconsider}</dd></div></dl></article>`).join("")}</div></div></section>
+
+        <section class="case-study-section case-shell" id="quality"><div class="case-section-heading"><p>07 · Trust boundary</p><h2>Data Quality and Reliability</h2></div><div class="enterprise-copy-grid"><article><h3>Data contracts and controls</h3><p>Source contracts define grain, required fields, types, allowed values, arrival expectations, and compatibility rules. Technical checks protect schema and integrity; business-rule checks protect domain meaning. Source-to-target reconciliation determines whether publication is safe.</p>${list(profile.quality, "quality-dimensions")}</article><article><h3>Failure Modes</h3><div class="failure-response-list">${profile.failureModes.map(([failure, response]) => `<div><strong>${failure}</strong><p>${response}</p></div>`).join("")}</div></article></div></section>
+
+        <section class="case-study-section security-section" id="security"><div class="case-shell"><div class="case-section-heading"><p>08 · Production requirement</p><h2>Security and Access Model</h2></div><p class="production-caveat">A production deployment would require the controls below. Their presence here is an architecture direction, not a compliance claim.</p>${list(profile.security, "security-control-grid")}</div></section>
+
+        <section class="case-study-section case-shell" id="observability"><div class="case-section-heading"><p>09 · Operating signals</p><h2>Operational Observability</h2></div><div class="observability-grid"><article><h3>Pipeline metrics</h3>${list(profile.observability.pipeline)}</article><article><h3>Infrastructure metrics</h3>${list(profile.observability.infrastructure)}</article><article><h3>Business metrics</h3>${list(profile.observability.business)}</article><article><h3>Operational evidence</h3>${list(profile.observability.evidence)}</article></div>${flow(["Data Event", "Pipeline Metric", "Alert", "Incident", "Evidence", "Owner", "Resolution"], "Operational observability sequence")}</section>
+
+        <section class="case-study-section exists-section" id="current-state"><div class="case-shell"><div class="case-section-heading"><p>10 · Evidence boundary</p><h2>What Exists Today</h2></div><div class="exists-grid"><article><span>Implemented</span>${list(existsToday.implemented.length ? existsToday.implemented : ["No implemented artifact is claimed yet."])}</article><article><span>Improving</span>${list(existsToday.improving.length ? existsToday.improving : ["Evidence depth is being strengthened."])}</article><article><span>Future</span>${list(existsToday.future)}</article></div></div></section>
+
+        <section class="case-study-section enterprise-direction-section" id="enterprise-direction"><div class="case-shell"><div class="case-section-heading"><p>11 · Production architecture direction</p><h2>How This Would Evolve in an Enterprise</h2></div><p class="enterprise-direction-lead">The current reference implementation proves the idea locally. Enterprise evolution changes the source integrations, state management, scale boundaries, ownership model, security controls, recovery objectives, and cost profile.</p><div class="enterprise-dimension-grid"><article><h3>Data sources &amp; ingestion</h3><p>ERP, CRM, MES, IoT, databases, SaaS APIs, queues, and object storage may require batch, CDC, streaming, incremental ingestion, replay, idempotency, retries, and dead-letter handling.</p></article><article><h3>Storage &amp; processing</h3><p>Object storage, lakehouse, warehouse, metadata database, or time-series storage should match access patterns. Spark or Flink may add partitioning, checkpointing, backpressure, shuffle controls, and horizontal scale.</p></article><article><h3>Orchestration &amp; recovery</h3><p>Airflow, Databricks Workflows, or cloud schedulers would manage dependencies, retries, reruns, SLAs, state recovery, and explicit rollback or forward-fix procedures.</p></article><article><h3>Ownership &amp; governance</h3><p>Named data owners, contracts, lineage, retention, sensitive-data handling, approval policy, and audit evidence make the platform operable across teams.</p></article></div><div class="enterprise-operating-grid"><article><h3>Service Objectives</h3><p>Illustrative design targets—not achieved results.</p>${list(profile.serviceObjectives)}</article><article><h3>Delivery and Change Management</h3>${list(profile.delivery)}</article><article><h3>Cost and Resource Considerations</h3>${list(profile.cost)}</article></div></div></section>
+
+        <section class="case-study-section experiment-section" id="experiment-plan"><div class="case-shell"><div class="case-section-heading"><p>12 · Quantitative evaluation</p><h2>Experiment Plan and Evidence</h2></div><div class="experiment-plan-grid"><article><span>Hypothesis</span><p>${profile.experiment.hypothesis}</p></article><article><span>Independent variables</span>${list(profile.experiment.variables)}</article><article><span>Acceptance boundary</span><p>Compare like-for-like workloads, preserve correctness checks, record hardware and configuration, and reject improvements that weaken data quality.</p></article></div><div class="chart-intro"><span class="chart-state chart-state-illustrative">ILLUSTRATIVE DEMO</span><p>${profile.experiment.illustrative ? "Illustrative values — replace after experiment." : "Measured result backed by experiment evidence."}</p></div><div class="experiment-chart-grid"><figure>${renderBarChart(profile.experiment, "experiment-bars")}<figcaption>Baseline versus candidate · ${profile.experiment.unit}</figcaption></figure><figure>${renderLineChart(profile.experiment, "experiment-line")}<figcaption>Scaling relationship · ${profile.experiment.unit}</figcaption></figure></div><div class="case-section-heading evidence-subheading"><p>Evidence inventory</p><h3>Charts and inspectable assets</h3></div><div class="evidence-grid case-evidence-grid" id="evidence">${project.evidence.map(([name, status, description]) => `<article><span class="evidence-status evidence-${status.toLowerCase().replaceAll(" ", "-")}">${status}</span><h3>${name}</h3><p>${description}</p></article>`).join("")}</div></div></section>
+
+        <section class="case-study-section case-shell" id="larger-scale"><div class="case-section-heading"><p>13 · Scale boundary</p><h2>What Breaks at Scale?</h2></div><p class="scale-intro">The reference design is not presented as production-ready. These concerns identify where the architecture must change.</p><ol class="scale-risk-list">${scaleRisks.map((risk, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><p>${risk}</p></li>`).join("")}</ol></section>
+
+        <section class="case-study-section research-questions-section" id="research-questions"><div class="case-shell"><div class="case-section-heading"><p>14 · Research</p><h2>Research Questions</h2></div><p class="research-bridge">Each question should become a hypothesis, baseline, controlled variable set, and quantitative evaluation—not a technology claim.</p><ol class="research-question-list">${researchQuestions.map((question, index) => `<li><span>RQ${String(index + 1).padStart(2, "0")}</span><p>${question}</p></li>`).join("")}</ol></div></section>
+
+        <section class="case-study-section case-shell" id="agentic-ai"><div class="case-section-heading"><p>15 · Governed extension</p><h2>Future Agentic AI</h2></div><blockquote class="agent-principle">Deterministic systems establish facts. Agents interpret evidence and recommend actions.</blockquote><div class="agentic-ai-panel"><ol class="agentic-flow" aria-label="Governed enterprise agent workflow">${agenticFlow.map((step) => `<li>${step}</li>`).join("")}</ol><div class="agent-plane-grid"><article><h3>Data Plane</h3>${list(["ingestion", "transformations", "quality", "models", "deterministic actions"])}</article><article><h3>Agent Plane</h3>${list(["reasoning", "retrieval", "planning", "recommendations", "tools"])}</article><article><h3>Governance Plane</h3>${list(["allow-list / deny-list", "permissions", "risk classification", "approval", "execution budget"])}</article><article><h3>Observability Plane</h3>${list(["prompt and model version", "evidence", "tool call", "decision / approval", "latency / cost"])}</article></div></div><div class="case-section-heading safety-heading"><p>Safety evaluation</p><h3>Expected agent behavior under failure</h3></div><div class="agent-safety-grid">${agentSafety.map(([test, expected]) => `<article><h4>${test}</h4><p>${expected}</p></article>`).join("")}</div></section>
+
+        <section class="case-study-section roadmap-section" id="roadmap"><div class="case-shell"><div class="case-section-heading"><p>16 · Execution / research roadmap</p><h2>Project Maturity</h2></div><p class="maturity-note">Project maturity describes implementation and evidence, not production readiness.</p>${renderMaturityChart(maturityData)}</div></section>
+
+        <section class="case-study-section value-section" id="value"><div class="case-shell"><div class="case-section-heading"><p>17 · Operating outcome</p><h2>Business / Operational Value</h2></div><div class="business-value-grid"><article><span>Problem Cost</span><p>${profile.business.problemCost}</p></article><article><span>Technical Intervention</span><p>${profile.business.intervention}</p></article><article><span>Operational Effect</span><p>${profile.business.effect}</p></article><article><span>Metric</span>${list(profile.business.metrics)}</article><article><span>Business Benefit</span><p>${profile.business.benefit}</p></article></div><div class="business-impact-model"><strong>Business Benefit</strong><span>=</span><p>Reduced Failure Cost + Reduced Delay Cost + Reduced Manual Investigation + Improved Asset Utilization + Improved Decision Quality − Compute Cost − Storage Cost − Operational Complexity</p></div></div></section>
+
+        <section class="case-study-section limitations-section" id="limitations"><div class="case-shell"><div class="case-section-heading"><p>18 · Boundaries</p><h2>Limitations</h2></div><div class="challenge-columns"><article><h3>Current limitations</h3>${list(project.challenges)}</article><article><h3>Next evidence required</h3>${list(project.futureChallenges)}</article></div></div></section>
+
+        <section class="case-study-section case-links-section" id="links"><div class="case-shell"><div class="case-section-heading"><p>19 · Continue</p><h2>Project links</h2></div><div class="project-link-row"><a class="button button-primary" href="../index.html#projects">Back to Project Gallery</a><a class="button button-secondary" href="../index.html">Portfolio Home</a>${repoLink}</div><nav class="case-pagination" aria-label="Other project case studies"><a href="${previousId}.html"><span>Previous case</span><b>${studies[previousId].title}</b></a><a href="${nextId}.html"><span>Next case</span><b>${studies[nextId].title}</b></a></nav></div></section>
+      </main>
+      <footer class="case-footer"><div class="case-shell"><p>Sourav Khandai — Data Engineering Portfolio</p><a href="../index.html#projects">Return to project map</a></div></footer>
+      <button class="back-to-top" type="button" data-enterprise-back-to-top aria-label="Back to top">↑</button>
+    `;
+
+    const backToTop = document.querySelector("[data-enterprise-back-to-top]");
+    const updateBackToTop = () => backToTop?.classList.toggle("is-visible", window.scrollY > 700);
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    updateBackToTop();
+    return;
+  }
 
   const order = Object.keys(studies);
   const projectId = document.body.dataset.projectId;

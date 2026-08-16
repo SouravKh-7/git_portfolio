@@ -13,6 +13,7 @@ assets/
 !assets/
 assets/*
 !assets/main.scss
+!assets/og.png
 
 # Publish the static project case-study pages while keeping other project files local.
 !projects/

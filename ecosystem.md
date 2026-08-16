@@ -32,6 +32,8 @@ The repositories are independent portfolio projects that share engineering patte
       <ul>
         <li>Health-Aware Robotic Fleet Optimization</li>
         <li>Autonomous Drone Concept <small>Archived predecessor</small></li>
+        <li>Supply Chain Digital Twin Research Lab</li>
+        <li>Database Performance and Workload Lab</li>
       </ul>
     </article>
   </div>

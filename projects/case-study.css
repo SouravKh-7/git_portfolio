@@ -145,14 +145,14 @@
 }
 
 .project-spec {
-  padding: 28px;
+  padding: 30px;
   color: var(--ink);
   background: var(--paper);
-  border-radius: 46% 46% var(--radius-lg) var(--radius-lg) / 16% 16% var(--radius-lg) var(--radius-lg);
+  border-radius: 44px 44px var(--radius-lg) var(--radius-lg);
 }
 
 .project-spec > div {
-  padding: 30px 8px 20px;
+  padding: 18px 10px 22px;
   border-bottom: 1px solid var(--line-light);
 }
 
@@ -282,21 +282,24 @@
 .thinking-map {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
   align-items: stretch;
 }
 
 .thinking-map-center {
   display: flex;
-  min-height: 100%;
+  width: min(100%, 720px);
+  min-height: 330px;
   min-width: 0;
+  margin-inline: auto;
   padding: clamp(36px, 4vw, 58px);
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   color: var(--cream);
   background: var(--moss);
-  border-radius: 48% 52% 47% 53% / 45% 48% 52% 55%;
+  border-radius: 50% 50% 47% 53% / 44% 47% 53% 56%;
   text-align: center;
 }
 
@@ -311,34 +314,43 @@
 }
 
 .thinking-map-center strong {
-  max-width: 13ch;
+  max-width: 18ch;
   margin-top: 18px;
   margin-inline: auto;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 2.7vw, 3.25rem);
+  font-size: clamp(2.1rem, 3.2vw, 3.65rem);
   font-weight: 400;
   line-height: 1.04;
   overflow-wrap: normal;
   text-wrap: balance;
 }
 
+.thinking-map-center-long strong { max-width: 22ch; font-size: clamp(1.85rem, 2.75vw, 3.15rem); }
+
 .thinking-map-branches {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 18px;
 }
+
+.thinking-map-branches::before { position: absolute; top: -26px; left: 50%; width: 1px; height: 26px; content: ""; background: var(--line-light); }
 
 .thinking-branch {
   position: relative;
   min-width: 0;
-  min-height: 210px;
-  padding: clamp(24px, 2.2vw, 32px);
+  min-height: 230px;
+  padding: clamp(30px, 2.6vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--paper);
   border: 1px solid var(--line-light);
-  border-radius: 46% 54% 48% 52% / 51% 47% 53% 49%;
+  border-radius: 40px 52px 44px 56px;
+  text-align: center;
 }
 
-.thinking-branch:nth-child(3n) { border-radius: 54% 46% 51% 49% / 45% 55% 47% 53%; }
+.thinking-branch:nth-child(3n) { border-radius: 54px 40px 56px 44px; }
 .thinking-branch:nth-child(even) { background: rgba(244, 242, 231, 0.74); }
 
 .thinking-branch h3 {
@@ -354,8 +366,11 @@
 }
 
 .thinking-branch h3.thinking-branch-title-long { font-size: clamp(0.7rem, 0.86vw, 0.82rem); }
+.thinking-branch-compact { padding: clamp(24px, 2vw, 32px); }
+.thinking-branch-compact h3 { margin-bottom: 14px; }
 
 .thinking-branch ul {
+  width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -368,6 +383,7 @@
   font-size: clamp(0.7rem, 0.75vw, 0.76rem);
   line-height: 1.48;
   overflow-wrap: break-word;
+  text-align: center;
 }
 
 .thinking-branch li:last-child { border-bottom: 0; }
@@ -1070,8 +1086,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .thinking-map { grid-template-columns: 1fr; }
-  .thinking-map-center { width: min(100%, 650px); min-height: 300px; margin-inline: auto; }
+  .thinking-map-center { width: min(100%, 650px); min-height: 300px; }
   .scale-risk-list, .research-question-list { grid-template-columns: repeat(2, 1fr); }
   .agentic-flow { grid-template-columns: repeat(4, 1fr); }
 
@@ -1142,7 +1157,8 @@
   .thinking-map-center { min-height: 240px; margin-bottom: 18px; padding: 38px 30px; }
   .thinking-map-center strong { font-size: clamp(1.75rem, 9vw, 2.8rem); }
   .thinking-map-branches { gap: 18px; }
-  .thinking-branch { min-height: 0; padding: 28px 30px; border-radius: 999px; }
+  .thinking-map-branches::before { top: -18px; height: 18px; }
+  .thinking-branch { min-height: 0; padding: 28px 30px; border-radius: 2rem; }
   .thinking-branch::before { position: absolute; top: -19px; left: 50%; width: 1px; height: 18px; content: ""; background: var(--line); }
   .thinking-branch h3 { max-width: none; margin-bottom: 14px; font-size: 0.78rem; }
   .thinking-branch h3.thinking-branch-title-long { font-size: 0.72rem; }

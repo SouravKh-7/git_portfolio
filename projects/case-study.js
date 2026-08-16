@@ -388,7 +388,10 @@
       return `<div class="enterprise-maturity-chart">${stages.map(([label, status], index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><strong>${label}</strong><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>`;
     }
 
-    const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3 class="thinking-branch-title${title.length > 16 ? " thinking-branch-title-long" : ""}">${title}</h3>${list(items)}</article>`;
+    const mapBranch = (title, items, className) => {
+      const isDense = items.length > 5 || items.join(" ").length > 260;
+      return `<article class="thinking-branch thinking-${className}${isDense ? " thinking-branch-compact" : ""}"><h3 class="thinking-branch-title${title.length > 16 ? " thinking-branch-title-long" : ""}">${title}</h3>${list(items)}</article>`;
+    };
     const architectureDecisions = project.decisions.slice(0, 5).map(([title, why], index) => ({
       title,
       context: `Decision ${String(index + 1).padStart(2, "0")} addresses a constraint in the current reference design.`,
@@ -406,7 +409,7 @@
       <main id="case-main">
         <section class="project-hero enterprise-project-hero"><div class="case-shell"><p class="case-kicker">Data engineering case study · ${String(currentIndex + 1).padStart(2, "0")}</p><span class="case-status status-${statusClass}">${project.status}</span><h1>${project.title}</h1><p class="project-hero-subtitle">${project.subtitle}</p><p class="project-hero-boundary">Current evidence and local implementation are separated from production architecture direction throughout this case study.</p><div class="project-link-row">${repoLink}<a class="button button-secondary" href="#thinking-map">Thinking Map</a><a class="button button-secondary" href="#architecture">Architecture</a><a class="button button-secondary" href="#evidence">Evidence</a></div></div></section>
 
-        <section class="case-study-section thinking-map-section" id="thinking-map"><div class="case-shell"><div class="case-section-heading"><p>01 · Thinking map</p><h2>How I Am Thinking About This System</h2></div><p class="thinking-map-intro">The map explains why the system exists and which constraints shape it. Architecture explains how it works; the roadmap explains what exists next.</p><div class="thinking-map"><div class="thinking-map-center"><span>Project</span><strong>${thinkingMap.centralIdea}</strong></div><div class="thinking-map-branches">${mapBranch("Problem", thinkingMap.problem, "problem")}${mapBranch("Data", thinkingMap.data || profile.data, "data")}${mapBranch("Failure Modes", thinkingMap.risks, "risks")}${mapBranch("Architecture", thinkingMap.architecture, "architecture")}${mapBranch("Engineering", thinkingMap.engineering, "engineering")}${mapBranch("Evidence", thinkingMap.evidence, "evidence")}${mapBranch("Business Decision", thinkingMap.decision, "decision")}${mapBranch("Enterprise Concerns", profile.enterpriseConcerns, "enterprise")}${mapBranch("Future Research", thinkingMap.futureResearch, "research")}</div></div></div></section>
+        <section class="case-study-section thinking-map-section" id="thinking-map"><div class="case-shell"><div class="case-section-heading"><p>01 · Thinking map</p><h2>How I Am Thinking About This System</h2></div><p class="thinking-map-intro">The map explains why the system exists and which constraints shape it. Architecture explains how it works; the roadmap explains what exists next.</p><div class="thinking-map"><div class="thinking-map-center${thinkingMap.centralIdea.length > 34 ? " thinking-map-center-long" : ""}"><span>Project</span><strong>${thinkingMap.centralIdea}</strong></div><div class="thinking-map-branches">${mapBranch("Problem", thinkingMap.problem, "problem")}${mapBranch("Data", thinkingMap.data || profile.data, "data")}${mapBranch("Failure Modes", thinkingMap.risks, "risks")}${mapBranch("Architecture", thinkingMap.architecture, "architecture")}${mapBranch("Engineering", thinkingMap.engineering, "engineering")}${mapBranch("Evidence", thinkingMap.evidence, "evidence")}${mapBranch("Business Decision", thinkingMap.decision, "decision")}${mapBranch("Enterprise Concerns", profile.enterpriseConcerns, "enterprise")}${mapBranch("Future Research", thinkingMap.futureResearch, "research")}</div></div></div></section>
 
         <section class="case-study-section case-shell" id="engineering-emphasis"><div class="case-section-heading"><p>02 · Quantitative profile</p><h2>Project Engineering Emphasis</h2></div><div class="chart-intro"><p>These editable 0–5 values describe the design emphasis of this project. They are not personal expertise ratings or measured outcomes.</p><span class="chart-state chart-state-illustrative">ILLUSTRATIVE</span></div><figure class="project-radar-chart">${renderRadarChart(emphasisData, "project-emphasis", `${project.title} engineering emphasis`)}<figcaption>Illustrative design emphasis · edit in <code>case-study.js</code>.</figcaption></figure></section>
 
@@ -494,7 +497,10 @@
   const researchQuestions = project.researchQuestions || project.futureChallenges.map((item) => `How should ${item.charAt(0).toLowerCase()}${item.slice(1)} be designed and evaluated?`).slice(0, 5);
   const agenticFlow = project.agenticFlow || ["Trusted Evidence", "Context Builder", "Agent", "Recommendation", "Policy Validation", "Human Approval", "Controlled Action"];
   const roadmap = project.roadmap || project.maturity;
-  const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3 class="thinking-branch-title${title.length > 16 ? " thinking-branch-title-long" : ""}">${title}</h3>${list(items)}</article>`;
+  const mapBranch = (title, items, className) => {
+    const isDense = items.length > 5 || items.join(" ").length > 260;
+    return `<article class="thinking-branch thinking-${className}${isDense ? " thinking-branch-compact" : ""}"><h3 class="thinking-branch-title${title.length > 16 ? " thinking-branch-title-long" : ""}">${title}</h3>${list(items)}</article>`;
+  };
 
   root.innerHTML = `
     <a class="skip-link" href="#case-main">Skip to case study</a>
@@ -528,7 +534,7 @@
           <div class="case-section-heading"><p>Thinking map</p><h2>How I Am Thinking About This System</h2></div>
           <p class="thinking-map-intro">This map explains why the system is structured this way. The architecture section below explains how data moves through it.</p>
           <div class="thinking-map" aria-label="Project thinking map for ${project.title}">
-            <div class="thinking-map-center"><span>Central idea</span><strong>${thinkingMap.centralIdea}</strong></div>
+            <div class="thinking-map-center${thinkingMap.centralIdea.length > 34 ? " thinking-map-center-long" : ""}"><span>Central idea</span><strong>${thinkingMap.centralIdea}</strong></div>
             <div class="thinking-map-branches">
               ${mapBranch("Problem", thinkingMap.problem, "problem")}
               ${mapBranch("Data", thinkingMap.data, "data")}

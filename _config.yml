@@ -17,6 +17,7 @@ plugins:
 collections:
   projects:
     output: true
+    permalink: /projects/:name.html
 
 portfolio:
   primary_identity: "Data Engineer"

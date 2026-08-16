@@ -33,6 +33,26 @@
       agenticLimits: ["Modify production data", "Approve fixes automatically", "Rerun pipelines without review", "Invent root causes without evidence", "Change pipeline logic without approval"],
       businessValue: "This project demonstrates data reliability, observability, source-to-target reconciliation, incident handling, audit evidence, and responsible AI-assisted workflow thinking.",
       evidence: [["Architecture documentation", "Available", "Source-to-review flow and technology trade-offs are documented."], ["Deterministic scenarios", "Available", "Baseline, missing-payment, and schema-drift paths are verified."], ["Quality and quarantine", "Available", "Contracts and invalid-record preservation are implemented."], ["Reconciliation output", "Available", "Counts and payment totals persist PASS, WARN, or FAIL evidence."], ["FastAPI interface", "Available", "Health, incidents, agent runs, approvals, and docs returned HTTP 200 locally."], ["Automated tests", "Available", "23 tests pass with 85% coverage across 585 statements."], ["CI and lint", "Available", "Ruff, tests, coverage, and Compose configuration checks pass."], ["Docker runtime", "Planned", "Container configuration exists; local runtime was not verified."]],
+      thinkingMap: {
+        centralIdea: "Data Reliability",
+        problem: ["Successful execution can still publish untrustworthy data."],
+        data: ["Files", "API-style payloads", "Operational records", "Metadata", "Pipeline-run information"],
+        risks: ["Stale sources", "Missing values", "Duplicate records", "Schema drift", "Broken business rules", "Source-to-target mismatch"],
+        architecture: ["Source", "Ingestion", "Validation", "Quarantine", "Reconciliation", "Evidence", "Review"],
+        engineering: ["Python", "Pandas / PyArrow", "Parquet", "DuckDB / PostgreSQL", "FastAPI", "Pytest", "Docker", "CI/CD", "Metadata logging"],
+        evidence: ["Validation results", "Rejected records", "Reconciliation status", "Run metadata", "Incident summary", "Approval record"],
+        decision: ["Should this dataset be published?", "Does the run require investigation?", "Is a controlled remediation safe to approve?"],
+        futureResearch: ["Distributed quality checks", "Operational lineage", "Policy-controlled remediation", "Drift-aware validation", "Agent evaluation over trusted evidence"]
+      },
+      existsToday: {
+        implemented: ["Local batch ingestion", "Schema and quality validation", "Quarantine preservation", "Source-to-target reconciliation", "Evidence-backed incidents", "FastAPI review endpoints", "Automated tests and CI"],
+        improving: ["Operational metadata durability", "Lineage and observability", "Failure-recovery evidence", "Runtime container verification"],
+        future: ["Authentication and RBAC", "Distributed execution", "Policy engine", "Governed agentic assistance", "Production telemetry"]
+      },
+      scaleRisks: ["Single-process metadata storage needs a transactional backend for concurrent writers.", "Local Parquet and DuckDB layouts need partitioning, retention, compaction, and ownership rules.", "Quality checks need distributed execution and resource controls as data volume and rule count grow.", "Lineage, metrics, traces, alert routing, and recovery records must become operational services.", "Authentication, role-based access, secrets, and approval policies must protect every consequential action."],
+      researchQuestions: ["How can quality evidence remain traceable across distributed processing stages?", "Which reconciliation controls reveal partial success without creating excessive alert noise?", "How should validation rules adapt to drift while preserving a stable trust boundary?", "What context is sufficient for an agent to explain an incident without accessing uncontrolled raw data?", "Which policy and approval controls are required before a recommendation can become a controlled action?"],
+      agenticFlow: ["Trusted Evidence", "Context Builder", "Agent", "Recommendation", "Policy Validation", "Human Approval", "Controlled Action"],
+      roadmap: [["Problem Framing", "Done"], ["Deterministic Reference Path", "Done"], ["Evidence and Incident API", "Done"], ["Operational Metadata", "Improving"], ["Distributed Reliability Research", "Next"], ["Governed Agentic Extension", "Future"]],
       repo: "https://github.com/SouravKh-7/ai-data-reliability-platform"
     },
     "pipeline-optimization": {
@@ -181,6 +201,27 @@
     : `<span class="case-link-placeholder">GitHub case-study repository planned</span>`;
 
   const list = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+  const thinkingMap = project.thinkingMap || {
+    centralIdea: project.focus[0],
+    problem: project.problem.slice(0, 1),
+    data: ["Domain records", "Operational metadata", "Generated or public inputs"],
+    risks: project.challenges.slice(0, 5),
+    architecture: project.flow,
+    engineering: project.tools,
+    evidence: project.evidence.slice(0, 6).map(([name]) => name),
+    decision: [project.businessValue],
+    futureResearch: project.futureChallenges.slice(0, 5)
+  };
+  const existsToday = project.existsToday || {
+    implemented: project.evidence.filter(([, status]) => ["Available", "Demonstrated", "Done"].includes(status)).map(([name]) => name),
+    improving: project.evidence.filter(([, status]) => ["In progress", "Available"].includes(status)).slice(0, 5).map(([name]) => name),
+    future: project.futureChallenges.slice(0, 5)
+  };
+  const scaleRisks = project.scaleRisks || project.futureChallenges;
+  const researchQuestions = project.researchQuestions || project.futureChallenges.map((item) => `How should ${item.charAt(0).toLowerCase()}${item.slice(1)} be designed and evaluated?`).slice(0, 5);
+  const agenticFlow = project.agenticFlow || ["Trusted Evidence", "Context Builder", "Agent", "Recommendation", "Policy Validation", "Human Approval", "Controlled Action"];
+  const roadmap = project.roadmap || project.maturity;
+  const mapBranch = (title, items, className) => `<article class="thinking-branch thinking-${className}"><h3>${title}</h3>${list(items)}</article>`;
 
   root.innerHTML = `
     <a class="skip-link" href="#case-main">Skip to case study</a>
@@ -199,13 +240,33 @@
             <span class="case-status status-${statusClass}">${project.status}</span>
             <h1>${project.title}</h1>
             <p class="project-hero-subtitle">${project.subtitle}</p>
-            <div class="project-link-row"><a class="button button-primary" href="#architecture">View Architecture</a><a class="button button-secondary" href="#demo-plan">Demo Plan</a>${repoLink}</div>
+            <div class="project-link-row">${repoLink}<a class="button button-secondary" href="#architecture">View Architecture</a><a class="button button-secondary" href="#evidence">View Evidence</a><a class="button button-secondary" href="../index.html">Back to Portfolio</a></div>
           </div>
           <aside class="project-spec" aria-label="Project technical focus">
             <div><span>Focus</span><ul>${project.focus.map((item) => `<li>${item}</li>`).join("")}</ul></div>
             <div><span>Free / local tools</span><ul>${project.tools.map((item) => `<li>${item}</li>`).join("")}</ul></div>
             <p>This page explains the project problem, architecture, decisions, evidence, and maturity. Setup and implementation commands remain in the repository README.</p>
           </aside>
+        </div>
+      </section>
+
+      <section class="case-study-section thinking-map-section" id="thinking-map">
+        <div class="case-shell">
+          <div class="case-section-heading"><p>Thinking map</p><h2>How I Am Thinking About This System</h2></div>
+          <p class="thinking-map-intro">This map explains why the system is structured this way. The architecture section below explains how data moves through it.</p>
+          <div class="thinking-map" aria-label="Project thinking map for ${project.title}">
+            <div class="thinking-map-center"><span>Central idea</span><strong>${thinkingMap.centralIdea}</strong></div>
+            <div class="thinking-map-branches">
+              ${mapBranch("Problem", thinkingMap.problem, "problem")}
+              ${mapBranch("Data", thinkingMap.data, "data")}
+              ${mapBranch("Risks", thinkingMap.risks, "risks")}
+              ${mapBranch("Architecture", thinkingMap.architecture, "architecture")}
+              ${mapBranch("Engineering", thinkingMap.engineering, "engineering")}
+              ${mapBranch("Evidence", thinkingMap.evidence, "evidence")}
+              ${mapBranch("Decision", thinkingMap.decision, "decision")}
+              ${mapBranch("Future Research", thinkingMap.futureResearch, "research")}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -217,33 +278,44 @@
 
       <section class="case-study-section architecture-section" id="architecture">
         <div class="case-shell">
-          <div class="case-section-heading"><p>02 · Architecture</p><h2>Data engineering architecture</h2></div>
+          <div class="case-section-heading"><p>02 · Architecture</p><h2>System Architecture</h2></div>
           <div class="architecture-flow" aria-label="${project.title} architecture flow">${project.flow.map((step, index) => `${index ? '<i aria-hidden="true">→</i>' : ""}<div class="flow-step"><span>${String(index + 1).padStart(2, "0")}</span><b>${step}</b></div>`).join("")}</div>
           <div class="data-flow-explanation"><span>Data flow explanation</span><p>${project.dataFlow}</p></div>
         </div>
       </section>
 
       <section class="case-study-section case-shell" id="design-decisions">
-        <div class="case-section-heading"><p>03 · Design</p><h2>Technical design decisions</h2></div>
+        <div class="case-section-heading"><p>03 · Design</p><h2>Engineering Decisions</h2></div>
         <div class="design-decision-grid">${project.decisions.map(([title, description], index) => `<article class="design-decision-card"><span>${String(index + 1).padStart(2, "0")}</span><h3>${title}</h3><p>${description}</p></article>`).join("")}</div>
+      </section>
+
+      <section class="case-study-section exists-section" id="current-state">
+        <div class="case-shell">
+          <div class="case-section-heading"><p>04 · Evidence boundary</p><h2>What Exists Today</h2></div>
+          <div class="exists-grid">
+            <article><span>Implemented</span>${list(existsToday.implemented.length ? existsToday.implemented : ["No implemented artifact is claimed yet."])}</article>
+            <article><span>Improving</span>${list(existsToday.improving.length ? existsToday.improving : ["Evidence and implementation depth are being strengthened."])}</article>
+            <article><span>Future</span>${list(existsToday.future)}</article>
+          </div>
+        </div>
       </section>
 
       <section class="case-study-section demo-plan-section" id="demo-plan">
         <div class="case-shell demo-plan-grid">
-          <div class="case-section-heading"><p>04 · Reproducible demonstration</p><h2>Demo plan using free and local resources</h2></div>
+          <div class="case-section-heading"><p>05 · Reproducible demonstration</p><h2>Demo plan using free and local resources</h2></div>
           <div><p>${project.demoPlan}</p><ul class="tool-list">${project.tools.map((item) => `<li>${item}</li>`).join("")}</ul></div>
         </div>
       </section>
 
       <section class="case-study-section case-shell" id="maturity">
-        <div class="case-section-heading"><p>05 · Current state</p><h2>Project maturity record</h2></div>
+        <div class="case-section-heading"><p>06 · Roadmap</p><h2>Project maturity record</h2></div>
         <p class="maturity-note">Each labeled state is supported by the evidence section below; this is not a percentage or a production-readiness claim.</p>
-        <div class="maturity-list">${project.maturity.map(([name, status], index) => `<article><span>${String(index + 1).padStart(2, "0")} · ${name}</span><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>
+        <div class="maturity-list">${roadmap.map(([name, status], index) => `<article><span>${String(index + 1).padStart(2, "0")} · ${name}</span><b class="maturity-${status.toLowerCase().replaceAll(" ", "-")}">${status}</b></article>`).join("")}</div>
       </section>
 
       <section class="case-study-section challenge-section" id="challenges">
         <div class="case-shell">
-          <div class="case-section-heading"><p>06 · Engineering reality</p><h2>Challenges faced and future challenges</h2></div>
+          <div class="case-section-heading"><p>07 · Engineering reality</p><h2>Challenges faced and future challenges</h2></div>
           <div class="challenge-columns">
             <article><h3>Challenges faced</h3>${list(project.challenges)}</article>
             <article><h3>Future challenges</h3>${list(project.futureChallenges)}</article>
@@ -251,24 +323,37 @@
         </div>
       </section>
 
+      <section class="case-study-section case-shell" id="larger-scale">
+        <div class="case-section-heading"><p>08 · Scale</p><h2>What Breaks at Larger Scale?</h2></div>
+        <p class="scale-intro">The local design is useful for demonstrating the trust boundary. These are the first constraints I would revisit before calling it a production platform.</p>
+        <ol class="scale-risk-list">${scaleRisks.map((risk, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><p>${risk}</p></li>`).join("")}</ol>
+      </section>
+
+      <section class="case-study-section research-questions-section" id="research-questions">
+        <div class="case-shell">
+          <div class="case-section-heading"><p>09 · Research</p><h2>Research Questions</h2></div>
+          <ol class="research-question-list">${researchQuestions.map((question, index) => `<li><span>RQ${String(index + 1).padStart(2, "0")}</span><p>${question}</p></li>`).join("")}</ol>
+        </div>
+      </section>
+
       <section class="case-study-section case-shell" id="agentic-ai">
-        <div class="case-section-heading"><p>07 · Controlled extension</p><h2>Future Agentic AI extension</h2></div>
-        <div class="agentic-ai-panel"><p>${sharedAgenticIntro}</p><div><article><h3>Assistant can help with</h3>${list(project.agenticHelp)}</article><article><h3>Assistant should not</h3>${list(project.agenticLimits)}</article></div></div>
+        <div class="case-section-heading"><p>10 · Controlled extension</p><h2>Future Agentic AI Extension</h2></div>
+        <div class="agentic-ai-panel"><p>${sharedAgenticIntro}</p><ol class="agentic-flow" aria-label="Governed agentic AI workflow">${agenticFlow.map((step) => `<li>${step}</li>`).join("")}</ol><div><article><h3>Allowed assistance</h3>${list(project.agenticHelp)}</article><article><h3>Prohibited actions</h3>${list(project.agenticLimits)}</article></div></div>
       </section>
 
       <section class="case-study-section value-section" id="value">
-        <div class="case-shell value-grid"><div class="case-section-heading"><p>08 · Project value</p><h2>Business and hiring value</h2></div><blockquote>${project.businessValue}</blockquote></div>
+        <div class="case-shell value-grid"><div class="case-section-heading"><p>11 · Project value</p><h2>Business and hiring value</h2></div><blockquote>${project.businessValue}</blockquote></div>
       </section>
 
       <section class="case-study-section case-shell" id="evidence">
-        <div class="case-section-heading"><p>09 · Evidence</p><h2>Evidence and Demo Assets</h2></div>
+        <div class="case-section-heading"><p>12 · Evidence</p><h2>Evidence and Demo Assets</h2></div>
         <p class="evidence-intro">Evidence is labeled honestly. Planned items are not presented as complete.</p>
         <div class="evidence-grid case-evidence-grid">${project.evidence.map(([name, status, description]) => `<article><span class="evidence-status evidence-${status.toLowerCase().replaceAll(" ", "-")}">${status}</span><h3>${name}</h3><p>${description}</p></article>`).join("")}</div>
       </section>
 
       <section class="case-study-section case-links-section" id="links">
         <div class="case-shell">
-          <div class="case-section-heading"><p>10 · Continue</p><h2>Project links</h2></div>
+          <div class="case-section-heading"><p>13 · Continue</p><h2>Project links</h2></div>
           <div class="project-link-row"><a class="button button-primary" href="../index.html#projects">Back to Project Gallery</a><a class="button button-secondary" href="../index.html">Portfolio Home</a>${repoLink}</div>
           <nav class="case-pagination" aria-label="Other project case studies"><a href="${previousId}.html"><span>Previous case</span><b>${previous.title}</b></a><a href="${nextId}.html"><span>Next case</span><b>${next.title}</b></a></nav>
         </div>

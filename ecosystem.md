@@ -6,24 +6,36 @@ permalink: /ecosystem/
 
 The repositories are independent portfolio projects that share engineering patterns. They are not presented as one deployed, integrated system.
 
-```mermaid
-flowchart TD
-    P[git_portfolio<br/>Portfolio Home]
-
-    P --> F[Data Platforms and Reliability]
-    P --> D[Industrial and Business Data Products]
-    P --> R[Research and Optimization]
-
-    F --> A[AI-Assisted Data Reliability Platform]
-    F --> O[Data Pipeline Optimization Framework]
-
-    D --> I[Industrial Service Intelligence Platform]
-    D --> T[Retail Sales and Inventory Platform]
-    I --> M[Root-Cause Decision Support Module]
-
-    R --> H[Health-Aware Robotic Fleet Optimization]
-    H --> X[Autonomous Drone Concept<br/>Archived Predecessor]
-```
+<section class="ecosystem-map" aria-label="Portfolio project ecosystem">
+  <header>
+    <span>Portfolio home</span>
+    <strong>git_portfolio</strong>
+  </header>
+  <div>
+    <article>
+      <h2>Data Platforms and Reliability</h2>
+      <ul>
+        <li>AI-Assisted Data Reliability Platform</li>
+        <li>Data Pipeline Optimization Framework</li>
+      </ul>
+    </article>
+    <article>
+      <h2>Industrial and Business Data Products</h2>
+      <ul>
+        <li>Industrial Service Intelligence Platform</li>
+        <li>Root-Cause Decision Support Module</li>
+        <li>Retail Sales and Inventory Platform</li>
+      </ul>
+    </article>
+    <article>
+      <h2>Research and Optimization</h2>
+      <ul>
+        <li>Health-Aware Robotic Fleet Optimization</li>
+        <li>Autonomous Drone Concept <small>Archived predecessor</small></li>
+      </ul>
+    </article>
+  </div>
+</section>
 
 ## Shared Patterns
 

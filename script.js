@@ -5,8 +5,7 @@
   // can be updated without changing the page structure.
   const portfolio = {
     navigation: [
-      ["Introduction", "introduction"], ["Philosophy", "philosophy"], ["Process", "process"],
-      ["Case study", "case-study"], ["Projects", "projects"], ["Progress", "progress"],
+      ["Home", "introduction"], ["Thinking", "thinking"], ["Projects", "projects"], ["Progress", "progress"],
       ["Research", "research"], ["System design", "architecture"], ["Contact", "contact"]
     ],
     process: [
@@ -50,6 +49,10 @@
         maturity: "Verified local reference implementation",
         area: "Data reliability and platform engineering",
         href: "projects/ai-data-reliability.html",
+        architecture: "Source → ingestion → validation → quarantine → reconciliation → evidence → review",
+        research: "Distributed quality checks, lineage, and policy-controlled remediation.",
+        next: "Strengthen operational metadata, observability, and failure-recovery evidence.",
+        repo: "https://github.com/SouravKh-7/ai-data-reliability-platform",
         filters: ["active", "reference"]
       },
       {
@@ -59,6 +62,10 @@
         maturity: "Active development",
         area: "Performance, benchmarking, and reliability",
         href: "projects/pipeline-optimization.html",
+        architecture: "Controlled workload → baseline → experiment → correctness check → comparison",
+        research: "How performance changes behave under skew, partitions, and larger workloads.",
+        next: "Publish reproducible before-and-after measurements.",
+        repo: "https://github.com/SouravKh-7/data-pipeline-optimization-framework",
         filters: ["active", "research"]
       },
       {
@@ -68,6 +75,10 @@
         maturity: "Active development",
         area: "Industrial data products and operational intelligence",
         href: "projects/industrial-service-intelligence.html",
+        architecture: "Service sources → validation → conformed model → KPIs → decision support",
+        research: "Industrial service models, asset context, and traceable operational decisions.",
+        next: "Complete and document the MVP and trusted service metrics.",
+        repo: "https://github.com/SouravKh-7/industrial-service-intelligence-platform",
         filters: ["active"]
       },
       {
@@ -77,6 +88,10 @@
         maturity: "Design and research blueprint",
         area: "Operations research and intelligent systems",
         href: "projects/robotic-fleet-optimization.html",
+        architecture: "Fleet state + tasks → constraints → scheduler → simulation → reviewed decision",
+        research: "Health-aware scheduling, routing, workload balance, and operational risk.",
+        next: "Build a simulator and deterministic optimization baseline.",
+        repo: "https://github.com/SouravKh-7/health-aware-robotic-fleet-optimization",
         filters: ["research", "blueprint"]
       },
       {
@@ -86,6 +101,10 @@
         maturity: "Evolving into another project",
         area: "Manufacturing evidence and human review",
         href: "projects/manufacturing-root-cause.html",
+        architecture: "Manufacturing events → contextual joins → quality checks → evidence → engineer review",
+        research: "Traceable root-cause hypotheses without autonomous cause claims.",
+        next: "Consolidate the evidence workflow into the industrial platform.",
+        repo: "https://github.com/SouravKh-7/manufacturing-root-cause-analysis-assistant",
         filters: ["research", "parked"]
       },
       {
@@ -95,6 +114,10 @@
         maturity: "Parked",
         area: "Business data products",
         href: "projects/retail-inventory-intelligence.html",
+        architecture: "Sales + inventory → validated facts → metrics → decision view",
+        research: "Domain transfer of reliable data-product patterns.",
+        next: "Remain parked until the core portfolio evidence is stronger.",
+        repo: "https://github.com/SouravKh-7/retail-sales-inventory-intelligence",
         filters: ["parked"]
       },
       {
@@ -104,6 +127,10 @@
         maturity: "Archived and evolved",
         area: "Routing and asset-health research",
         href: "projects/robotic-fleet-optimization.html",
+        architecture: "Asset health + mission constraints → route options → risk-aware review",
+        research: "Historical precursor to broader fleet optimization work.",
+        next: "Retain as research history; continue in the fleet project.",
+        repo: "https://github.com/SouravKh-7/health-aware-autonomous-drone-system",
         filters: ["research", "parked"]
       },
       {
@@ -113,6 +140,9 @@
         maturity: "Building",
         area: "Product thinking and industrial operations",
         href: "projects/business-case-studies.html",
+        architecture: "User problem → assumptions → data needs → metrics → recommendation",
+        research: "How technical architecture connects to value, risk, and adoption.",
+        next: "Publish the first evidence-labeled case study.",
         filters: ["active"]
       },
       {
@@ -122,6 +152,9 @@
         maturity: "Planned",
         area: "Data and AI product strategy",
         href: "projects/business-case-studies.html",
+        architecture: "Evidence → user need → controls → metrics → delivery decision",
+        research: "Governed AI product decisions built on data reliability.",
+        next: "Publish the first note using a real portfolio project.",
         filters: ["blueprint"]
       }
     ],
@@ -250,7 +283,29 @@
   const filterStatus = document.querySelector("[data-filter-status]");
   if (projectFilters && projectIndex) {
     projectFilters.innerHTML = portfolio.filters.map(([value, label], index) => `<button type="button" data-filter="${value}" aria-pressed="${index === 0}">${label}</button>`).join("");
-    projectIndex.innerHTML = portfolio.projects.map((project, index) => `<li class="project-row reveal" data-project data-filters="${project.filters.join(" ")}"><span class="project-number">${pad(index + 1)}</span><div class="project-copy"><h3>${project.title}</h3><p>${project.description}</p><p class="project-problem"><strong>Problem being explored:</strong> ${project.problem}</p></div><div class="project-meta"><span>${project.area}</span><strong>${project.maturity}</strong></div><a href="${project.href}" aria-label="Read more about ${project.title}">Read project →</a></li>`).join("");
+    projectIndex.innerHTML = portfolio.projects.map((project, index) => {
+      const repoLink = project.repo ? `<a href="${project.repo}" target="_blank" rel="noreferrer">View Repo <span aria-hidden="true">↗</span></a>` : "";
+      return `<li class="project-row reveal" data-project data-filters="${project.filters.join(" ")}">
+        <span class="project-number">${pad(index + 1)}</span>
+        <div class="project-copy">
+          <div class="project-heading"><h3>${project.title}</h3><span class="project-status">${project.maturity}</span></div>
+          <p>${project.description}</p>
+          <dl class="project-thinking-preview">
+            <div><dt>Problem</dt><dd>${project.problem}</dd></div>
+            <div><dt>Architecture</dt><dd>${project.architecture}</dd></div>
+            <div><dt>Research direction</dt><dd>${project.research}</dd></div>
+            <div><dt>Next milestone</dt><dd>${project.next}</dd></div>
+          </dl>
+          <nav class="project-actions" aria-label="Explore ${project.title}">
+            <a href="${project.href}">Case Study <span aria-hidden="true">→</span></a>
+            <a href="${project.href}#architecture">Architecture <span aria-hidden="true">→</span></a>
+            <a href="${project.href}#research-questions">Research Questions <span aria-hidden="true">→</span></a>
+            ${repoLink}
+          </nav>
+        </div>
+        <div class="project-meta"><span>${project.area}</span></div>
+      </li>`;
+    }).join("");
   }
 
   const workStates = document.querySelector("[data-work-states]");

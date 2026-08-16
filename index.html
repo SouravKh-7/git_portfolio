@@ -33,71 +33,76 @@
 
     <main id="main-content">
       <section class="introduction page-section" id="introduction" aria-labelledby="introduction-title">
-        <div class="page-shell intro-layout">
-          <div class="intro-copy reveal">
-            <p class="context-line">Data engineering · Industrial systems · Reliable AI</p>
-            <h1 id="introduction-title">I build reliable data systems for complex operational environments.</h1>
-            <div class="reading-copy intro-reading">
-              <p>My work sits across data engineering, industrial systems, operational intelligence, architecture, and carefully controlled AI-assisted workflows. I am interested in the difficult middle of a system: where raw operational records must become information that people can actually trust.</p>
-              <p>This portfolio documents more than completed code. It explains why a problem was selected, how the data moves, where the system can fail, what controls protect the output, what evidence exists today, what remains incomplete, and what I intend to improve next.</p>
-            </div>
-            <div class="intro-actions">
-              <a class="primary-action" href="#case-study">Read the flagship case study</a>
-              <a class="text-action" href="#projects">Explore the project index <span aria-hidden="true">↓</span></a>
-            </div>
-          </div>
-          <figure class="intro-figure reveal">
-            <figcaption>My recurring engineering question</figcaption>
-            <div class="intro-flow" aria-label="Source data moves through engineering controls to evidence and a human decision">
-              <span><small>01</small>Source data</span><i aria-hidden="true">→</i><span><small>02</small>Engineering controls</span><i aria-hidden="true">→</i><span><small>03</small>Evidence</span><i aria-hidden="true">→</i><span><small>04</small>Human decision</span>
-            </div>
-            <blockquote>How do we know the output is ready to be used?</blockquote>
-          </figure>
+        <div class="page-shell hero-simple">
+          <p class="hero-name reveal">Sourav Khandai</p>
+          <p class="context-line reveal">Data Platforms · Reliability · Distributed Systems · Operations Research · Industrial Intelligence · AI-Ready Systems</p>
+          <h1 id="introduction-title" class="reveal">I build reliable data systems for operational problems.</h1>
+          <p class="hero-support reveal">I work across data engineering, distributed systems, industrial data, optimization, simulation, and controlled AI-assisted workflows.</p>
+          <p class="hero-introduction reveal">This portfolio is where I document not only what I build, but how I reason about the problem, the data, the architecture, the failure modes, the engineering trade-offs, and the evidence behind the result.</p>
+          <nav class="hero-actions reveal" aria-label="Portfolio entry points">
+            <a class="primary-action" href="#projects">Explore Projects</a>
+            <a href="#thinking">See How I Think</a>
+            <a href="#research-direction">Research &amp; Experiments</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
       </section>
 
-      <section class="page-section philosophy" id="philosophy" aria-labelledby="philosophy-title">
-        <div class="page-shell">
-          <header class="section-heading reveal">
-            <p class="section-number">01 · Central idea</p>
-            <h2 id="philosophy-title">Why reliability comes before intelligence</h2>
-            <p class="section-lead">A pipeline is not useful merely because it completed. Its output must also be trustworthy, explainable, reproducible, and useful to the people who depend on it.</p>
-          </header>
-          <div class="reading-copy philosophy-copy reveal">
-            <p>Moving data is only one part of the engineering problem. The harder work is defining what correct means, recording how the data changed, identifying where assumptions can break, and making failures visible before the output reaches a report, an operational workflow, or an AI application.</p>
-            <p>That is why the projects in this portfolio separate implementation from evidence. A technical design may describe the intended system, but the maturity label, verification notes, limitations, and next milestone explain what has actually been demonstrated.</p>
-          </div>
-          <ol class="principle-passages">
-            <li class="reveal"><span>01</span><div><h3>Reliable foundations</h3><p>Validation, reproducibility, reconciliation, lineage, and quality controls establish a visible boundary between raw inputs and a trusted data product. The design should make it possible to rerun the work, inspect rejected records, and explain why an output passed or failed.</p></div></li>
-            <li class="reveal"><span>02</span><div><h3>Operational understanding</h3><p>Technical outputs become useful when they are shaped for a real decision. Depending on the problem, that may mean a report, an alert, an API, a dashboard, or a workflow that helps an operator understand what changed and what needs attention.</p></div></li>
-            <li class="reveal"><span>03</span><div><h3>Human-controlled automation</h3><p>Automation and AI can organize evidence, explain failed checks, and suggest investigation questions. They should remain grounded in recorded facts, operate inside explicit boundaries, and leave consequential action with accountable people.</p></div></li>
+      <section class="thought-flow-section" aria-labelledby="thought-flow-title">
+        <div class="page-shell thought-flow-layout reveal">
+          <div><p class="passage-label">Project thought flow</p><h2 id="thought-flow-title">From an operating question to an explainable decision.</h2><p>Most of my work starts with an operational problem and moves toward trusted data, measurable evidence, and a decision that can be explained.</p></div>
+          <ol class="compact-thought-flow" aria-label="Problem, data, architecture, evidence, decision">
+            <li><span>01</span><strong>Problem</strong></li>
+            <li><span>02</span><strong>Data</strong></li>
+            <li><span>03</span><strong>Architecture</strong></li>
+            <li><span>04</span><strong>Evidence</strong></li>
+            <li><span>05</span><strong>Decision</strong></li>
           </ol>
-          <p class="continuity-note reveal">The next question is how those principles change the way I approach an engineering problem.</p>
         </div>
       </section>
 
-      <section class="page-section process" id="process" aria-labelledby="process-title">
+      <section class="page-section philosophy" id="thinking" aria-labelledby="thinking-title">
         <div class="page-shell">
           <header class="section-heading reveal">
-            <p class="section-number">02 · Working method</p>
-            <h2 id="process-title">How I move from an operational problem to a trusted decision</h2>
-            <p class="section-lead">I select the technology only after defining the user, the decision, the available data, and the failure modes that could make the result misleading.</p>
+            <p class="section-number">01 · Engineering approach</p>
+            <h2 id="thinking-title">How I Think About Data Systems</h2>
+            <p class="section-lead">For each project, I begin with the problem and the expected decision. I then identify the source data, failure modes, quality risks, processing requirements, storage model, observability needs, and the final serving or decision layer. Only after the deterministic system works do I consider adding AI assistance.</p>
           </header>
-          <div class="process-layout">
-            <aside class="process-map" aria-label="Six stages from problem to decision">
-              <p>Problem to decision</p>
-              <ol data-process-map></ol>
-            </aside>
-            <ol class="process-passages" data-process-stages></ol>
-          </div>
-          <p class="continuity-note reveal">The process is straightforward when every control passes. The more difficult question is what happens when the pipeline succeeds but the data is still wrong.</p>
+          <ol class="system-thinking-flow reveal" aria-label="Engineering thought process from operational problem to future AI extension">
+            <li><span>01</span><strong>Operational Problem</strong><small>Define the user and decision.</small></li>
+            <li><span>02</span><strong>Source Data</strong><small>Map grain, arrival, and ownership.</small></li>
+            <li><span>03</span><strong>Failure Modes</strong><small>Identify what can mislead the result.</small></li>
+            <li><span>04</span><strong>Data Model</strong><small>Give records stable meaning.</small></li>
+            <li><span>05</span><strong>Pipeline Design</strong><small>Choose movement and storage deliberately.</small></li>
+            <li><span>06</span><strong>Quality &amp; Reconciliation</strong><small>Prove completeness and correctness.</small></li>
+            <li><span>07</span><strong>Observability</strong><small>Make health and uncertainty visible.</small></li>
+            <li><span>08</span><strong>Serving Layer</strong><small>Shape the output for its consumer.</small></li>
+            <li><span>09</span><strong>Decision</strong><small>Keep authority explicit.</small></li>
+            <li><span>10</span><strong>Future AI Extension</strong><small>Add assistance only over trusted evidence.</small></li>
+          </ol>
+          <p class="continuity-note reveal">The architecture is not the starting point. It is the consequence of understanding the problem, data, risks, and decision boundary.</p>
+        </div>
+      </section>
+
+      <section class="research-direction" id="research-direction" aria-labelledby="research-direction-title">
+        <div class="page-shell">
+          <header class="research-direction-heading reveal"><p class="section-number">02 · Current research direction</p><h2 id="research-direction-title">From trustworthy foundations toward governed autonomy.</h2></header>
+          <ol class="research-direction-flow reveal">
+            <li><strong>Reliable Data Platforms</strong><span>Make data quality, reconciliation, and recovery inspectable.</span></li>
+            <li><strong>Distributed Processing</strong><span>Study scale, partitioning, coordination, and failure behaviour.</span></li>
+            <li><strong>Industrial Data Products</strong><span>Connect trusted models to service and operational decisions.</span></li>
+            <li><strong>Optimization &amp; Simulation</strong><span>Compare decisions under explicit objectives and constraints.</span></li>
+            <li><strong>Autonomous Operations</strong><span>Explore systems that act while preserving safety boundaries.</span></li>
+            <li><strong>Governed Agentic AI</strong><span>Keep tools, evidence, policy, and approval outside model authority.</span></li>
+          </ol>
+          <a class="research-entry-link reveal" href="roadmap/">Open Research &amp; Experiments <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
       <section class="problem-transition" aria-labelledby="transition-title">
         <div class="page-shell transition-layout">
           <div class="reveal">
-            <p class="section-number">03 · The hidden failure</p>
+            <p class="section-number">03 · Flagship problem</p>
             <h2 id="transition-title">The pipeline completed successfully. The data was still wrong.</h2>
           </div>
           <div class="reading-copy reveal">
@@ -110,7 +115,7 @@
       <section class="page-section case-study" id="case-study" aria-labelledby="case-study-title">
         <div class="page-shell">
           <header class="case-heading reveal">
-            <p class="section-number">04 · Flagship project</p>
+            <p class="section-number">04 · Reference implementation</p>
             <p class="maturity-note">Verified local reference implementation · Not a production deployment</p>
             <h2 id="case-study-title">AI-Assisted Data Reliability Platform</h2>
             <p class="section-lead">A local system that detects data failures, records evidence, exposes incidents, and keeps risky corrective actions behind human approval.</p>

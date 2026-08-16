@@ -217,7 +217,7 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* Portfolio map and coverage */
 .portfolio-map-section { background: var(--off-white-bright); }
-.portfolio-bubble-map { position: relative; min-height: clamp(45rem, 64vw, 54rem); isolation: isolate; }
+.portfolio-bubble-map { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto auto; gap: 2rem 1rem; isolation: isolate; }
 .portfolio-map-connectors { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
 .portfolio-map-connectors i { position: absolute; top: 50%; left: 50%; width: 43%; height: 1px; display: block; background: rgba(98, 107, 68, 0.38); transform-origin: 0 50%; }
 .portfolio-map-connectors i:nth-child(1) { transform: rotate(205deg); }
@@ -228,21 +228,21 @@ h1, h2, h3 { text-wrap: balance; }
 .portfolio-map-connectors i:nth-child(6) { transform: rotate(128deg); }
 .portfolio-map-connectors i:nth-child(7) { transform: rotate(52deg); }
 .portfolio-map-connectors i:nth-child(8) { transform: rotate(25deg); }
-.portfolio-map-center { position: absolute; z-index: 2; top: 50%; left: 50%; width: clamp(21rem, 38vw, 31rem); min-height: clamp(22rem, 30vw, 27rem); padding: clamp(3rem, 5vw, 5rem); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-on-olive); background: var(--olive-800); border-radius: 3rem; text-align: center; transform: translate(-50%, -50%); }
+.portfolio-map-center { position: relative; z-index: 2; grid-column: 2 / 4; grid-row: 2; width: min(100%, 31rem); min-height: clamp(22rem, 30vw, 27rem); margin-inline: auto; padding: clamp(3rem, 5vw, 5rem); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-on-olive); background: var(--olive-800); border-radius: 3rem; text-align: center; }
 .portfolio-map-center > span { color: var(--honey-200); font-size: 0.68rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; }
 .portfolio-map-center strong { max-width: 10ch; margin: 1.15rem auto 0; display: grid; font-family: var(--serif); font-size: clamp(2rem, 3.25vw, 3.55rem); font-weight: 400; letter-spacing: -0.035em; line-height: 0.96; text-wrap: balance; }
 .portfolio-map-center strong span { color: inherit; font: inherit; letter-spacing: inherit; text-transform: none; }
 .portfolio-map-center small { margin-top: 1.4rem; color: var(--olive-100); font-size: clamp(0.72rem, 1vw, 0.86rem); line-height: 1.55; }
-.portfolio-map-branches { position: absolute; inset: 0; }
-.portfolio-map-branches article { position: absolute; z-index: 1; width: clamp(12.5rem, 18vw, 15.5rem); min-height: clamp(11.5rem, 17vw, 14rem); padding: clamp(1.7rem, 2.4vw, 2.4rem); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.15rem; background: var(--surface); border: 1px solid var(--olive-200); border-radius: 2.25rem; text-align: center; }
-.portfolio-map-branches article:nth-child(1) { top: 5%; left: 1%; }
-.portfolio-map-branches article:nth-child(2) { top: 0; left: 23%; transform: rotate(-1.2deg); }
-.portfolio-map-branches article:nth-child(3) { top: 0; right: 23%; transform: rotate(1deg); }
-.portfolio-map-branches article:nth-child(4) { top: 5%; right: 1%; }
-.portfolio-map-branches article:nth-child(5) { bottom: 7%; left: 1%; }
-.portfolio-map-branches article:nth-child(6) { bottom: 0; left: 23%; transform: rotate(1deg); }
-.portfolio-map-branches article:nth-child(7) { right: 23%; bottom: 0; transform: rotate(-1deg); }
-.portfolio-map-branches article:nth-child(8) { right: 1%; bottom: 7%; }
+.portfolio-map-branches { display: contents; }
+.portfolio-map-branches article { position: relative; z-index: 1; width: 100%; min-height: clamp(11.5rem, 17vw, 14rem); padding: clamp(1.7rem, 2.4vw, 2.4rem); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.15rem; background: var(--surface); border: 1px solid var(--olive-200); border-radius: 2.25rem; text-align: center; }
+.portfolio-map-branches article:nth-child(1) { grid-column: 1; grid-row: 1; }
+.portfolio-map-branches article:nth-child(2) { grid-column: 2; grid-row: 1; transform: rotate(-0.5deg); }
+.portfolio-map-branches article:nth-child(3) { grid-column: 3; grid-row: 1; transform: rotate(0.5deg); }
+.portfolio-map-branches article:nth-child(4) { grid-column: 4; grid-row: 1; }
+.portfolio-map-branches article:nth-child(5) { grid-column: 1; grid-row: 3; }
+.portfolio-map-branches article:nth-child(6) { grid-column: 2; grid-row: 3; transform: rotate(0.5deg); }
+.portfolio-map-branches article:nth-child(7) { grid-column: 3; grid-row: 3; transform: rotate(-0.5deg); }
+.portfolio-map-branches article:nth-child(8) { grid-column: 4; grid-row: 3; }
 .portfolio-map-branches article:nth-child(3n) { background: var(--olive-50); border-radius: 2.75rem 2rem 2.5rem 2.25rem; }
 .portfolio-map-branches article:last-child { background: var(--honey-50); }
 .portfolio-map-branches h3 { max-width: 11ch; margin: 0 auto; font-family: var(--serif); font-size: clamp(1.18rem, 1.55vw, 1.55rem); font-weight: 400; line-height: 1.08; overflow-wrap: normal; text-wrap: balance; }
@@ -512,11 +512,11 @@ h1, h2, h3 { text-wrap: balance; }
   .research-direction-flow li::after { display: none; }
   .hero-intro-grid { grid-template-columns: 1fr; }
   .hero-contact-note { max-width: 38rem; }
-  .portfolio-bubble-map { min-height: 0; display: grid; gap: 1.6rem; }
+  .portfolio-bubble-map { min-height: 0; display: grid; grid-template-columns: 1fr; grid-template-rows: auto; gap: 1.6rem; }
   .portfolio-map-connectors { display: none; }
-  .portfolio-map-center { position: relative; top: auto; left: auto; width: min(100%, 42rem); min-height: 22rem; margin-inline: auto; transform: none; }
+  .portfolio-map-center { position: relative; grid-column: auto; grid-row: auto; width: min(100%, 42rem); min-height: 22rem; margin-inline: auto; transform: none; }
   .portfolio-map-branches { position: relative; inset: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.35rem; }
-  .portfolio-map-branches article:nth-child(n) { position: relative; inset: auto; width: auto; min-height: 12rem; transform: none; }
+  .portfolio-map-branches article:nth-child(n) { position: relative; grid-column: auto; grid-row: auto; inset: auto; width: auto; min-height: 12rem; transform: none; }
   .portfolio-map-branches article::before { position: absolute; top: -1.4rem; left: 50%; width: 1px; height: 1.4rem; content: ""; background: rgba(98, 107, 68, 0.36); }
   .enterprise-evolution-flow { grid-template-columns: repeat(3, 1fr); }
   .enterprise-evolution-flow li { border-bottom: 1px solid rgba(250, 248, 239, 0.2); }

@@ -947,8 +947,18 @@
 .agent-plane-grid article { padding: 22px; }
 .agentic-ai-panel .agent-plane-grid article { color: var(--cream); background: rgba(48, 55, 34, 0.32); border-color: rgba(242, 237, 223, 0.28); }
 .agentic-ai-panel .agent-plane-grid h3 { color: var(--cream); }
-.agentic-ai-panel .agent-plane-grid li { color: rgba(250, 248, 239, 0.9); border-color: rgba(242, 237, 223, 0.28); }
-.agentic-ai-panel .agent-plane-grid li::before { background: var(--honey-200); }
+.agentic-ai-panel .agent-plane-grid li {
+  padding: 10px 0 10px 22px;
+  color: rgba(250, 248, 239, 0.9);
+  border-color: rgba(242, 237, 223, 0.28);
+  line-height: 1.55;
+}
+.agentic-ai-panel .agent-plane-grid li::before {
+  top: 50%;
+  left: 3px;
+  background: var(--honey-200);
+  transform: translateY(-50%);
+}
 .safety-heading { margin-top: 65px; }
 .safety-heading h3 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; }
 .agent-safety-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }

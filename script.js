@@ -5,7 +5,7 @@
   // can be updated without changing the page structure.
   const portfolio = {
     navigation: [
-      ["Home", "introduction"], ["Thinking", "thinking"], ["Projects", "projects"], ["Progress", "progress"],
+      ["Home", "introduction"], ["Physical AI", "enterprise-physical"], ["Thinking", "thinking"], ["Projects", "projects"], ["Progress", "progress"],
       ["Research", "research"], ["System design", "architecture"], ["Contact", "contact"]
     ],
     process: [
@@ -95,6 +95,19 @@
         filters: ["research", "blueprint"]
       },
       {
+        title: "Environmental & Health-Aware Drone Fleet Intelligence",
+        description: "A data-engineering, optimization, digital-twin, and bounded-agent research blueprint for assigning and routing inspection UAVs under changing mission, weather, communication, battery, and component-health conditions.",
+        problem: "The geographically shortest mission may not be the safest, most energy-efficient, most reliable, or most productive once environmental and fleet constraints are considered.",
+        maturity: "Research blueprint · implementation next",
+        area: "Physical intelligence, drone fleets, and decision assurance",
+        href: "projects/drone-fleet-intelligence.html",
+        architecture: "Work order → trusted fleet + weather state → allocation → route candidates → simulation → policy review → mission plan → telemetry",
+        research: "Weather- and health-aware routing, fleet coordination, digital-twin verification, and grounded agent tool use.",
+        next: "Build a deterministic laptop simulation with synthetic missions, trusted state products, and transparent baseline planners.",
+        repo: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System",
+        filters: ["research", "blueprint"]
+      },
+      {
         title: "Supply Chain Digital Twin Research Lab",
         description: "A reproducible simulation blueprint for comparing inventory, backlog, disruption, allocation, and recovery policies against the same validated operating state.",
         problem: "Supply-chain policies are difficult to compare when demand, lead time, capacity, inventory, and disruption assumptions are inconsistent.",
@@ -143,19 +156,6 @@
         next: "Remain parked until the core portfolio evidence is stronger.",
         repo: "https://github.com/SouravKh-7/retail-sales-inventory-intelligence",
         filters: ["parked"]
-      },
-      {
-        title: "Health-Aware Autonomous Drone System",
-        description: "An earlier routing concept that considered component condition and mission risk alongside navigation constraints. The work now serves as research history for the broader robotic-fleet project rather than an active autonomous-system claim.",
-        problem: "Route choice should account for asset health and mission risk, not only distance.",
-        maturity: "Archived and evolved",
-        area: "Routing and asset-health research",
-        href: "projects/robotic-fleet-optimization.html",
-        architecture: "Asset health + mission constraints → route options → risk-aware review",
-        research: "Historical precursor to broader fleet optimization work.",
-        next: "Retain as research history; continue in the fleet project.",
-        repo: "https://github.com/SouravKh-7/health-aware-autonomous-drone-system",
-        filters: ["research", "parked"]
       },
       {
         title: "Industrial Operations Business Cases",
@@ -217,7 +217,8 @@
         summary: "Research directions, explicitly not implemented.",
         items: [
           ["Streaming path", "Arrival, ordering and recovery questions", "system-design.html#movement"],
-          ["Health-aware optimization", "Simulator and deterministic baseline", "projects/robotic-fleet-optimization.html"]
+          ["Health-aware optimization", "Simulator and deterministic baseline", "projects/robotic-fleet-optimization.html"],
+          ["Drone fleet intelligence", "Weather, health, routing, and policy in a deterministic simulation blueprint", "projects/drone-fleet-intelligence.html"]
         ]
       }
     ],
@@ -309,6 +310,27 @@
         category: "Engineering journal",
         time: "Living note",
         href: "roadmap/"
+      },
+      {
+        title: "How should enterprise intent become a physical action?",
+        summary: "A systems question connecting trusted operational state, bounded agent reasoning, deterministic optimization, digital-twin verification, policy, human authority, telemetry, and measurable outcomes.",
+        category: "Enterprise-to-Physical Intelligence",
+        time: "Research synthesis",
+        href: "#enterprise-physical"
+      },
+      {
+        title: "When does the shortest drone route become the wrong route?",
+        summary: "A research blueprint for comparing distance-only planning with energy-, weather-, health-, communication-, and fleet-aware baselines under reproducible scenarios.",
+        category: "Drone fleet intelligence",
+        time: "Research blueprint",
+        href: "projects/drone-fleet-intelligence.html"
+      },
+      {
+        title: "Can a digital twin become the verification boundary before physical action?",
+        summary: "A decision-assurance question about testing candidate actions, assumptions, uncertainty, and safety policy in simulation before a consequential plan is published.",
+        category: "Digital twins and governance",
+        time: "Research direction",
+        href: "projects/drone-fleet-intelligence.html#experiments"
       }
     ]
   };

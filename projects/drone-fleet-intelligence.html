@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Environmental and Health-Aware Drone Fleet Intelligence research blueprint: trusted telemetry, weather, health-aware routing, deterministic optimization, digital-twin verification, and bounded AI.">
+    <meta name="theme-color" content="#303722">
+    <title>Environmental &amp; Health-Aware Drone Fleet Intelligence | Sourav Khandai</title>
+    <link rel="stylesheet" href="../styles.css?v=8">
+    <link rel="stylesheet" href="case-study.css?v=8">
+    <link rel="stylesheet" href="drone-fleet-intelligence.css?v=1">
+  </head>
+  <body class="project-page drone-research-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="case-header">
+      <nav class="case-nav" aria-label="Drone fleet research navigation">
+        <a class="case-brand" href="../index.html"><span aria-hidden="true">SK</span><b>Sourav Khandai — Data Engineering Portfolio</b></a>
+        <div>
+          <a href="../index.html">Home</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#data">Data</a>
+          <a href="#ai-boundary">AI boundary</a>
+          <a href="#experiments">Experiments</a>
+          <a href="#research-questions">Research</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="project-hero enterprise-project-hero drone-hero">
+        <div class="case-shell project-hero-grid">
+          <div>
+            <p class="case-kicker">Physical intelligence research vertical</p>
+            <span class="case-status">Research blueprint · implementation next</span>
+            <h1>Environmental &amp; Health-Aware Drone Fleet Intelligence</h1>
+            <p class="project-hero-subtitle">A data-engineering, optimization, digital-twin, and bounded-Agentic-AI project for assigning and routing inspection UAVs under changing environmental, mission, communication, battery, and component-health conditions.</p>
+            <p class="project-hero-boundary"><strong>Evidence boundary:</strong> this page describes a staged research and implementation plan. It does not claim a deployed drone system, field result, hardware-in-the-loop test, or autonomous flight controller.</p>
+            <div class="project-link-row">
+              <a class="button button-primary" href="#architecture">Explore the architecture</a>
+              <a class="button button-secondary" href="../index.html#enterprise-physical">Return to the portfolio thesis</a>
+            </div>
+          </div>
+          <aside class="project-spec" aria-label="Project summary">
+            <div><span>Status</span><strong>Research blueprint</strong></div>
+            <div><span>First implementation</span><strong>Deterministic laptop simulation</strong></div>
+            <div><span>Primary lens</span><strong>Trusted data plane + multi-objective planning</strong></div>
+            <div><span>Control boundary</span><strong>LLM above planners and simulators—not the autopilot</strong></div>
+            <p>Research synthesis based on the supplied portfolio content compendium. All performance, safety, and productivity outcomes remain unmeasured until experiments are implemented.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="case-study-section drone-question-section" aria-labelledby="question-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>01 · Core question</p>
+            <h2 id="question-title">When does the shortest route become the wrong route?</h2>
+          </header>
+          <div class="case-prose">
+            <p>The geographically shortest mission may stop being the safest, most energy-efficient, most reliable, or most productive once weather, battery reserve, motor or bearing health, communication, fleet workload, inspection priority, and return-to-base risk are considered.</p>
+            <p>The portfolio contribution is not a claim to invent these research fields. It is a data-engineering and enterprise-systems synthesis that makes interfaces, evidence, assumptions, trade-offs, failure modes, and measurable outcomes inspectable.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section thinking-map-section" id="architecture" aria-labelledby="architecture-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>02 · Enterprise-to-physical architecture</p>
+            <h2 id="architecture-title">Business intent enters a governed decision loop.</h2>
+          </header>
+          <p class="drone-section-lead">An industrial inspection work order becomes trusted operational state, candidate assignments, route options, simulation evidence, a reviewed mission plan, and—only later—telemetry and inspection evidence.</p>
+          <ol class="enterprise-flow drone-architecture-flow" aria-label="Drone mission architecture flow">
+            <li><span>01</span><strong>Work order &amp; inspection targets</strong></li>
+            <li><span>02</span><strong>Trusted fleet &amp; weather state</strong></li>
+            <li><span>03</span><strong>Task allocation</strong></li>
+            <li><span>04</span><strong>Route candidates</strong></li>
+            <li><span>05</span><strong>Risk, energy &amp; health scoring</strong></li>
+            <li><span>06</span><strong>Simulation</strong></li>
+            <li><span>07</span><strong>Policy &amp; human review</strong></li>
+            <li><span>08</span><strong>Structured mission plan</strong></li>
+            <li><span>09</span><strong>Deterministic flight-stack boundary</strong></li>
+            <li><span>10</span><strong>Telemetry &amp; inspection evidence</strong></li>
+          </ol>
+          <blockquote class="drone-principle">Generative intelligence may propose and coordinate; deterministic systems must establish feasibility and enforce low-level safety.</blockquote>
+        </div>
+      </section>
+
+      <section class="case-study-section" id="data" aria-labelledby="data-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>03 · Trusted data plane</p>
+            <h2 id="data-title">The drone is a physical endpoint. The enterprise still needs trustworthy state.</h2>
+          </header>
+          <div class="domain-grid">
+            <article><span>Mission / business</span><h3>Intent and priority</h3><p>Mission ID, inspection target, due time, customer or asset impact, payload need.</p></article>
+            <article><span>Vehicle state</span><h3>Feasible availability</h3><p>Position, velocity, payload, availability, battery SoC / SoH, reserve threshold.</p></article>
+            <article><span>Component health</span><h3>Condition and stress</h3><p>Motor current, vibration, temperature, bearing-health score, maintenance state.</p></article>
+            <article><span>Environment</span><h3>Weather exposure</h3><p>Wind vector, gust, temperature, precipitation, visibility, validity window.</p></article>
+            <article><span>Airspace / geography</span><h3>Route feasibility</h3><p>Targets, terrain, obstacles, no-fly cells, geofences, charging locations.</p></article>
+            <article><span>Communication</span><h3>Connectivity risk</h3><p>Link quality, coverage estimate, packet loss, communication requirement.</p></article>
+            <article><span>Fleet operations</span><h3>System-level constraints</h3><p>Task queue, charging slots, maintenance holds, conflicts, separation, workload.</p></article>
+            <article><span>Inspection evidence</span><h3>Closed-loop outcome</h3><p>Captures, detections, defect candidates, confidence, and evidence quality.</p></article>
+          </div>
+
+          <div class="data-engineering-grid">
+            <article><span>01</span><h3>Telemetry identity</h3><p>Preserve event timestamp, processing timestamp, source, schema version, mission ID, and vehicle ID.</p></article>
+            <article><span>02</span><h3>Environmental versions</h3><p>Store weather grids with spatial cells, validity windows, and source metadata.</p></article>
+            <article><span>03</span><h3>Time and geospatial alignment</h3><p>Join route segments to the environmental state valid at predicted traversal time.</p></article>
+            <article><span>04</span><h3>Trusted operational state</h3><p>Apply freshness, quality, quarantine, and conflict rules before planner consumption.</p></article>
+            <article><span>05</span><h3>Feature and cost pipelines</h3><p>Version energy, health stress, weather exposure, communication, and lateness features.</p></article>
+            <article><span>06</span><h3>Replayable simulation</h3><p>Persist inputs, planner parameters, model versions, candidates, and exact outcomes.</p></article>
+            <article><span>07</span><h3>Decision ledger</h3><p>Record evidence, candidates, policy checks, approval, final plan, and later outcome.</p></article>
+            <article><span>08</span><h3>Observability</h3><p>Monitor freshness, duplication, clock skew, stale weather, impossible jumps, and latency.</p></article>
+          </div>
+
+          <div class="responsive-table-wrap">
+            <table class="research-table">
+              <caption>Suggested data products</caption>
+              <thead><tr><th scope="col">Data product</th><th scope="col">Grain</th><th scope="col">Example consumers</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">fleet_state_current</th><td>One row per drone at trusted state timestamp</td><td>Scheduler, operator UI, agent context builder</td></tr>
+                <tr><th scope="row">fleet_state_history</th><td>Drone × event time</td><td>Health model, investigation, replay</td></tr>
+                <tr><th scope="row">environment_grid</th><td>Space cell × valid time window</td><td>Route-cost service, simulator</td></tr>
+                <tr><th scope="row">mission_task</th><td>Inspection task / work-order unit</td><td>Task allocator, business dashboard</td></tr>
+                <tr><th scope="row">route_candidate</th><td>Mission × drone × candidate route</td><td>Optimizer, simulator, comparison UI</td></tr>
+                <tr><th scope="row">decision_run</th><td>One planning / replanning decision</td><td>Audit, evaluation, agent trace</td></tr>
+                <tr><th scope="row">inspection_evidence</th><td>Capture / detection event</td><td>Root-cause review, maintenance, service intelligence</td></tr>
+                <tr><th scope="row">mission_outcome</th><td>Mission / sortie</td><td>Business metrics, model evaluation, fleet learning</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section optimization-section" aria-labelledby="optimization-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>04 · Deterministic baseline</p>
+            <h2 id="optimization-title">Give AI something transparent to beat, explain, or coordinate.</h2>
+          </header>
+          <code class="route-score">route_score = wD·distance + wT·time + wE·energy + wW·weather + wH·health + wC·communication + wR·mission risk + hard-constraint penalties</code>
+          <div class="responsive-table-wrap">
+            <table class="research-table">
+              <caption>Planner comparisons</caption>
+              <thead><tr><th scope="col">Planner</th><th scope="col">Uses</th><th scope="col">Purpose</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Shortest path / nearest available</th><td>Distance only</td><td>Simple reference baseline</td></tr>
+                <tr><th scope="row">Energy-aware</th><td>Distance + vehicle energy model</td><td>Shows why shortest does not always mean least energy</td></tr>
+                <tr><th scope="row">Weather-aware</th><td>Energy + wind / gust / temperature</td><td>Shows environmental adaptation</td></tr>
+                <tr><th scope="row">Health-aware</th><td>Battery SoH + component stress + reserve</td><td>Shows asset-condition-aware operation</td></tr>
+                <tr><th scope="row">Fleet-aware</th><td>Allocation + charging + workload + route conflicts</td><td>Measures system productivity, not one vehicle</td></tr>
+                <tr><th scope="row">Agent-assisted</th><td>The same deterministic planners and tools</td><td>Tests operator interaction and decision speed without replacing feasibility checks</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="constraint-callout">
+            <h3>Hard constraints remain outside the LLM</h3>
+            <p>Geofences and no-fly areas, separation, battery return reserve, vehicle availability, required payload, maintenance lockout, maximum weather thresholds, mandatory deadlines, and controller or actuator limits.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section drone-ai-section" id="ai-boundary" aria-labelledby="ai-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>05 · Where AI belongs</p>
+            <h2 id="ai-title">AI produces evidence, candidates, and explanations—not permission to fly.</h2>
+          </header>
+          <ol class="enterprise-flow agent-workflow" aria-label="Bounded agent workflow">
+            <li><span>01</span><strong>Parse operator intent</strong></li><li><span>02</span><strong>Fetch trusted state</strong></li><li><span>03</span><strong>Call allocator &amp; planner</strong></li><li><span>04</span><strong>Call simulator</strong></li><li><span>05</span><strong>Compare candidates</strong></li><li><span>06</span><strong>Policy check</strong></li><li><span>07</span><strong>Human review</strong></li><li><span>08</span><strong>Publish structured plan</strong></li>
+          </ol>
+          <div class="ai-role-grid">
+            <article><span>Anomaly / health ML</span><h3>Detect condition risk</h3><p>Estimate degradation and derive risk features. The output is evidence—not permission to fly.</p></article>
+            <article><span>Energy / route ML</span><h3>Predict candidate cost</h3><p>Benchmark against transparent physical or heuristic baselines and keep uncertainty visible.</p></article>
+            <article><span>Computer vision</span><h3>Attach inspection evidence</h3><p>A defect candidate remains a candidate, not a final engineering diagnosis.</p></article>
+            <article><span>Reinforcement learning</span><h3>Later simulator research</h3><p>Training and evaluation stay inside simulation; safety constraints remain external.</p></article>
+            <article><span>LLM / Agentic AI</span><h3>Interpret and coordinate</h3><p>Translate intent, retrieve evidence, call approved tools, and explain trade-offs. Never act as autopilot, trajectory stabilizer, or motor controller.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section experiment-section" id="experiments" aria-labelledby="experiments-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>06 · Experiment and evaluation plan</p>
+            <h2 id="experiments-title">Controlled changes reveal why the preferred plan moves.</h2>
+          </header>
+          <div class="responsive-table-wrap">
+            <table class="research-table scenario-table">
+              <caption>Planned scenarios · no outcomes measured yet</caption>
+              <thead><tr><th scope="col">Scenario</th><th scope="col">Controlled change</th><th scope="col">What to measure</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">S0 · Baseline</th><td>Normal weather; healthy batteries and motors</td><td>Completion, distance, energy, total fleet time</td></tr>
+                <tr><th scope="row">S1 · Crosswind / gust</th><td>Wind worsens on the shortest corridor</td><td>Reroute rate, energy delta, exposure, reserve margin</td></tr>
+                <tr><th scope="row">S2 · Battery degradation</th><td>One drone has lower SoH</td><td>Assignment change, avoided missions, reserve compliance</td></tr>
+                <tr><th scope="row">S3 · Component health</th><td>One motor / bearing score degrades</td><td>Stress exposure, maintenance risk, productivity trade-off</td></tr>
+                <tr><th scope="row">S4 · Communication gap</th><td>Route crosses unreliable cells</td><td>Connectivity exposure, alternative-route cost</td></tr>
+                <tr><th scope="row">S5 · Urgent priority</th><td>High-value inspection arrives mid-plan</td><td>Replanning latency, displaced tasks, priority completion</td></tr>
+                <tr><th scope="row">S6 · Drone unavailable</th><td>Vehicle failure or maintenance lockout</td><td>Fleet resilience, makespan, workload balance</td></tr>
+                <tr><th scope="row">S7 · Route conflict</th><td>Overlapping airspace or target windows</td><td>Separation compliance, delay, fleet completion</td></tr>
+                <tr><th scope="row">S8 · Agent grounding</th><td>Stale weather or injected text contradicts trusted policy</td><td>Compliance, unsupported-action rate, abstention, escalation</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="metric-grid" aria-label="Planned productivity and business metrics">
+            <span>Inspection coverage / hour</span><span>On-time mission completion</span><span>Fleet makespan</span><span>Energy / completed task</span><span>Battery reserve margin</span><span>Weather / health exposure</span><span>Fleet utilization</span><span>Avoided infeasible assignments</span><span>Replanning latency</span><span>Human override rate</span><span>Evidence freshness</span><span>Estimated cost / inspection</span>
+          </div>
+          <p class="measurement-note"><strong>Measurement rule:</strong> no productivity improvement is claimed until the simulator or later experiments publish a baseline, setup, uncertainty, and evidence state.</p>
+        </div>
+      </section>
+
+      <section class="case-study-section roadmap-section" aria-labelledby="roadmap-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>07 · Practical implementation path</p>
+            <h2 id="roadmap-title">Data engineering and deterministic simulation first.</h2>
+          </header>
+          <div class="implementation-phases">
+            <article><span>Phase 1</span><h3>Deterministic laptop simulation</h3><p>Synthetic typed mission and fleet data, DuckDB + Parquet, a graph model, explicit heuristic or OR-Tools allocation, replayable simulation, FastAPI, and a static evidence view.</p><strong>Next</strong></article>
+            <article><span>Phase 2</span><h3>Software-in-the-loop boundary</h3><p>Connect the structured mission plan to PX4 or ArduPilot SITL through a MAVLink adapter, then return simulator telemetry into the trusted event pipeline.</p><strong>Planned</strong></article>
+            <article><span>Phase 3</span><h3>Research AI</h3><p>Compare health and weather prediction, a high-level tool-using agent, and later learning-based replanning against the deterministic baseline inside simulation.</p><strong>Future research</strong></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section research-source-section" id="research-questions" aria-labelledby="research-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>08 · Research grounding</p>
+            <h2 id="research-title">Source-derived ideas are separated from the portfolio synthesis.</h2>
+          </header>
+          <div class="source-grid">
+            <article><span>Weather-aware planning</span><h3>MetPASS</h3><p>Weather risks, battery state, and energy modeling inform safe inspection routing.</p><a href="https://arxiv.org/abs/1711.10328">Read the paper ↗</a></article>
+            <article><span>Risk, energy, and time</span><h3>ARENA</h3><p>Adaptive multi-objective 3D navigation under evolving weather, battery, localization, and communication risk.</p><a href="https://arxiv.org/abs/2502.19401">Read the paper ↗</a></article>
+            <article><span>Industrial multi-UAV allocation</span><h3>Task allocation study</h3><p>Fleet task allocation is separated from per-drone routing and connected to simulation evidence.</p><a href="https://arxiv.org/abs/2506.20626">Read the paper ↗</a></article>
+            <article><span>Wind-aware coordination</span><h3>Synchronous fleet planning</h3><p>Weather and separation become first-class fleet constraints rather than secondary annotations.</p><a href="https://arxiv.org/abs/2603.21789">Read the paper ↗</a></article>
+            <article><span>Battery health</span><h3>Hybrid health management</h3><p>SoC and SoH remain distinct inputs to mission feasibility and risk.</p><a href="https://arxiv.org/abs/2405.00055">Read the paper ↗</a></article>
+            <article><span>Grounded agent reasoning</span><h3>Agent-enhanced swarm research</h3><p>LLM reasoning remains above task-specific tools, trusted state, and runtime guardrails.</p><a href="https://arxiv.org/abs/2605.03788">Read the paper ↗</a></article>
+            <article><span>Simulation boundary</span><h3>UAV digital twins</h3><p>Virtual environments support safe testing and repeatable performance or mission evaluation.</p><a href="https://arxiv.org/abs/2503.07935">Read the paper ↗</a></article>
+            <article><span>Implementation references</span><h3>Flight and routing tools</h3><p>PX4 multi-vehicle simulation, ArduPilot SITL, MAVLink mission services, and OR-Tools routing inform later implementation choices.</p><div class="source-links"><a href="https://docs.px4.io/main/en/simulation/multi-vehicle-simulation">PX4 ↗</a><a href="https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html">ArduPilot ↗</a><a href="https://mavlink.io/en/services/mission.html">MAVLink ↗</a><a href="https://developers.google.com/optimization/routing">OR-Tools ↗</a></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section limitations-section" aria-labelledby="limitations-title">
+        <div class="case-shell">
+          <header class="case-section-heading">
+            <p>09 · Evidence, limitations, and next milestone</p>
+            <h2 id="limitations-title">The research direction is explicit. The implementation evidence comes next.</h2>
+          </header>
+          <div class="evidence-state-grid">
+            <article><span>Research synthesis</span><strong>Available</strong><p>Question, architecture, data domains, baselines, AI boundaries, scenarios, metrics, and sources.</p></article>
+            <article><span>Deterministic simulator</span><strong>Planned</strong><p>No runtime, benchmark, or route-comparison evidence is claimed yet.</p></article>
+            <article><span>Software-in-the-loop</span><strong>Future</strong><p>No PX4, ArduPilot, MAVLink, HIL, or field integration is claimed.</p></article>
+            <article><span>Next milestone</span><strong>Build Phase 1</strong><p>Create synthetic mission, fleet, health, and environmental state with transparent planner comparisons.</p></article>
+          </div>
+          <p class="drone-closing-line">Reliable data → grounded intelligence → verified decisions → governed physical action → measurable outcome</p>
+          <div class="project-link-row">
+            <a class="button" href="../index.html#projects">Return to all projects</a>
+            <a class="button" href="robotic-fleet-optimization.html">Explore robotic fleet optimization</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer"><div class="case-shell"><p>© 2026 Sourav Khandai</p><p>Research blueprint · no deployment or field-performance claim</p><a href="#main-content">Back to top ↑</a></div></footer>
+  </body>
+</html>

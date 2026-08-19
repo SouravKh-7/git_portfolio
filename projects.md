@@ -11,12 +11,12 @@ This catalog separates working evidence from active, parked, evolving, and archi
 - **Reference Implementation** - runs locally with documented behavior, tests, and limitations.
 - **Active Development** - working implementation exists, but significant milestones remain.
 - **Design / Blueprint** - architecture and requirements exist, while implementation is limited.
+- **Research Blueprint / Implementation Next** - the research synthesis and system design exist; the first deterministic implementation has not yet been built.
 - **Planned** - approved future work that has not started meaningfully.
 - **Parked** - intentionally paused.
 - **Evolving** - the concept is being incorporated into another project.
-- **Archived / Evolved** - no longer independently active; the concept moved into broader work.
 
-{% assign categories = "Data Platforms and Reliability|Industrial Data and Operational Intelligence|Research, Optimization and Intelligent Operations|Business Data Products|Archived Research" | split: "|" %}
+{% assign categories = "Data Platforms and Reliability|Industrial Data and Operational Intelligence|Research, Optimization and Intelligent Operations|Business Data Products" | split: "|" %}
 {% for category in categories %}
 ## {{ category }}
 

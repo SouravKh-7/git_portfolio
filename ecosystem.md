@@ -31,7 +31,7 @@ The repositories are independent portfolio projects that share engineering patte
       <h2>Research and Optimization</h2>
       <ul>
         <li>Health-Aware Robotic Fleet Optimization</li>
-        <li>Autonomous Drone Concept <small>Archived predecessor</small></li>
+        <li>Environmental &amp; Health-Aware Drone Fleet Intelligence <small>Research blueprint</small></li>
         <li>Supply Chain Digital Twin Research Lab</li>
         <li>Database Performance and Workload Lab</li>
       </ul>
@@ -46,6 +46,7 @@ The repositories are independent portfolio projects that share engineering patte
 - **Operational data products:** domain models and trusted KPIs that connect technical behavior with service, reliability, cost, and customer outcomes.
 - **Responsible AI assistance:** evidence collection, retrieval, summaries, structured recommendations, bounded tools, deterministic fallbacks, and approval gates.
 - **Optimization:** explicit objectives, constraints, feasible baselines, simulations, scheduling, routing, and measurable fleet or workflow outcomes.
+- **Enterprise-to-physical intelligence:** trusted operational state, approved reasoning and optimization tools, digital-twin verification, policy, deterministic execution boundaries, telemetry, and measurable outcomes.
 
 ## Project Relationships
 
@@ -53,6 +54,6 @@ The [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-dat
 
 The [Industrial Service Intelligence Platform](https://github.com/SouravKh-7/industrial-service-intelligence-platform) applies data engineering to machine and after-sales operations. The earlier [Manufacturing Root-Cause Analysis Assistant](https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant) is being consolidated into it as a traceable decision-support module.
 
-The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System) explores optimization and intelligent operations. The [Health-Aware Autonomous Drone System](https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System) is retained as its archived conceptual predecessor.
+The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System) explores scheduling and fleet-level constraints. The [Environmental & Health-Aware Drone Fleet Intelligence](../projects/drone-fleet-intelligence.html) vertical reactivates the earlier drone concept as a staged data-engineering, environmental planning, digital-twin, and bounded-agent research blueprint. They remain independent experiments, not an integrated deployed platform.
 
 The [Retail Sales and Inventory Intelligence Platform](https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform) is intentionally parked. It may later test whether the same data-product and decision-support patterns transfer cleanly to another domain.

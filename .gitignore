@@ -21,6 +21,7 @@ projects/*
 !projects/*.html
 !projects/case-study.css
 !projects/case-study.js
+!projects/drone-fleet-intelligence.css
 
 _resume.md
 CHANGELOG.md

@@ -1201,3 +1201,26 @@
     flex-direction: column;
   }
 }
+
+/* Readability pass for supporting labels, metadata, tables, and evidence copy. */
+.button, .case-brand > span, .case-brand b, .case-nav > div a,
+.case-kicker, .case-status, .project-spec span, .why-panel span,
+.data-flow-explanation > span, .project-spec li, .tool-list li,
+.project-spec > p, .case-link-placeholder, .case-section-heading > p,
+.thinking-map-center span, .thinking-branch h3, .exists-grid > article > span,
+.evidence-status, .case-evidence-grid p, .chart-state,
+.project-radar-chart figcaption, .architecture-state, .enterprise-flow span,
+.data-model-grid li span, .adr-list header span, .adr-list dt, .adr-list dd,
+.quality-dimensions li, .failure-response-list strong, .failure-response-list p,
+.security-control-grid li, .observability-grid li, .enterprise-operating-grid li,
+.agent-plane-grid li, .experiment-plan-grid article > span,
+.experiment-plan-grid p, .experiment-plan-grid li, .experiment-chart-grid figcaption,
+.agent-safety-grid p, .enterprise-maturity-chart span, .enterprise-maturity-chart b,
+.business-value-grid span, .business-value-grid p, .business-value-grid li,
+.business-impact-model p, .case-pagination span {
+  font-size: 0.82rem;
+}
+.project-hero-boundary, .enterprise-dimension-grid p,
+.case-evidence-grid p, .data-model-grid li p { font-size: 0.88rem; }
+.thinking-branch h3.thinking-branch-title-long { font-size: 0.82rem; }
+.case-radar-label, .chart-label, .chart-value, .chart-tick { font-size: 14px; }

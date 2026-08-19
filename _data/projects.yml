@@ -70,7 +70,7 @@
   limitations: "Implementation evidence is limited; this is not presented as a completed Industrial AI system."
   next_milestone: "Build a simulator and deterministic optimization baseline."
   related_projects:
-    - "Health-Aware Autonomous Drone System"
+    - "Environmental & Health-Aware Drone Fleet Intelligence"
 
 - name: "Retail Sales and Inventory Intelligence Platform"
   slug: "retail-sales-and-inventory-intelligence-platform"
@@ -107,19 +107,22 @@
   related_projects:
     - "Industrial Service Intelligence Platform"
 
-- name: "Health-Aware Autonomous Drone System"
-  slug: "health-aware-autonomous-drone-system"
+- name: "Environmental & Health-Aware Drone Fleet Intelligence"
+  slug: "environmental-health-aware-drone-fleet-intelligence"
   repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
-  category: "Archived Research"
-  status: "Archived / Evolved"
-  priority: "Historical concept"
+  category: "Research, Optimization and Intelligent Operations"
+  status: "Research Blueprint / Implementation Next"
+  priority: "Physical intelligence research vertical"
   featured: false
-  summary: "An earlier health-aware routing concept that evolved into broader robotic-fleet research."
-  problem: "Route planning can incorporate component condition and mission risk rather than navigation constraints alone."
+  summary: "A data-engineering, optimization, digital-twin, and bounded-agent research blueprint for environmental and health-aware inspection-drone fleet planning."
+  problem: "The geographically shortest mission may be unsafe or inefficient once weather, battery reserve, component health, communication, workload, and inspection priority are considered."
   engineering_evidence:
-    - "Historical concept and design material retained in its repository"
-  ai_role: "Historical decision-support concept; no current autonomous-system claim."
-  limitations: "No longer independently active and not a flagship or primary implementation."
-  next_milestone: "Retain as research history and direct future work to robotic fleet optimization."
+    - "Research synthesis covering data domains, trusted state, deterministic baselines, AI boundaries, experiments, metrics, and sources"
+    - "Historical health-aware routing concept retained in the linked repository"
+  ai_role: "A future agent may interpret intent, retrieve trusted evidence, and coordinate approved planning and simulation tools; it does not control the flight stack."
+  limitations: "No simulator, benchmark, hardware-in-the-loop integration, field deployment, or autonomous-flight result is claimed."
+  next_milestone: "Build a deterministic laptop simulation with synthetic mission, fleet, health, and environmental data."
   related_projects:
     - "Health-Aware Robotic Fleet Optimization System"
+    - "Supply Chain Digital Twin Research Lab"
+    - "AI-Assisted Data Reliability Platform"

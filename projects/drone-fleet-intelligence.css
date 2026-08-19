@@ -1,0 +1,133 @@
+.drone-research-page {
+  --drone-accent: var(--honey-700);
+}
+
+.drone-hero { background: linear-gradient(135deg, var(--olive-950), #1f2b20 58%, #3f4b31); }
+.drone-hero .project-spec { border: 1px solid rgba(234, 215, 173, 0.3); }
+.drone-hero .project-spec strong { font-family: var(--serif); font-size: 1.08rem; font-weight: 400; line-height: 1.35; }
+.drone-hero .project-spec > p { font-size: 0.88rem; }
+.drone-research-page .project-hero-boundary { font-size: 0.92rem; }
+.drone-research-page .case-kicker,
+.drone-research-page .case-status,
+.drone-research-page .project-spec span,
+.drone-research-page .case-section-heading > p { font-size: 0.8rem; }
+.drone-research-page .case-nav > div a,
+.drone-research-page .case-brand b,
+.drone-research-page .button { font-size: 0.84rem; }
+
+.drone-question-section { background: var(--paper); }
+.drone-section-lead { max-width: 830px; margin: -20px 0 42px; color: var(--ink-soft); font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.55; }
+.drone-architecture-flow { grid-template-columns: repeat(5, minmax(120px, 1fr)); }
+.drone-architecture-flow li { min-height: 145px; }
+.drone-architecture-flow span, .agent-workflow span { font-size: 0.78rem; font-weight: 750; }
+.drone-architecture-flow strong, .agent-workflow strong { font-size: 1rem; }
+.drone-principle { max-width: 980px; margin: 48px 0 0; padding: 26px 30px; color: var(--olive-800); background: var(--honey-100); border-left: 4px solid var(--honey-700); font-family: var(--serif); font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.4; }
+
+.domain-grid, .data-engineering-grid, .ai-role-grid, .source-grid, .evidence-state-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.domain-grid article, .data-engineering-grid article, .ai-role-grid article, .source-grid article, .evidence-state-grid article {
+  min-width: 0;
+  padding: 26px;
+  background: var(--paper-deep);
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-md);
+}
+.domain-grid span, .data-engineering-grid span, .ai-role-grid span, .source-grid span, .evidence-state-grid span {
+  color: var(--olive);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.domain-grid h3, .data-engineering-grid h3, .ai-role-grid h3, .source-grid h3 {
+  margin: 34px 0 12px;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.domain-grid p, .data-engineering-grid p, .ai-role-grid p, .source-grid p, .evidence-state-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.data-engineering-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 60px; }
+.data-engineering-grid article { display: grid; grid-template-columns: 48px 1fr; column-gap: 20px; align-items: start; }
+.data-engineering-grid span { grid-row: 1 / 3; padding-top: 4px; font-family: var(--serif); font-size: 1.2rem; }
+.data-engineering-grid h3 { margin: 0 0 10px; }
+.data-engineering-grid p { grid-column: 2; }
+
+.responsive-table-wrap { margin-top: 60px; overflow-x: auto; border: 1px solid var(--line-light); border-radius: var(--radius-md); }
+.research-table { width: 100%; min-width: 780px; border-collapse: collapse; background: var(--paper); font-size: 0.9rem; line-height: 1.55; }
+.research-table caption { padding: 18px 22px; color: var(--olive-800); background: var(--olive-100); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-align: left; text-transform: uppercase; }
+.research-table th, .research-table td { padding: 17px 20px; border-bottom: 1px solid var(--line-light); text-align: left; vertical-align: top; }
+.research-table thead th { color: var(--cream); background: var(--olive-800); font-size: 0.82rem; letter-spacing: 0.05em; }
+.research-table tbody th { width: 26%; color: var(--olive-800); font-family: var(--serif); font-size: 1rem; font-weight: 400; }
+.research-table tbody tr:last-child th, .research-table tbody tr:last-child td { border-bottom: 0; }
+
+.optimization-section { background: var(--olive-100); }
+.route-score { display: block; padding: 24px; overflow-x: auto; color: var(--cream); background: var(--olive-950); border-radius: var(--radius-md); font-size: clamp(0.88rem, 1.4vw, 1.08rem); line-height: 1.7; white-space: nowrap; }
+.optimization-section .responsive-table-wrap { border-color: var(--olive-400); }
+.constraint-callout { margin-top: 28px; padding: 28px; background: var(--honey-100); border-left: 4px solid var(--honey-700); }
+.constraint-callout h3 { margin: 0 0 10px; font-family: var(--serif); font-size: 1.55rem; font-weight: 400; }
+.constraint-callout p { margin: 0; color: var(--ink-soft); }
+
+.agent-workflow { grid-template-columns: repeat(4, minmax(120px, 1fr)); margin-bottom: 44px; border-color: rgba(242, 237, 223, 0.28); }
+.agent-workflow li { min-height: 125px; border-color: rgba(242, 237, 223, 0.24); }
+.agent-workflow span { color: var(--honey-200); }
+.agent-workflow strong { color: var(--cream); }
+.drone-ai-section { color: var(--cream); background: var(--moss); }
+.drone-ai-section .case-section-heading > p { color: var(--honey-200); }
+.ai-role-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ai-role-grid article { background: rgba(242, 237, 223, 0.06); border-color: rgba(242, 237, 223, 0.18); }
+.ai-role-grid span { color: var(--honey-200); }
+.ai-role-grid h3 { color: var(--cream); }
+.ai-role-grid p { color: rgba(250, 248, 239, 0.82); }
+
+.scenario-table tbody th { width: 20%; }
+.metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 42px; background: var(--olive-300, var(--olive-400)); }
+.metric-grid span { min-height: 92px; padding: 18px; display: grid; place-items: center; color: var(--olive-800); background: var(--paper); font-family: var(--serif); font-size: 1.02rem; text-align: center; }
+.measurement-note { max-width: 900px; margin: 30px 0 0; padding-left: 18px; color: var(--ink-soft); border-left: 3px solid var(--honey-700); font-size: 0.92rem; }
+
+.implementation-phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.implementation-phases article { min-height: 330px; padding: 30px; display: flex; flex-direction: column; background: rgba(242, 237, 223, 0.52); border: 1px solid rgba(37, 41, 31, 0.16); border-radius: var(--radius-md); }
+.implementation-phases span { color: var(--olive); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.implementation-phases h3 { margin: 45px 0 18px; font-family: var(--serif); font-size: clamp(1.55rem, 2.2vw, 2.2rem); font-weight: 400; line-height: 1.15; }
+.implementation-phases p { color: var(--ink-soft); font-size: 0.92rem; }
+.implementation-phases strong { margin-top: auto; color: var(--honey-800); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.research-source-section { color: var(--cream); background: var(--olive-950); }
+.research-source-section .case-section-heading > p, .source-grid span { color: var(--honey-200); }
+.source-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.source-grid article { background: rgba(242, 237, 223, 0.05); border-color: rgba(242, 237, 223, 0.18); }
+.source-grid h3 { color: var(--cream); }
+.source-grid p { color: rgba(250, 248, 239, 0.8); }
+.source-grid a { display: inline-flex; margin-top: 20px; color: var(--honey-200); font-size: 0.9rem; font-weight: 750; }
+.source-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+.evidence-state-grid article { min-height: 235px; display: flex; flex-direction: column; }
+.evidence-state-grid strong { margin: auto 0 12px; color: var(--olive-800); font-family: var(--serif); font-size: 1.7rem; font-weight: 400; }
+.drone-closing-line { max-width: 980px; margin: 70px 0 0; font-family: var(--serif); font-size: clamp(1.7rem, 3.4vw, 3.3rem); line-height: 1.25; }
+.limitations-section .project-link-row .button { color: var(--olive-800); }
+
+@media (max-width: 1080px) {
+  .drone-architecture-flow, .agent-workflow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .domain-grid, .ai-role-grid, .evidence-state-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .drone-research-page .case-brand b { font-size: 0.76rem; }
+  .drone-architecture-flow, .agent-workflow, .domain-grid, .data-engineering-grid, .ai-role-grid, .source-grid, .evidence-state-grid, .implementation-phases, .metric-grid { grid-template-columns: 1fr; }
+  .drone-architecture-flow li, .agent-workflow li { min-height: 92px; }
+  .data-engineering-grid article { display: block; }
+  .data-engineering-grid span { display: block; margin-bottom: 20px; }
+  .data-engineering-grid p { grid-column: auto; }
+  .route-score { white-space: normal; }
+  .metric-grid span { min-height: 74px; }
+  .implementation-phases article { min-height: 280px; }
+  .responsive-table-wrap { margin-right: calc(var(--gutter) * -0.5); }
+}

@@ -865,16 +865,6 @@
 .enterprise-project-hero .case-shell { max-width: 1180px; }
 .enterprise-project-hero h1 { max-width: 1080px; }
 .project-hero-boundary { max-width: 760px; margin: 24px 0 0; padding-left: 18px; color: var(--olive-light); border-left: 2px solid var(--olive-light); font-size: 0.82rem; }
-.chart-intro { display: flex; max-width: 900px; margin: -24px 0 36px; align-items: flex-start; justify-content: space-between; gap: 20px; }
-.chart-intro p { margin: 0; color: var(--ink-soft); }
-.chart-state { flex: 0 0 auto; padding: 7px 10px; border: 1px solid currentColor; border-radius: 999px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; }
-.chart-state-illustrative { color: #7b5b26; background: var(--honey-100); }
-.project-radar-chart { max-width: 980px; margin: 0 auto; }
-.project-radar-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
-.project-radar-chart figcaption { color: var(--ink-soft); font-size: 0.7rem; text-align: center; }
-.case-radar-ring, .case-radar-axis { fill: none; stroke: rgba(72, 82, 51, 0.24); stroke-width: 1; }
-.case-radar-data { fill: rgba(116, 128, 82, 0.22); stroke: var(--olive); stroke-width: 3; }
-.case-radar-label { fill: var(--ink-soft); font-size: 11px; }
 .architecture-views { display: grid; gap: 26px; }
 .architecture-views > article { padding: clamp(22px, 4vw, 38px); background: rgba(242, 237, 223, 0.44); border: 1px solid rgba(37, 41, 31, 0.14); border-radius: var(--radius-lg); }
 .architecture-state { display: inline-flex; margin-bottom: 24px; padding: 6px 9px; color: var(--olive); border: 1px solid currentColor; border-radius: 999px; font-size: 0.63rem; font-weight: 800; letter-spacing: 0.07em; }
@@ -929,16 +919,6 @@
 .experiment-plan-grid article { padding: 24px; background: var(--paper); border: 1px solid var(--line-light); border-radius: var(--radius-md); }
 .experiment-plan-grid article > span { display: block; margin-bottom: 16px; color: var(--olive); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .experiment-plan-grid p, .experiment-plan-grid li { color: var(--ink-soft); font-size: 0.78rem; }
-.experiment-chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.experiment-chart-grid figure { min-width: 0; padding: 22px; margin: 0; background: var(--paper); border: 1px solid var(--line-light); border-radius: var(--radius-md); }
-.experiment-chart-grid svg { display: block; width: 100%; height: auto; }
-.experiment-chart-grid figcaption { color: var(--ink-soft); font-size: 0.68rem; text-align: center; }
-.chart-label, .chart-value, .chart-tick { fill: var(--ink-soft); font-size: 12px; }
-.chart-bar { fill: var(--olive-700); }
-.chart-bar-1 { fill: var(--honey-700); }
-.chart-axis { stroke: var(--olive-400); stroke-width: 1; }
-.chart-line { fill: none; stroke: var(--olive-700); stroke-width: 4; }
-.chart-point { fill: var(--honey-700); }
 .evidence-subheading { margin-top: 70px; }
 .evidence-subheading h3 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.7rem); font-weight: 400; }
 .research-bridge { max-width: 760px; margin: -24px 0 38px; color: rgba(242, 237, 223, 0.72); }
@@ -1159,9 +1139,7 @@
     grid-template-columns: 1fr;
   }
 
-  .enterprise-copy-grid, .enterprise-dimension-grid, .experiment-plan-grid, .experiment-chart-grid, .security-control-grid, .observability-grid, .enterprise-maturity-chart, .agent-safety-grid, .business-value-grid, .adr-list dl { grid-template-columns: 1fr; }
-  .chart-intro { display: block; }
-  .chart-state { display: inline-flex; margin-top: 15px; }
+  .enterprise-copy-grid, .enterprise-dimension-grid, .experiment-plan-grid, .security-control-grid, .observability-grid, .enterprise-maturity-chart, .agent-safety-grid, .business-value-grid, .adr-list dl { grid-template-columns: 1fr; }
   .enterprise-flow { grid-template-columns: 1fr; }
   .enterprise-flow li { min-height: 85px; }
   .enterprise-flow li:not(:last-child)::after { top: auto; right: 50%; bottom: -9px; content: "↓"; transform: translateX(50%); }
@@ -1218,13 +1196,13 @@
 .data-flow-explanation > span, .project-spec li, .tool-list li,
 .project-spec > p, .case-link-placeholder, .case-section-heading > p,
 .thinking-map-center span, .thinking-branch h3, .exists-grid > article > span,
-.evidence-status, .case-evidence-grid p, .chart-state,
-.project-radar-chart figcaption, .architecture-state, .enterprise-flow span,
+.evidence-status, .case-evidence-grid p,
+.architecture-state, .enterprise-flow span,
 .data-model-grid li span, .adr-list header span, .adr-list dt, .adr-list dd,
 .quality-dimensions li, .failure-response-list strong, .failure-response-list p,
 .security-control-grid li, .observability-grid li, .enterprise-operating-grid li,
 .agent-plane-grid li, .experiment-plan-grid article > span,
-.experiment-plan-grid p, .experiment-plan-grid li, .experiment-chart-grid figcaption,
+.experiment-plan-grid p, .experiment-plan-grid li,
 .agent-safety-grid p, .enterprise-maturity-chart span, .enterprise-maturity-chart b,
 .business-value-grid span, .business-value-grid p, .business-value-grid li,
 .business-impact-model p, .case-pagination span {
@@ -1233,7 +1211,6 @@
 .project-hero-boundary, .enterprise-dimension-grid p,
 .case-evidence-grid p, .data-model-grid li p { font-size: 0.88rem; }
 .thinking-branch h3.thinking-branch-title-long { font-size: 0.82rem; }
-.case-radar-label, .chart-label, .chart-value, .chart-tick { font-size: 14px; }
 .companion-blog-section { color: var(--cream); background: var(--olive-950); }
 .companion-blog-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(2rem, 6vw, 6rem); align-items: end; }
 .companion-blog-card .case-kicker { color: var(--honey-200); }

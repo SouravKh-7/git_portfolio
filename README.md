@@ -43,6 +43,7 @@ The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh
 ## Portfolio Structure
 
 - [Projects](projects.md)
+- [Open-source and research references](references.md)
 - [Research notes and project stories](blog/index.html)
 - [Enterprise Context & Organizational Memory Lab](projects/enterprise-context-memory.html)
 - [Project ecosystem](ecosystem.md)

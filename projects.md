@@ -49,6 +49,13 @@ This catalog is rendered from `_data/projects.yml`, the website source of truth.
 **Limitations:** {{ project.limitations }}<br>
 **Next milestone:** {{ project.next_milestone }}
 
+{% if project.references.size > 0 %}
+**Open-source and research references:**
+{% for reference in project.references %}
+- [{{ reference.name }}]({{ reference.url }}) — {{ reference.kind }}. {{ reference.note }}
+{% endfor %}
+{% endif %}
+
 {% if project.repository_url != "" %}[Repository / project record]({{ project.repository_url }}){% endif %}{% if project.case_study_url != "" %} · [Case study]({{ project.case_study_url }}){% endif %}{% if project.blog_url != "" %} · [Blog]({{ project.blog_url }}){% endif %}
 
 {% if project.related_projects.size > 0 %}**Related work:** {{ project.related_projects | join: ", " }}{% endif %}

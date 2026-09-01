@@ -291,26 +291,6 @@
       ["Distributed systems", "Studying", "Idempotency and failure boundaries", "Design notes and deterministic retries", "Test concurrency and partition behavior"],
       ["Responsible AI", "Applied", "Bounded tools and approvals", "Guarded agent tests and decision history", "Add formal evaluations and auth"]
     ],
-    coverageRadar: [
-      ["Data Engineering", 5, "The portfolio is anchored in ingestion, transformation, quality, testing, and serving."],
-      ["Data Architecture", 4, "Projects document source boundaries, modeling, metadata, lineage, and target-state design."],
-      ["Reliability", 5, "Contracts, quarantine, reconciliation, incident evidence, and recovery are recurring concerns."],
-      ["Distributed Systems", 3, "Spark, partitioning, concurrency, backpressure, and fault tolerance are active research directions."],
-      ["Operations Research", 3, "Scheduling, routing, simulation, and optimization are represented through blueprint and experiment work."],
-      ["Industrial AI", 4, "Industrial service, manufacturing, digital-twin, and fleet contexts shape the operating problems."],
-      ["Business Thinking", 4, "Projects connect technical intervention to operational decisions and measurable hypotheses."],
-      ["Governed Agentic AI", 3, "Agents remain a controlled future layer over deterministic evidence, policy, approval, and audit records."]
-    ],
-    radar: [
-      ["Data ingestion", 4, "Idempotent multi-source ingestion is implemented and tested."],
-      ["Data quality", 4, "Contracts, quarantine and broad validation checks are implemented."],
-      ["Observability", 3, "Run metadata and incidents exist; production telemetry does not."],
-      ["Architecture", 4, "A layered local design is implemented and documented."],
-      ["Testing", 4, "23 tests, 85% coverage and CI checks provide reproducibility evidence."],
-      ["Documentation", 4, "Architecture, model, runbook, security and verification records exist."],
-      ["Deployment readiness", 2, "Containers are configured, but local runtime and production controls remain unverified."],
-      ["AI-assisted investigation", 3, "The guarded deterministic path exists; optional model use is not deployment evidence."]
-    ],
     notes: [
       {
         featured: true,
@@ -446,59 +426,6 @@
   if (learningLandscape) {
     learningLandscape.innerHTML = portfolio.learningLandscape.map(([area, current, practised, evidence, next]) => `<tr><th scope="row">${area}</th><td data-label="Current">${current}</td><td data-label="Practised">${practised}</td><td data-label="Evidence">${evidence}</td><td data-label="Next">${next}</td></tr>`).join("");
   }
-
-  function renderRadarChart(target, data, options = {}) {
-    if (!target) return;
-    const width = 720;
-    const height = 650;
-    const centerX = 360;
-    const centerY = 310;
-    const radius = 205;
-    const count = data.length;
-    const id = options.id || "radar";
-    const point = (index, value, labelRadius = radius) => {
-      const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
-      const scaled = labelRadius * (value / 5);
-      return [centerX + Math.cos(angle) * scaled, centerY + Math.sin(angle) * scaled];
-    };
-    const polygon = (value) => data.map((_, index) => point(index, value).map((number) => number.toFixed(1)).join(",")).join(" ");
-    const dataPolygon = data.map(([, value], index) => point(index, value).map((number) => number.toFixed(1)).join(",")).join(" ");
-    const rings = [1, 2, 3, 4, 5].map((value) => `<polygon class="radar-ring" points="${polygon(value)}"></polygon><text class="radar-scale" x="${centerX + 6}" y="${(centerY - radius * value / 5) + 14}">${value}</text>`).join("");
-    const axes = data.map(([, , explanation], index) => {
-      const [x, y] = point(index, 5);
-      return `<line class="radar-axis" x1="${centerX}" y1="${centerY}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"><title>${explanation}</title></line>`;
-    }).join("");
-    const labels = data.map(([label, value, explanation], index) => {
-      const [x, y] = point(index, 5, radius + 54);
-      const anchor = x < centerX - 20 ? "end" : x > centerX + 20 ? "start" : "middle";
-      const lines = label.length > 19 ? label.split(" ").reduce((parts, word) => {
-        if (!parts.length || `${parts[parts.length - 1]} ${word}`.length > 19) parts.push(word); else parts[parts.length - 1] += ` ${word}`;
-        return parts;
-      }, []) : [label];
-      return `<text class="radar-label" x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}"><title>${label}: ${value} of 5. ${explanation}</title>${lines.map((line, lineIndex) => `<tspan x="${x.toFixed(1)}" dy="${lineIndex ? 17 : 0}">${line}${lineIndex === lines.length - 1 ? ` · ${value}` : ""}</tspan>`).join("")}</text>`;
-    }).join("");
-    const markers = data.map(([, value], index) => {
-      const [x, y] = point(index, value);
-      return `<circle class="radar-marker" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5"></circle>`;
-    }).join("");
-    const rows = data.map(([label, value, explanation]) => `<tr><th scope="row">${label}</th><td>${value} / 5</td><td>${explanation}</td></tr>`).join("");
-    target.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${options.title || "Portfolio focus radar"}</title><desc id="${id}-desc">${options.description || "Eight editable dimensions shown on a scale from zero to five."}</desc>${rings}${axes}<polygon class="radar-data" points="${dataPolygon}"></polygon>${markers}${labels}</svg><figcaption>${options.caption || "Editable 0–5 focus values."}</figcaption><details class="radar-fallback"><summary>Read the chart as a table</summary><div><table><thead><tr><th>Dimension</th><th>Focus</th><th>Basis</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
-  }
-
-  renderRadarChart(document.querySelector("[data-coverage-radar]"), portfolio.coverageRadar, {
-    id: "coverage-radar",
-    title: "Engineering and research portfolio coverage",
-    description: "Eight portfolio focus dimensions from zero to five. These are illustrative concentration values, not proficiency scores.",
-    caption: "ILLUSTRATIVE · Portfolio concentration only; values are editable in script.js."
-  });
-
-  const radar = document.querySelector("[data-radar]");
-  renderRadarChart(radar, portfolio.radar, {
-    id: "evidence-radar",
-    title: "Evidence-based implementation coverage",
-    description: "Eight dimensions scored from zero to five using current repository evidence.",
-    caption: "ILLUSTRATIVE · Evidence coverage interpretation, not an experiment result or personal skill level."
-  });
 
   const readingList = document.querySelector("[data-reading-list]");
   if (readingList) readingList.innerHTML = portfolio.notes.map((note) => `<article class="reading-item reveal${note.featured ? " is-featured" : ""}"><div><h3>${note.title}</h3><p>${note.summary}</p></div><div class="reading-meta"><span>${note.category}</span><span>${note.time}</span></div><a href="${note.href}" aria-label="Read ${note.title}">↗</a></article>`).join("");

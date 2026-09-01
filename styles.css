@@ -313,9 +313,6 @@ h1, h2, h3 { text-wrap: balance; }
 .coverage-copy > p:not(.passage-label) { color: var(--text-secondary); }
 .metric-state { margin-top: 2rem; padding: 1rem; border-left: 3px solid var(--honey-700); background: var(--honey-50); font-size: 0.75rem; }
 .metric-state strong { display: block; margin-bottom: 0.25rem; color: var(--honey-800); letter-spacing: 0.08em; }
-.coverage-radar { min-width: 0; margin: 0; }
-.coverage-radar svg { display: block; width: 100%; height: auto; overflow: visible; }
-.coverage-radar figcaption { margin-top: 1rem; color: var(--text-secondary); font-size: 0.7rem; }
 
 /* Prototype to enterprise */
 .enterprise-approach { color: var(--text-on-olive); background: var(--olive-950); }
@@ -443,21 +440,6 @@ h1, h2, h3 { text-wrap: balance; }
 .maturity-stage p { margin: 1rem 0 0; color: var(--text-secondary); font-size: 0.72rem; line-height: 1.5; }
 .progress-evidence-grid { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: clamp(2.5rem, 4vw, 4rem); border-top: 1px solid var(--olive-200); }
 .progress-evidence-grid .progress-block { border-top: 0; }
-.radar-figure { margin: 0; }
-.radar-figure svg { display: block; width: 100%; height: auto; color: var(--text-primary); overflow: visible; }
-.radar-ring, .radar-axis { fill: none; stroke: var(--olive-400); stroke-width: 1; }
-.radar-ring { opacity: 0.58; }
-.radar-axis { opacity: 0.42; }
-.radar-scale { fill: var(--text-muted); font: 12px var(--sans); }
-.radar-data { fill: rgba(116, 128, 82, 0.2); stroke: var(--olive-700); stroke-width: 3; }
-.radar-marker { fill: var(--honey-600); stroke: var(--off-white-bright); stroke-width: 2; }
-.radar-label { fill: var(--text-primary); font: 600 13px var(--sans); }
-.radar-figure figcaption { margin-top: 1rem; color: var(--text-secondary); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: none; }
-.radar-fallback { margin-top: 1.3rem; border-top: 1px solid var(--olive-200); }
-.radar-fallback summary { padding: 1rem 0; color: var(--link); font-size: 0.75rem; font-weight: 750; cursor: pointer; }
-.radar-fallback > div { overflow-x: auto; }
-.radar-fallback table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
-.radar-fallback th, .radar-fallback td { padding: 0.7rem; text-align: left; vertical-align: top; border-top: 1px solid var(--olive-200); }
 .learning-table-wrap { overflow-x: auto; border-top: 2px solid var(--olive-700); }
 .learning-table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 0.72rem; line-height: 1.5; }
 .learning-table th, .learning-table td { padding: 1rem 0.75rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--olive-200); }
@@ -739,7 +721,6 @@ h1, h2, h3 { text-wrap: balance; }
   .maturity-stage:last-child { border-bottom: 0; }
   .maturity-stage::after { display: none; }
   .maturity-stage strong { margin-top: 1.5rem; }
-  .radar-label { font-size: 14px; }
   .learning-table { min-width: 0; }
   .learning-table thead { display: none; }
   .learning-table, .learning-table tbody, .learning-table tr, .learning-table th, .learning-table td { display: block; width: 100%; }
@@ -777,13 +758,13 @@ h1, h2, h3 { text-wrap: balance; }
 .brand small, .nav-links a, .hero-contact-status, .hero-contact-links a,
 .work-timeline-summary span, .timeline-date, .timeline-status, .work-timeline-legend span,
 .compact-thought-flow span, .system-thinking-flow small, .research-direction-flow span,
-.portfolio-map-center > span, .portfolio-map-branches p, .metric-state, .coverage-radar figcaption,
+.portfolio-map-center > span, .portfolio-map-branches p, .metric-state,
 .enterprise-evolution-flow span, .process-map > p, .process-map li::before,
 .verification-output span, .figure-note, .project-filters button, .filter-status,
 .project-status, .project-thinking-preview dt, .project-thinking-preview dd,
 .project-actions a, .project-meta span, .work-state header p, .work-state li > span,
-.work-state li a, .maturity-status, .maturity-stage p, .radar-figure figcaption,
-.radar-fallback summary, .reading-meta, .row-label, .control-row, .approval-row span,
+.work-state li a, .maturity-status, .maturity-stage p,
+.reading-meta, .row-label, .control-row, .approval-row span,
 .preview-flow span, .architecture-preview > p, .site-footer {
   font-size: 0.82rem;
 }
@@ -793,7 +774,7 @@ h1, h2, h3 { text-wrap: balance; }
 .reading-item > p, .architecture-explanation, .ai-guidance p {
   font-size: 0.9rem;
 }
-.learning-table, .radar-fallback table { font-size: 0.84rem; }
+.learning-table { font-size: 0.84rem; }
 .learning-table thead th { font-size: 0.78rem; }
 .featured-data-projects {
   padding: clamp(72px, 9vw, 118px) 0;

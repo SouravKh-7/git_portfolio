@@ -1,0 +1,22 @@
+.primary-project-page { color: var(--ink); background: var(--paper); }
+.primary-project-header { color: var(--cream); background: var(--olive-950); }
+.primary-project-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1180px; margin: 0 auto; padding: 18px 24px; }
+.primary-project-nav a { color: inherit; }
+.primary-project-hero { max-width: 1180px; margin: 0 auto; padding: clamp(70px, 10vw, 130px) 24px; }
+.primary-project-hero .eyebrow, .primary-project-status { color: var(--honey-200); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.primary-project-hero h1 { max-width: 950px; margin: 16px 0; font-family: var(--serif); font-size: clamp(2.6rem, 7vw, 5.8rem); line-height: .98; }
+.primary-project-hero .lead { max-width: 850px; font-size: clamp(1.08rem, 2vw, 1.35rem); line-height: 1.6; }
+.primary-project-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.primary-project-actions a { padding: 12px 16px; border: 1px solid rgba(234,215,173,.42); color: var(--cream); font-weight: 750; }
+.primary-project-main { max-width: 980px; margin: 0 auto; padding: 30px 24px 100px; }
+.primary-project-section { padding: 54px 0; border-bottom: 1px solid rgba(33,43,31,.16); }
+.primary-project-section > span { color: var(--olive-700); font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.primary-project-section h2 { margin: 10px 0 20px; font-family: var(--serif); font-size: clamp(1.9rem, 4vw, 3.2rem); line-height: 1.08; }
+.primary-project-section p, .primary-project-section li { max-width: 850px; line-height: 1.7; }
+.primary-project-section li + li { margin-top: 8px; }
+.primary-project-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 28px 0; padding: 0; list-style: none; }
+.primary-project-flow li { padding: 18px; background: var(--cream); border: 1px solid rgba(33,43,31,.14); font-weight: 700; }
+.primary-project-note { padding: 20px 22px; border-left: 4px solid var(--honey-700); background: var(--honey-100); }
+.primary-project-footer { padding: 34px 24px; color: var(--cream); background: var(--olive-950); text-align: center; }
+@media (max-width: 760px) { .primary-project-nav { align-items: flex-start; flex-direction: column; } .primary-project-flow { grid-template-columns: 1fr; } }
+

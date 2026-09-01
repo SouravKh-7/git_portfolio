@@ -6,18 +6,16 @@ permalink: /roadmap/
 
 The roadmap prioritizes evidence and depth over the number of repositories.
 
-1. **Polish and document the AI-Assisted Data Reliability Platform.** Strengthen reproducibility, tests, observability, runbooks, and the boundary between deterministic controls and optional AI explanation.
-2. **Add measured benchmarks to the Data Pipeline Optimization Framework.** Establish a reproducible baseline, validate correctness, and publish before-and-after measurements without claiming gains in advance.
-3. **Complete the Industrial Service Intelligence Platform MVP.** Connect core industrial after-sales entities to validated data products and clearly documented service KPIs.
-4. **Integrate the Root-Cause Decision Support module.** Consolidate the earlier assistant concept into the industrial platform with traceable retrieval and engineer review.
-5. **Build the Robotic Fleet simulator and deterministic optimizer.** Establish constraints, scenarios, baselines, and fleet metrics before adding more intelligent methods.
-6. **Implement Phase 1 of Environmental & Health-Aware Drone Fleet Intelligence.** Create synthetic mission, weather, fleet, and health data; trusted state products; transparent planner comparisons; replayable simulations; and an evidence-backed decision ledger.
-7. **Evaluate software-in-the-loop and research AI only after the baseline is stable.** Keep PX4 / ArduPilot simulation, learning-based routing, and tool-using agents as later phases with deterministic safety and policy outside model authority.
-8. **Resume the Retail Platform only after the core portfolio has strong evidence.** Use it to demonstrate domain transfer rather than compete with unfinished flagship work.
+1. **Expand Machine Maintenance and Uptime Data Pipeline.** Add automated tests, then implement and verify the first Databricks Bronze/Silver/Gold slice without relabeling the current local MVP as complete lakehouse work.
+2. **Build the deterministic Production Incident AI Assistant foundation.** Create a synthetic incident bundle, normalized evidence records, a reproducible timeline, and citation-ready evidence packet before adding model assistance.
+3. **Implement the first Manufacturing & Retail Supply Chain Lakehouse slice.** Finalize source contracts and synthetic generators, then build a tested Bronze ingestion path before Silver, Gold, CDC, and SCD Type 2 claims.
+4. **Strengthen supporting data-engineering projects.** Preserve the AI-Assisted Data Reliability Platform, Data Pipeline Optimization Framework, and Industrial Service Intelligence Platform as supporting evidence without competing with the resume-project order.
+5. **Keep overlapping earlier work independent.** Retain the Manufacturing Root-Cause Analysis Assistant and Retail Sales and Inventory Intelligence Platform as supporting or legacy experiments rather than merging repositories or deleting history.
+6. **Build research baselines only after the data-engineering priorities.** Robotic-fleet, drone, digital-twin, enterprise-context, physical-AI, and spatial-intelligence work remains explicitly secondary and evidence-labeled.
 
 ## Current Focus
 
-- **Primary flagship:** [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-data-reliability-platform)
-- **Current engineering focus:** reproducibility, testing, observability, documentation, and evidence.
-- **Next major build:** measurable pipeline optimization results and the Industrial Service Intelligence MVP.
-- **Research track:** [enterprise-to-physical intelligence](../#enterprise-physical), health-aware robotic fleets, digital-twin decision assurance, and [environmental drone-fleet intelligence](../projects/drone-fleet-intelligence.html).
+- **01 Active flagship:** [Machine Maintenance and Uptime Data Pipeline](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform) — local maintenance-data pipeline demonstrated; Databricks is a planned next phase.
+- **02 New build:** [Production Incident AI Assistant](https://github.com/SouravKh-7/production-incident-ai-assistant) — architecture and source-contract scaffold only.
+- **03 New build:** [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse) — architecture and source-contract scaffold only.
+- **Secondary research track:** enterprise context, optimization, digital twins, physical AI, drones, and spatial intelligence remain below the primary data-engineering work.

@@ -5,8 +5,8 @@
   // can be updated without changing the page structure.
   const portfolio = {
     navigation: [
-      ["Home", "introduction"], ["Physical AI", "enterprise-physical"], ["Thinking", "thinking"], ["Projects", "projects"], ["Progress", "progress"],
-      ["Research", "research"], ["System design", "architecture"], ["Contact", "contact"]
+      ["Home", "introduction"], ["Featured", "featured-projects"], ["Projects", "projects"], ["Thinking", "thinking"],
+      ["Research", "research"], ["Blog", "blog/index.html"]
     ],
     process: [
       {
@@ -43,8 +43,47 @@
     filters: [["all", "All"], ["active", "Active"], ["reference", "Reference implementation"], ["research", "Research"], ["blueprint", "Blueprint"], ["parked", "Parked"]],
     projects: [
       {
+        title: "Machine Maintenance and Uptime Data Pipeline",
+        description: "A working local CSV pipeline using synthetic machine, telemetry, and maintenance data. It validates and quarantines records, then builds condition, reliability, combined-summary, and maintenance-priority outputs.",
+        problem: "Fragmented identifiers and maintenance records make machine condition, downtime, and failure history difficult to compare.",
+        maturity: "Active build · local MVP",
+        area: "Machine maintenance data and reliability",
+        href: "projects/manufacturing-asset-lifecycle.html",
+        architecture: "Synthetic sources → validation and quarantine → condition and reliability → machine summary → maintenance priority",
+        research: "Databricks Bronze/Silver/Gold, CDC, SCD Type 2, tests, and observability remain future phases.",
+        next: "Add automated tests and implement the first verified Databricks lakehouse slice.",
+        repo: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform",
+        filters: ["active", "reference"]
+      },
+      {
+        title: "Production Incident AI Assistant",
+        description: "A new project for putting alerts, logs, metrics, deployments, pipeline failures, and runbooks into one incident view.",
+        problem: "On-call engineers spend time collecting evidence from separate tools before they can investigate a failure.",
+        maturity: "New build · scaffold only",
+        area: "Production incident investigation and reliability",
+        href: "projects/production-incident-ai-assistant.html",
+        architecture: "Read-only sources → normalized evidence → deterministic timeline and correlation → permissioned retrieval → engineer review",
+        research: "Citation validity, unsupported claims, missing telemetry, conflicting sources, and permission enforcement.",
+        next: "Build a synthetic incident bundle and deterministic timeline and evidence packet.",
+        repo: "https://github.com/SouravKh-7/production-incident-ai-assistant",
+        filters: ["active"]
+      },
+      {
+        title: "Manufacturing & Retail Supply Chain Lakehouse",
+        description: "A planned Databricks project for joining manufacturing, supplier, warehouse, inventory, sales, and return data.",
+        problem: "The source systems use different keys and grains, and their data does not arrive at the same time.",
+        maturity: "New build · scaffold only",
+        area: "Lakehouse and supply-chain data engineering",
+        href: "projects/manufacturing-retail-supply-chain-lakehouse.html",
+        architecture: "Synthetic sources → Bronze contracts → Silver conformance and quarantine → reconciled Gold products",
+        research: "CDC, late data, idempotency, backfills, SCD Type 2, freshness, and controlled Spark experiments.",
+        next: "Finalize versioned source contracts and implement the first reproducible Bronze slice.",
+        repo: "https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse",
+        filters: ["active"]
+      },
+      {
         title: "AI-Assisted Data Reliability Platform",
-        description: "A local reference system for detecting data failures, preserving evidence, and supporting guarded incident response. The implementation separates deterministic controls from optional AI explanation and approval-gates risky action.",
+        description: "A working local project that checks pipeline data, keeps failure evidence, and tests a controlled incident-response flow.",
         problem: "A pipeline can complete while producing stale, invalid, incomplete, or unreconciled data.",
         maturity: "Verified local reference implementation",
         area: "Data reliability and platform engineering",
@@ -57,8 +96,8 @@
       },
       {
         title: "Data Pipeline Optimization Framework",
-        description: "A before-and-after engineering study for improving an inefficient data pipeline without weakening correctness. The project is building a reproducible baseline before any performance improvement is claimed.",
-        problem: "Optimization claims are unreliable when workload, data, hardware, and correctness checks are not comparable.",
+        description: "A before-and-after test of changes made to a slow data pipeline. Results will be published only after the same workload can be repeated.",
+        problem: "A faster run is not useful if the test changed or the output is wrong.",
         maturity: "Active development",
         area: "Performance, benchmarking, and reliability",
         href: "projects/pipeline-optimization.html",
@@ -70,8 +109,8 @@
       },
       {
         title: "Industrial Service Intelligence Platform",
-        description: "An industrial after-sales data platform intended to combine service, asset, customer, dealer, warranty, and spare-part records. Its purpose is to make service KPIs and operational context more consistent and reviewable.",
-        problem: "Fragmented operational records make delays, repeat failures, SLA risk, and customer impact difficult to understand.",
+        description: "A service-data project for joining tickets, machines, customers, dealers, warranties, and spare-parts records.",
+        problem: "Separate service records make delays, repeat failures, SLA risk, and customer impact hard to compare.",
         maturity: "Active development",
         area: "Industrial data products and operational intelligence",
         href: "projects/industrial-service-intelligence.html",
@@ -83,8 +122,8 @@
       },
       {
         title: "Health-Aware Robotic Fleet Optimization",
-        description: "A research direction exploring scheduling and routing when availability is not the only constraint. The planned model considers asset health, battery, location, task priority, workload, and operational risk.",
-        problem: "Fleet assignment becomes unrealistic when the condition of each robot is treated as an afterthought.",
+        description: "A research project for scheduling robot tasks using health, battery, location, priority, and workload data.",
+        problem: "The nearest available robot may not be the safest or most reliable choice.",
         maturity: "Design and research blueprint",
         area: "Operations research and intelligent systems",
         href: "projects/robotic-fleet-optimization.html",
@@ -96,8 +135,8 @@
       },
       {
         title: "Environmental & Health-Aware Drone Fleet Intelligence",
-        description: "A data-engineering, optimization, digital-twin, and bounded-agent research blueprint for assigning and routing inspection UAVs under changing mission, weather, communication, battery, and component-health conditions.",
-        problem: "The geographically shortest mission may not be the safest, most energy-efficient, most reliable, or most productive once environmental and fleet constraints are considered.",
+        description: "A research plan for assigning inspection-drone work using weather, battery, communication, drone condition, and mission priority.",
+        problem: "The shortest route may be a poor choice when weather, battery reserve, and drone condition are included.",
         maturity: "Research blueprint · implementation next",
         area: "Physical intelligence, drone fleets, and decision assurance",
         href: "projects/drone-fleet-intelligence.html",
@@ -108,9 +147,21 @@
         filters: ["research", "blueprint"]
       },
       {
+        title: "Enterprise Context & Organizational Memory Lab",
+        description: "A future project for testing what company information an AI tool may retrieve, use, or remember.",
+        problem: "An internal AI tool needs current information and clear permissions, but it should not keep every conversation forever.",
+        maturity: "Future research · implementation direction",
+        area: "Enterprise context, governed memory, and AI evaluation",
+        href: "projects/enterprise-context-memory.html",
+        architecture: "Question → context router → authorization → context fabric → answer / action → memory write gate → reviewed memory",
+        research: "Permission-aware retrieval, memory lifecycle, conflict handling, user control, evaluation, and workflow-level cost.",
+        next: "Build a synthetic context-routing benchmark and permission-aware retrieval reference path.",
+        filters: ["research", "blueprint"]
+      },
+      {
         title: "Supply Chain Digital Twin Research Lab",
-        description: "A reproducible simulation blueprint for comparing inventory, backlog, disruption, allocation, and recovery policies against the same validated operating state.",
-        problem: "Supply-chain policies are difficult to compare when demand, lead time, capacity, inventory, and disruption assumptions are inconsistent.",
+        description: "A research plan for comparing inventory and recovery decisions under the same simulated conditions.",
+        problem: "Two supply-chain policies cannot be compared fairly when their demand, capacity, inventory, or disruption assumptions differ.",
         maturity: "Research blueprint",
         area: "Digital twins, simulation, and operations research",
         href: "projects/supply-chain-digital-twin.html",
@@ -121,8 +172,8 @@
       },
       {
         title: "Database Performance and Workload Lab",
-        description: "A controlled research lab for studying query plans, indexing, concurrency, partitioning, storage overhead, and workload stability without presenting local results as production evidence.",
-        problem: "Performance claims are unreliable when workload, cache state, skew, concurrency, hardware, and correctness are not comparable.",
+        description: "A planned set of database tests for query plans, indexes, concurrency, partitions, and storage cost.",
+        problem: "Database results are hard to compare when the workload, cache, hardware, or correctness checks change.",
         maturity: "Research blueprint",
         area: "Database systems and performance engineering",
         href: "projects/database-performance-lab.html",
@@ -133,7 +184,7 @@
       },
       {
         title: "Manufacturing Root-Cause Analysis Assistant",
-        description: "An earlier evidence-retrieval and decision-support concept that is being consolidated into the industrial platform. The useful idea is retained: prepare traceable evidence for an engineer without allowing the system to determine the final cause on its own.",
+        description: "An older project for collecting maintenance evidence before an engineer reviews a possible root cause.",
         problem: "Investigations are slow when machine, process, inspection, maintenance, and incident records remain scattered.",
         maturity: "Evolving into another project",
         area: "Manufacturing evidence and human review",
@@ -146,7 +197,7 @@
       },
       {
         title: "Retail Sales and Inventory Intelligence",
-        description: "A paused domain-transfer project applying reliable data-product patterns to retail operations. It remains useful as a test of whether modeling, quality, and decision-support ideas can transfer into a different operating context.",
+        description: "An older retail project kept as a small test of data modeling and quality checks.",
         problem: "Sales and inventory decisions require consistent product, store, transaction, and stock-movement data.",
         maturity: "Parked",
         area: "Business data products",
@@ -159,8 +210,8 @@
       },
       {
         title: "Industrial Operations Business Cases",
-        description: "A developing case-study track connecting industrial architectures to users, process friction, KPIs, assumptions, risks, and adoption constraints. The examples will remain clearly labeled as cases rather than deployed business outcomes.",
-        problem: "Technical designs are difficult to evaluate when their connection to operating value is left implicit.",
+        description: "A set of short case studies connecting industrial project ideas to users, process problems, measures, assumptions, and risks.",
+        problem: "A technical design is hard to judge when the practical use is not explained.",
         maturity: "Building",
         area: "Product thinking and industrial operations",
         href: "projects/business-case-studies.html",
@@ -171,8 +222,8 @@
       },
       {
         title: "AI and Data Product Strategy Notes",
-        description: "A planned note series connecting evidence quality, user value, controls, metrics, and delivery choices. The first note will use a portfolio project as a concrete example rather than relying on general product language.",
-        problem: "A technically capable system is not yet a useful product until its users, controls, risks, and measures are clear.",
+        description: "Planned notes about evidence quality, users, controls, measures, and delivery choices.",
+        problem: "A technical system is not useful until its user, limits, risks, and measures are clear.",
         maturity: "Planned",
         area: "Data and AI product strategy",
         href: "projects/business-case-studies.html",
@@ -339,7 +390,7 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const navigation = document.querySelector("[data-navigation]");
-  if (navigation) navigation.innerHTML = portfolio.navigation.map(([label, id]) => `<a href="#${id}">${label}</a>`).join("");
+  if (navigation) navigation.innerHTML = portfolio.navigation.map(([label, target]) => `<a href="${target.includes("/") ? target : `#${target}`}">${label}</a>`).join("");
 
   const processMap = document.querySelector("[data-process-map]");
   const processStages = document.querySelector("[data-process-stages]");

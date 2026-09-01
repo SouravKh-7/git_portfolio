@@ -22,12 +22,17 @@ projects/*
 !projects/case-study.css
 !projects/case-study.js
 !projects/drone-fleet-intelligence.css
+!projects/enterprise-context-memory.css
+!projects/primary-project.css
 
 _resume.md
 CHANGELOG.md
 
 # Local-only workspace folder. Anything placed here stays off GitHub.
 local_ignored/
+
+# Separate local clone; linked from the portfolio but never stored inside it.
+ai-data-reliability-platform/
 
 ProjectGit/
 github-portfolio-system-starter/

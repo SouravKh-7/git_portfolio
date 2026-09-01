@@ -1,11 +1,95 @@
+- name: "Machine Maintenance and Uptime Data Pipeline"
+  slug: "machine-maintenance-uptime-data-pipeline"
+  repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
+  category: "Featured Resume Projects"
+  status: "Active Build"
+  priority: "01"
+  featured: true
+  resume_project: true
+  summary: "A local CSV pipeline that connects synthetic machine, telemetry, and maintenance records through stable IDs, validation, quarantine, condition, reliability, and maintenance-priority outputs."
+  problem: "Maintenance teams cannot reliably understand machine condition, failure history, downtime, or maintenance needs when identifiers and operational records are fragmented."
+  technology:
+    - "Python"
+    - "CSV"
+    - "Standard library"
+  engineering_evidence:
+    - "Local scripts validate machine, telemetry, and maintenance inputs and preserve rejected rows with reasons"
+    - "Generated Gold files cover condition, rule-based health, reliability, a combined machine summary, and maintenance priority"
+    - "Five valid synthetic machines plus deliberate invalid records demonstrate the current batch flow"
+  ai_role: "No AI is implemented; ML and evidence-grounded assistance remain future directions after the lakehouse and test foundation."
+  limitations: "Early local CSV MVP; no automated tests, Databricks implementation, Delta Lake, CDC, SCD Type 2, orchestration, production monitoring, or deployment."
+  next_milestone: "Add automated tests and implement the first evidence-backed Databricks Bronze/Silver/Gold slice."
+  case_study_url: "/git_portfolio/projects/manufacturing-asset-lifecycle.html"
+  blog_url: ""
+  related_projects:
+    - "Industrial Service Intelligence Platform"
+    - "Manufacturing Root-Cause Analysis Assistant"
+
+- name: "Production Incident AI Assistant"
+  slug: "production-incident-ai-assistant"
+  repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
+  category: "Featured Resume Projects"
+  status: "New Build / Active Development"
+  priority: "02"
+  featured: true
+  resume_project: true
+  summary: "A new project for collecting alerts, logs, metrics, deployment details, pipeline failures, and runbooks in one incident view."
+  problem: "On-call engineers often spend too much time collecting evidence from separate tools before they can investigate the failure."
+  technology:
+    - "Python"
+    - "Typed source contracts"
+    - "Synthetic incident scenarios"
+  engineering_evidence:
+    - "Initial Python package, incident and evidence contracts, read-only adapter protocol, contract test, and CI definition"
+    - "Architecture, data-model, evaluation, and failure-scenario documents"
+    - "Explicit no-write, evidence-citation, permission, and human-authority boundaries"
+  ai_role: "A future assistant may summarize cited evidence and propose investigation questions; it may not invent facts, confirm root cause without evidence, or modify production."
+  limitations: "Scaffold only; no working ingestion, correlation, retrieval, assistant, API, production integration, deployment, or evaluation result."
+  next_milestone: "Build the first synthetic incident bundle and deterministic timeline and evidence packet."
+  case_study_url: "/git_portfolio/projects/production-incident-ai-assistant.html"
+  blog_url: ""
+  related_projects:
+    - "AI-Assisted Data Reliability Platform"
+    - "Manufacturing Root-Cause Analysis Assistant"
+
+- name: "Manufacturing & Retail Supply Chain Lakehouse"
+  slug: "manufacturing-retail-supply-chain-lakehouse"
+  repository_url: "https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse"
+  category: "Featured Resume Projects"
+  status: "New Build / Active Development"
+  priority: "03"
+  featured: true
+  resume_project: true
+  summary: "A planned Databricks project for joining manufacturing, supplier, warehouse, inventory, sales, and return data."
+  problem: "Supply-chain data comes from different systems, arrives at different times, and does not always use the same keys or grain."
+  technology:
+    - "Databricks (target)"
+    - "PySpark (target)"
+    - "Delta Lake (target)"
+    - "Python contracts"
+  engineering_evidence:
+    - "Initial source-contract type, contract test, CI definition, and directory scaffold"
+    - "Architecture, source scope, data-model, synthetic-scenario, performance-lab, and test-strategy documents"
+    - "Planned CDC, late-data, idempotency, backfill, SCD Type 2, quarantine, reconciliation, and freshness boundaries are explicitly labeled"
+  ai_role: "A future assistant may retrieve trusted supply-chain evidence after the lakehouse exists; it may not change orders, inventory, quality gates, or operational systems."
+  limitations: "Scaffold only; no implemented Bronze/Silver/Gold pipeline, Delta tables, Databricks jobs, synthetic generator, benchmark, analytics result, or deployment."
+  next_milestone: "Finalize versioned synthetic source contracts and implement the first reproducible Bronze ingestion slice."
+  case_study_url: "/git_portfolio/projects/manufacturing-retail-supply-chain-lakehouse.html"
+  blog_url: ""
+  related_projects:
+    - "Retail Sales and Inventory Intelligence Platform"
+    - "Supply Chain Digital Twin Research Lab"
+
 - name: "AI-Assisted Data Reliability Platform"
   slug: "ai-assisted-data-reliability-platform"
   repository_url: "https://github.com/SouravKh-7/ai-data-reliability-platform"
-  category: "Data Platforms and Reliability"
+  category: "Supporting Data Engineering Projects"
   status: "Reference Implementation"
-  priority: "Primary flagship"
-  featured: true
-  summary: "A production-style local reference implementation for reliable data processing and guarded incident response."
+  priority: "Supporting project"
+  featured: false
+  resume_project: false
+  technology: []
+  summary: "A working local project that checks pipeline data and tests a controlled incident-response flow."
   problem: "Pipelines can complete while producing stale, invalid, incomplete, or unreconciled data that affects reports and AI applications."
   engineering_evidence:
     - "Local ingestion, validation, quarantine, transformation, reconciliation, and incident workflows"
@@ -14,6 +98,8 @@
   ai_role: "AI may improve explanations after structured evidence and authorization decisions are established in code."
   limitations: "Local reference implementation; not a deployed production service."
   next_milestone: "Strengthen reproducibility, operational metadata, observability, and documented evidence."
+  case_study_url: "/git_portfolio/projects/ai-data-reliability.html"
+  blog_url: "/git_portfolio/blog/pipeline-succeeded-data-wrong.html"
   related_projects:
     - "Data Pipeline Optimization Framework"
     - "Industrial Service Intelligence Platform"
@@ -21,36 +107,44 @@
 - name: "Data Pipeline Optimization Framework"
   slug: "data-pipeline-optimization-framework"
   repository_url: "https://github.com/SouravKh-7/data-pipeline-optimization-framework"
-  category: "Data Platforms and Reliability"
+  category: "Supporting Data Engineering Projects"
   status: "Active Development"
   priority: "Core engineering case study"
-  featured: true
-  summary: "A measurable before-and-after case study for improving an inefficient data pipeline."
-  problem: "Pipeline improvements cannot be evaluated responsibly without a reproducible baseline, correctness checks, and comparable measurements."
+  featured: false
+  resume_project: false
+  technology: []
+  summary: "A before-and-after test of changes made to a slow data pipeline."
+  problem: "A speed improvement is not useful if the test cannot be repeated or the output changes."
   engineering_evidence:
     - "Active work on incremental loading, Parquet, partitioning, and runtime monitoring"
     - "Planned comparison backed by data quality and reconciliation checks"
   ai_role: "No autonomous operational role; the emphasis is deterministic performance and correctness evidence."
   limitations: "No performance improvement is claimed until reproducible measurements are published."
   next_milestone: "Publish measured before-and-after benchmarks with correctness validation."
+  case_study_url: "/git_portfolio/projects/pipeline-optimization.html"
+  blog_url: ""
   related_projects:
     - "AI-Assisted Data Reliability Platform"
 
 - name: "Industrial Service Intelligence Platform"
   slug: "industrial-service-intelligence-platform"
   repository_url: "https://github.com/SouravKh-7/industrial-service-intelligence-platform"
-  category: "Industrial Data and Operational Intelligence"
+  category: "Supporting Data Engineering Projects"
   status: "Active Development"
-  priority: "Industrial-domain flagship"
-  featured: true
-  summary: "An industrial after-sales data platform for trusted service KPIs and decision-support outputs."
-  problem: "Machine, service, warranty, maintenance, customer, dealer, and spare-part data are fragmented across operational processes."
+  priority: "Supporting project"
+  featured: false
+  resume_project: false
+  technology: []
+  summary: "A service-data project that joins tickets, machines, warranties, customers, dealers, and spare-parts data."
+  problem: "Service and maintenance records are spread across several operational processes and are hard to compare."
   engineering_evidence:
     - "Active platform development with completed, in-progress, and planned features separated in the project repository"
     - "Industrial data modeling, data-quality, KPI, and decision-support scope"
   ai_role: "Decision support may organize and retrieve evidence; accountable people retain control of operational decisions."
   limitations: "The MVP remains in development; planned capabilities are not presented as complete."
   next_milestone: "Complete and document the MVP, then integrate root-cause decision support."
+  case_study_url: "/git_portfolio/projects/industrial-service-intelligence.html"
+  blog_url: "/git_portfolio/blog/service-tickets-trusted-data-product.html"
   related_projects:
     - "Manufacturing Root-Cause Analysis Assistant"
     - "AI-Assisted Data Reliability Platform"
@@ -62,49 +156,63 @@
   status: "Design / Blueprint"
   priority: "Research project"
   featured: false
-  summary: "Research into health-aware scheduling, routing, simulation, and fleet-level optimization."
-  problem: "Fleet task assignment must account for robot health, availability, battery, capacity, location, routes, and conflicts."
+  resume_project: false
+  technology: []
+  summary: "A research project for scheduling robot tasks using health, battery, location, and workload data."
+  problem: "The nearest available robot may not be the safest or most reliable choice for a task."
   engineering_evidence:
     - "Architecture and requirements covering telemetry, scheduling, simulation, and optimization"
   ai_role: "Potential decision support within simulation and planning; not an autonomous deployed fleet controller."
   limitations: "Implementation evidence is limited; this is not presented as a completed Industrial AI system."
   next_milestone: "Build a simulator and deterministic optimization baseline."
+  case_study_url: "/git_portfolio/projects/robotic-fleet-optimization.html"
+  blog_url: "/git_portfolio/blog/nearest-robot-not-best.html"
   related_projects:
     - "Environmental & Health-Aware Drone Fleet Intelligence"
 
 - name: "Retail Sales and Inventory Intelligence Platform"
   slug: "retail-sales-and-inventory-intelligence-platform"
   repository_url: "https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform"
-  category: "Business Data Products"
-  status: "Parked"
-  priority: "Future domain-transfer project"
+  category: "Industrial / Operational Intelligence"
+  status: "Supporting / Legacy Experiment"
+  priority: "Legacy domain-transfer project"
   featured: false
-  summary: "A parked project for transferring data-engineering and decision-support patterns into retail."
-  problem: "Retail sales and inventory decisions require consistent, validated data across products, locations, transactions, and stock movements."
+  resume_project: false
+  technology: []
+  summary: "An older retail project kept as a small supporting experiment."
+  problem: "Sales and inventory reports need consistent product, store, transaction, and stock-movement data."
   engineering_evidence:
     - "Planned domain-transfer scope only"
   ai_role: "Any future forecasting or recommendations remain planned and are not claimed as implemented."
-  limitations: "Intentionally paused; forecasting, APIs, dashboards, SaaS features, and recommendations are not presented as complete."
+  limitations: "Retained as a supporting experiment; forecasting, APIs, dashboards, SaaS features, and recommendations are not presented as complete. The current supply-chain flagship is Manufacturing & Retail Supply Chain Lakehouse."
   next_milestone: "Resume only after the three core portfolio projects have strong evidence."
+  case_study_url: "/git_portfolio/projects/retail-inventory-intelligence.html"
+  blog_url: ""
   related_projects:
+    - "Manufacturing & Retail Supply Chain Lakehouse"
     - "Industrial Service Intelligence Platform"
 
 - name: "Manufacturing Root-Cause Analysis Assistant"
   slug: "manufacturing-root-cause-analysis-assistant"
   repository_url: "https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant"
-  category: "Industrial Data and Operational Intelligence"
-  status: "Evolving"
-  priority: "Secondary"
+  category: "Industrial / Operational Intelligence"
+  status: "Supporting Project"
+  priority: "Supporting experiment"
   featured: false
-  summary: "An earlier RAG and decision-support concept being consolidated into the industrial platform."
-  problem: "Root-cause investigations require traceable evidence across maintenance records, procedures, incidents, and sensor summaries."
+  resume_project: false
+  technology: []
+  summary: "An earlier project for searching maintenance records and preparing evidence for root-cause review."
+  problem: "Maintenance records, procedures, incident notes, and sensor summaries are often checked separately during an investigation."
   engineering_evidence:
     - "Earlier concept and design work retained in its repository"
     - "Consolidation path into the Industrial Service Intelligence Platform"
   ai_role: "Retrieval and evidence preparation for engineer review, not autonomous root-cause determination."
-  limitations: "No longer independently prioritized; capabilities are being incorporated into another project."
-  next_milestone: "Define and integrate the root-cause decision-support module in the Industrial Service Intelligence Platform."
+  limitations: "Retained as a supporting experiment. The current incident-investigation flagship is Production Incident AI Assistant; the repositories are not presented as one deployed system."
+  next_milestone: "Preserve the earlier experiment and clarify reusable evidence-retrieval lessons without merging repositories automatically."
+  case_study_url: "/git_portfolio/projects/manufacturing-root-cause.html"
+  blog_url: ""
   related_projects:
+    - "Production Incident AI Assistant"
     - "Industrial Service Intelligence Platform"
 
 - name: "Environmental & Health-Aware Drone Fleet Intelligence"
@@ -114,15 +222,123 @@
   status: "Research Blueprint / Implementation Next"
   priority: "Physical intelligence research vertical"
   featured: false
-  summary: "A data-engineering, optimization, digital-twin, and bounded-agent research blueprint for environmental and health-aware inspection-drone fleet planning."
-  problem: "The geographically shortest mission may be unsafe or inefficient once weather, battery reserve, component health, communication, workload, and inspection priority are considered."
+  resume_project: false
+  technology: []
+  summary: "A research plan for assigning inspection-drone work using weather, battery, machine health, and mission priority."
+  problem: "The shortest route may be a poor choice when weather, battery reserve, communication, and drone condition are considered."
   engineering_evidence:
     - "Research synthesis covering data domains, trusted state, deterministic baselines, AI boundaries, experiments, metrics, and sources"
     - "Historical health-aware routing concept retained in the linked repository"
   ai_role: "A future agent may interpret intent, retrieve trusted evidence, and coordinate approved planning and simulation tools; it does not control the flight stack."
   limitations: "No simulator, benchmark, hardware-in-the-loop integration, field deployment, or autonomous-flight result is claimed."
   next_milestone: "Build a deterministic laptop simulation with synthetic mission, fleet, health, and environmental data."
+  case_study_url: "/git_portfolio/projects/drone-fleet-intelligence.html"
+  blog_url: "/git_portfolio/blog/shortest-drone-route-wrong.html"
   related_projects:
     - "Health-Aware Robotic Fleet Optimization System"
     - "Supply Chain Digital Twin Research Lab"
     - "AI-Assisted Data Reliability Platform"
+
+- name: "Enterprise Context & Organizational Memory Lab"
+  slug: "enterprise-context-organizational-memory-lab"
+  repository_url: "/git_portfolio/projects/enterprise-context-memory.html"
+  category: "Research, Optimization and Intelligent Operations"
+  status: "Future Research / Implementation Direction"
+  priority: "Enterprise AI research vertical"
+  featured: false
+  resume_project: false
+  technology: []
+  summary: "A future project for testing what company information an AI tool may retrieve, use, or remember."
+  problem: "An internal AI tool needs current information and clear permissions, but it should not keep every conversation as permanent memory."
+  engineering_evidence:
+    - "Architecture synthesis covering routing, authorization, context assembly, memory governance, evaluation, and cost"
+    - "Synthetic Line 3 case study with explicit privacy, evidence, and maturity boundaries"
+  ai_role: "AI may classify requests, retrieve authorized evidence, draft candidate lessons, and assist with answers; reviewed policy and people control retrieval, memory writes, and consequential action."
+  limitations: "Future project only; no employer deployment, real employee data, working reference service, or measured outcome is claimed."
+  next_milestone: "Build a labeled context-routing benchmark and permission-aware retrieval reference path using synthetic data."
+  case_study_url: "/git_portfolio/projects/enterprise-context-memory.html"
+  blog_url: "/git_portfolio/blog/what-should-a-company-ai-remember.html"
+  related_projects:
+    - "Manufacturing Root-Cause Analysis Assistant"
+    - "Industrial Service Intelligence Platform"
+    - "AI-Assisted Data Reliability Platform"
+
+- name: "Supply Chain Digital Twin Research Lab"
+  slug: "supply-chain-digital-twin-research-lab"
+  repository_url: "/git_portfolio/projects/supply-chain-digital-twin.html"
+  category: "Research & Optimization"
+  status: "Research Blueprint"
+  priority: "Future research"
+  featured: false
+  resume_project: false
+  summary: "A research plan for comparing supply-chain decisions in the same simulated conditions."
+  problem: "Two supply-chain policies cannot be compared fairly when demand, capacity, inventory, or disruption assumptions differ."
+  technology: []
+  engineering_evidence:
+    - "Portfolio architecture and experiment questions only"
+  ai_role: "No autonomous or implemented AI role is claimed."
+  limitations: "Research blueprint; no standalone repository, working simulator, experiment, benchmark, or deployment is claimed."
+  next_milestone: "Define the validated state model and deterministic simulation baseline."
+  case_study_url: "/git_portfolio/projects/supply-chain-digital-twin.html"
+  blog_url: "/git_portfolio/blog/simulate-before-decision.html"
+  related_projects:
+    - "Manufacturing & Retail Supply Chain Lakehouse"
+
+- name: "ElevateIQ"
+  slug: "elevateiq"
+  repository_url: ""
+  category: "Research & Optimization"
+  status: "Future Research"
+  priority: "Future research"
+  featured: false
+  resume_project: false
+  summary: "A saved project idea. No working project exists yet."
+  problem: "The problem is not defined clearly enough yet."
+  technology: []
+  engineering_evidence: []
+  ai_role: "Not yet defined."
+  limitations: "No verified repository, implementation, result, or deployment is claimed."
+  next_milestone: "Verify the existing concept and define a bounded research question before promotion."
+  case_study_url: ""
+  blog_url: ""
+  related_projects: []
+
+- name: "Physical AI Data Factory"
+  slug: "physical-ai-data-factory"
+  repository_url: ""
+  category: "Research & Optimization"
+  status: "Planned Experiment"
+  priority: "Future research"
+  featured: false
+  resume_project: false
+  summary: "A planned experiment about preparing reliable data for robots or other physical systems."
+  problem: "The exact dataset, test, and expected result are not defined yet."
+  technology: []
+  engineering_evidence: []
+  ai_role: "Not yet defined."
+  limitations: "No repository, implementation, dataset, benchmark, or deployment is claimed."
+  next_milestone: "Write a public-safe problem statement and measurable experiment plan."
+  case_study_url: ""
+  blog_url: ""
+  related_projects:
+    - "Environmental & Health-Aware Drone Fleet Intelligence"
+
+- name: "Spatial Intelligence Work"
+  slug: "spatial-intelligence-work"
+  repository_url: ""
+  category: "Research & Optimization"
+  status: "Future Research"
+  priority: "Future research"
+  featured: false
+  resume_project: false
+  summary: "A saved research area for a later spatial-data project."
+  problem: "No specific problem, dataset, or evaluation plan has been selected yet."
+  technology: []
+  engineering_evidence: []
+  ai_role: "Not yet defined."
+  limitations: "No repository, implementation, result, or deployment is claimed."
+  next_milestone: "Select one bounded, public-safe spatial data-engineering experiment."
+  case_study_url: ""
+  blog_url: ""
+  related_projects:
+    - "Physical AI Data Factory"

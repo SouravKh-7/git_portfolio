@@ -1234,3 +1234,10 @@
 .case-evidence-grid p, .data-model-grid li p { font-size: 0.88rem; }
 .thinking-branch h3.thinking-branch-title-long { font-size: 0.82rem; }
 .case-radar-label, .chart-label, .chart-value, .chart-tick { font-size: 14px; }
+.companion-blog-section { color: var(--cream); background: var(--olive-950); }
+.companion-blog-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(2rem, 6vw, 6rem); align-items: end; }
+.companion-blog-card .case-kicker { color: var(--honey-200); }
+.companion-blog-card span { color: rgba(250, 248, 239, 0.68); font-size: 0.82rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
+.companion-blog-card h2 { max-width: 850px; margin: 1rem 0; font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1; }
+.companion-blog-card p:not(.case-kicker) { max-width: 760px; color: rgba(250, 248, 239, 0.78); }
+@media (max-width: 760px) { .companion-blog-card { grid-template-columns: 1fr; align-items: start; } }

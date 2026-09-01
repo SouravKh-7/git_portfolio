@@ -1,53 +1,53 @@
-# Sourav Khandai - Data Engineering Portfolio
+# Sourav Khandai — Data Engineer
 
-## Data Engineer | Reliable Data Platforms | AI-Ready Data Systems | Applied Operational Intelligence
+## Data Engineering | Databricks | PySpark | SQL | Delta Lake | Lakehouse Architecture
 
-I build data systems that turn raw operational and business data into information people can trust and use. My work focuses on reliable pipelines, data quality, observability, AI-ready data, and decision-support workflows that keep people accountable for important actions.
+I build data pipelines for manufacturing, retail, and operational work using Python, SQL, PySpark, Databricks, and Delta Lake. Most projects here are about data quality, maintenance records, incident investigation, or supply-chain data.
+
+## About
 
 My manufacturing and process-engineering background helps me understand the operational context behind the data: machines, maintenance, service activity, quality, reliability, constraints, and the cost of incomplete information. This portfolio shows how I am combining that domain knowledge with Data Engineering.
 
-## For Recruiters and Hiring Managers
+## Portfolio Scope
 
-If you arrived here from my resume, the best starting point is the [portfolio website](https://SouravKh-7.github.io/git_portfolio/). It provides a short guided view of the projects, their relationships, and their actual evidence level.
+The [portfolio website](https://SouravKh-7.github.io/git_portfolio/) centers on three resume projects. Supporting projects, legacy experiments, and research blueprints remain visible with evidence-based status labels.
 
-For a direct technical review, begin with the [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-data-reliability-platform). It is the strongest implementation in the portfolio and demonstrates the way I approach ingestion, validation, data contracts, quarantine, transformations, reconciliation, testing, APIs, operational evidence, and controlled AI assistance.
+## Featured Resume Projects
 
-The portfolio is intentionally organized around three priority projects. Other repositories are supporting research, parked ideas, or earlier concepts and are labeled accordingly.
+### 1. [Machine Maintenance and Uptime Data Pipeline](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform)
 
-## Priority Projects
+**Status:** ACTIVE BUILD — Local maintenance-data pipeline demonstrated; Databricks is a planned next phase.
 
-### 1. [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-data-reliability-platform)
+The current Python and CSV implementation validates synthetic machine, telemetry, and maintenance data, quarantines invalid rows, calculates condition and reliability measures, and builds a combined machine summary and maintenance-priority file. Databricks, Delta Lake, CDC, SCD Type 2, production observability, and ML remain roadmap work.
 
-**Status:** Reference Implementation | **Role:** Primary flagship
+### 2. [Production Incident AI Assistant](https://github.com/SouravKh-7/production-incident-ai-assistant)
 
-A data pipeline can finish without errors and still deliver incorrect or incomplete data. This project explores that gap through a runnable local system that ingests sample operational data, applies contracts and business rules, quarantines invalid records, builds analytical data products, reconciles results, detects incidents, and exposes evidence through an API.
+**Status:** NEW BUILD / ACTIVE DEVELOPMENT
 
-The AI-assisted incident workflow is deliberately constrained. Deterministic code establishes the evidence, impact, allowed actions, and approval requirements. An optional model may improve an explanation, but it cannot invent evidence or authorize a risky action. The repository includes source code, tests, Docker configuration, CI, architecture notes, security boundaries, and local run instructions. It is a reference implementation, not a deployed production system.
+A new project for collecting alerts, logs, metrics, traces, deployments, pipeline failures, and runbooks in one incident view. The repository currently has design notes, source contracts, one test, and a Python scaffold. The working investigation flow and assistant are not built yet.
 
-### 2. [Data Pipeline Optimization Framework](https://github.com/SouravKh-7/data-pipeline-optimization-framework)
+### 3. [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse)
 
-**Status:** Active Development | **Role:** Core engineering case study
+**Status:** NEW BUILD / ACTIVE DEVELOPMENT
 
-This project is being developed as a measurable before-and-after study of pipeline improvement. Its purpose is to show not only that a pipeline was changed, but whether the change preserved correctness and produced a measurable benefit. The planned comparison covers incremental loading, Parquet, partitioning, data-quality checks, reconciliation, runtime monitoring, and reproducible benchmarks.
+A planned Databricks, PySpark, and Delta Lake project for manufacturing, supplier, warehouse, inventory, sales, and return data. The repository has contracts and design notes for CDC, late data, backfills, SCD Type 2, quality checks, and reconciliation. The pipeline is not built yet.
 
-The project does not claim performance gains before measurements are available. Its next important milestone is a documented baseline and a repeatable benchmark that makes the trade-offs visible.
+## Supporting Data Engineering Projects
 
-### 3. [Industrial Service Intelligence Platform](https://github.com/SouravKh-7/industrial-service-intelligence-platform)
-
-**Status:** Active Development | **Role:** Industrial-domain flagship
-
-Industrial after-sales decisions often depend on data spread across machines, customers, dealers, service visits, warranty claims, maintenance history, and spare parts. This project brings those sources into a coherent data platform so that service and reliability questions can be answered from validated, traceable data.
-
-It is where my Data Engineering work connects most directly with my manufacturing background. The target is a practical MVP with clear industrial data models, quality controls, service KPIs, business-impact views, and decision-support outputs. The earlier Manufacturing Root-Cause Analysis Assistant is being incorporated as a module rather than promoted as a separate flagship.
+Other projects cover data reliability, pipeline performance, and service-data reporting: [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-data-reliability-platform), [Data Pipeline Optimization Framework](https://github.com/SouravKh-7/data-pipeline-optimization-framework), and [Industrial Service Intelligence Platform](https://github.com/SouravKh-7/industrial-service-intelligence-platform).
 
 ## Research Track
 
-The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System) is a **Design / Blueprint** project exploring scheduling and routing under robot health, battery, capacity, availability, and conflict constraints. It represents my research interest in optimization and intelligent operations, but it is not presented as a completed Industrial AI implementation.
+The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System) and related drone, digital-twin, physical-AI, spatial-intelligence, and enterprise-context work form a secondary research track alongside the core Data Engineering portfolio.
 
-## Explore the Portfolio
+## Portfolio Structure
 
 - [Projects](projects.md)
+- [Research notes and project stories](blog/index.html)
+- [Enterprise Context & Organizational Memory Lab](projects/enterprise-context-memory.html)
 - [Project ecosystem](ecosystem.md)
+- [Project status matrix](docs/project-sync.md)
+- [Resume-ready selected projects](docs/resume-projects.md)
 - [Roadmap](roadmap.md)
 - [About my background and engineering interests](about.md)
 
@@ -61,17 +61,11 @@ flowchart LR
     D --> E[Quality and Observability]
     E --> F[Trusted Data Products]
     F --> G[Analytics or AI Assistance]
-    G --> H[Human-Controlled Outcome]
+    G --> H[Reviewed result]
 ```
 
-I begin with the problem, the user, and the constraints. I then design the data flow, define validation and recovery behavior, and make the system observable before adding analytics or AI. AI may collect evidence, summarize findings, or prepare recommendations, but it does not bypass operational controls or human accountability.
+The engineering process begins with the operating problem, intended consumer, and constraints. Data flow, validation, recovery, and observability come before analytics or AI. AI may collect evidence, summarize findings, or prepare recommendations, but it does not bypass operational controls or human accountability.
 
 ## Evidence Policy
 
-Project statuses describe evidence, not ambition. A **Reference Implementation** runs locally with documented behavior, tests, and limitations. **Active Development** means meaningful work exists but important milestones remain. Design, parked, evolving, and archived work is kept visible without being presented as completed software.
-
-## Contact
-
-- [GitHub](https://github.com/SouravKh-7)
-- [LinkedIn](https://www.linkedin.com/in/sourav-khandai-75022b144/)
-- [Email](mailto:khandai.sourav111@gmail.com)
+Project statuses describe evidence, not ambition. A **Reference Implementation** runs locally with documented behavior, tests, and limitations. **Active Build** identifies an early local implementation with major phases still open. **New Build / Active Development** identifies an architecture and source-contract scaffold rather than an end-to-end system. Research, parked, legacy, and archived work remains visible without being presented as completed software.

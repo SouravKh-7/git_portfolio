@@ -3,31 +3,58 @@
 canonical_catalog: "_data/projects.yml"
 
 portfolio:
-  primary_identity: "Data Engineer"
-  positioning: "Reliable data platforms, AI-ready systems, and applied operational intelligence"
-  mission: "Build reliable, observable, and AI-ready data systems that transform raw operational and business data into trusted data products, measurable workflows, and human-controlled decision support."
+  primary_identity: "Sourav Khandai — Data Engineer"
+  positioning: "Data Engineering, Databricks, PySpark, SQL, Delta Lake, lakehouse architecture, ETL/ELT, data quality, reconciliation, and pipeline reliability"
+  mission: "Build reliable data platforms for manufacturing, retail, and operational systems with trustworthy lifecycle data, incident evidence, supply-chain products, and human-controlled AI-ready foundations."
 
 projects:
+  - name: "Machine Maintenance and Uptime Data Pipeline"
+    repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
+    category: "Featured Resume Projects"
+    status: "Active Build"
+    priority: "01"
+    featured: true
+    resume_project: true
+
+  - name: "Production Incident AI Assistant"
+    repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
+    category: "Featured Resume Projects"
+    status: "New Build / Active Development"
+    priority: "02"
+    featured: true
+    resume_project: true
+
+  - name: "Manufacturing & Retail Supply Chain Lakehouse"
+    repository_url: "https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse"
+    category: "Featured Resume Projects"
+    status: "New Build / Active Development"
+    priority: "03"
+    featured: true
+    resume_project: true
+
   - name: "AI-Assisted Data Reliability Platform"
     repository_url: "https://github.com/SouravKh-7/ai-data-reliability-platform"
-    category: "Data Platforms and Reliability"
+    category: "Supporting Data Engineering Projects"
     status: "Reference Implementation"
-    priority: "Primary flagship"
-    featured: true
+    priority: "Supporting project"
+    featured: false
+    resume_project: false
 
   - name: "Data Pipeline Optimization Framework"
     repository_url: "https://github.com/SouravKh-7/data-pipeline-optimization-framework"
-    category: "Data Platforms and Reliability"
+    category: "Supporting Data Engineering Projects"
     status: "Active Development"
-    priority: "Core engineering case study"
-    featured: true
+    priority: "Supporting project"
+    featured: false
+    resume_project: false
 
   - name: "Industrial Service Intelligence Platform"
     repository_url: "https://github.com/SouravKh-7/industrial-service-intelligence-platform"
-    category: "Industrial Data and Operational Intelligence"
+    category: "Supporting Data Engineering Projects"
     status: "Active Development"
-    priority: "Industrial-domain flagship"
-    featured: true
+    priority: "Supporting project"
+    featured: false
+    resume_project: false
 
   - name: "Health-Aware Robotic Fleet Optimization System"
     repository_url: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System"

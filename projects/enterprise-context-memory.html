@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Future research project for permission-aware enterprise context, governed organizational memory, and measurable AI-assisted work.">
+    <meta name="theme-color" content="#f7f4e9">
+    <title>Enterprise Context &amp; Organizational Memory Lab | Sourav Khandai</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="case-study.css?v=6">
+    <link rel="stylesheet" href="enterprise-context-memory.css?v=1">
+  </head>
+  <body class="project-page context-project-page">
+    <a class="skip-link" href="#main-content">Skip to project</a>
+    <header class="case-header">
+      <nav class="case-nav" aria-label="Project navigation">
+        <a class="case-brand" href="../index.html"><span aria-hidden="true">SK</span><b>Sourav Khandai — Data Engineering Portfolio</b></a>
+        <div><a href="../index.html">Home</a><a href="../index.html#projects">Projects</a><a href="#architecture">Architecture</a><a href="#case-study">Case study</a><a href="../blog/index.html">Blog</a></div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="project-hero context-project-hero">
+        <div class="case-shell project-hero-grid">
+          <div>
+            <p class="case-kicker">Future research project · Enterprise AI context</p>
+            <span class="case-status status-future-research-implementation-direction">Future research / implementation direction</span>
+            <h1>Enterprise Context &amp; Organizational Memory Lab</h1>
+            <p class="project-hero-subtitle">A small, testable reference platform for deciding what a company AI should retrieve, what it may remember, and what should remain outside model learning.</p>
+            <p class="project-hero-boundary">This page presents architecture, a synthetic case study, and planned experiments. It does not claim an employer deployment, real employee data, or measured outcomes.</p>
+            <div class="project-link-row"><a class="button button-primary" href="#architecture">Explore architecture</a><a class="button button-secondary" href="../blog/what-should-a-company-ai-remember.html">Read the companion article</a></div>
+          </div>
+          <aside class="project-spec" aria-label="Project focus">
+            <div><span>Core question</span><p>How can an organization learn from its work without turning every conversation into permanent model memory?</p></div>
+            <div><span>Research focus</span><ul><li>Permission-aware retrieval</li><li>Context routing</li><li>Memory write governance</li><li>Conflict and expiry</li><li>AI workflow evaluation</li></ul></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="case-study-section context-question-section">
+        <div class="case-shell">
+          <header class="case-section-heading"><p>01 · Public explanation</p><h2>The right evidence, for the right person, at the right time, under the right authority.</h2></header>
+          <p class="context-lead">The model supplies general language and reasoning capability. The surrounding platform decides which organizational information is relevant, permitted, current, and trustworthy enough to use.</p>
+          <div class="question-route-grid" aria-label="Four routes for company questions">
+            <article><span>General</span><h3>General knowledge</h3><p>No enterprise retrieval is required.</p></article>
+            <article><span>Enterprise</span><h3>Approved company knowledge</h3><p>Retrieve current policy, definitions, and documents after access checks.</p></article>
+            <article><span>Live enterprise</span><h3>Current operational state</h3><p>Use authorized business systems, telemetry, incidents, and timestamps.</p></article>
+            <article><span>Hybrid</span><h3>General reasoning + company constraints</h3><p>Combine technical knowledge with the organization’s definitions and architecture.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section context-architecture-section" id="architecture">
+        <div class="case-shell">
+          <header class="case-section-heading"><p>02 · Core architecture</p><h2>Context is assembled. Organizational memory is earned.</h2></header>
+          <ol class="context-architecture-flow" aria-label="Enterprise context and organizational memory architecture">
+            <li><span>01</span><strong>Interaction</strong><small>Question, user, channel, sensitivity</small></li>
+            <li><span>02</span><strong>Context router</strong><small>General, enterprise, live, hybrid, ambiguous</small></li>
+            <li><span>03</span><strong>Authorization</strong><small>Policy before retrieval or tool use</small></li>
+            <li><span>04</span><strong>Context fabric</strong><small>Documents, data, definitions, live state, tools</small></li>
+            <li><span>05</span><strong>Answer / action</strong><small>Evidence, uncertainty, abstention</small></li>
+            <li><span>06</span><strong>Memory write gate</strong><small>Candidate, evidence, review, ownership</small></li>
+            <li><span>07</span><strong>Governed memory</strong><small>Version, scope, access, expiry, supersession</small></li>
+            <li><span>08</span><strong>Evaluation &amp; cost</strong><small>Quality, safety, task outcome, unit economics</small></li>
+          </ol>
+          <blockquote class="context-principle">A company-specific AI should not try to memorize the company; it should assemble permitted, current context when needed and convert only validated experience into reusable memory.</blockquote>
+        </div>
+      </section>
+
+      <section class="case-study-section memory-model-section">
+        <div class="case-shell">
+          <header class="case-section-heading"><p>03 · Learning versus memory</p><h2>Different information needs different storage and control.</h2></header>
+          <div class="responsive-table-wrap">
+            <table class="context-table">
+              <thead><tr><th scope="col">Layer</th><th scope="col">Simple meaning</th><th scope="col">Typical storage</th><th scope="col">Change model weights?</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Current context</th><td>Information needed for this task now</td><td>Prompt, context window, tool results</td><td>No</td></tr>
+                <tr><th scope="row">Enterprise retrieval</th><td>Documents, structured data, policies, metrics, metadata</td><td>Databases, lakehouse, search, graph</td><td>No</td></tr>
+                <tr><th scope="row">Session memory</th><td>Earlier state in this conversation or workflow</td><td>Session store</td><td>No</td></tr>
+                <tr><th scope="row">User memory</th><td>Explicit, useful, user-controlled work preferences</td><td>Permissioned user memory store</td><td>Usually no</td></tr>
+                <tr><th scope="row">Organizational memory</th><td>Reviewed facts, decisions, procedures, lessons, and skills</td><td>Governed knowledge / memory store</td><td>No</td></tr>
+                <tr><th scope="row">Model adaptation</th><td>Deliberate update when context, tools, and prompting are insufficient</td><td>Fine-tuned or adapted model</td><td>Yes—only when justified</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="employee-memory-rule"><strong>Employee-memory rule:</strong> remember approved work context and explicit preferences where useful; do not silently infer attitude, loyalty, performance, health, personality, or manager-visible behavioral scores.</p>
+        </div>
+      </section>
+
+      <section class="case-study-section line-case-section" id="case-study">
+        <div class="case-shell">
+          <header class="case-section-heading"><p>04 · Synthetic case study</p><h2>Line 3 productivity falls after maintenance.</h2></header>
+          <p class="context-lead">An operator asks why Line 3 is running slower today and mentions a similar earlier event. The system needs live plant context, but the employee’s recollection remains a hypothesis until verified.</p>
+          <ol class="line-case-flow">
+            <li><span>01</span><div><h3>Route the question</h3><p>Classify it as live enterprise because it names an internal line and asks about today.</p></div></li>
+            <li><span>02</span><div><h3>Check access</h3><p>Allow Line 3 operations and maintenance summaries; exclude unrelated HR, finance, and restricted plant records.</p></div></li>
+            <li><span>03</span><div><h3>Build current state</h3><p>Retrieve throughput, downtime, telemetry, work orders, quality, incidents, shift notes, and procedures with timestamps and provenance.</p></div></li>
+            <li><span>04</span><div><h3>Extract a candidate lesson</h3><p>A previous lubrication-and-vibration conversation becomes investigation evidence—not organizational truth.</p></div></li>
+            <li><span>05</span><div><h3>Verify and review</h3><p>Compare prior incidents, retain contradictory evidence, and ask a reliability engineer to approve a narrower lesson.</p></div></li>
+            <li><span>06</span><div><h3>Store governed memory</h3><p>Attach machine-family scope, source evidence, owner, access policy, validity, review date, and supersession history.</p></div></li>
+            <li><span>07</span><div><h3>Measure usefulness</h3><p>Compare investigation time, evidence quality, unsupported claims, recommendations, corrections, and cost with and without memory.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="case-study-section experiment-section">
+        <div class="case-shell">
+          <header class="case-section-heading"><p>05 · Planned experiments</p><h2>Evaluation must cover usefulness, permission, memory quality, and cost.</h2></header>
+          <div class="context-experiment-grid">
+            <article><span>Routing</span><h3>Context Router Benchmark</h3><p>Classify general, enterprise, live, hybrid, sensitive, and ambiguous questions; record confidence and abstention.</p></article>
+            <article><span>Security</span><h3>Permission-Aware Retrieval</h3><p>Test whether relevant-but-forbidden context is excluded before it reaches the model.</p></article>
+            <article><span>Memory</span><h3>Memory Compiler</h3><p>Measure candidate-memory precision and reviewer approval, correction, rejection, and conflict rates.</p></article>
+            <article><span>Lifecycle</span><h3>TTL &amp; Supersession</h3><p>Expire or revalidate lessons based on age, use, contradictions, policy versions, and outcomes.</p></article>
+            <article><span>User control</span><h3>Employee-Controlled Memory</h3><p>Let users inspect, correct, delete, or disable assistance memory without exposing shared organizational data.</p></article>
+            <article><span>Economics</span><h3>AI FinOps</h3><p>Track cost per assist, investigation, resolved case, and approved action—not only tokens.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section context-evidence-section">
+        <div class="case-shell">
+          <header class="case-section-heading"><p>06 · Evidence boundary</p><h2>The architecture is defined. Implementation and results are future work.</h2></header>
+          <div class="evidence-state-grid">
+            <article><span>Architecture synthesis</span><strong>Available</strong><p>Question routes, authorization boundary, context fabric, memory gate, data model, evaluation, and research questions.</p></article>
+            <article><span>Synthetic scenario</span><strong>Available</strong><p>Line 3 illustrates the intended flow; it is not a real employer incident.</p></article>
+            <article><span>Reference implementation</span><strong>Planned</strong><p>No running context router, retrieval service, or memory store is claimed.</p></article>
+            <article><span>Next milestone</span><strong>Build benchmark</strong><p>Create labeled questions and tests for correct routing, abstention, and blocked access.</p></article>
+          </div>
+          <div class="project-link-row"><a class="button button-primary" href="../blog/what-should-a-company-ai-remember.html">Read the story / case study</a><a class="button button-secondary" href="manufacturing-root-cause.html">Related manufacturing project</a><a class="button button-secondary" href="../index.html#projects">Back to project gallery</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer"><div class="case-shell"><p>© 2026 Sourav Khandai</p><p>Future research · synthetic scenario · no deployment claim</p><a href="#main-content">Back to top ↑</a></div></footer>
+  </body>
+</html>

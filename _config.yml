@@ -1,5 +1,5 @@
-title: "Sourav Khandai | Data Engineering Portfolio"
-description: "Enterprise data engineering, architecture, reliability, distributed systems, operations research, industrial intelligence, and governed AI."
+title: "Sourav Khandai | Data Engineering, Platforms & Industrial AI"
+description: "Architecture-led data engineering, reliable platforms, lakehouse systems, industrial data products, and governed AI assistance."
 url: "https://SouravKh-7.github.io"
 baseurl: "/git_portfolio"
 
@@ -22,7 +22,7 @@ collections:
 
 portfolio:
   primary_identity: "Data Engineer"
-  positioning: "Reliable data platforms, AI-ready systems, and applied operational intelligence"
+  positioning: "Data engineering, data platforms, data architecture, and evidence-grounded Industrial AI"
 
 exclude:
   - ai-data-reliability-platform

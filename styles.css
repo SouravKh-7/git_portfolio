@@ -176,6 +176,10 @@ h1, h2, h3 { text-wrap: balance; }
 .work-timeline-legend .legend-complete { background: var(--olive-700); }
 .work-timeline-legend .legend-current { background: var(--honey-400); border: 1px solid var(--olive-950); }
 .work-timeline-legend .legend-planned { background: transparent; border: 1px dashed var(--olive-400); }
+.current-work-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 2rem; border-top: 1px solid var(--olive-200); border-left: 1px solid var(--olive-200); }
+.current-work-grid article { min-width: 0; padding: 1.1rem; border-right: 1px solid var(--olive-200); border-bottom: 1px solid var(--olive-200); background: rgba(255,255,255,.35); }
+.current-work-grid span { color: var(--olive-800); font-size: .63rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.current-work-grid p { margin: .65rem 0 0; color: var(--text-secondary); font-size: .7rem; line-height: 1.55; }
 
 .thought-flow-section { padding-block: clamp(3rem, 6vw, 5rem); color: var(--text-on-olive); background: var(--olive-950); }
 .thought-flow-layout { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(30rem, 1.2fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; }
@@ -745,6 +749,62 @@ h1, h2, h3 { text-wrap: balance; }
 
 @media (max-width: 400px) {
   .portfolio-map-branches article:nth-child(n) { padding-inline: 1.2rem; grid-template-columns: minmax(6.5rem, 0.42fr) minmax(0, 1fr); gap: 0.8rem; }
+}
+
+/* Architecture practice, system notes, and reusable terminology */
+.architecture-capability-grid,
+.principle-grid,
+.lens-grid,
+.capability-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid var(--olive-300); border-left: 1px solid var(--olive-200); }
+.architecture-capability-grid article,
+.principle-grid article,
+.lens-grid article,
+.capability-grid article { min-width: 0; padding: clamp(1.35rem, 2.5vw, 2.25rem); border-right: 1px solid var(--olive-200); border-bottom: 1px solid var(--olive-200); background: var(--off-white-bright); }
+.architecture-capability-grid article > p:first-child,
+.principle-grid article > span { color: var(--olive-700); font-size: .65rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.architecture-capability-grid h3,
+.principle-grid h3,
+.lens-grid h3,
+.capability-grid h3 { margin: 1.2rem 0 .8rem; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 400; line-height: 1.15; }
+.architecture-capability-grid article > p:last-child,
+.principle-grid p,
+.lens-grid p,
+.capability-grid p { margin: 0; color: var(--text-secondary); font-size: .78rem; line-height: 1.65; }
+.architecture-principles { background: var(--olive-950); color: var(--text-on-olive); }
+.architecture-principles .section-number,
+.architecture-principles .section-lead,
+.architecture-principles .principle-grid article > span { color: var(--honey-200); }
+.architecture-principles .principle-grid { border-color: rgba(234,215,173,.28); }
+.architecture-principles .principle-grid article { background: rgba(255,255,255,.03); border-color: rgba(234,215,173,.2); }
+.architecture-principles .principle-grid p { color: var(--olive-100); }
+.architecture-lens { background: var(--honey-50); }
+.lens-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.system-notes { background: var(--olive-50); }
+.system-note-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(2.5rem, 5vw, 4.5rem); gap: 1px; background: var(--olive-200); border: 1px solid var(--olive-200); }
+.system-note-grid details { min-width: 0; padding: 1.4rem; background: var(--off-white-bright); }
+.system-note-grid summary { cursor: pointer; font-family: var(--serif); font-size: 1.25rem; list-style-position: outside; }
+.system-note-grid details[open] { background: var(--honey-50); }
+.system-note-grid p { margin: 1rem 0 0; color: var(--text-secondary); font-size: .78rem; line-height: 1.65; }
+.technical-term { display: inline; margin: 0; padding: 0; color: inherit; background: transparent; border: 0; font: inherit; line-height: inherit; text-decoration: underline dotted var(--honey-700) 2px; text-underline-offset: .2em; cursor: help; }
+.technical-term:focus-visible { outline: 3px solid var(--honey-400); outline-offset: 3px; }
+.term-definition { position: fixed; z-index: 1000; max-width: min(22rem, calc(100vw - 2rem)); padding: .85rem 1rem; color: var(--cream); background: var(--olive-950); border: 1px solid var(--honey-400); box-shadow: 0 .8rem 2rem rgba(18,24,17,.22); font-size: .76rem; line-height: 1.55; }
+.term-definition strong { color: var(--honey-200); }
+.term-definition[hidden] { display: none; }
+.glossary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(2.5rem, 5vw, 4.5rem); gap: .75rem; }
+.glossary-grid details { padding: 1.15rem 1.25rem; background: var(--off-white-bright); border: 1px solid var(--olive-200); }
+.glossary-grid summary { cursor: pointer; color: var(--olive-950); font-weight: 800; }
+.glossary-grid p { margin: .8rem 0 0; color: var(--text-secondary); font-size: .76rem; line-height: 1.6; }
+
+@media (max-width: 1120px) {
+  .current-work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lens-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .architecture-capability-grid, .principle-grid, .capability-grid, .glossary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lens-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .current-work-grid, .architecture-capability-grid, .principle-grid, .lens-grid, .capability-grid, .system-note-grid, .glossary-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

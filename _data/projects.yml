@@ -1,4 +1,4 @@
-- name: "Machine Maintenance and Uptime Data Pipeline"
+- name: "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform"
   slug: "machine-maintenance-uptime-data-pipeline"
   repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
   category: "Featured Resume Projects"
@@ -38,7 +38,7 @@
     - "Industrial Service Intelligence Platform"
     - "Manufacturing Root-Cause Analysis Assistant"
 
-- name: "Production Incident AI Assistant"
+- name: "Pipeline Reliability Workbench"
   slug: "production-incident-ai-assistant"
   repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
   category: "Featured Resume Projects"
@@ -46,7 +46,7 @@
   priority: "02"
   featured: true
   resume_project: true
-  summary: "A new project for collecting alerts, logs, metrics, deployment details, pipeline failures, and runbooks in one incident view."
+  summary: "A production-incident assistant scaffold for normalizing alerts, logs, metrics, deployment details, pipeline failures, and runbooks into one evidence model."
   problem: "On-call engineers often spend too much time collecting evidence from separate tools before they can investigate the failure."
   technology:
     - "Python"
@@ -58,7 +58,7 @@
     - "Explicit no-write, evidence-citation, permission, and human-authority boundaries"
   ai_role: "A future assistant may summarize cited evidence and propose investigation questions; it may not invent facts, confirm root cause without evidence, or modify production."
   limitations: "Scaffold only; no working ingestion, correlation, retrieval, assistant, API, production integration, deployment, or evaluation result."
-  next_milestone: "Build the first synthetic incident bundle and deterministic timeline and evidence packet."
+  next_milestone: "Build the first synthetic incident bundle, deterministic timeline, missing-evidence report, and classical similarity baseline."
   case_study_url: "/git_portfolio/projects/production-incident-ai-assistant.html"
   blog_url: ""
   references:
@@ -327,7 +327,7 @@
     - "Earlier concept and design work retained in its repository"
     - "Consolidation path into the Industrial Service Intelligence Platform"
   ai_role: "Retrieval and evidence preparation for engineer review, not autonomous root-cause determination."
-  limitations: "Retained as a supporting experiment. The current incident-investigation flagship is Production Incident AI Assistant; the repositories are not presented as one deployed system."
+  limitations: "Retained as a supporting experiment. The current incident-investigation flagship is Pipeline Reliability Workbench; the repositories are not presented as one deployed system."
   next_milestone: "Preserve the earlier experiment and clarify reusable evidence-retrieval lessons without merging repositories automatically."
   case_study_url: "/git_portfolio/projects/manufacturing-root-cause.html"
   blog_url: ""
@@ -345,7 +345,7 @@
       kind: "Open book"
       note: "Evidence-based operational investigation background."
   related_projects:
-    - "Production Incident AI Assistant"
+    - "Pipeline Reliability Workbench"
     - "Industrial Service Intelligence Platform"
 
 - name: "Environmental & Health-Aware Drone Fleet Intelligence"

@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am Sourav Khandai — Data Engineer. I focus on reliable data platforms, Databricks, PySpark, SQL, Delta Lake, lakehouse architecture, ETL/ELT, incremental processing, data quality, reconciliation, data modeling, pipeline reliability, and production incident investigation.
+I am Sourav Khandai — Data Engineer. I focus on data platforms and architecture across source contracts, ingestion, modeling, quality, reliability, observability, performance, governance, and serving. My current stack includes Python, SQL, PySpark, Databricks and Delta Lake; my projects label working evidence separately from target design.
 
 My manufacturing and process-engineering background helps me understand machines, maintenance work, service operations, process variation, quality, reliability, and the effect of missing data.
 

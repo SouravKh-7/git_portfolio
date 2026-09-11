@@ -4,8 +4,8 @@
 
 | Canonical Project | Resume | GitHub Repository | Portfolio | Case Study | Blog | Current Status |
 |---|---|---|---|---|---|---|
-| 01 Machine Maintenance and Uptime Data Pipeline | `docs/resume-projects.md` | [manufacturing-asset-lifecycle-platform](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform) | Featured 01 | [Case study](/git_portfolio/projects/manufacturing-asset-lifecycle.html) | Not published | ACTIVE BUILD — Local maintenance-data pipeline demonstrated; Databricks is a planned next phase |
-| 02 Production Incident AI Assistant | `docs/resume-projects.md` | [production-incident-ai-assistant](https://github.com/SouravKh-7/production-incident-ai-assistant) | Featured 02 | [Case study](/git_portfolio/projects/production-incident-ai-assistant.html) | Not published | NEW BUILD / ACTIVE DEVELOPMENT — architecture and scaffold only |
+| 01 Manufacturing Equipment Lifecycle & Uptime Intelligence Platform | `docs/resume-projects.md` | [manufacturing-asset-lifecycle-platform](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform) | Featured 01 | [Case study](/git_portfolio/projects/manufacturing-asset-lifecycle.html) | Not published | ACTIVE BUILD — Local maintenance-data pipeline demonstrated; Databricks is a planned next phase |
+| 02 Pipeline Reliability Workbench | `docs/resume-projects.md` | [production-incident-ai-assistant](https://github.com/SouravKh-7/production-incident-ai-assistant) | Featured 02 | [Case study](/git_portfolio/projects/production-incident-ai-assistant.html) | Not published | NEW BUILD / ACTIVE DEVELOPMENT — architecture and scaffold only |
 | 03 Manufacturing & Retail Supply Chain Lakehouse | `docs/resume-projects.md` | [manufacturing-retail-supply-chain-lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse) | Featured 03 | [Case study](/git_portfolio/projects/manufacturing-retail-supply-chain-lakehouse.html) | Not published | NEW BUILD / ACTIVE DEVELOPMENT — architecture and scaffold only |
 
 ## Supporting-project policy

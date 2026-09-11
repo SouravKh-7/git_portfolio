@@ -1,8 +1,8 @@
 # Sourav Khandai — Data Engineer
 
-## Data Engineering | Databricks | PySpark | SQL | Delta Lake | Lakehouse Architecture
+## Data Engineering | Data Platforms | Data Architecture | Industrial AI
 
-I build data pipelines for manufacturing, retail, and operational work using Python, SQL, PySpark, Databricks, and Delta Lake. Most projects here are about data quality, maintenance records, incident investigation, or supply-chain data.
+I design reliable data systems for manufacturing, retail, and operational work using Python, SQL, PySpark, Databricks, and Delta Lake. The portfolio connects source contracts, ingestion, modeling, quality, observability, performance, governance, and serving—and labels current evidence separately from target architecture.
 
 ## About
 
@@ -14,17 +14,17 @@ The [portfolio website](https://SouravKh-7.github.io/git_portfolio/) centers on 
 
 ## Featured Resume Projects
 
-### 1. [Machine Maintenance and Uptime Data Pipeline](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform)
+### 1. [Manufacturing Equipment Lifecycle & Uptime Intelligence Platform](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform)
 
 **Status:** ACTIVE BUILD — Local maintenance-data pipeline demonstrated; Databricks is a planned next phase.
 
 The current Python and CSV implementation validates synthetic machine, telemetry, and maintenance data, quarantines invalid rows, calculates condition and reliability measures, and builds a combined machine summary and maintenance-priority file. Databricks, Delta Lake, CDC, SCD Type 2, production observability, and ML remain roadmap work.
 
-### 2. [Production Incident AI Assistant](https://github.com/SouravKh-7/production-incident-ai-assistant)
+### 2. [Pipeline Reliability Workbench](https://github.com/SouravKh-7/production-incident-ai-assistant)
 
 **Status:** NEW BUILD / ACTIVE DEVELOPMENT
 
-A new project for collecting alerts, logs, metrics, traces, deployments, pipeline failures, and runbooks in one incident view. The repository currently has design notes, source contracts, one test, and a Python scaffold. The working investigation flow and assistant are not built yet.
+A production-incident assistant scaffold for normalizing alerts, logs, metrics, traces, deployments, pipeline failures, and runbooks into one evidence model. The repository currently has design notes, typed contracts, one test, and a Python scaffold. Timeline construction, correlation, similarity baseline, retrieval, API, and assistant are not built yet.
 
 ### 3. [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse)
 

@@ -15,8 +15,8 @@ The repositories are independent portfolio projects that share engineering patte
     <article>
       <h2>Featured Resume Projects</h2>
       <ul>
-        <li>01 Machine Maintenance and Uptime Data Pipeline <small>Active build</small></li>
-        <li>02 Production Incident AI Assistant <small>New build</small></li>
+        <li>01 Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform <small>Active build</small></li>
+        <li>02 Pipeline Reliability Workbench <small>New build</small></li>
         <li>03 Manufacturing &amp; Retail Supply Chain Lakehouse <small>New build</small></li>
       </ul>
     </article>
@@ -58,11 +58,11 @@ The repositories are independent portfolio projects that share engineering patte
 
 ## Project Relationships
 
-The three resume projects are [Machine Maintenance and Uptime Data Pipeline](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform), [Production Incident AI Assistant](https://github.com/SouravKh-7/production-incident-ai-assistant), and [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse), in that order. The first has a working local CSV pipeline; the other two currently have architecture and source-contract scaffolds.
+The three resume projects are [Manufacturing Equipment Lifecycle & Uptime Intelligence Platform](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform), [Pipeline Reliability Workbench](https://github.com/SouravKh-7/production-incident-ai-assistant), and [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse), in that order. The first has a working local CSV pipeline; the other two currently have architecture and source-contract scaffolds.
 
 The [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-data-reliability-platform) remains a supporting reference implementation. The [Data Pipeline Optimization Framework](https://github.com/SouravKh-7/data-pipeline-optimization-framework) remains a supporting performance study.
 
-The [Industrial Service Intelligence Platform](https://github.com/SouravKh-7/industrial-service-intelligence-platform) applies data engineering to machine and after-sales operations. The earlier [Manufacturing Root-Cause Analysis Assistant](https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant) is retained as a supporting experiment; it is not automatically merged with the Production Incident AI Assistant.
+The [Industrial Service Intelligence Platform](https://github.com/SouravKh-7/industrial-service-intelligence-platform) applies data engineering to machine and after-sales operations. The earlier [Manufacturing Root-Cause Analysis Assistant](https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant) is retained as a supporting experiment; it is not automatically merged with the Pipeline Reliability Workbench.
 
 The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System) explores scheduling and fleet-level constraints. The [Environmental & Health-Aware Drone Fleet Intelligence](../projects/drone-fleet-intelligence.html) vertical reactivates the earlier drone concept as a staged data-engineering, environmental planning, digital-twin, and bounded-agent research blueprint. They remain independent experiments, not an integrated deployed platform.
 

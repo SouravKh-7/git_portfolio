@@ -5,7 +5,7 @@
   // can be updated without changing the page structure.
   const portfolio = {
     navigation: [
-      ["Home", "introduction"], ["Featured", "featured-projects"], ["Projects", "projects"], ["Thinking", "thinking"],
+      ["Home", "introduction"], ["Featured", "featured-projects"], ["Projects", "projects"], ["Thinking", "thinking"], ["Glossary", "glossary"],
       ["Research", "research"], ["Blog", "blog/index.html"]
     ],
     process: [
@@ -43,8 +43,8 @@
     filters: [["all", "All"], ["active", "Active"], ["reference", "Reference implementation"], ["research", "Research"], ["blueprint", "Blueprint"], ["parked", "Parked"]],
     projects: [
       {
-        title: "Machine Maintenance and Uptime Data Pipeline",
-        description: "A working local CSV pipeline using synthetic machine, telemetry, and maintenance data. It validates and quarantines records, then builds condition, reliability, combined-summary, and maintenance-priority outputs.",
+        title: "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform",
+        description: "A working local batch pipeline using synthetic equipment, telemetry, and maintenance data. It validates and quarantines records, then builds condition, reliability, combined-summary, and maintenance-priority outputs.",
         problem: "Fragmented identifiers and maintenance records make machine condition, downtime, and failure history difficult to compare.",
         maturity: "Active build · local MVP",
         area: "Machine maintenance data and reliability",
@@ -56,15 +56,15 @@
         filters: ["active", "reference"]
       },
       {
-        title: "Production Incident AI Assistant",
-        description: "A new project for putting alerts, logs, metrics, deployments, pipeline failures, and runbooks into one incident view.",
+        title: "Pipeline Reliability Workbench",
+        description: "A production-incident assistant scaffold for putting alerts, logs, metrics, deployments, pipeline failures, and runbooks into one evidence model.",
         problem: "On-call engineers spend time collecting evidence from separate tools before they can investigate a failure.",
         maturity: "New build · scaffold only",
         area: "Production incident investigation and reliability",
         href: "projects/production-incident-ai-assistant.html",
         architecture: "Read-only sources → normalized evidence → deterministic timeline and correlation → permissioned retrieval → engineer review",
-        research: "Citation validity, unsupported claims, missing telemetry, conflicting sources, and permission enforcement.",
-        next: "Build a synthetic incident bundle and deterministic timeline and evidence packet.",
+        research: "Incident taxonomy, event versus ingestion time, MTTR measurement, deterministic similarity baselines, citation validity, and permission enforcement.",
+        next: "Build a synthetic incident bundle, deterministic timeline, missing-evidence report, and classical similarity baseline.",
         repo: "https://github.com/SouravKh-7/production-incident-ai-assistant",
         filters: ["active"]
       },

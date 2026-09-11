@@ -5,10 +5,10 @@ canonical_catalog: "_data/projects.yml"
 portfolio:
   primary_identity: "Sourav Khandai — Data Engineer"
   positioning: "Data Engineering, Databricks, PySpark, SQL, Delta Lake, lakehouse architecture, ETL/ELT, data quality, reconciliation, and pipeline reliability"
-  mission: "Build reliable data platforms for manufacturing, retail, and operational systems with trustworthy lifecycle data, incident evidence, supply-chain products, and human-controlled AI-ready foundations."
+  mission: "Design reliable data platforms from source contract to operational decision, with trustworthy lifecycle data, incident evidence, supply-chain products, and human-controlled AI-ready foundations."
 
 projects:
-  - name: "Machine Maintenance and Uptime Data Pipeline"
+  - name: "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform"
     repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
     category: "Featured Resume Projects"
     status: "Active Build"
@@ -16,7 +16,7 @@ projects:
     featured: true
     resume_project: true
 
-  - name: "Production Incident AI Assistant"
+  - name: "Pipeline Reliability Workbench"
     repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
     category: "Featured Resume Projects"
     status: "New Build / Active Development"

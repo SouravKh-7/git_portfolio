@@ -6,6 +6,7 @@ portfolio:
   primary_identity: "Sourav Khandai — Data Engineer"
   positioning: "Data Engineering, Databricks, PySpark, SQL, Delta Lake, lakehouse architecture, ETL/ELT, data quality, reconciliation, and pipeline reliability"
   mission: "Design reliable data platforms from source contract to operational decision, with trustworthy lifecycle data, incident evidence, supply-chain products, and human-controlled AI-ready foundations."
+  display_strategy: "Lead with Data Engineering and governed AI; place physical-intelligence, robotics, digital-twin, and drone research last."
 
 projects:
   - name: "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform"
@@ -60,7 +61,7 @@ projects:
     repository_url: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System"
     category: "Research, Optimization and Intelligent Operations"
     status: "Design / Blueprint"
-    priority: "Research project"
+    priority: "Lower-priority physical research"
     featured: false
 
   - name: "Retail Sales and Inventory Intelligence Platform"
@@ -81,5 +82,5 @@ projects:
     repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
     category: "Archived Research"
     status: "Archived / Evolved"
-    priority: "Historical concept"
+    priority: "Lowest-priority physical research"
     featured: false

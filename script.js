@@ -369,6 +369,35 @@
   const pad = (value) => String(value).padStart(2, "0");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Keep the portfolio's primary hiring signal explicit: data engineering and
+  // governed AI lead; physical-intelligence research remains secondary.
+  const projectPreference = [
+    "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform",
+    "Pipeline Reliability Workbench",
+    "Manufacturing & Retail Supply Chain Lakehouse",
+    "AI-Assisted Data Reliability Platform",
+    "Data Pipeline Optimization Framework",
+    "Enterprise Context & Organizational Memory Lab",
+    "Database Performance and Workload Lab",
+    "Manufacturing Root-Cause Analysis Assistant",
+    "Industrial Service Intelligence Platform",
+    "AI and Data Product Strategy Notes",
+    "Retail Sales and Inventory Intelligence",
+    "Industrial Operations Business Cases",
+    "Supply Chain Digital Twin Research Lab",
+    "Health-Aware Robotic Fleet Optimization",
+    "Environmental & Health-Aware Drone Fleet Intelligence"
+  ];
+  const projectRank = new Map(projectPreference.map((title, index) => [title, index]));
+  const rankedProjects = [...portfolio.projects].sort((left, right) =>
+    (projectRank.get(left.title) ?? projectPreference.length) -
+    (projectRank.get(right.title) ?? projectPreference.length)
+  );
+
+  const physicalResearchSection = document.querySelector("#enterprise-physical");
+  const closingSection = document.querySelector("#portfolio-summary");
+  if (physicalResearchSection && closingSection) closingSection.before(physicalResearchSection);
+
   const navigation = document.querySelector("[data-navigation]");
   if (navigation) navigation.innerHTML = portfolio.navigation.map(([label, target]) => `<a href="${target.includes("/") ? target : `#${target}`}">${label}</a>`).join("");
 
@@ -384,7 +413,7 @@
   const filterStatus = document.querySelector("[data-filter-status]");
   if (projectFilters && projectIndex) {
     projectFilters.innerHTML = portfolio.filters.map(([value, label], index) => `<button type="button" data-filter="${value}" aria-pressed="${index === 0}">${label}</button>`).join("");
-    projectIndex.innerHTML = portfolio.projects.map((project, index) => {
+    projectIndex.innerHTML = rankedProjects.map((project, index) => {
       const repoLink = project.repo ? `<a href="${project.repo}" target="_blank" rel="noreferrer">View Repo <span aria-hidden="true">↗</span></a>` : "";
       return `<li class="project-row reveal" data-project data-filters="${project.filters.join(" ")}">
         <span class="project-number">${pad(index + 1)}</span>

@@ -248,7 +248,7 @@
   repository_url: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System"
   category: "Research, Optimization and Intelligent Operations"
   status: "Design / Blueprint"
-  priority: "Research project"
+  priority: "Lower-priority physical research"
   featured: false
   resume_project: false
   technology: []
@@ -353,7 +353,7 @@
   repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
   category: "Research, Optimization and Intelligent Operations"
   status: "Research Blueprint / Implementation Next"
-  priority: "Physical intelligence research vertical"
+  priority: "Lowest-priority physical research"
   featured: false
   resume_project: false
   technology: []
@@ -427,7 +427,7 @@
   repository_url: "/git_portfolio/projects/supply-chain-digital-twin.html"
   category: "Research & Optimization"
   status: "Research Blueprint"
-  priority: "Future research"
+  priority: "Lower-priority physical-systems research"
   featured: false
   resume_project: false
   summary: "A research plan for comparing supply-chain decisions in the same simulated conditions."
@@ -489,7 +489,7 @@
   repository_url: ""
   category: "Research & Optimization"
   status: "Planned Experiment"
-  priority: "Future research"
+  priority: "Lowest-priority future physical research"
   featured: false
   resume_project: false
   summary: "A planned experiment about preparing reliable data for robots or other physical systems."
@@ -522,7 +522,7 @@
   repository_url: ""
   category: "Research & Optimization"
   status: "Future Research"
-  priority: "Future research"
+  priority: "Lower-priority physical-systems research"
   featured: false
   resume_project: false
   summary: "A saved research area for a later spatial-data project."

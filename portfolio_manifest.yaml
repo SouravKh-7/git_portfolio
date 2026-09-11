@@ -81,6 +81,6 @@ projects:
   - name: "Health-Aware Autonomous Drone System"
     repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
     category: "Archived Research"
-    status: "Archived / Evolved"
-    priority: "Lowest-priority physical research"
+    status: "Secondary Project / Archived Concept"
+    priority: "Secondary project · lowest display priority"
     featured: false

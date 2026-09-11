@@ -137,7 +137,7 @@
         title: "Environmental & Health-Aware Drone Fleet Intelligence",
         description: "A research plan for assigning inspection-drone work using weather, battery, communication, drone condition, and mission priority.",
         problem: "The shortest route may be a poor choice when weather, battery reserve, and drone condition are included.",
-        maturity: "Research blueprint · implementation next",
+        maturity: "Secondary project · research blueprint",
         area: "Physical intelligence, drone fleets, and decision assurance",
         href: "projects/drone-fleet-intelligence.html",
         architecture: "Work order → trusted fleet + weather state → allocation → route candidates → simulation → policy review → mission plan → telemetry",

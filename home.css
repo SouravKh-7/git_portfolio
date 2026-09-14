@@ -92,6 +92,9 @@
 .engineering-notes-page h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.12; }
 /* Notes are readable immediately; visibility does not depend on scroll callbacks. */
 .engineering-notes-page .reveal { opacity: 1; transform: none; }
+:is(.portfolio-home, .engineering-notes-page) .nav-toggle { position: relative; }
+:is(.portfolio-home, .engineering-notes-page) .nav-toggle i { position: absolute; top: calc(50% - 4px); right: .7rem; left: .7rem; margin: 0; }
+:is(.portfolio-home, .engineering-notes-page) .nav-toggle i:last-of-type { top: calc(50% + 4px); }
 @media (max-width: 960px) {
   .home-intro { gap: 2.5rem; }
   .home-contact { flex-direction: column; align-items: flex-start; }
@@ -107,7 +110,7 @@
 }
 @media (max-width: 1120px) {
   .portfolio-home .nav-toggle, .engineering-notes-page .nav-toggle { display: block; }
-  .portfolio-home .nav-links, .engineering-notes-page .nav-links { display: none; position: absolute; top: 5rem; left: 0; right: 0; padding: 1.5rem var(--gutter); background: var(--off-white); border-bottom: 1px solid var(--olive-200); align-items: flex-start; flex-direction: column; gap: 1.3rem; }
+  .portfolio-home .nav-links, .engineering-notes-page .nav-links { display: none; position: absolute; top: 5rem; left: 0; right: 0; padding: 1.5rem var(--gutter); background: var(--off-white); border-bottom: 1px solid var(--olive-200); align-items: stretch; flex-direction: column; gap: 1.3rem; }
   .portfolio-home .nav-links.is-open, .engineering-notes-page .nav-links.is-open { display: flex; }
 }
 @media (max-width: 560px) {

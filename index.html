@@ -34,9 +34,9 @@ layout: null
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Open navigation</span><i aria-hidden="true"></i><i aria-hidden="true"></i></button>
         <div class="nav-links" id="nav-links">
           <a href="index.html#featured-projects">Projects</a>
-          <a href="index.html#hackathon-work">Hackathons</a>
-          <a href="engineering-notes.html">Engineering notes</a>
+          <a href="engineering-notes.html">How I work</a>
           <a href="blog/index.html">Writing</a>
+          <a href="{{ '/about/' | relative_url }}">About</a>
           <a href="https://github.com/SouravKh-7">GitHub ↗</a>
         </div>
       </nav>
@@ -48,7 +48,7 @@ layout: null
           <h1 id="introduction-title">I like to understand how the <em>whole system works.</em></h1>
           <p class="home-lead">I’m a data engineer who enjoys understanding how systems work and turning complex problems into reliable solutions.</p>
           <p>Building a pipeline is only one part of the work. The harder part is understanding why the data is needed, how it moves through the system, where it can fail, and what keeps the solution reliable in production.</p>
-          <p>My engineering foundation taught me to see connected parts rather than isolated components. I use that mindset in data engineering by tracing root causes, keeping the architecture in view, and following a solution from design through production.</p>
+          <p>My broader engineering foundation taught me to see connected parts rather than isolated components. I bring that systems mindset to data engineering: trace the root cause, keep the architecture in view, and follow a solution from design through production.</p>
           <div class="home-actions"><a class="home-button" href="#featured-projects">See the projects <span aria-hidden="true">↓</span></a><a href="https://github.com/SouravKh-7">Read the code ↗</a></div>
         </div>
         <aside class="profile-note" aria-labelledby="profile-note-title">
@@ -57,7 +57,7 @@ layout: null
           <p class="profile-note-intro">My experience crosses retail and manufacturing. It has shown me that reliable data work includes the design, the pipeline, the production checks and the investigation when something fails.</p>
           <dl class="profile-note-list">
             <div><dt>Experience</dt><dd>Oracle RMS ETL and production batch support in retail; Azure Databricks, PySpark, SQL, FastAPI and Delta Lake with manufacturing data.</dd></div>
-            <div><dt>Interests</dt><dd>Data platforms that support analytics, machine learning, generative AI and Physical AI, built on dependable data foundations.</dd></div>
+            <div><dt>Interests</dt><dd>Reliable data platforms, analytics, generative AI, and AI for industrial and real-world systems.</dd></div>
             <div><dt>Objective</dt><dd>Take ownership, learn new domains, solve meaningful problems and build solutions that create measurable business value.</dd></div>
           </dl>
           <p class="profile-note-close">This portfolio shows what I have built, how I think through the work, and what I am learning next.</p>
@@ -67,7 +67,7 @@ layout: null
 
       <section class="home-section home-projects" id="featured-projects" aria-labelledby="projects-title">
         <div class="page-shell">
-          <header class="home-heading" id="projects"><p class="eyebrow">01 / Selected projects</p><h2 id="projects-title">Start with what runs.</h2><p>The first project has a working local pipeline. The next two have Python contracts and design notes. Each one has a specific next implementation step.</p></header>
+          <header class="home-heading" id="projects"><p class="eyebrow">01 / Selected projects</p><h2 id="projects-title">Start with the strongest evidence.</h2><p>These are my three main data-engineering projects. The first runs locally; the next two have early code, clear boundaries, and a specific next step.</p></header>
           <div class="home-project-list">
             {% assign featured_projects = site.data.projects | where: "featured", true %}
             {% for project in featured_projects %}
@@ -77,7 +77,7 @@ layout: null
             </article>
             {% endfor %}
           </div>
-          <div class="home-project-footer"><p>There is also a local data reliability implementation, performance work and earlier research.</p><a href="{{ '/projects/' | relative_url }}">Browse all projects →</a></div>
+          <div class="home-project-footer"><p>Supporting implementations and future research are listed separately, so the main work stays easy to follow.</p><a href="{{ '/projects/' | relative_url }}">Browse all projects →</a></div>
         </div>
       </section>
 
@@ -88,19 +88,9 @@ layout: null
         </div>
       </section>
 
-      <section class="home-section" id="hackathon-work" aria-labelledby="hackathon-title">
-        <div class="page-shell">
-          <header class="home-heading"><p class="eyebrow">03 / Hackathon work</p><h2 id="hackathon-title">What I’m building next.</h2><p>I keep the plan, experiments and lessons in a journal, with a separate repository for the NVIDIA build.</p></header>
-          <div class="home-hackathons">
-            <article><p class="eyebrow"><span class="home-status">Building</span> · Plan and baseline documented</p><h3>Nebius × NVIDIA Global AI Hackathon</h3><p class="hackathon-project-name">Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform</p><p>I’m planning streaming telemetry, anomaly detection and maintenance retrieval on top of the local CSV baseline. The NVIDIA model integration through Nebius, API and dashboard are planned.</p><nav aria-label="NVIDIA hackathon links"><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform">Main Project ↗</a><a href="https://github.com/SouravKh-7/nebius-nvidia-manufacturing-uptime-ai">Hackathon Execution ↗</a><a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/nebius-nvidia-2026">Hackathon Journal ↗</a></nav></article>
-            <article><p class="eyebrow"><span class="home-status">Building</span> · Initial journal entry</p><h3>OpenCV AI Competition powered by AWS</h3><p class="hackathon-project-name">Manufacturing Visual Inspection</p><p>I want to use manufacturing images or video to identify possible defects and decide what to review next. Dataset selection, OpenCV processing, AWS setup and the demo are still planned.</p><nav aria-label="OpenCV hackathon links"><a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/opencv-aws-2026">Hackathon Journal ↗</a></nav></article>
-          </div>
-        </div>
-      </section>
-
       <section class="home-section home-approach" id="thinking" aria-labelledby="thinking-title">
         <div class="page-shell">
-          <header class="home-heading"><p class="eyebrow">04 / Approach and practical value</p><h2 id="thinking-title">Build the logic. Test the result.<br>Then ask whether it helps.</h2><p>I start by understanding the problem. When I explain a project, I show the implementation first, then the decision it could support.</p></header>
+          <header class="home-heading"><p class="eyebrow">03 / How I work</p><h2 id="thinking-title">Build the logic. Test the result.<br>Then ask whether it helps.</h2><p>I start with the problem and the decision it should support. Then I show the implementation, the evidence, and the limits.</p></header>
           <div class="approach-grid">
             <article><span class="eyebrow">Implementation</span><h3>Make the rules visible.</h3><p>Define the keys and record types. Write the validation and calculations. Keep rejected rows and explain why they failed.</p></article>
             <article><span class="eyebrow">Verification</span><h3>Test the awkward cases.</h3><p>Missing IDs, duplicate events and late records can change the answer. I want repeatable tests for those cases before adding more tools.</p></article>
@@ -111,10 +101,20 @@ layout: null
         </div>
       </section>
 
+      <section class="home-section" id="hackathon-work" aria-labelledby="hackathon-title">
+        <div class="page-shell">
+          <header class="home-heading"><p class="eyebrow">04 / Current builds</p><h2 id="hackathon-title">What I’m testing next.</h2><p>These time-boxed builds extend the main portfolio. I keep their plans, experiments, and lessons in a separate journal.</p></header>
+          <div class="home-hackathons">
+            <article><p class="eyebrow"><span class="home-status">Building</span> · Plan and baseline documented</p><h3>Nebius × NVIDIA Global AI Hackathon</h3><p class="hackathon-project-name">Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform</p><p>The next experiment adds streaming telemetry, anomaly detection, and maintenance retrieval to the local CSV baseline. The Nebius-hosted NVIDIA model, API, and dashboard are planned.</p><nav aria-label="NVIDIA hackathon links"><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform">Main Project ↗</a><a href="https://github.com/SouravKh-7/nebius-nvidia-manufacturing-uptime-ai">Hackathon Execution ↗</a><a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/nebius-nvidia-2026">Hackathon Journal ↗</a></nav></article>
+            <article><p class="eyebrow"><span class="home-status">Building</span> · Initial journal entry</p><h3>OpenCV AI Competition powered by AWS</h3><p class="hackathon-project-name">Manufacturing Visual Inspection</p><p>This experiment will use manufacturing images or video to identify possible defects and guide human review. Dataset selection, OpenCV processing, AWS setup, and the demo are still planned.</p><nav aria-label="OpenCV hackathon links"><a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/opencv-aws-2026">Hackathon Journal ↗</a></nav></article>
+          </div>
+        </div>
+      </section>
+
       <section class="home-section home-reading" id="research" aria-labelledby="reading-title">
         <div class="page-shell reading-columns">
           <div><p class="eyebrow">05 / Notes and background</p><h2 id="reading-title">What I’m working through.</h2><p>I use the writing section to explain a problem, the choices behind it and the questions I still need to test.</p><a href="blog/index.html">Browse the writing →</a></div>
-          <div class="home-reading-links"><a href="blog/pipeline-succeeded-data-wrong.html"><span>Data quality</span><strong>A pipeline can finish and still produce the wrong data.</strong><span aria-hidden="true">↗</span></a><a href="engineering-notes.html#system-notes"><span>Engineering decisions</span><strong>Batch, streaming, late data and recovery.</strong><span aria-hidden="true">↗</span></a><a href="{{ '/about/' | relative_url }}"><span>About me</span><strong>From manufacturing problems to data engineering.</strong><span aria-hidden="true">↗</span></a></div>
+          <div class="home-reading-links"><a href="blog/pipeline-succeeded-data-wrong.html"><span>Data quality</span><strong>A pipeline can finish and still produce the wrong data.</strong><span aria-hidden="true">↗</span></a><a href="engineering-notes.html#system-notes"><span>Engineering decisions</span><strong>Batch, streaming, late data and recovery.</strong><span aria-hidden="true">↗</span></a><a href="{{ '/about/' | relative_url }}"><span>About me</span><strong>How an engineering foundation shaped my data work.</strong><span aria-hidden="true">↗</span></a></div>
         </div>
       </section>
       <section class="home-contact page-shell" id="portfolio-summary"><div><p class="eyebrow">Continue with the work</p><h2>Code, decisions and the next question.</h2></div><div class="home-actions"><a class="home-button" href="https://github.com/SouravKh-7">GitHub profile ↗</a><a href="{{ '/about/' | relative_url }}">About my background →</a></div></section>

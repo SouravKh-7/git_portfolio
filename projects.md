@@ -4,23 +4,17 @@ title: Projects
 permalink: /projects/
 ---
 
-I keep the current code, limitations and next task together for each project. The three main projects come first, followed by supporting work and research.
+Start with the three main data-engineering projects. Supporting implementations come next, followed by research plans and future ideas. Every entry separates what exists now from what comes next.
 
-## Status Guide
+## Simple Status Guide
 
-- **Reference Implementation** - runs locally with documented behavior, tests, and limitations.
-- **Active Development** - working implementation exists, but significant milestones remain.
-- **Active Build** - an early local implementation exists and the next engineering phase is in progress.
-- **New Build / Active Development** - architecture and a source-contract scaffold exist; the end-to-end system is not implemented.
-- **Supporting Project / Legacy Experiment** - retained evidence or an earlier experiment that is not a current flagship.
-- **Design / Blueprint** - architecture and requirements exist, while implementation is limited.
-- **Research Blueprint / Implementation Next** - the research synthesis and system design exist; the first deterministic implementation has not yet been built.
-- **Future Research / Implementation Direction** - the architecture and experiment questions are defined, but no working reference service or result is claimed.
-- **Planned** - approved future work that has not started meaningfully.
-- **Parked** - intentionally paused.
-- **Evolving** - the concept is being incorporated into another project.
+- **Active Build** - working code exists and the next implementation phase is underway.
+- **Early Build** - architecture and starter code exist; the end-to-end system is not complete.
+- **Working Reference / Active Study** - useful supporting evidence, but not a main portfolio project.
+- **Earlier Experiment** - retained to show prior learning without competing with current work.
+- **Design Study / Research Plan / Future Idea** - exploratory work; no completed implementation or result is claimed.
 
-{% assign categories = "Featured Resume Projects|Supporting Data Engineering Projects|Industrial / Operational Intelligence|Research, Optimization and Intelligent Operations|Research & Optimization" | split: "|" %}
+{% assign categories = "Featured Data Engineering Projects|Supporting Data & Industrial Projects|Research & Future Ideas" | split: "|" %}
 {% for category in categories %}
 ## {{ category }}
 

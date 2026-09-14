@@ -6,12 +6,12 @@ portfolio:
   primary_identity: "Sourav Khandai — Data Engineer"
   positioning: "Data Engineering, Databricks, PySpark, SQL, Delta Lake, lakehouse architecture, ETL/ELT, data quality, reconciliation, and pipeline reliability"
   mission: "Design reliable data platforms from source contract to operational decision, with trustworthy lifecycle data, incident evidence, supply-chain products, and human-controlled AI-ready foundations."
-  display_strategy: "Lead with Data Engineering and governed AI; place physical-intelligence, robotics, digital-twin, and drone research last."
+  display_strategy: "Lead with data engineering; group supporting industrial work separately; place robotics, digital-twin, drone, and other future research last."
 
 projects:
   - name: "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform"
     repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
-    category: "Featured Resume Projects"
+    category: "Featured Data Engineering Projects"
     status: "Active Build"
     priority: "01"
     featured: true
@@ -19,68 +19,68 @@ projects:
 
   - name: "Pipeline Reliability Workbench"
     repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
-    category: "Featured Resume Projects"
-    status: "New Build / Active Development"
+    category: "Featured Data Engineering Projects"
+    status: "Early Build"
     priority: "02"
     featured: true
     resume_project: true
 
   - name: "Manufacturing & Retail Supply Chain Lakehouse"
     repository_url: "https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse"
-    category: "Featured Resume Projects"
-    status: "New Build / Active Development"
+    category: "Featured Data Engineering Projects"
+    status: "Early Build"
     priority: "03"
     featured: true
     resume_project: true
 
   - name: "AI-Assisted Data Reliability Platform"
     repository_url: "https://github.com/SouravKh-7/ai-data-reliability-platform"
-    category: "Supporting Data Engineering Projects"
-    status: "Reference Implementation"
+    category: "Supporting Data & Industrial Projects"
+    status: "Working Reference"
     priority: "Supporting project"
     featured: false
     resume_project: false
 
   - name: "Data Pipeline Optimization Framework"
     repository_url: "https://github.com/SouravKh-7/data-pipeline-optimization-framework"
-    category: "Supporting Data Engineering Projects"
-    status: "Active Development"
+    category: "Supporting Data & Industrial Projects"
+    status: "Active Study"
     priority: "Supporting project"
     featured: false
     resume_project: false
 
   - name: "Industrial Service Intelligence Platform"
     repository_url: "https://github.com/SouravKh-7/industrial-service-intelligence-platform"
-    category: "Supporting Data Engineering Projects"
-    status: "Active Development"
+    category: "Supporting Data & Industrial Projects"
+    status: "Active Study"
     priority: "Supporting project"
     featured: false
     resume_project: false
 
   - name: "Health-Aware Robotic Fleet Optimization System"
     repository_url: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System"
-    category: "Research, Optimization and Intelligent Operations"
-    status: "Design / Blueprint"
-    priority: "Lower-priority physical research"
+    category: "Research & Future Ideas"
+    status: "Design Study"
+    priority: "Later research"
     featured: false
 
   - name: "Retail Sales and Inventory Intelligence Platform"
     repository_url: "https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform"
-    category: "Business Data Products"
-    status: "Parked"
-    priority: "Future domain-transfer project"
+    category: "Supporting Data & Industrial Projects"
+    status: "Earlier Experiment"
+    priority: "Earlier domain project"
     featured: false
 
   - name: "Manufacturing Root-Cause Analysis Assistant"
     repository_url: "https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant"
-    category: "Industrial Data and Operational Intelligence"
-    status: "Evolving"
-    priority: "Secondary"
+    category: "Supporting Data & Industrial Projects"
+    status: "Earlier Experiment"
+    priority: "Earlier experiment"
     featured: false
 
-  - name: "Health-Aware Autonomous Drone System"
+  - name: "Environmental & Health-Aware Drone Fleet Intelligence"
     repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
-    category: "Archived Research"
-    status: "Secondary Project / Archived Concept"
-    priority: "Secondary project · lowest display priority"
+    category: "Research & Future Ideas"
+    status: "Research Plan"
+    priority: "Secondary research"
     featured: false

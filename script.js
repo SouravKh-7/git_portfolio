@@ -138,7 +138,7 @@
         description: "A research plan for assigning inspection-drone work using weather, battery, communication, drone condition, and mission priority.",
         problem: "The shortest route may be a poor choice when weather, battery reserve, and drone condition are included.",
         maturity: "Secondary project · research blueprint",
-        area: "Physical intelligence, drone fleets, and decision assurance",
+        area: "Real-world systems, drone fleets, and decision assurance",
         href: "projects/drone-fleet-intelligence.html",
         architecture: "Work order → trusted fleet + weather state → allocation → route candidates → simulation → policy review → mission plan → telemetry",
         research: "Weather- and health-aware routing, fleet coordination, digital-twin verification, and grounded agent tool use.",
@@ -343,9 +343,9 @@
         href: "roadmap/"
       },
       {
-        title: "How should enterprise intent become a physical action?",
-        summary: "A systems question connecting trusted operational state, bounded agent reasoning, deterministic optimization, digital-twin verification, policy, human authority, telemetry, and measurable outcomes.",
-        category: "Enterprise-to-Physical Intelligence",
+        title: "How should a business decision become a safe real-world action?",
+        summary: "A systems question connecting trusted operational state, bounded AI assistance, deterministic optimization, simulation, policy, human authority, telemetry, and measurable outcomes.",
+        category: "Real-World Systems Research",
         time: "Research synthesis",
         href: "#enterprise-physical"
       },

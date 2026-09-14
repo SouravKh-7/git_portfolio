@@ -13,7 +13,7 @@ The repositories are independent portfolio projects that share engineering patte
   </header>
   <div>
     <article>
-      <h2>Featured Resume Projects</h2>
+      <h2>Featured Data Engineering Projects</h2>
       <ul>
         <li>01 Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform <small>Active build</small></li>
         <li>02 Pipeline Reliability Workbench <small>New build</small></li>
@@ -21,7 +21,7 @@ The repositories are independent portfolio projects that share engineering patte
       </ul>
     </article>
     <article>
-      <h2>Supporting Data Engineering</h2>
+      <h2>Supporting Data &amp; Industrial Projects</h2>
       <ul>
         <li>AI-Assisted Data Reliability Platform</li>
         <li>Data Pipeline Optimization Framework</li>
@@ -31,7 +31,7 @@ The repositories are independent portfolio projects that share engineering patte
       </ul>
     </article>
     <article>
-      <h2>Research and Optimization</h2>
+      <h2>Research &amp; Future Ideas</h2>
       <ul>
         <li>Health-Aware Robotic Fleet Optimization</li>
         <li>Environmental &amp; Health-Aware Drone Fleet Intelligence <small>Research blueprint</small></li>
@@ -39,7 +39,7 @@ The repositories are independent portfolio projects that share engineering patte
         <li>Supply Chain Digital Twin Research Lab</li>
         <li>Database Performance and Workload Lab</li>
         <li>ElevateIQ <small>Future research</small></li>
-        <li>Physical AI Data Factory <small>Planned experiment</small></li>
+        <li>Real-World AI Data Lab <small>Future idea</small></li>
         <li>Spatial Intelligence Work <small>Future research</small></li>
       </ul>
     </article>
@@ -53,7 +53,7 @@ The repositories are independent portfolio projects that share engineering patte
 - **Operational data products:** domain models and trusted KPIs that connect technical behavior with service, reliability, cost, and customer outcomes.
 - **Responsible AI assistance:** evidence collection, retrieval, summaries, structured recommendations, bounded tools, deterministic fallbacks, and approval gates.
 - **Optimization:** explicit objectives, constraints, feasible baselines, simulations, scheduling, routing, and measurable fleet or workflow outcomes.
-- **Enterprise-to-physical intelligence:** trusted operational state, approved reasoning and optimization tools, digital-twin verification, policy, deterministic execution boundaries, telemetry, and measurable outcomes.
+- **From business decisions to real-world outcomes:** trusted operational state, approved reasoning and optimization tools, simulation, policy, deterministic execution boundaries, telemetry, and measurable outcomes.
 - **Enterprise context and memory:** permission-aware retrieval, live-state assembly, candidate knowledge, review, ownership, expiry, conflict handling, and user-controlled assistance memory.
 
 ## Project Relationships

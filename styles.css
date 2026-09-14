@@ -230,7 +230,7 @@ h1, h2, h3 { text-wrap: balance; }
 .system-thinking-flow small { color: var(--text-secondary); font-size: 0.68rem; line-height: 1.5; }
 .system-thinking-flow li:last-child small { color: var(--honey-800); }
 
-/* Enterprise-to-physical portfolio thesis */
+/* Business decision to real-world outcome portfolio thesis */
 .enterprise-physical-section {
   padding-block: clamp(6rem, 11vw, 11rem);
   color: var(--text-on-olive);

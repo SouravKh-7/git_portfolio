@@ -8,7 +8,7 @@
     use: "Bring the readings and maintenance history into one review file, so an engineer can inspect why a machine received a particular priority."
     limit: "Small synthetic dataset. Automated tests, streaming, Spark and Delta Lake are still planned."
   repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
-  category: "Featured Resume Projects"
+  category: "Featured Data Engineering Projects"
   status: "Active Build"
   priority: "01"
   featured: true
@@ -55,8 +55,8 @@
     use: "The intended workflow puts logs, alerts and recent changes in one place for an engineer investigating an incident. Time saved has not been measured."
     limit: "No working collection, correlation, retrieval, assistant or API yet."
   repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
-  category: "Featured Resume Projects"
-  status: "New Build / Active Development"
+  category: "Featured Data Engineering Projects"
+  status: "Early Build"
   priority: "02"
   featured: true
   resume_project: true
@@ -110,8 +110,8 @@
     use: "The goal is to compare orders, receipts, stock movements and sales using consistent keys and quantities. There are no analytics results yet."
     limit: "The lakehouse pipeline, Delta tables, jobs and benchmarks have not been implemented."
   repository_url: "https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse"
-  category: "Featured Resume Projects"
-  status: "New Build / Active Development"
+  category: "Featured Data Engineering Projects"
+  status: "Early Build"
   priority: "03"
   featured: true
   resume_project: true
@@ -159,8 +159,8 @@
 - name: "AI-Assisted Data Reliability Platform"
   slug: "ai-assisted-data-reliability-platform"
   repository_url: "https://github.com/SouravKh-7/ai-data-reliability-platform"
-  category: "Supporting Data Engineering Projects"
-  status: "Reference Implementation"
+  category: "Supporting Data & Industrial Projects"
+  status: "Working Reference"
   priority: "Supporting project"
   featured: false
   resume_project: false
@@ -196,8 +196,8 @@
 - name: "Data Pipeline Optimization Framework"
   slug: "data-pipeline-optimization-framework"
   repository_url: "https://github.com/SouravKh-7/data-pipeline-optimization-framework"
-  category: "Supporting Data Engineering Projects"
-  status: "Active Development"
+  category: "Supporting Data & Industrial Projects"
+  status: "Active Study"
   priority: "Core engineering case study"
   featured: false
   resume_project: false
@@ -231,8 +231,8 @@
 - name: "Industrial Service Intelligence Platform"
   slug: "industrial-service-intelligence-platform"
   repository_url: "https://github.com/SouravKh-7/industrial-service-intelligence-platform"
-  category: "Supporting Data Engineering Projects"
-  status: "Active Development"
+  category: "Supporting Data & Industrial Projects"
+  status: "Active Study"
   priority: "Supporting project"
   featured: false
   resume_project: false
@@ -267,9 +267,9 @@
 - name: "Health-Aware Robotic Fleet Optimization System"
   slug: "health-aware-robotic-fleet-optimization-system"
   repository_url: "https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System"
-  category: "Research, Optimization and Intelligent Operations"
-  status: "Design / Blueprint"
-  priority: "Lower-priority physical research"
+  category: "Research & Future Ideas"
+  status: "Design Study"
+  priority: "Later research"
   featured: false
   resume_project: false
   technology: []
@@ -301,9 +301,9 @@
 - name: "Retail Sales and Inventory Intelligence Platform"
   slug: "retail-sales-and-inventory-intelligence-platform"
   repository_url: "https://github.com/SouravKh-7/Retail-Sales-and-Inventory-Intelligence-Platform"
-  category: "Industrial / Operational Intelligence"
-  status: "Supporting / Legacy Experiment"
-  priority: "Legacy domain-transfer project"
+  category: "Supporting Data & Industrial Projects"
+  status: "Earlier Experiment"
+  priority: "Earlier domain project"
   featured: false
   resume_project: false
   technology: []
@@ -336,9 +336,9 @@
 - name: "Manufacturing Root-Cause Analysis Assistant"
   slug: "manufacturing-root-cause-analysis-assistant"
   repository_url: "https://github.com/SouravKh-7/Manufacturing-Root-Cause-Analysis-Assistant"
-  category: "Industrial / Operational Intelligence"
-  status: "Supporting Project"
-  priority: "Supporting experiment"
+  category: "Supporting Data & Industrial Projects"
+  status: "Earlier Experiment"
+  priority: "Earlier experiment"
   featured: false
   resume_project: false
   technology: []
@@ -372,9 +372,9 @@
 - name: "Environmental & Health-Aware Drone Fleet Intelligence"
   slug: "environmental-health-aware-drone-fleet-intelligence"
   repository_url: "https://github.com/SouravKh-7/Health-Aware-Autonomous-Drone-System"
-  category: "Research, Optimization and Intelligent Operations"
-  status: "Secondary Project / Research Blueprint"
-  priority: "Secondary project · lowest display priority"
+  category: "Research & Future Ideas"
+  status: "Research Plan"
+  priority: "Secondary research"
   featured: false
   resume_project: false
   technology: []
@@ -409,9 +409,9 @@
 - name: "Enterprise Context & Organizational Memory Lab"
   slug: "enterprise-context-organizational-memory-lab"
   repository_url: "/git_portfolio/projects/enterprise-context-memory.html"
-  category: "Research, Optimization and Intelligent Operations"
-  status: "Future Research / Implementation Direction"
-  priority: "Enterprise AI research vertical"
+  category: "Research & Future Ideas"
+  status: "Research Plan"
+  priority: "Later enterprise AI research"
   featured: false
   resume_project: false
   technology: []
@@ -446,9 +446,9 @@
 - name: "Supply Chain Digital Twin Research Lab"
   slug: "supply-chain-digital-twin-research-lab"
   repository_url: "/git_portfolio/projects/supply-chain-digital-twin.html"
-  category: "Research & Optimization"
-  status: "Research Blueprint"
-  priority: "Lower-priority physical-systems research"
+  category: "Research & Future Ideas"
+  status: "Research Plan"
+  priority: "Later research"
   featured: false
   resume_project: false
   summary: "A research plan for comparing supply-chain decisions in the same simulated conditions."
@@ -480,9 +480,9 @@
 - name: "ElevateIQ"
   slug: "elevateiq"
   repository_url: ""
-  category: "Research & Optimization"
-  status: "Future Research"
-  priority: "Future research"
+  category: "Research & Future Ideas"
+  status: "Future Idea"
+  priority: "Future idea"
   featured: false
   resume_project: false
   summary: "A saved project idea. No working project exists yet."
@@ -505,15 +505,15 @@
       note: "Background reading only; no RAG implementation is claimed."
   related_projects: []
 
-- name: "Physical AI Data Factory"
+- name: "Real-World AI Data Lab"
   slug: "physical-ai-data-factory"
   repository_url: ""
-  category: "Research & Optimization"
-  status: "Planned Experiment"
-  priority: "Lowest-priority future physical research"
+  category: "Research & Future Ideas"
+  status: "Future Idea"
+  priority: "Future idea"
   featured: false
   resume_project: false
-  summary: "A planned experiment about preparing reliable data for robots or other physical systems."
+  summary: "A future experiment about preparing reliable data for robots and other real-world systems."
   problem: "The exact dataset, test, and expected result are not defined yet."
   technology: []
   engineering_evidence: []
@@ -541,9 +541,9 @@
 - name: "Spatial Intelligence Work"
   slug: "spatial-intelligence-work"
   repository_url: ""
-  category: "Research & Optimization"
-  status: "Future Research"
-  priority: "Lower-priority physical-systems research"
+  category: "Research & Future Ideas"
+  status: "Future Idea"
+  priority: "Future idea"
   featured: false
   resume_project: false
   summary: "A saved research area for a later spatial-data project."
@@ -569,4 +569,4 @@
       kind: "Open standard"
       note: "Standards-based web access to geospatial features."
   related_projects:
-    - "Physical AI Data Factory"
+    - "Real-World AI Data Lab"

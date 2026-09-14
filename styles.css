@@ -893,9 +893,12 @@ h1, h2, h3 { text-wrap: balance; }
 .featured-project-card ul { margin: 18px 0 26px; padding-left: 18px; }
 .featured-project-card nav { display: flex; flex-wrap: wrap; gap: 14px 20px; margin-top: auto; }
 .featured-project-card a { color: var(--honey-200); font-weight: 750; }
+.hackathon-work { border-top: 1px solid rgba(234, 215, 173, 0.18); }
+.hackathon-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .progress-evidence-grid-single { grid-template-columns: 1fr; }
 
 @media (max-width: 900px) {
-  .featured-project-grid { grid-template-columns: 1fr; }
+  .featured-project-grid,
+  .hackathon-project-grid { grid-template-columns: 1fr; }
   .featured-project-card { min-height: auto; }
 }

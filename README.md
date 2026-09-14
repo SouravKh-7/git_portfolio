@@ -1,72 +1,63 @@
-# Sourav Khandai — Data Engineer
+# Sourav Khandai — Data Engineering Portfolio
 
-## Data Engineering | Data Platforms | Data Architecture | Industrial AI
+I build projects around machine data, production incidents, supply chains and data quality. This repository contains the website and case studies. Each project has its own source repository.
 
-I design reliable data systems for manufacturing, retail, and operational work using Python, SQL, PySpark, Databricks, and Delta Lake. The portfolio connects source contracts, ingestion, modeling, quality, observability, performance, governance, and serving—and labels current evidence separately from target architecture.
+[Open the portfolio](https://souravkh-7.github.io/git_portfolio/) · [GitHub profile](https://github.com/SouravKh-7)
 
-## About
+## Start with the code
 
-My manufacturing and process-engineering background helps me understand the operational context behind the data: machines, maintenance, service activity, quality, reliability, constraints, and the cost of incomplete information. This portfolio shows how I am combining that domain knowledge with Data Engineering.
+| Project | What exists | Next step |
+| --- | --- | --- |
+| [Manufacturing Equipment Lifecycle & Uptime Intelligence Platform](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform) | Python scripts validate synthetic CSVs, quarantine invalid rows and calculate condition, reliability and maintenance priority. | Tests for the existing logic, followed by the hackathon telemetry contract. |
+| [Pipeline Reliability Workbench](https://github.com/SouravKh-7/production-incident-ai-assistant) | Python scaffold, incident and evidence contracts, and an initial contract test. | Build a deterministic incident timeline from a synthetic bundle. |
+| [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse) | Source-contract type, contract test and design notes. | Implement the first reproducible Bronze ingestion slice. |
 
-## Portfolio Scope
+The manufacturing output helps explain how readings and maintenance history contribute to a priority. The incident and supply-chain projects describe intended uses while their pipelines are being built. No business savings or production deployment is claimed.
 
-The [portfolio website](https://SouravKh-7.github.io/git_portfolio/) centers on three resume projects. Supporting projects, legacy experiments, and research blueprints remain visible with evidence-based status labels.
+## Hackathon work
 
-## Featured Resume Projects
+- [Hackathon Build Journal](https://github.com/SouravKh-7/hackathon-build-journal) records the problem, plan, progress and lessons.
+- [NVIDIA hackathon execution](https://github.com/SouravKh-7/nebius-nvidia-manufacturing-uptime-ai) holds the hackathon-specific plans and future additions.
+- The OpenCV competition currently has an initial journal entry.
 
-### 1. [Manufacturing Equipment Lifecycle & Uptime Intelligence Platform](https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform)
+## Website structure
 
-**Status:** ACTIVE BUILD — Local maintenance-data pipeline demonstrated; Databricks is a planned next phase.
+| File or directory | Purpose |
+| --- | --- |
+| `index.html` | Short homepage with current output, featured projects, hackathons and approach. Jekyll renders its project cards from the catalog. |
+| `_data/projects.yml` | Project catalog. The `home` fields supply the featured homepage summaries. |
+| `projects.md` | Full catalog, including supporting work and research. |
+| `projects/` | Technical case studies. |
+| `engineering-notes.html` | Longer architecture notes, glossary and research directions. |
+| `blog/` | Articles and project questions. |
+| `styles.css` | Shared palette and existing page styles. |
+| `home.css`, `home.js` | Homepage and notes layout; mobile navigation. Main content is rendered before JavaScript runs. |
+| `script.js` | Earlier project presentation data and helpers, retained for compatibility. The new homepage does not use it. |
+| `docs/writing-style.md` | Writing rules and examples for future updates. |
+| `docs/portfolio-review.md` | Review findings, changes made and the remaining organization work. |
 
-The current Python and CSV implementation validates synthetic machine, telemetry, and maintenance data, quarantines invalid rows, calculates condition and reliability measures, and builds a combined machine summary and maintenance-priority file. Databricks, Delta Lake, CDC, SCD Type 2, production observability, and ML remain roadmap work.
+## Build locally
 
-### 2. [Pipeline Reliability Workbench](https://github.com/SouravKh-7/production-incident-ai-assistant)
+The site uses Jekyll, the Minima theme and Bundler. Run these commands from this repository:
 
-**Status:** NEW BUILD / ACTIVE DEVELOPMENT
-
-A production-incident assistant scaffold for normalizing alerts, logs, metrics, traces, deployments, pipeline failures, and runbooks into one evidence model. The repository currently has design notes, typed contracts, one test, and a Python scaffold. Timeline construction, correlation, similarity baseline, retrieval, API, and assistant are not built yet.
-
-### 3. [Manufacturing & Retail Supply Chain Lakehouse](https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse)
-
-**Status:** NEW BUILD / ACTIVE DEVELOPMENT
-
-A planned Databricks, PySpark, and Delta Lake project for manufacturing, supplier, warehouse, inventory, sales, and return data. The repository has contracts and design notes for CDC, late data, backfills, SCD Type 2, quality checks, and reconciliation. The pipeline is not built yet.
-
-## Supporting Data Engineering Projects
-
-Other projects cover data reliability, pipeline performance, and service-data reporting: [AI-Assisted Data Reliability Platform](https://github.com/SouravKh-7/ai-data-reliability-platform), [Data Pipeline Optimization Framework](https://github.com/SouravKh-7/data-pipeline-optimization-framework), and [Industrial Service Intelligence Platform](https://github.com/SouravKh-7/industrial-service-intelligence-platform).
-
-## Research Track
-
-The [Health-Aware Robotic Fleet Optimization System](https://github.com/SouravKh-7/Health-Aware-Robotic-Fleet-Optimization-System) and related drone, digital-twin, physical-AI, spatial-intelligence, and enterprise-context work form a secondary research track alongside the core Data Engineering portfolio.
-
-## Portfolio Structure
-
-- [Projects](projects.md)
-- [Open-source and research references](references.md)
-- [Research notes and project stories](blog/index.html)
-- [Enterprise Context & Organizational Memory Lab](projects/enterprise-context-memory.html)
-- [Project ecosystem](ecosystem.md)
-- [Project status matrix](docs/project-sync.md)
-- [Resume-ready selected projects](docs/resume-projects.md)
-- [Roadmap](roadmap.md)
-- [About my background and engineering interests](about.md)
-
-## Engineering Approach
-
-```mermaid
-flowchart LR
-    A[Problem] --> B[Requirements and Constraints]
-    B --> C[Data and System Design]
-    C --> D[Ingestion and Processing]
-    D --> E[Quality and Observability]
-    E --> F[Trusted Data Products]
-    F --> G[Analytics or AI Assistance]
-    G --> H[Reviewed result]
+```sh
+bundle install
+bundle exec jekyll build
+bundle exec jekyll serve
 ```
 
-The engineering process begins with the operating problem, intended consumer, and constraints. Data flow, validation, recovery, and observability come before analytics or AI. AI may collect evidence, summarize findings, or prepare recommendations, but it does not bypass operational controls or human accountability.
+The site uses the base path `/git_portfolio`. Open the corresponding path on the local Jekyll server. The generated site is written to `_site/`.
 
-## Evidence Policy
+For an isolated verification build:
 
-Project statuses describe evidence, not ambition. A **Reference Implementation** runs locally with documented behavior, tests, and limitations. **Active Build** identifies an early local implementation with major phases still open. **New Build / Active Development** identifies an architecture and source-contract scaffold rather than an end-to-end system. Research, parked, legacy, and archived work remains visible without being presented as completed software.
+```sh
+bundle exec jekyll build --disable-disk-cache --destination ../portfolio-build
+```
+
+GitHub Pages publishes the site. Check the live page after pushing; a successful local build alone does not confirm deployment.
+
+## Updating a project
+
+Update the catalog first, then check its case study and source README. Keep the same name and current status across those pages. Mark tools that are only proposed, link to code or output for current claims, and record the next concrete task.
+
+The broader portfolio includes [supporting implementations and research](https://souravkh-7.github.io/git_portfolio/projects/). The featured project order remains manufacturing, incident investigation, then supply chain.

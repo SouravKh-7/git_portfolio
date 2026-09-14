@@ -1,6 +1,6 @@
 # Project Synchronization Record
 
-`_data/projects.yml` is the canonical website catalog. The resume, README, homepage, Projects page, case-study pages, repository READMEs, and compatibility manifest use the names and order below.
+`_data/projects.yml` is the canonical website catalog. The homepage renders featured cards from its `home` fields, and the Projects page renders the full catalog. Case studies and external READMEs still require a manual consistency check when names, implementation state or milestones change.
 
 | Canonical Project | Resume | GitHub Repository | Portfolio | Case Study | Blog | Current Status |
 |---|---|---|---|---|---|---|

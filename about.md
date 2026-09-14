@@ -4,27 +4,31 @@ title: About
 permalink: /about/
 ---
 
-I am Sourav Khandai — Data Engineer. I focus on data platforms and architecture across source contracts, ingestion, modeling, quality, reliability, observability, performance, governance, and serving. My current stack includes Python, SQL, PySpark, Databricks and Delta Lake; my projects label working evidence separately from target design.
+I’m Sourav Khandai. I work on data engineering projects using Python and SQL, with manufacturing data as my starting point.
 
-My manufacturing and process-engineering background helps me understand machines, maintenance work, service operations, process variation, quality, reliability, and the effect of missing data.
+My manufacturing and process-engineering background gives me practical questions to work on. How do I connect a machine reading to its maintenance history? What happens when an ID is missing? Can I explain the calculation behind a maintenance priority?
 
-## Engineering Interests
+I started the equipment project with CSV files. It now checks machine, telemetry and maintenance records, keeps rejected rows with reasons, and creates condition, reliability and priority outputs. The next work is to test those calculations and build the streaming extension described in the NVIDIA hackathon repository.
 
-- Reliable batch and incremental data systems.
-- Databricks, PySpark, Delta Lake, Medallion architecture, CDC, and SCD Type 2.
-- Data contracts, validation, reconciliation, observability, and recovery.
-- Industrial service intelligence and operational data products.
-- Distributed-system concepts, platform design, and measurable pipeline optimization.
-- Production incident evidence across telemetry, pipeline history, quality events, deployments, and runbooks.
+## What I’m working on
 
-## Secondary Research Interests
+- A working local Python pipeline for machine and maintenance data.
+- A Python scaffold for collecting production-incident evidence.
+- Source contracts and a data model for a manufacturing and retail supply-chain lakehouse.
+- Plans for PySpark, Databricks and Delta Lake as those projects grow.
 
-- Scheduling, constraint modeling, routing, simulation, and operations research.
-- Digital twins and decision-assurance environments that test candidate actions before commitment.
-- Physical-intelligence data infrastructure: telemetry, environmental state, asset health, decision ledgers, and measured outcomes.
-- Enterprise context and organizational memory: permission-aware retrieval, current-state assembly, governed knowledge lifecycles, and employee-controlled assistance memory.
-- AI-assisted workflows with deterministic fallbacks, bounded tools, traceable evidence, and human approval.
+[See the projects and their current state]({{ '/projects/' | relative_url }}).
 
-I treat AI as a way to collect evidence, summarize, retrieve, recommend, coordinate approved tools, or prepare actions. It should not invent evidence, grant itself authority, bypass deterministic safety constraints, or replace the person accountable for a consequential decision.
+## How I approach the work
 
-The projects in this portfolio include both working knowledge and an active learning roadmap. Their status labels and limitations are intended to make that boundary explicit.
+I start with the source records and the question the output should answer. I define the keys, write the transformations and check the calculations. Missing data, duplicate rows and failed joins need to be visible.
+
+After that, I look at the practical use. A maintenance summary might make a review easier, but I would need a comparison with the existing process before claiming time saved or lower downtime.
+
+For the planned AI work, I want the assistant to retrieve relevant records and explain what they show. The engineer remains responsible for the decision.
+
+## What I’m learning next
+
+I want to get deeper into Spark processing, late data, incremental updates, table history and failure recovery. I also keep research notes on scheduling, simulation, robotics and document retrieval.
+
+[Engineering notes]({{ '/engineering-notes.html' | relative_url }}) · [GitHub](https://github.com/SouravKh-7)

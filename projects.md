@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 ---
 
-This catalog is rendered from `_data/projects.yml`, the website source of truth. The three resume projects appear first and in canonical order; supporting and research work remains visible below them. A scaffold, brief, or roadmap is not presented as completed implementation.
+I keep the current code, limitations and next task together for each project. The three main projects come first, followed by supporting work and research.
 
 ## Status Guide
 
@@ -29,12 +29,8 @@ This catalog is rendered from `_data/projects.yml`, the website source of truth.
 ### {{ project.name }}
 
 **Status:** {{ project.status }}<br>
-**Priority:** {{ project.priority }}<br>
-**Resume project:** {% if project.resume_project %}Yes{% else %}No{% endif %}
 
 {{ project.summary }}
-
-**Problem:** {{ project.problem }}
 
 **Current engineering evidence:**
 {% if project.engineering_evidence.size > 0 %}
@@ -48,6 +44,8 @@ This catalog is rendered from `_data/projects.yml`, the website source of truth.
 **AI role:** {{ project.ai_role }}<br>
 **Limitations:** {{ project.limitations }}<br>
 **Next milestone:** {{ project.next_milestone }}
+
+**Problem this work addresses:** {{ project.problem }}
 
 {% if project.references.size > 0 %}
 **Open-source and research references:**

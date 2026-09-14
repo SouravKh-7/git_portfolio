@@ -333,7 +333,7 @@ Summarize the repeatable approach already present in the repository: problem and
 
 ### 9. About and contact
 
-- Short professional background, with mechanical/manufacturing experience framed as an industrial-domain advantage.
+- Short professional background, with engineering and manufacturing experience framed as a systems-thinking advantage.
 - GitHub, LinkedIn, and email.
 - Final call to action should route technical visitors to the flagship evidence and other visitors to the project index.
 

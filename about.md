@@ -10,7 +10,7 @@ Over time, I learned that building a pipeline is only one part of the work. The 
 
 ## How I got here
 
-I studied mechanical engineering at Kalinga Institute of Industrial Technology. That background taught me to look at a system as connected parts rather than isolated components. When something goes wrong, I want to understand the interaction between those parts and trace the problem to its cause.
+I began with an engineering education at Kalinga Institute of Industrial Technology. That foundation taught me to look at a system as connected parts rather than isolated components. When something goes wrong, I want to understand the interaction between those parts and trace the problem to its cause.
 
 I carried that way of thinking into data engineering. At Accenture, I worked with retail and inventory data through Oracle RMS ETL, PL/SQL, Python, FastAPI and production batch support. At NBC Bearings, I worked with manufacturing data using Azure Databricks, PySpark, SQL, FastAPI and Delta Lake. The work included ingestion, transformation, validation, monitoring, troubleshooting and deployment checks.
 

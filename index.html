@@ -6,22 +6,22 @@ layout: null
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Python and SQL projects by Sourav Khandai. Explore a working manufacturing CSV pipeline, incident investigation, and planned Spark and Delta Lake work.">
+    <meta name="description" content="Sourav Khandai brings a manufacturing and process-engineering perspective to data engineering, with projects in validation, reliability, lakehouse design and industrial AI.">
     <meta name="theme-color" content="#f7f4e9">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sourav Khandai — Data Engineering, Platforms & Industrial AI">
-    <meta property="og:description" content="Data engineering projects: source files, validation, Python code, current outputs, and the next steps.">
+    <meta property="og:description" content="A manufacturing perspective on data engineering: source records, validation, reliable pipelines and evidence that supports practical decisions.">
     <meta property="og:url" content="https://souravkh-7.github.io/git_portfolio/">
     <meta property="og:image" content="https://souravkh-7.github.io/git_portfolio/assets/og.png">
     <meta property="og:image:alt" content="Sourav Khandai Data Engineering Portfolio architecture map">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sourav Khandai — Data Engineering, Platforms & Industrial AI">
-    <meta name="twitter:description" content="Python and SQL projects, current implementation details, and practical engineering notes.">
+    <meta name="twitter:description" content="A manufacturing perspective on data engineering, reliable pipelines and evidence-led decisions.">
     <meta name="twitter:image" content="https://souravkh-7.github.io/git_portfolio/assets/og.png">
     <link rel="canonical" href="https://souravkh-7.github.io/git_portfolio/">
     <title>Sourav Khandai — Data Engineering, Platforms & Industrial AI</title>
     <link rel="stylesheet" href="styles.css?v=10">
-    <link rel="stylesheet" href="home.css?v=2">
+    <link rel="stylesheet" href="home.css?v=3">
     <script src="home.js?v=1" defer></script>
     <script src="technical-glossary.js?v=1" defer></script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sourav Khandai","jobTitle":"Data Engineer","url":"https://souravkh-7.github.io/git_portfolio/","knowsAbout":["Data engineering","Data platforms","Data architecture","Data reliability","Lakehouse architecture","Industrial AI"]}</script>
@@ -44,26 +44,23 @@ layout: null
     <main id="main-content">
       <section class="home-intro page-shell" id="introduction" aria-labelledby="introduction-title">
         <div class="home-intro-copy">
-          <p class="eyebrow">Sourav Khandai · Data Engineer</p>
-          <h1 id="introduction-title">I build data pipelines.<br><em>I check what comes out.</em></h1>
-          <p class="home-lead">My projects start with source files, Python and SQL. I work through validation, joins and calculations, then check whether the output answers the original question.</p>
-          <p>Manufacturing is where I started. Machine readings and maintenance records give me concrete problems to work on: missing IDs, invalid values, downtime calculations and the reasons behind a maintenance priority.</p>
+          <p class="eyebrow">Sourav Khandai · Manufacturing background · Data engineering</p>
+          <h1 id="introduction-title">I’m building data systems from a <em>manufacturing point of view.</em></h1>
+          <p class="home-lead">My background is in manufacturing and process engineering. It taught me to look beyond a final number and ask where it came from, what changed, and what could make it wrong.</p>
+          <p>That is how I’m learning data engineering. I use Python and SQL to work through source records, validation, joins, calculations and failed cases. I’m moving next into PySpark, Databricks, Delta Lake and streaming systems.</p>
           <div class="home-actions"><a class="home-button" href="#featured-projects">See the projects <span aria-hidden="true">↓</span></a><a href="https://github.com/SouravKh-7">Read the code ↗</a></div>
-          <p class="home-stack"><strong>Current foundation</strong> Python · SQL<br><strong>Next build work</strong> PySpark · Databricks · Delta Lake</p>
         </div>
-        <aside class="build-note" aria-labelledby="build-note-title">
-          <div class="note-meta"><span>From the manufacturing project</span><span class="status-dot">Local CSV pipeline</span></div>
-          <h2 id="build-note-title">One machine.<br>A traceable priority.</h2>
-          <p class="machine-code">AST-000004 <span>· Main Drive Motor 01</span></p>
-          <dl class="note-readings">
-            <div><dt>Health score</dt><dd>65 <span>/ 100</span></dd></div>
-            <div><dt>Downtime</dt><dd>360 <span>minutes</span></dd></div>
-            <div><dt>Failure events</dt><dd>1</dd></div>
+        <aside class="profile-note" aria-labelledby="profile-note-title">
+          <p class="eyebrow">What this portfolio is about</p>
+          <h2 id="profile-note-title">Understanding the path from a source record to a decision.</h2>
+          <p class="profile-note-intro">I want to understand the full system: how data enters, how its quality is checked, how history is preserved, how a pipeline recovers, and how someone can verify the result.</p>
+          <dl class="profile-note-list">
+            <div><dt>Background</dt><dd>Manufacturing processes, equipment, maintenance, quality and reliability.</dd></div>
+            <div><dt>Engineering interests</dt><dd>Data contracts, batch and streaming pipelines, lakehouse design, observability and recovery.</dd></div>
+            <div><dt>Objective</dt><dd>Build dependable data systems that connect technical evidence to practical work. Where AI is useful, it should retrieve and explain evidence—not replace the person responsible for the decision.</dd></div>
           </dl>
-          <div class="note-result"><span>Rule-based priority</span><strong>HIGH</strong></div>
-          <p class="note-explanation">The score combines health, criticality, recorded failures and downtime. I can inspect each contribution in the Python script.</p>
-          <p class="note-source">Synthetic sample from the repository. This is a saved output, not live equipment monitoring.</p>
-          <a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform/blob/4985b95052b95434b0d87d30e7f0150a05bc97b3/data/gold/maintenance_priority.csv">Inspect the source CSV ↗</a>
+          <p class="profile-note-close">This site records what works now, what is still limited, and what I’m learning next.</p>
+          <nav aria-label="Background and approach links"><a href="{{ '/about/' | relative_url }}">More about my background →</a><a href="engineering-notes.html">Read my engineering notes →</a></nav>
         </aside>
       </section>
 
@@ -85,7 +82,7 @@ layout: null
 
       <section class="home-section home-evidence" id="evidence" aria-labelledby="evidence-title">
         <div class="page-shell evidence-columns">
-          <div><p class="eyebrow">02 / A closer look</p><h2 id="evidence-title">Follow one result back to the code.</h2><p>I started with three CSV files: machine master data, sensor readings and maintenance work orders. The pipeline checks the records, keeps invalid rows with a reason, and joins valid data through <code>asset_id</code>.</p><p>For the motor shown above, the priority calculation is <code>30 + 20 + 15 + 20 = 85</code>: health, criticality, failure history and downtime. A score of 60 or more is marked high priority.</p><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform/blob/4985b95052b95434b0d87d30e7f0150a05bc97b3/src/calculate_maintenance_priority.py">Read the priority calculation ↗</a></div>
+          <div><p class="eyebrow">02 / A closer look</p><h2 id="evidence-title">Follow one result back to the code.</h2><p>I started with three CSV files: machine master data, sensor readings and maintenance work orders. The pipeline checks the records, keeps invalid rows with a reason, and joins valid data through <code>asset_id</code>.</p><p>For one sample motor, the priority calculation is <code>30 + 20 + 15 + 20 = 85</code>: health, criticality, failure history and downtime. A score of 60 or more is marked high priority.</p><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform/blob/4985b95052b95434b0d87d30e7f0150a05bc97b3/src/calculate_maintenance_priority.py">Read the priority calculation ↗</a></div>
           <div class="evidence-detail"><ol class="home-data-path" aria-label="Current manufacturing data flow"><li><span>01</span><div><strong>Read the source CSVs</strong><p>Machine, telemetry and maintenance records.</p></div></li><li><span>02</span><div><strong>Validate and quarantine</strong><p>Check IDs, dates, codes and numeric values. Keep rejection reasons.</p></div></li><li><span>03</span><div><strong>Calculate and join</strong><p>Condition, health, reliability and the combined machine summary.</p></div></li><li><span>04</span><div><strong>Rank for review</strong><p>A maintenance-priority CSV that an engineer can inspect.</p></div></li></ol><p class="home-limit">The rules are hand-written and the sample is small. Automated tests, streaming and model evaluation are the next work. No reduction in downtime has been measured.</p></div>
         </div>
       </section>

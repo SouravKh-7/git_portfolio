@@ -1,628 +1,126 @@
+---
+layout: null
+---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Sourav Khandai — Data Engineer focused on data platforms, data architecture, reliability, lakehouse systems, and evidence-grounded Industrial AI.">
+    <meta name="description" content="Python and SQL projects by Sourav Khandai. Explore a working manufacturing CSV pipeline, incident investigation, and planned Spark and Delta Lake work.">
     <meta name="theme-color" content="#f7f4e9">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sourav Khandai — Data Engineering, Platforms & Industrial AI">
-    <meta property="og:description" content="Architecture-led projects in lifecycle data, pipeline reliability, lakehouse systems, and evidence-grounded Industrial AI.">
+    <meta property="og:description" content="Data engineering projects: source files, validation, Python code, current outputs, and the next steps.">
     <meta property="og:url" content="https://souravkh-7.github.io/git_portfolio/">
     <meta property="og:image" content="https://souravkh-7.github.io/git_portfolio/assets/og.png">
     <meta property="og:image:alt" content="Sourav Khandai Data Engineering Portfolio architecture map">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sourav Khandai — Data Engineering, Platforms & Industrial AI">
-    <meta name="twitter:description" content="Data engineering projects shaped by contracts, data models, reliability, observability, and deliberate tradeoffs.">
+    <meta name="twitter:description" content="Python and SQL projects, current implementation details, and practical engineering notes.">
     <meta name="twitter:image" content="https://souravkh-7.github.io/git_portfolio/assets/og.png">
     <link rel="canonical" href="https://souravkh-7.github.io/git_portfolio/">
     <title>Sourav Khandai — Data Engineering, Platforms & Industrial AI</title>
     <link rel="stylesheet" href="styles.css?v=10">
-    <script src="script.js?v=11" defer></script>
+    <link rel="stylesheet" href="home.css?v=1">
+    <script src="home.js?v=1" defer></script>
     <script src="technical-glossary.js?v=1" defer></script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sourav Khandai","jobTitle":"Data Engineer","url":"https://souravkh-7.github.io/git_portfolio/","knowsAbout":["Data engineering","Data platforms","Data architecture","Data reliability","Lakehouse architecture","Industrial AI"]}</script>
   </head>
-  <body>
+  <body class="portfolio-home">
     <a class="skip-link" href="#main-content">Skip to content</a>
-
     <header class="site-header" data-header>
       <nav class="nav-shell page-shell" aria-label="Primary navigation">
-        <a class="brand" href="#introduction" aria-label="Sourav Khandai, introduction">
-          <span class="brand-initials" aria-hidden="true">SK</span>
-          <span><strong>Sourav Khandai</strong><small>Data Engineer</small></span>
-        </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-          <span class="sr-only">Toggle navigation</span><i aria-hidden="true"></i><i aria-hidden="true"></i>
-        </button>
-        <div class="nav-links" id="nav-links" data-navigation></div>
+        <a class="brand" href="index.html" aria-label="Sourav Khandai, home"><span class="brand-initials" aria-hidden="true">SK</span><span><strong>Sourav Khandai</strong><small>Data Engineer</small></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Open navigation</span><i aria-hidden="true"></i><i aria-hidden="true"></i></button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#featured-projects">Projects</a>
+          <a href="index.html#hackathon-work">Hackathons</a>
+          <a href="engineering-notes.html">Engineering notes</a>
+          <a href="blog/index.html">Writing</a>
+          <a href="https://github.com/SouravKh-7">GitHub ↗</a>
+        </div>
       </nav>
     </header>
-
     <main id="main-content">
-      <section class="introduction page-section" id="introduction" aria-labelledby="introduction-title">
-        <div class="page-shell hero-simple">
-          <div class="hero-intro-grid">
-            <div class="hero-copy">
-              <p class="hero-name reveal">SOURAV KHANDAI</p>
-              <p class="context-line reveal">DATA ENGINEERING · DATA PLATFORMS · INDUSTRIAL AI</p>
-              <h1 id="introduction-title" class="reveal">I design reliable data systems from source contract to operational decision.</h1>
-              <p class="hero-support reveal">Python, SQL, PySpark, Databricks and Delta Lake—applied with architecture, operability and evidence in mind.</p>
-              <p class="hero-introduction reveal">My work connects data modeling, incremental processing, quality, observability and serving patterns across manufacturing, incident investigation and supply-chain systems. The portfolio shows what runs today, what is being built, and which ideas remain target architecture.</p>
-            </div>
-          </div>
+      <section class="home-intro page-shell" id="introduction" aria-labelledby="introduction-title">
+        <div class="home-intro-copy">
+          <p class="eyebrow">Sourav Khandai · Data Engineer</p>
+          <h1 id="introduction-title">I build data pipelines.<br><em>I check what comes out.</em></h1>
+          <p class="home-lead">My projects start with source files, Python and SQL. I work through validation, joins and calculations, then check whether the output answers the original question.</p>
+          <p>Manufacturing is where I started. Machine readings and maintenance records give me concrete problems to work on: missing IDs, invalid values, downtime calculations and the reasons behind a maintenance priority.</p>
+          <div class="home-actions"><a class="home-button" href="#featured-projects">See the projects <span aria-hidden="true">↓</span></a><a href="https://github.com/SouravKh-7">Read the code ↗</a></div>
+          <p class="home-stack"><strong>Current foundation</strong> Python · SQL<br><strong>Next build work</strong> PySpark · Databricks · Delta Lake</p>
         </div>
+        <aside class="build-note" aria-labelledby="build-note-title">
+          <div class="note-meta"><span>From the manufacturing project</span><span class="status-dot">Local CSV pipeline</span></div>
+          <h2 id="build-note-title">One machine.<br>A traceable priority.</h2>
+          <p class="machine-code">AST-000004 <span>· Main Drive Motor 01</span></p>
+          <dl class="note-readings">
+            <div><dt>Health score</dt><dd>65 <span>/ 100</span></dd></div>
+            <div><dt>Downtime</dt><dd>360 <span>minutes</span></dd></div>
+            <div><dt>Failure events</dt><dd>1</dd></div>
+          </dl>
+          <div class="note-result"><span>Rule-based priority</span><strong>HIGH</strong></div>
+          <p class="note-explanation">The score combines health, criticality, recorded failures and downtime. I can inspect each contribution in the Python script.</p>
+          <p class="note-source">Synthetic sample from the repository. This is a saved output, not live equipment monitoring.</p>
+          <a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform/blob/4985b95052b95434b0d87d30e7f0150a05bc97b3/data/gold/maintenance_priority.csv">Inspect the source CSV ↗</a>
+        </aside>
       </section>
 
-      <section class="featured-data-projects" id="featured-projects" aria-labelledby="featured-projects-title">
+      <section class="home-section home-projects" id="featured-projects" aria-labelledby="projects-title">
         <div class="page-shell">
-          <header class="section-heading reveal">
-            <p class="section-number">Featured resume projects</p>
-            <h2 id="featured-projects-title">FEATURED DATA ENGINEERING PROJECTS</h2>
-            <p class="section-lead">Three evidence-labelled projects focused on equipment lifecycle data, production incident investigation, and supply-chain lakehouse engineering.</p>
-          </header>
-          <ol class="featured-project-grid">
-            <li class="featured-project-card reveal">
-              <span class="featured-project-number">01</span>
-              <p class="featured-project-status">ACTIVE BUILD</p>
-              <h3>Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform</h3>
-              <p>A working local batch pipeline for machine, telemetry and maintenance data, with a documented path toward a governed lakehouse.</p>
-              <ul><li>Stable equipment identity and source validation</li><li>Quarantine, condition, reliability and maintenance outputs</li><li>CDC, SCD Type 2, Databricks and ML remain target-state work</li></ul>
-              <nav><a href="projects/manufacturing-asset-lifecycle.html">Case study →</a><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform">Repository ↗</a></nav>
-            </li>
-            <li class="featured-project-card reveal">
-              <span class="featured-project-number">02</span>
-              <p class="featured-project-status">NEW BUILD / ACTIVE DEVELOPMENT</p>
-              <h3>Pipeline Reliability Workbench</h3>
-              <p>A production-incident assistant scaffold for normalizing alerts, logs, metrics, deployments, pipeline failures and runbooks into one evidence model.</p>
-              <ul><li>Typed incident and evidence contracts</li><li>Read-only, permissioned investigation boundary</li><li>Correlation, similarity baselines, retrieval and assistant runtime remain unimplemented</li></ul>
-              <nav><a href="projects/production-incident-ai-assistant.html">Case study →</a><a href="https://github.com/SouravKh-7/production-incident-ai-assistant">Repository ↗</a></nav>
-            </li>
-            <li class="featured-project-card reveal">
-              <span class="featured-project-number">03</span>
-              <p class="featured-project-status">NEW BUILD / ACTIVE DEVELOPMENT</p>
-              <h3>Manufacturing &amp; Retail Supply Chain Lakehouse</h3>
-              <p>Databricks, PySpark and Delta Lake architecture connecting manufacturing, supplier, warehouse, inventory, retail, sales and returns data.</p>
-              <ul><li>Source contracts and implementation roadmap</li><li>CDC, late data, SCD Type 2, quality and reconciliation design</li><li>Bronze, Silver and Gold pipelines remain unimplemented</li></ul>
-              <nav><a href="projects/manufacturing-retail-supply-chain-lakehouse.html">Case study →</a><a href="https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse">Repository ↗</a></nav>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="featured-data-projects hackathon-work" id="hackathon-work" aria-labelledby="hackathon-work-title">
-        <div class="page-shell">
-          <header class="section-heading reveal">
-            <p class="section-number">Hackathon work</p>
-            <h2 id="hackathon-work-title">CURRENT HACKATHON BUILDS</h2>
-            <p class="section-lead">Two current entries, with implemented work kept separate from the plans for each event.</p>
-          </header>
-          <ol class="featured-project-grid hackathon-project-grid">
-            <li class="featured-project-card reveal">
-              <span class="featured-project-number">NEBIUS × NVIDIA</span>
-              <p class="featured-project-status">BUILDING</p>
-              <h3>Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform</h3>
-              <p>The existing local Python and CSV project is the baseline. Streaming, anomaly detection, retrieval, NVIDIA model integration, the API, and the dashboard are hackathon work and remain planned until implemented.</p>
-              <nav aria-label="Nebius NVIDIA hackathon links">
-                <a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform">Main Project ↗</a>
-                <a href="https://github.com/SouravKh-7/nebius-nvidia-manufacturing-uptime-ai">Hackathon Execution ↗</a>
-                <a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/nebius-nvidia-2026">Hackathon Journal ↗</a>
-              </nav>
-            </li>
-            <li class="featured-project-card reveal">
-              <span class="featured-project-number">OPENCV × AWS</span>
-              <p class="featured-project-status">BUILDING</p>
-              <h3>Manufacturing Visual Inspection</h3>
-              <p>The initial entry explores how manufacturing images or video could identify possible defects and route the result for review. No project implementation or demo is claimed yet.</p>
-              <nav aria-label="OpenCV AWS hackathon links">
-                <a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/opencv-aws-2026">Hackathon Journal ↗</a>
-              </nav>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="work-timeline-section" id="work-timeline" aria-labelledby="work-timeline-title">
-        <div class="page-shell">
-          <header class="work-timeline-heading reveal">
-            <div>
-              <p class="section-number">2026 · Work status timeline</p>
-              <h2 id="work-timeline-title">What is working now, what is being built, and what is still an idea.</h2>
-            </div>
-            <div class="work-timeline-summary">
-              <span>January 2026 → December 2026</span>
-              <strong>Current point · 11 September 2026</strong>
-              <p>Project status is kept simple: working, in progress, or planned.</p>
-            </div>
-          </header>
-
-          <ol class="work-timeline-track reveal" aria-label="2026 portfolio work timeline">
-            <li class="timeline-complete">
-              <p class="timeline-date">Jan–Feb 2026</p>
-              <span class="timeline-status">Completed</span>
-              <h3>Reliability foundations</h3>
-              <p>Framed the gap between pipeline success and data trust. Defined contracts, validation, quarantine, reconciliation, and evidence boundaries.</p>
-            </li>
-            <li class="timeline-complete">
-              <p class="timeline-date">Mar–Apr 2026</p>
-              <span class="timeline-status">Completed</span>
-              <h3>Local reference platform</h3>
-              <p>Built the ingestion, Parquet and DuckDB models, quality checks, incidents, FastAPI endpoints, approval workflow, tests, and reproducible local setup.</p>
-            </li>
-            <li class="timeline-complete">
-              <p class="timeline-date">May–Jun 2026</p>
-              <span class="timeline-status">Completed</span>
-              <h3>Architecture and operating model</h3>
-              <p>Documented system context, data flow, layered storage, lineage, current-versus-target design, security, observability, and recovery concerns.</p>
-            </li>
-            <li class="timeline-complete">
-              <p class="timeline-date">Jul–Aug 2026</p>
-              <span class="timeline-status">Completed</span>
-              <h3>Portfolio and research expansion</h3>
-              <p>Consolidating case studies and evidence while extending the research map across distributed systems, databases, operations research, Industrial AI, and governed agents.</p>
-            </li>
-            <li class="timeline-current">
-              <p class="timeline-date">Sep–Oct 2026</p>
-              <span class="timeline-status">Active now</span>
-              <h3>Measured experiments</h3>
-              <p>Deepen the three featured architecture records, add automated tests to the equipment pipeline, and prepare reproducible experiments for scale, partitioning, query performance, reliability and cost.</p>
-            </li>
-            <li class="timeline-planned">
-              <p class="timeline-date">Nov–Dec 2026</p>
-              <span class="timeline-status">Planned</span>
-              <h3>Governed intelligence studies</h3>
-              <p>Evaluate Industrial AI and autonomous-operation scenarios with explicit evidence, safety policy, human approval, and measurable outcomes.</p>
-            </li>
-          </ol>
-
-          <div class="work-timeline-legend reveal" aria-label="Timeline status legend">
-            <span><i class="legend-complete" aria-hidden="true"></i>Completed</span>
-            <span><i class="legend-current" aria-hidden="true"></i>Active now</span>
-            <span><i class="legend-planned" aria-hidden="true"></i>Planned direction</span>
-          </div>
-          <div class="current-work-grid reveal" aria-label="Current portfolio work by activity">
-            <article><span>Building</span><p>Equipment-pipeline tests and first lakehouse slices; incident and supply-chain projects remain scaffolds.</p></article>
-            <article><span>Experimenting</span><p>Preparing deterministic failure, replay and performance labs. No new benchmark result is claimed yet.</p></article>
-            <article><span>Learning</span><p>Deepening Spark performance, CDC, historical modeling, platform governance and recovery design.</p></article>
-            <article><span>Documenting</span><p>Architecture decisions, data models, evidence boundaries, tradeoffs and next milestones.</p></article>
-            <article><span>Not yet implemented</span><p>Featured-project production deployment, streaming paths, monitoring APIs and model-assisted operations.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="thought-flow-section" aria-labelledby="thought-flow-title">
-        <div class="page-shell thought-flow-layout reveal">
-          <div><p class="passage-label">How I work</p><h2 id="thought-flow-title">Start with the problem, then build the data path.</h2><p>I first check the user, the source data, the failure cases, and the output that is actually needed.</p></div>
-          <ol class="compact-thought-flow" aria-label="Problem, data, architecture, evidence, decision">
-            <li><span>01</span><strong>Problem</strong></li>
-            <li><span>02</span><strong>Data</strong></li>
-            <li><span>03</span><strong>Architecture</strong></li>
-            <li><span>04</span><strong>Evidence</strong></li>
-            <li><span>05</span><strong>Decision</strong></li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="enterprise-physical-section" id="enterprise-physical" aria-labelledby="enterprise-physical-title">
-        <div class="page-shell">
-          <header class="enterprise-physical-heading reveal">
-            <div>
-              <p class="section-number">Portfolio thesis · Enterprise-to-Physical Intelligence</p>
-              <h2 id="enterprise-physical-title">From enterprise intention to measurable physical outcome.</h2>
-            </div>
-            <p class="section-lead">How can trustworthy operational data support AI-assisted decisions and, eventually, safe physical actions without losing provenance, feasibility, policy control, or human accountability?</p>
-          </header>
-
-          <ol class="enterprise-physical-loop reveal" aria-label="Enterprise intent to measurable physical outcome loop">
-            <li><span>01</span><strong>Business intent</strong></li>
-            <li><span>02</span><strong>Enterprise events</strong></li>
-            <li><span>03</span><strong>Data trust</strong></li>
-            <li><span>04</span><strong>Operational state</strong></li>
-            <li><span>05</span><strong>Reason &amp; optimize</strong></li>
-            <li><span>06</span><strong>Simulate</strong></li>
-            <li><span>07</span><strong>Policy &amp; authority</strong></li>
-            <li><span>08</span><strong>Physical outcome</strong></li>
-            <li><span>09</span><strong>Telemetry &amp; evidence</strong></li>
-          </ol>
-
-          <div class="physical-scenario-grid">
-            <article class="physical-scenario-card reveal">
-              <div class="physical-scenario-card__meta"><span>Secondary project</span><span>Research blueprint</span></div>
-              <p class="passage-label">Secondary research scenario</p>
-              <h3>Environmental &amp; Health-Aware Drone Fleet Intelligence</h3>
-              <p class="physical-scenario-question">When does the geographically shortest mission stop being the safest, most energy-efficient, most reliable, or most productive mission?</p>
-              <p>A trusted data plane combines inspection priority, weather, battery reserve, component health, communication, fleet workload, and route constraints. Deterministic planners and simulation establish feasibility; a bounded agent may retrieve evidence, call approved tools, and explain trade-offs without controlling the flight stack.</p>
-              <a class="primary-action" href="projects/drone-fleet-intelligence.html">Explore the research blueprint <span aria-hidden="true">→</span></a>
+          <header class="home-heading" id="projects"><p class="eyebrow">01 / Selected projects</p><h2 id="projects-title">Start with what runs.</h2><p>The first project has a working local pipeline. The next two have Python contracts and design notes. Each one has a specific next implementation step.</p></header>
+          <div class="home-project-list">
+            {% assign featured_projects = site.data.projects | where: "featured", true %}
+            {% for project in featured_projects %}
+            <article class="home-project">
+              <div class="home-project-title"><p class="eyebrow">{{ project.priority }} / {{ project.home.status | escape }}</p><h3>{{ project.name | escape }}</h3><p class="project-tools">{{ project.home.tools | escape }}</p><nav class="home-project-links" aria-label="{{ project.name | escape }} links"><a href="{{ project.case_study_url }}">Technical case study →</a><a href="{{ project.repository_url }}">GitHub ↗</a></nav></div>
+              <div class="home-project-detail"><p class="project-intro">{{ project.home.intro | escape }}</p><dl><div><dt>How it works</dt><dd>{{ project.home.method | escape }}</dd></div><div><dt>Next step</dt><dd>{{ project.next_milestone | escape }}</dd></div><div><dt>Why it matters</dt><dd>{{ project.home.use | escape }}</dd></div></dl><p class="home-limit">{{ project.home.limit | escape }}</p></div>
             </article>
-
-            <aside class="physical-boundary-card reveal" aria-labelledby="physical-boundary-title">
-              <p class="passage-label">Control boundary</p>
-              <h3 id="physical-boundary-title">Generative intelligence may propose and coordinate. Deterministic systems establish feasibility and enforce low-level safety.</h3>
-              <ol>
-                <li>Verify mission, asset, fleet, and environmental inputs.</li>
-                <li>Generate assignments and route candidates.</li>
-                <li>Evaluate energy, weather, health, communication, and timing in simulation.</li>
-                <li>Apply policy and human review before publishing a mission plan.</li>
-                <li>Return telemetry and inspection evidence to measurable business outcomes.</li>
-              </ol>
-            </aside>
+            {% endfor %}
           </div>
-
-          <div class="architecture-role-map reveal" aria-label="Existing portfolio projects mapped to architectural roles">
-            <article><span>Trust &amp; evidence</span><strong>AI-Assisted Data Reliability</strong><p>Contracts, quality, quarantine, reconciliation, incidents, approvals, and provenance.</p></article>
-            <article><span>Industrial context</span><strong>Service Intelligence &amp; Root-Cause Support</strong><p>Assets, service history, maintenance, customer impact, and evidence-grounded review.</p></article>
-            <article><span>Decision sandbox</span><strong>Supply Chain Digital Twin</strong><p>Counterfactual scenarios, explicit assumptions, baselines, and outcome comparison.</p></article>
-            <article><span>Fleet optimization</span><strong>Health-Aware Robotic Fleet</strong><p>Task assignment, health and battery constraints, routing, workload, and risk.</p></article>
-            <article><span>Physical intelligence</span><strong>Drone Fleet Intelligence</strong><p>Weather-aware routing, component health, fleet coordination, and inspection evidence.</p></article>
-            <article><span>Infrastructure performance</span><strong>Pipeline &amp; Database Labs</strong><p>Correctness, speed, observability, and cost awareness under controlled scale.</p></article>
-          </div>
-          <p class="evidence-boundary-note reveal"><strong>Evidence boundary:</strong> these are independent projects and research experiments mapped to one conceptual architecture—not one deployed autonomous platform.</p>
+          <div class="home-project-footer"><p>There is also a local data reliability implementation, performance work and earlier research.</p><a href="{{ '/projects/' | relative_url }}">Browse all projects →</a></div>
         </div>
       </section>
 
-      <section class="company-context-section" id="company-context" aria-labelledby="company-context-title">
+      <section class="home-section home-evidence" id="evidence" aria-labelledby="evidence-title">
+        <div class="page-shell evidence-columns">
+          <div><p class="eyebrow">02 / A closer look</p><h2 id="evidence-title">Follow one result back to the code.</h2><p>I started with three CSV files: machine master data, sensor readings and maintenance work orders. The pipeline checks the records, keeps invalid rows with a reason, and joins valid data through <code>asset_id</code>.</p><p>For the motor shown above, the priority calculation is <code>30 + 20 + 15 + 20 = 85</code>: health, criticality, failure history and downtime. A score of 60 or more is marked high priority.</p><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform/blob/4985b95052b95434b0d87d30e7f0150a05bc97b3/src/calculate_maintenance_priority.py">Read the priority calculation ↗</a></div>
+          <div class="evidence-detail"><ol class="home-data-path" aria-label="Current manufacturing data flow"><li><span>01</span><div><strong>Read the source CSVs</strong><p>Machine, telemetry and maintenance records.</p></div></li><li><span>02</span><div><strong>Validate and quarantine</strong><p>Check IDs, dates, codes and numeric values. Keep rejection reasons.</p></div></li><li><span>03</span><div><strong>Calculate and join</strong><p>Condition, health, reliability and the combined machine summary.</p></div></li><li><span>04</span><div><strong>Rank for review</strong><p>A maintenance-priority CSV that an engineer can inspect.</p></div></li></ol><p class="home-limit">The rules are hand-written and the sample is small. Automated tests, streaming and model evaluation are the next work. No reduction in downtime has been measured.</p></div>
+        </div>
+      </section>
+
+      <section class="home-section" id="hackathon-work" aria-labelledby="hackathon-title">
         <div class="page-shell">
-          <header class="company-context-heading reveal">
-            <div>
-              <p class="section-number">Future research · Enterprise Context &amp; Organizational Memory</p>
-              <h2 id="company-context-title">What should a company’s AI know, remember, and forget?</h2>
-            </div>
-            <p class="section-lead">A company does not become smarter by putting every document, chat, ticket, and employee conversation into an LLM. The harder problem is deciding what is relevant, trusted, current, permitted, reusable—or too sensitive to remember.</p>
-          </header>
-
-          <ol class="context-decision-loop reveal" aria-label="Company AI context and memory decision flow">
-            <li><span>01</span><strong>Employee question</strong></li>
-            <li><span>02</span><strong>Identify context</strong></li>
-            <li><span>03</span><strong>Check permission</strong></li>
-            <li><span>04</span><strong>Get evidence</strong></li>
-            <li><span>05</span><strong>Answer with uncertainty</strong></li>
-            <li><span>06</span><strong>Gate memory</strong></li>
-          </ol>
-
-          <div class="context-route-grid reveal" aria-label="Four routes for employee questions">
-            <article><span>General</span><h3>What is an INNER JOIN?</h3><p>Use general model knowledge. No company retrieval is needed.</p></article>
-            <article><span>Enterprise</span><h3>What is our warranty policy?</h3><p>Retrieve approved company knowledge after checking access.</p></article>
-            <article><span>Live enterprise</span><h3>Why is Line 3 slower today?</h3><p>Use authorized live systems, telemetry, incidents, and current context.</p></article>
-            <article><span>Hybrid</span><h3>Should our model use SCD Type 2?</h3><p>Combine general reasoning with company definitions and constraints.</p></article>
+          <header class="home-heading"><p class="eyebrow">03 / Hackathon work</p><h2 id="hackathon-title">What I’m building next.</h2><p>I keep the plan, experiments and lessons in a journal, with a separate repository for the NVIDIA build.</p></header>
+          <div class="home-hackathons">
+            <article><p class="eyebrow"><span class="home-status">Building</span> · Plan and baseline documented</p><h3>Nebius × NVIDIA Global AI Hackathon</h3><p class="hackathon-project-name">Manufacturing Equipment Lifecycle &amp; Uptime Intelligence Platform</p><p>I’m planning streaming telemetry, anomaly detection and maintenance retrieval on top of the local CSV baseline. The NVIDIA model integration through Nebius, API and dashboard are planned.</p><nav aria-label="NVIDIA hackathon links"><a href="https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform">Main Project ↗</a><a href="https://github.com/SouravKh-7/nebius-nvidia-manufacturing-uptime-ai">Hackathon Execution ↗</a><a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/nebius-nvidia-2026">Hackathon Journal ↗</a></nav></article>
+            <article><p class="eyebrow"><span class="home-status">Building</span> · Initial journal entry</p><h3>OpenCV AI Competition powered by AWS</h3><p class="hackathon-project-name">Manufacturing Visual Inspection</p><p>I want to use manufacturing images or video to identify possible defects and decide what to review next. Dataset selection, OpenCV processing, AWS setup and the demo are still planned.</p><nav aria-label="OpenCV hackathon links"><a href="https://github.com/SouravKh-7/hackathon-build-journal/tree/main/hackathons/opencv-aws-2026">Hackathon Journal ↗</a></nav></article>
           </div>
-
-          <div class="memory-explainer-grid">
-            <article class="memory-layer-card reveal">
-              <p class="passage-label">Learning is not automatic memory</p>
-              <h3>Most useful context does not belong in model weights.</h3>
-              <dl>
-                <div><dt>Current context</dt><dd>Evidence needed for this task right now.</dd><dd class="memory-weight">No model change</dd></div>
-                <div><dt>Session / user memory</dt><dd>Conversation state or explicit, user-controlled preferences.</dd><dd class="memory-weight">Usually no model change</dd></div>
-                <div><dt>Organizational memory</dt><dd>Reviewed facts, decisions, procedures, and lessons with provenance and expiry.</dd><dd class="memory-weight">No model change</dd></div>
-                <div><dt>Model adaptation</dt><dd>A deliberate update only when retrieval, tools, and prompting are insufficient.</dd><dd class="memory-weight">Changes weights</dd></div>
-              </dl>
-            </article>
-
-            <article class="line-three-card reveal">
-              <div class="physical-scenario-card__meta"><span>Synthetic case study</span><span>Future project</span></div>
-              <p class="passage-label">Line 3 after maintenance</p>
-              <h3>Conversation becomes a hypothesis—not company truth.</h3>
-              <ol>
-                <li>Route the question and check access.</li>
-                <li>Assemble current plant state with provenance.</li>
-                <li>Extract the prior conversation as a candidate lesson.</li>
-                <li>Verify comparable incidents and require engineer review.</li>
-                <li>Store approved, scoped memory with an owner and expiry.</li>
-                <li>Measure whether it improves later investigations.</li>
-              </ol>
-              <p class="context-design-rule"><strong>Design rule:</strong> learn how to assist the employee, not how to surveil the employee.</p>
-              <div class="context-actions"><a class="primary-action" href="projects/enterprise-context-memory.html">Explore the future project</a><a class="text-action" href="blog/what-should-a-company-ai-remember.html">Read the full article <span aria-hidden="true">→</span></a></div>
-            </article>
-          </div>
-
-          <p class="evidence-boundary-note reveal"><strong>Evidence boundary:</strong> this is a future research and implementation direction using synthetic scenarios. It is not deployed inside an employer, and no real employee conversations are used.</p>
         </div>
       </section>
 
-      <section class="page-section philosophy" id="thinking" aria-labelledby="thinking-title">
+      <section class="home-section home-approach" id="thinking" aria-labelledby="thinking-title">
         <div class="page-shell">
-          <header class="section-heading reveal">
-            <p class="section-number">01 · Engineering approach</p>
-            <h2 id="thinking-title">How I Think About Data Systems</h2>
-            <p class="section-lead">For each project, I begin with the problem and the expected decision. I then identify the source data, failure modes, quality risks, processing requirements, storage model, observability needs, and the final serving or decision layer. Only after the deterministic system works do I consider adding AI assistance.</p>
-          </header>
-          <ol class="system-thinking-flow reveal" aria-label="Engineering thought process from operational problem to future AI extension">
-            <li><span>01</span><strong>Operational Problem</strong><small>Define the user and decision.</small></li>
-            <li><span>02</span><strong>Source Data</strong><small>Map grain, arrival, and ownership.</small></li>
-            <li><span>03</span><strong>Failure Modes</strong><small>Identify what can mislead the result.</small></li>
-            <li><span>04</span><strong>Data Model</strong><small>Give records stable meaning.</small></li>
-            <li><span>05</span><strong>Pipeline Design</strong><small>Choose movement and storage deliberately.</small></li>
-            <li><span>06</span><strong>Quality &amp; Reconciliation</strong><small>Prove completeness and correctness.</small></li>
-            <li><span>07</span><strong>Observability</strong><small>Make health and uncertainty visible.</small></li>
-            <li><span>08</span><strong>Serving Layer</strong><small>Shape the output for its consumer.</small></li>
-            <li><span>09</span><strong>Decision</strong><small>Keep authority explicit.</small></li>
-            <li><span>10</span><strong>Future AI Extension</strong><small>Add assistance only over trusted evidence.</small></li>
-          </ol>
-          <div class="architecture-capability-grid reveal" aria-label="Architecture lifecycle design areas">
-            <article><p>01 · Contracts &amp; sources</p><h3>Define ownership before movement</h3><p>Record grain, keys, schema, cadence, retention and producer expectations. A <span class="technical-term" data-term="data contract" tabindex="0">data contract</span> turns assumptions into a versioned interface.</p></article>
-            <article><p>02 · Ingestion &amp; change</p><h3>Choose batch, streaming or incremental deliberately</h3><p>Separate event time from arrival time; design for <span class="technical-term" data-term="CDC" tabindex="0">CDC</span>, late data, replay, backfills and idempotent writes where the workload requires them.</p></article>
-            <article><p>03 · Storage &amp; tables</p><h3>Preserve evidence, then optimize access</h3><p>Use Bronze, Silver and Gold boundaries, table formats and retention policies to balance traceability, usability, performance and cost.</p></article>
-            <article><p>04 · Data modeling</p><h3>Make grain and history explicit</h3><p>Define facts, dimensions, durable keys and <span class="technical-term" data-term="SCD Type 2" tabindex="0">SCD Type 2</span> history before transformations spread ambiguous meaning.</p></article>
-            <article><p>05 · Quality &amp; reconciliation</p><h3>Test the data product, not only the job</h3><p>Apply contracts, rule severity, quarantine and source-to-target reconciliation. Publication gates should fail closed when decision-critical evidence is incomplete.</p></article>
-            <article><p>06 · Reliability &amp; observability</p><h3>Design recovery with the happy path</h3><p>Expose freshness, lineage, run state, <span class="technical-term" data-term="SLA" tabindex="0">SLA</span>/<span class="technical-term" data-term="SLO" tabindex="0">SLO</span> health, retries, checkpoints and ownership so partial failure is diagnosable.</p></article>
-            <article><p>07 · Performance</p><h3>Measure before tuning</h3><p>Inspect partition sizes, skew, shuffle, cache behavior, query plans and concurrency. Publish a baseline, correctness check and repeatable comparison.</p></article>
-            <article><p>08 · Governance</p><h3>Make trust operational</h3><p>Lineage, catalog metadata, access control, privacy, retention and audit records define who may use a data product and under what conditions.</p></article>
-            <article><p>09 · Serving</p><h3>Shape contracts around consumers</h3><p>Tables, semantic models, APIs and features need distinct latency, compatibility and quality guarantees—plus a clear owner for change.</p></article>
+          <header class="home-heading"><p class="eyebrow">04 / Approach and practical value</p><h2 id="thinking-title">Build the logic. Test the result.<br>Then ask whether it helps.</h2><p>I start by understanding the problem. When I explain a project, I show the implementation first, then the decision it could support.</p></header>
+          <div class="approach-grid">
+            <article><span class="eyebrow">Implementation</span><h3>Make the rules visible.</h3><p>Define the keys and record types. Write the validation and calculations. Keep rejected rows and explain why they failed.</p></article>
+            <article><span class="eyebrow">Verification</span><h3>Test the awkward cases.</h3><p>Missing IDs, duplicate events and late records can change the answer. I want repeatable tests for those cases before adding more tools.</p></article>
+            <article><span class="eyebrow">Business question</span><h3>Check the effect on the work.</h3><p>A maintenance summary could help an engineer review equipment. To claim an improvement, I would need to measure review time or decision quality against the existing process.</p></article>
           </div>
-          <p class="continuity-note reveal">The architecture is not the starting point. It is the consequence of understanding the problem, data, risks, and decision boundary.</p>
+          <p class="approach-ai">For the planned AI work, the assistant should retrieve records and explain the evidence. The engineer reviews the suggested checks and decides what to do.</p>
+          <a href="engineering-notes.html">Read the engineering notes and trade-offs →</a>
         </div>
       </section>
 
-      <section class="page-section architecture-principles" id="principles" aria-labelledby="principles-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">Architecture principles</p><h2 id="principles-title">Six rules I use to make design decisions visible.</h2><p class="section-lead">These are working principles, not claims of universal best practice. Each one creates a testable question for the project.</p></header>
-          <div class="principle-grid reveal">
-            <article><span>01</span><h3>Contracts before pipelines</h3><p>Define grain, keys, cadence, ownership and failure behavior before implementation hardens hidden assumptions.</p></article>
-            <article><span>02</span><h3>Idempotency before automation</h3><p>A retry or replay should converge on the same valid state before orchestration makes it easier to run repeatedly.</p></article>
-            <article><span>03</span><h3>Observability before scale</h3><p>Establish evidence for freshness, volume, quality, lineage and failures before multiplying data or compute.</p></article>
-            <article><span>04</span><h3>Reconciliation before trust</h3><p>A successful task is not proof of a complete output. Compare counts, keys and business quantities across boundaries.</p></article>
-            <article><span>05</span><h3>Ownership before platform sprawl</h3><p>Every data product needs a producer, consumer, support path, change policy and retirement decision.</p></article>
-            <article><span>06</span><h3>AI after reliable data foundations</h3><p>Models may interpret evidence; they should not repair missing provenance, bypass access policy or invent operational truth.</p></article>
-          </div>
+      <section class="home-section home-reading" id="research" aria-labelledby="reading-title">
+        <div class="page-shell reading-columns">
+          <div><p class="eyebrow">05 / Notes and background</p><h2 id="reading-title">What I’m working through.</h2><p>I use the writing section to explain a problem, the choices behind it and the questions I still need to test.</p><a href="blog/index.html">Browse the writing →</a></div>
+          <div class="home-reading-links"><a href="blog/pipeline-succeeded-data-wrong.html"><span>Data quality</span><strong>A pipeline can finish and still produce the wrong data.</strong><span aria-hidden="true">↗</span></a><a href="engineering-notes.html#system-notes"><span>Engineering decisions</span><strong>Batch, streaming, late data and recovery.</strong><span aria-hidden="true">↗</span></a><a href="{{ '/about/' | relative_url }}"><span>About me</span><strong>From manufacturing problems to data engineering.</strong><span aria-hidden="true">↗</span></a></div>
         </div>
       </section>
-
-      <section class="page-section architecture-lens" id="architecture-lens" aria-labelledby="architecture-lens-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">Data architecture lens</p><h2 id="architecture-lens-title">Architecture spans structure, flow, ownership and time.</h2></header>
-          <div class="lens-grid reveal">
-            <article><h3>Domain boundaries</h3><p>Separate equipment, maintenance, incident and supply-chain contexts; define where shared identifiers and conformed entities are justified.</p></article>
-            <article><h3>Data products &amp; ownership</h3><p>Treat curated outputs as supported interfaces with named producers, consumers, contracts and deprecation paths.</p></article>
-            <article><h3>Metadata &amp; lineage</h3><p>Keep source, transformation, run, schema and quality context close enough to reconstruct how a result was produced.</p></article>
-            <article><h3>Event versus batch</h3><p>Use event-driven flows for responsiveness only when ordering, replay and operating cost are understood; use batch when simpler freshness is sufficient.</p></article>
-            <article><h3>Historical modeling</h3><p>Distinguish current state, event history and correction history so late-arriving changes do not silently rewrite the past.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section system-notes" id="system-notes" aria-labelledby="system-notes-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">System design notes</p><h2 id="system-notes-title">Small records of the decisions behind a reliable platform.</h2><p class="section-lead">Each note is intentionally short today and can grow into a benchmark, ADR, diagram or failure experiment later.</p></header>
-          <div class="system-note-grid reveal">
-            <details><summary>Batch versus streaming</summary><p>Start with the consumer freshness requirement. Streaming adds ordering, state, replay and continuous operating concerns; it is justified only when batch latency misses the decision window.</p></details>
-            <details><summary>CDC and incremental loading</summary><p>Track source offsets or watermarks, operation type and ingestion metadata. Make merges idempotent and test inserts, updates, deletes and repeated delivery.</p></details>
-            <details><summary>Late-arriving data</summary><p>Preserve event time and arrival time, define a correction window, and specify when previously published aggregates are recomputed.</p></details>
-            <details><summary>Partitioning strategy</summary><p>Partition for pruning and manageable file sizes, not for every filter. Measure skew, small files and write amplification using the real query pattern.</p></details>
-            <details><summary>SCD Type 2</summary><p>Use effective intervals and a current marker where historical attribute state matters. Guard against overlapping versions and out-of-order changes.</p></details>
-            <details><summary>Idempotency</summary><p>Derive stable business or event keys, record run identity, and design reruns so a partial failure can be retried without duplicating valid state.</p></details>
-            <details><summary>Schema evolution</summary><p>Classify additive, compatible and breaking changes. Quarantine unexpected payloads and version consumer contracts before changing published structures.</p></details>
-            <details><summary>Data contracts</summary><p>Combine machine-readable schema and checks with human ownership, cadence, semantics and incident expectations.</p></details>
-            <details><summary>RPO and RTO</summary><p>Translate business tolerance into maximum acceptable data loss and restoration time, then test recovery procedures against those targets.</p></details>
-            <details><summary>Bronze, Silver and Gold</summary><p>Use layers as explicit responsibility boundaries: reproducible source evidence, conformed trusted records, and consumer-shaped products.</p></details>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section capability-map" id="capabilities" aria-labelledby="capabilities-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">Capability map</p><h2 id="capabilities-title">Skills grouped by the system responsibility they support.</h2></header>
-          <div class="capability-grid reveal">
-            <article><h3>Ingestion &amp; processing</h3><p>Python · SQL · PySpark · batch pipelines · incremental loading · CDC design</p></article>
-            <article><h3>Storage &amp; modeling</h3><p>Delta Lake · Parquet · DuckDB · Medallion layers · facts and dimensions · SCD Type 2</p></article>
-            <article><h3>Quality &amp; reliability</h3><p>Data contracts · validation · quarantine · reconciliation · idempotency · recovery design</p></article>
-            <article><h3>Platform &amp; operations</h3><p>Databricks · GitHub Actions · Docker · FastAPI · observability patterns · performance experiments</p></article>
-            <article><h3>Architecture &amp; governance</h3><p>Domain boundaries · lineage · metadata · access boundaries · ownership · ADRs</p></article>
-            <article><h3>Industrial &amp; AI systems</h3><p>Equipment lifecycle · service intelligence · incident evidence · digital-twin research · governed AI assistance</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section glossary-section" id="glossary" aria-labelledby="glossary-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">Technical glossary</p><h2 id="glossary-title">Shared language for the architecture decisions in this portfolio.</h2><p class="section-lead">Select an underlined term anywhere on the page for a short definition, or browse the complete reference here.</p></header>
-          <div data-glossary></div>
-        </div>
-      </section>
-
-      <section class="research-direction" id="research-direction" aria-labelledby="research-direction-title">
-        <div class="page-shell">
-          <header class="research-direction-heading reveal"><p class="section-number">02 · Current research direction</p><h2 id="research-direction-title">From trustworthy foundations toward governed autonomy.</h2></header>
-          <ol class="research-direction-flow reveal">
-            <li><strong>Reliable Data Platforms</strong><span>Make data quality, reconciliation, and recovery inspectable.</span></li>
-            <li><strong>Distributed Processing</strong><span>Study scale, partitioning, coordination, and failure behaviour.</span></li>
-            <li><strong>Industrial Data Products</strong><span>Connect trusted models to service and operational decisions.</span></li>
-            <li><strong>Optimization &amp; Simulation</strong><span>Compare decisions under explicit objectives and constraints.</span></li>
-            <li><strong>Autonomous Operations</strong><span>Explore systems that act while preserving safety boundaries.</span></li>
-            <li><strong>Governed Agentic AI</strong><span>Keep tools, evidence, policy, and approval outside model authority.</span></li>
-            <li><strong>Enterprise-to-Physical Intelligence</strong><span>Trace intent through trusted data, simulation, authorization, execution, and measured outcome.</span></li>
-            <li><strong>Environmental Drone Fleets</strong><span>Combine mission priority, weather, battery, component health, routing, and fleet constraints.</span></li>
-            <li><strong>Digital-Twin Assurance</strong><span>Use simulation as a verification boundary before consequential operational or physical action.</span></li>
-          </ol>
-          <a class="research-entry-link reveal" href="roadmap/">Open Research &amp; Experiments <span aria-hidden="true">→</span></a>
-        </div>
-      </section>
-
-      <section class="page-section portfolio-map-section" id="building" aria-labelledby="portfolio-map-title">
-        <div class="page-shell">
-          <header class="section-heading reveal">
-            <p class="section-number">03 · Portfolio map</p>
-            <h2 id="portfolio-map-title">What I Am Building</h2>
-            <p class="section-lead">The projects share one technical direction: transform operational data into reliable evidence, measurable decisions, and systems that can evolve without hiding their failure modes.</p>
-          </header>
-          <div class="portfolio-bubble-map reveal" role="group" aria-label="Data engineering and operational intelligence portfolio map">
-            <div class="portfolio-map-connectors" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="portfolio-map-center">
-              <span>Central direction</span>
-              <strong><span>Trusted Data</span><span>&amp;</span><span>Governed</span><span>Intelligence</span></strong>
-              <small>Supporting measurable physical<br>and business outcomes</small>
-            </div>
-            <div class="portfolio-map-branches">
-              <article><h3>Reliable Data Platforms</h3><p>Validation · reconciliation · observability · trusted data products</p></article>
-              <article><h3>Data Architecture</h3><p>Source systems · data modeling · metadata · lineage · serving layers</p></article>
-              <article><h3>Distributed Systems</h3><p>Spark · cluster computing · multiprocessing · parallel simulation</p></article>
-              <article><h3>Industrial AI</h3><p>Manufacturing · service intelligence · digital twins · operational analytics</p></article>
-              <article><h3>Operations Research</h3><p>Scheduling · routing · allocation · simulation · optimization</p></article>
-              <article><h3>Autonomous Mobility</h3><p>Telemetry · fleet health · routing · simulation · workload scheduling</p></article>
-              <article><h3>Database Systems</h3><p>Indexing · query plans · workload management · performance engineering</p></article>
-              <article><h3>Governed Agentic AI</h3><p>Evidence · tools · policy · approval · observability</p></article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="problem-transition" aria-labelledby="transition-title">
-        <div class="page-shell transition-layout">
-          <div class="reveal">
-            <p class="section-number">Supporting implementation evidence</p>
-            <h2 id="transition-title">The pipeline completed successfully. The data was still wrong.</h2>
-          </div>
-          <div class="reading-copy reveal">
-            <p>A late source file, duplicate record, missing identifier, invalid date, schema change, failed reconciliation, or stale output may not stop a job from completing. The technical process can appear healthy while the information delivered to downstream users is incomplete or misleading.</p>
-            <p>That distinction matters because dashboards, operational teams, and AI applications usually see the published output—not the uncertainty hidden inside the run. This question became the starting point for the AI-Assisted Data Reliability Platform.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section case-study" id="case-study" aria-labelledby="case-study-title">
-        <div class="page-shell">
-          <header class="case-heading reveal">
-            <p class="section-number">Supporting project · Reference implementation</p>
-            <p class="maturity-note">Verified local reference implementation · Not a production deployment</p>
-            <h2 id="case-study-title">AI-Assisted Data Reliability Platform</h2>
-            <p class="section-lead">A local system that detects data failures, records evidence, exposes incidents, and keeps risky corrective actions behind human approval.</p>
-            <div class="case-links"><a class="primary-action" href="projects/ai-data-reliability.html">Read the complete case study</a><a class="text-action" href="https://github.com/SouravKh-7/ai-data-reliability-platform">Open the repository <span aria-hidden="true">↗</span></a></div>
-          </header>
-
-          <div class="case-narrative">
-            <section class="case-passage reveal" aria-labelledby="case-problem-title"><p class="passage-label">The problem</p><div><h3 id="case-problem-title">Execution status is not data quality.</h3><p>The system begins from a practical failure scenario: a job can return a successful status even when a source is missing, a contract has drifted, records are duplicated, or source and target totals do not reconcile. The project treats those conditions as first-class engineering outcomes rather than secondary log messages.</p></div></section>
-            <section class="case-passage reveal" aria-labelledby="case-why-title"><p class="passage-label">Why it matters</p><div><h3 id="case-why-title">Bad data moves quietly into important decisions.</h3><p>If an unreliable output reaches revenue reporting, service operations, customer analysis, or an AI workflow, the later system may communicate the wrong conclusion with confidence. Reliability controls reduce that risk by making uncertainty, rejection, and incomplete processing visible before publication.</p></div></section>
-            <section class="case-passage reveal" aria-labelledby="case-response-title"><p class="passage-label">The system response</p><div><h3 id="case-response-title">The implementation separates detection, evidence, explanation, and action.</h3><p>Deterministic sample sources enter idempotent ingestion and source-shaped Parquet storage. Data contracts and quality rules identify invalid records, quarantine protects curated models, DuckDB transformations build reporting tables, and reconciliation compares counts and payment amounts between layers.</p><p>Incident detection combines quality results, application errors, deployment context, and customer impact. FastAPI exposes pipeline health, incidents, agent runs, evidence, and approvals. Tests, Docker Compose, CI configuration, operational documentation, and an optional Airflow workflow support reproducibility without changing the project’s status as a local reference implementation.</p><p>AI is optional and limited to improving a written explanation. It cannot change the evidence, risk classification, action status, or approval decision.</p></div></section>
-          </div>
-
-          <figure class="failure-journey reveal">
-            <figcaption><span>Failure journey</span><strong>One issue, followed from source to reviewed action</strong></figcaption>
-            <ol>
-              <li><span>01</span><p>A source arrives late or contains invalid data.</p></li>
-              <li><span>02</span><p>A deterministic contract, freshness, or quality rule detects the issue.</p></li>
-              <li><span>03</span><p>The affected records or run are identified; rejected data is quarantined.</p></li>
-              <li><span>04</span><p>Quality results, reconciliation, logs, and related context are stored as evidence.</p></li>
-              <li><span>05</span><p>The incident is exposed through the API and recorded operational state.</p></li>
-              <li><span>06</span><p>AI may summarise the evidence or suggest questions without changing the facts.</p></li>
-              <li><span>07</span><p>A person reviews the recommendation and its supporting evidence.</p></li>
-              <li><span>08</span><p>A risky fix, contract change, correction, or rerun remains approval-gated.</p></li>
-            </ol>
-          </figure>
-
-          <div class="evidence-layout">
-            <section class="evidence-copy reveal" aria-labelledby="exists-title">
-              <p class="passage-label">What exists today</p>
-              <h3 id="exists-title">A runnable technical foundation with explicit boundaries</h3>
-              <p>The repository contains ingestion, quality checks, Parquet layers, quarantine, DuckDB models, reconciliation, deterministic incident detection, guarded actions, FastAPI endpoints, unit and integration tests, Docker configuration, CI, and detailed engineering documentation.</p>
-              <p>The verified scenarios cover a baseline payment incident, a missing payment source, and schema drift. They demonstrate quarantine, publication blocking, approval enforcement, and idempotent reruns with deterministic sample data.</p>
-            </section>
-            <figure class="verification-figure reveal">
-              <figcaption>Phase 1 verification evidence · 1 August 2026</figcaption>
-              <div class="verification-output" aria-label="Verified test and coverage results">
-                <p><span>Test suite</span><strong>23 passed · 0 failed · 0 skipped</strong></p>
-                <p><span>Coverage</span><strong>85% across 585 statements</strong></p>
-                <p><span>Quality</span><strong>Ruff checks passed</strong></p>
-                <p><span>API</span><strong>Health, incidents, agent runs, approvals and docs returned HTTP 200 locally</strong></p>
-                <p><span>CI</span><strong>Tests, coverage and Docker Compose configuration verified</strong></p>
-              </div>
-              <p class="figure-note">The timing and coverage results are host-specific. Docker runtime was not locally verified because Docker was unavailable; Compose configuration passed in CI.</p>
-            </figure>
-          </div>
-
-          <div class="limitations-next reveal">
-            <section><p class="passage-label">Limitations</p><h3>What this implementation does not claim</h3><p>It is not a deployed production service. Operational metadata remains JSON-file backed, the API has no authentication or RBAC, concurrent and distributed behavior is not demonstrated, and production observability, lineage, secrets management, and object storage remain future work.</p></section>
-            <section><p class="passage-label">What comes next</p><h3>Strengthening the developer workflow and the evidence</h3><p>The next project phase is to add a duplicate-payment-batch scenario without weakening evidence-derived impact, quarantine protection, safe reset, or idempotency. Later work can replace local metadata storage, expand contracts, add authentication, and publish operational telemetry.</p></section>
-          </div>
-          <p class="continuity-note reveal">This supporting implementation remains visible below the three featured resume projects and contributes reliability patterns without replacing their canonical order.</p>
-        </div>
-      </section>
-
-      <section class="page-section projects" id="projects" aria-labelledby="projects-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">06 · Selected projects</p><h2 id="projects-title">Data engineering and AI work first.</h2><p class="section-lead">Data platforms, reliability, lakehouse, database, and governed-AI projects lead this index. Physical-intelligence, robotics, digital-twin, and drone research remains visible at the end.</p></header>
-          <div class="project-filters" role="group" aria-label="Filter selected projects" data-project-filters></div>
-          <p class="filter-status" aria-live="polite" data-filter-status></p>
-          <ol class="project-index" data-project-index></ol>
-        </div>
-      </section>
-
-      <section class="page-section enterprise-approach" id="enterprise-approach" aria-labelledby="enterprise-approach-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">07 · Enterprise evolution</p><h2 id="enterprise-approach-title">From Prototype to Enterprise Data Platform</h2><p class="section-lead">I use local and free tools to make project ideas reproducible first. The next architecture step is to ask how the same system changes when data volume, users, reliability requirements, governance, security, and cost become enterprise constraints.</p></header>
-          <ol class="enterprise-evolution-flow reveal" aria-label="Evolution from reference demo to governed enterprise operation">
-            <li><span>01</span><strong>Reference Demo</strong></li><li><span>02</span><strong>Reproducible Pipeline</strong></li><li><span>03</span><strong>Tested Data Product</strong></li><li><span>04</span><strong>Distributed Architecture</strong></li><li><span>05</span><strong>Observability</strong></li><li><span>06</span><strong>Security &amp; Governance</strong></li><li><span>07</span><strong>SLA / Recovery</strong></li><li><span>08</span><strong>Enterprise Operations</strong></li><li><span>09</span><strong>Governed AI Assistance</strong></li>
-          </ol>
-          <div class="enterprise-principles reveal">
-            <article><h3>Reliability first</h3><p>Idempotency, contracts, checkpointing, replay, quarantine, reconciliation, and explicit recovery behavior make partial failure visible.</p></article>
-            <article><h3>Architecture with boundaries</h3><p>Ownership, lineage, RBAC, encryption, workload isolation, retention, RPO/RTO targets, and cost thresholds define how the platform can operate safely.</p></article>
-            <article><h3>Evidence before autonomy</h3><p>Deterministic systems establish facts. Agents interpret evidence and recommend actions through policy, approval, controlled tools, and audit records.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section progress" id="progress" aria-labelledby="progress-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">08 · Work and learning</p><h2 id="progress-title">Progress is a map of evidence, not a percentage.</h2><p class="section-lead">These views separate demonstrated work from active construction, deliberate strengthening, and future exploration. Every strong claim points back to a project, test result, document, or clearly stated next step.</p></header>
-
-          <section class="progress-block reveal" aria-labelledby="work-state-title">
-            <div class="progress-heading"><p class="passage-label">Portfolio work-state map</p><h3 id="work-state-title">Where the work stands now</h3><p>Four zones make current maturity legible without flattening unlike projects into one completion score.</p></div>
-            <div class="work-state-map" data-work-states></div>
-          </section>
-
-          <section class="progress-block maturity-block reveal" aria-labelledby="maturity-path-title">
-            <div class="progress-heading"><p class="passage-label">Supporting-project evidence pathway</p><h3 id="maturity-path-title">AI-Assisted Data Reliability Platform</h3><p>The pathway preserves inspectable evidence from this supporting implementation without replacing the three featured resume projects.</p></div>
-            <ol class="maturity-pathway" data-maturity-pathway></ol>
-          </section>
-
-          <div class="progress-evidence-grid progress-evidence-grid-single">
-            <section class="progress-block learning-block reveal" aria-labelledby="learning-title">
-              <div class="progress-heading"><p class="passage-label">Learning landscape</p><h3 id="learning-title">Practice, evidence, and next questions</h3><p>Eight engineering areas connect current understanding to something practised, an artifact that can be inspected, and a specific next step.</p></div>
-              <div class="learning-table-wrap"><table class="learning-table"><thead><tr><th scope="col">Area</th><th scope="col">Current</th><th scope="col">Practised</th><th scope="col">Evidence</th><th scope="col">Next</th></tr></thead><tbody data-learning-landscape></tbody></table></div>
-            </section>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section research" id="research" aria-labelledby="research-title">
-        <div class="page-shell">
-          <header class="section-heading reveal"><p class="section-number">09 · Research and experiments</p><h2 id="research-title">Questions that continue beyond the code</h2><p class="section-lead">These notes connect data reliability with industrial intelligence, operations research, digital twins, physical systems, product decisions, and controlled AI.</p></header>
-          <div class="reading-list" data-reading-list></div>
-        </div>
-      </section>
-
-      <section class="page-section architecture" id="architecture" aria-labelledby="architecture-title">
-        <div class="page-shell architecture-preview-layout">
-          <header class="section-heading reveal"><p class="section-number">10 · System design</p><h2 id="architecture-title">See the system from boundary to decision.</h2><p class="section-lead">This compact view shows the flagship’s current path. The dedicated architecture study expands it into context, flow, Medallion, quality, failure, lineage, deployment, and data-model views.</p><a class="primary-action" href="system-design.html">Explore system design and data architecture <span aria-hidden="true">→</span></a></header>
-          <figure class="architecture-preview reveal">
-            <figcaption>Flagship architecture preview · current local implementation</figcaption>
-            <div class="preview-flow" role="img" aria-label="Source data passes through idempotent ingestion, reliability controls, curated data products, an API and guarded response workflow, with human approval for consequential action.">
-              <div><span>01 · Inputs</span><strong>Files, API-like data, logs</strong></div><i aria-hidden="true">→</i>
-              <div><span>02 · Trust boundary</span><strong>Ingest, validate, quarantine, reconcile</strong></div><i aria-hidden="true">→</i>
-              <div><span>03 · Use</span><strong>Curated products, incidents, API, review</strong></div>
-            </div>
-            <p>Implemented locally with Python, Parquet, DuckDB, JSON metadata, and FastAPI. Production deployment, streaming ingestion, and enterprise controls remain target-state work.</p>
-          </figure>
-        </div>
-      </section>
-
-      <section class="page-section controlled-ai" id="controlled-ai" aria-labelledby="controlled-ai-title">
-        <div class="page-shell">
-          <div class="ai-band reveal"><p class="section-number">11 · Human-controlled AI</p><h2 id="controlled-ai-title">Reliable evidence defines where AI can help—and where it must stop.</h2></div>
-          <ol class="ai-sequence reveal" aria-label="Progression from deterministic engineering to approved action"><li>Deterministic engineering</li><li>Trusted evidence</li><li>AI-assisted interpretation</li><li>Human review</li><li>Approved action</li></ol>
-          <div class="ai-guidance">
-            <section class="reveal"><h3>AI may assist</h3><p>It may summarise incidents, explain failed quality rules, suggest investigation questions, draft documentation, review SQL or PySpark, and produce hypotheses that remain attached to the available evidence.</p></section>
-            <section class="reveal"><h3>AI must not decide</h3><p>It must not make destructive changes, rewrite production pipelines without review, approve its own fixes, claim a root cause without evidence, change operational data directly, or bypass human approval.</p></section>
-          </div>
-        </div>
-      </section>
-
-      <section class="closing" id="portfolio-summary" aria-labelledby="closing-title">
-        <div class="page-shell closing-layout reveal">
-          <p class="section-number">12 · Closing reflection</p>
-          <h2 id="closing-title">Build the data correctly, check the result, and keep people responsible for the final decision.</h2>
-          <div class="reading-copy"><p>Some projects run locally. Some are still design notes or research ideas. Their status is shown on each page.</p></div>
-        </div>
-      </section>
+      <section class="home-contact page-shell" id="portfolio-summary"><div><p class="eyebrow">Continue with the work</p><h2>Code, decisions and the next question.</h2></div><div class="home-actions"><a class="home-button" href="https://github.com/SouravKh-7">GitHub profile ↗</a><a href="{{ '/about/' | relative_url }}">About my background →</a></div></section>
     </main>
-
-    <footer class="site-footer"><div class="page-shell"><p>© <span data-year>2026</span> Sourav Khandai</p><p>Reliable systems · honest evidence · human judgment</p><a href="#introduction">Back to the beginning ↑</a></div></footer>
+    <footer class="site-footer"><div class="page-shell"><p>© <span data-year>2026</span> Sourav Khandai</p><p>Python · SQL · Data engineering</p><a href="#introduction">Back to top ↑</a></div></footer>
   </body>
 </html>

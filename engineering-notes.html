@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Notes by Sourav Khandai on data validation, batch and streaming trade-offs, recovery, and planned industrial AI work.">
+    <meta name="theme-color" content="#f7f4e9">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Engineering notes | Sourav Khandai">
+    <meta property="og:description" content="Data validation, pipeline trade-offs, recovery and questions to test in future builds.">
+    <meta property="og:url" content="https://souravkh-7.github.io/git_portfolio/engineering-notes.html">
+    <meta property="og:image" content="https://souravkh-7.github.io/git_portfolio/assets/og.png">
+    <meta property="og:image:alt" content="Sourav Khandai Data Engineering Portfolio architecture map">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Engineering notes | Sourav Khandai">
+    <meta name="twitter:description" content="Data validation, pipeline trade-offs, recovery and questions to test in future builds.">
+    <meta name="twitter:image" content="https://souravkh-7.github.io/git_portfolio/assets/og.png">
+    <link rel="canonical" href="https://souravkh-7.github.io/git_portfolio/engineering-notes.html">
+    <title>Engineering notes | Sourav Khandai</title>
+    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="home.css?v=1">
+    <script src="home.js?v=1" defer></script>
+    <script src="technical-glossary.js?v=1" defer></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sourav Khandai","jobTitle":"Data Engineer","url":"https://souravkh-7.github.io/git_portfolio/","knowsAbout":["Data engineering","Data platforms","Data architecture","Data reliability","Lakehouse architecture","Industrial AI"]}</script>
+  </head>
+  <body class="engineering-notes-page">
+    <a class="skip-link" href="#main-content">Skip to notes</a>
+    <header class="site-header" data-header>
+      <nav class="nav-shell page-shell" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Sourav Khandai, home"><span class="brand-initials" aria-hidden="true">SK</span><span><strong>Sourav Khandai</strong><small>Data Engineer</small></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Open navigation</span><i aria-hidden="true"></i><i aria-hidden="true"></i></button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#featured-projects">Projects</a>
+          <a href="index.html#hackathon-work">Hackathons</a>
+          <a href="engineering-notes.html">Engineering notes</a>
+          <a href="blog/index.html">Writing</a>
+          <a href="https://github.com/SouravKh-7">GitHub ↗</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content">
+      <header class="notes-intro page-shell"><p class="eyebrow">Engineering notes / Working ideas</p><h1>The decisions behind the code.</h1><p>These are my design notes and research questions. They cover choices I want to test as the projects grow. For the current implementation and outputs, start with the <a href="index.html#featured-projects">selected projects</a>.</p><nav class="notes-links" aria-label="Browse engineering notes"><a href="#thinking">Approach</a><a href="#system-notes">Design decisions</a><a href="#glossary">Glossary</a><a href="#company-context">AI research</a><a href="#enterprise-physical">Robotics research</a></nav></header>
+      <section class="page-section philosophy" id="thinking" aria-labelledby="thinking-title">
+        <div class="page-shell">
+          <header class="section-heading reveal">
+            <p class="section-number">01 · Engineering approach</p>
+            <h2 id="thinking-title">How I Think About Data Systems</h2>
+            <p class="section-lead">For each project, I begin with the problem and the expected decision. I then identify the source data, failure modes, quality risks, processing requirements, storage model, observability needs, and the final serving or decision layer. Only after the deterministic system works do I consider adding AI assistance.</p>
+          </header>
+          <ol class="system-thinking-flow reveal" aria-label="Engineering thought process from operational problem to future AI extension">
+            <li><span>01</span><strong>Operational Problem</strong><small>Define the user and decision.</small></li>
+            <li><span>02</span><strong>Source Data</strong><small>Map grain, arrival, and ownership.</small></li>
+            <li><span>03</span><strong>Failure Modes</strong><small>Identify what can mislead the result.</small></li>
+            <li><span>04</span><strong>Data Model</strong><small>Give records stable meaning.</small></li>
+            <li><span>05</span><strong>Pipeline Design</strong><small>Choose movement and storage deliberately.</small></li>
+            <li><span>06</span><strong>Quality &amp; Reconciliation</strong><small>Prove completeness and correctness.</small></li>
+            <li><span>07</span><strong>Observability</strong><small>Make health and uncertainty visible.</small></li>
+            <li><span>08</span><strong>Serving Layer</strong><small>Shape the output for its consumer.</small></li>
+            <li><span>09</span><strong>Decision</strong><small>Keep authority explicit.</small></li>
+            <li><span>10</span><strong>Future AI Extension</strong><small>Add assistance only over trusted evidence.</small></li>
+          </ol>
+          <div class="architecture-capability-grid reveal" aria-label="Architecture lifecycle design areas">
+            <article><p>01 · Contracts &amp; sources</p><h3>Define ownership before movement</h3><p>Record grain, keys, schema, cadence, retention and producer expectations. A <span class="technical-term" data-term="data contract" tabindex="0">data contract</span> turns assumptions into a versioned interface.</p></article>
+            <article><p>02 · Ingestion &amp; change</p><h3>Choose batch, streaming or incremental deliberately</h3><p>Separate event time from arrival time; design for <span class="technical-term" data-term="CDC" tabindex="0">CDC</span>, late data, replay, backfills and idempotent writes where the workload requires them.</p></article>
+            <article><p>03 · Storage &amp; tables</p><h3>Preserve evidence, then optimize access</h3><p>Use Bronze, Silver and Gold boundaries, table formats and retention policies to balance traceability, usability, performance and cost.</p></article>
+            <article><p>04 · Data modeling</p><h3>Make grain and history explicit</h3><p>Define facts, dimensions, durable keys and <span class="technical-term" data-term="SCD Type 2" tabindex="0">SCD Type 2</span> history before transformations spread ambiguous meaning.</p></article>
+            <article><p>05 · Quality &amp; reconciliation</p><h3>Test the data product, not only the job</h3><p>Apply contracts, rule severity, quarantine and source-to-target reconciliation. Publication gates should fail closed when decision-critical evidence is incomplete.</p></article>
+            <article><p>06 · Reliability &amp; observability</p><h3>Design recovery with the happy path</h3><p>Expose freshness, lineage, run state, <span class="technical-term" data-term="SLA" tabindex="0">SLA</span>/<span class="technical-term" data-term="SLO" tabindex="0">SLO</span> health, retries, checkpoints and ownership so partial failure is diagnosable.</p></article>
+            <article><p>07 · Performance</p><h3>Measure before tuning</h3><p>Inspect partition sizes, skew, shuffle, cache behavior, query plans and concurrency. Publish a baseline, correctness check and repeatable comparison.</p></article>
+            <article><p>08 · Governance</p><h3>Make trust operational</h3><p>Lineage, catalog metadata, access control, privacy, retention and audit records define who may use a data product and under what conditions.</p></article>
+            <article><p>09 · Serving</p><h3>Shape contracts around consumers</h3><p>Tables, semantic models, APIs and features need distinct latency, compatibility and quality guarantees—plus a clear owner for change.</p></article>
+          </div>
+          <p class="continuity-note reveal">The architecture is not the starting point. It is the consequence of understanding the problem, data, risks, and decision boundary.</p>
+        </div>
+      </section>
+
+      <section class="page-section architecture-principles" id="principles" aria-labelledby="principles-title">
+        <div class="page-shell">
+          <header class="section-heading reveal"><p class="section-number">Architecture principles</p><h2 id="principles-title">Six rules I use to make design decisions visible.</h2><p class="section-lead">These are working principles, not claims of universal best practice. Each one creates a testable question for the project.</p></header>
+          <div class="principle-grid reveal">
+            <article><span>01</span><h3>Contracts before pipelines</h3><p>Define grain, keys, cadence, ownership and failure behavior before implementation hardens hidden assumptions.</p></article>
+            <article><span>02</span><h3>Idempotency before automation</h3><p>A retry or replay should converge on the same valid state before orchestration makes it easier to run repeatedly.</p></article>
+            <article><span>03</span><h3>Observability before scale</h3><p>Establish evidence for freshness, volume, quality, lineage and failures before multiplying data or compute.</p></article>
+            <article><span>04</span><h3>Reconciliation before trust</h3><p>A successful task is not proof of a complete output. Compare counts, keys and business quantities across boundaries.</p></article>
+            <article><span>05</span><h3>Ownership before platform sprawl</h3><p>Every data product needs a producer, consumer, support path, change policy and retirement decision.</p></article>
+            <article><span>06</span><h3>AI after reliable data foundations</h3><p>Models may interpret evidence; they should not repair missing provenance, bypass access policy or invent operational truth.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section architecture-lens" id="architecture-lens" aria-labelledby="architecture-lens-title">
+        <div class="page-shell">
+          <header class="section-heading reveal"><p class="section-number">Data architecture lens</p><h2 id="architecture-lens-title">Architecture spans structure, flow, ownership and time.</h2></header>
+          <div class="lens-grid reveal">
+            <article><h3>Domain boundaries</h3><p>Separate equipment, maintenance, incident and supply-chain contexts; define where shared identifiers and conformed entities are justified.</p></article>
+            <article><h3>Data products &amp; ownership</h3><p>Treat curated outputs as supported interfaces with named producers, consumers, contracts and deprecation paths.</p></article>
+            <article><h3>Metadata &amp; lineage</h3><p>Keep source, transformation, run, schema and quality context close enough to reconstruct how a result was produced.</p></article>
+            <article><h3>Event versus batch</h3><p>Use event-driven flows for responsiveness only when ordering, replay and operating cost are understood; use batch when simpler freshness is sufficient.</p></article>
+            <article><h3>Historical modeling</h3><p>Distinguish current state, event history and correction history so late-arriving changes do not silently rewrite the past.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section system-notes" id="system-notes" aria-labelledby="system-notes-title">
+        <div class="page-shell">
+          <header class="section-heading reveal"><p class="section-number">System design notes</p><h2 id="system-notes-title">Small records of the decisions behind a reliable platform.</h2><p class="section-lead">Each note is intentionally short today and can grow into a benchmark, ADR, diagram or failure experiment later.</p></header>
+          <div class="system-note-grid reveal">
+            <details><summary>Batch versus streaming</summary><p>Start with the consumer freshness requirement. Streaming adds ordering, state, replay and continuous operating concerns; it is justified only when batch latency misses the decision window.</p></details>
+            <details><summary>CDC and incremental loading</summary><p>Track source offsets or watermarks, operation type and ingestion metadata. Make merges idempotent and test inserts, updates, deletes and repeated delivery.</p></details>
+            <details><summary>Late-arriving data</summary><p>Preserve event time and arrival time, define a correction window, and specify when previously published aggregates are recomputed.</p></details>
+            <details><summary>Partitioning strategy</summary><p>Partition for pruning and manageable file sizes, not for every filter. Measure skew, small files and write amplification using the real query pattern.</p></details>
+            <details><summary>SCD Type 2</summary><p>Use effective intervals and a current marker where historical attribute state matters. Guard against overlapping versions and out-of-order changes.</p></details>
+            <details><summary>Idempotency</summary><p>Derive stable business or event keys, record run identity, and design reruns so a partial failure can be retried without duplicating valid state.</p></details>
+            <details><summary>Schema evolution</summary><p>Classify additive, compatible and breaking changes. Quarantine unexpected payloads and version consumer contracts before changing published structures.</p></details>
+            <details><summary>Data contracts</summary><p>Combine machine-readable schema and checks with human ownership, cadence, semantics and incident expectations.</p></details>
+            <details><summary>RPO and RTO</summary><p>Translate business tolerance into maximum acceptable data loss and restoration time, then test recovery procedures against those targets.</p></details>
+            <details><summary>Bronze, Silver and Gold</summary><p>Use layers as explicit responsibility boundaries: reproducible source evidence, conformed trusted records, and consumer-shaped products.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section capability-map" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="page-shell">
+          <header class="section-heading reveal"><p class="section-number">Capability map</p><h2 id="capabilities-title">Skills grouped by the system responsibility they support.</h2></header>
+          <div class="capability-grid reveal">
+            <article><h3>Ingestion &amp; processing</h3><p>Python · SQL · PySpark · batch pipelines · incremental loading · CDC design</p></article>
+            <article><h3>Storage &amp; modeling</h3><p>Delta Lake · Parquet · DuckDB · Medallion layers · facts and dimensions · SCD Type 2</p></article>
+            <article><h3>Quality &amp; reliability</h3><p>Data contracts · validation · quarantine · reconciliation · idempotency · recovery design</p></article>
+            <article><h3>Platform &amp; operations</h3><p>Databricks · GitHub Actions · Docker · FastAPI · observability patterns · performance experiments</p></article>
+            <article><h3>Architecture &amp; governance</h3><p>Domain boundaries · lineage · metadata · access boundaries · ownership · ADRs</p></article>
+            <article><h3>Industrial &amp; AI systems</h3><p>Equipment lifecycle · service intelligence · incident evidence · digital-twin research · governed AI assistance</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section glossary-section" id="glossary" aria-labelledby="glossary-title">
+        <div class="page-shell">
+          <header class="section-heading reveal"><p class="section-number">Technical glossary</p><h2 id="glossary-title">Shared language for the architecture decisions in this portfolio.</h2><p class="section-lead">Select an underlined term anywhere on the page for a short definition, or browse the complete reference here.</p></header>
+          <div data-glossary></div>
+        </div>
+      </section>
+
+      <section class="company-context-section" id="company-context" aria-labelledby="company-context-title">
+        <div class="page-shell">
+          <header class="company-context-heading reveal">
+            <div>
+              <p class="section-number">Future research · Enterprise Context &amp; Organizational Memory</p>
+              <h2 id="company-context-title">What should a company’s AI know, remember, and forget?</h2>
+            </div>
+            <p class="section-lead">A company does not become smarter by putting every document, chat, ticket, and employee conversation into an LLM. The harder problem is deciding what is relevant, trusted, current, permitted, reusable—or too sensitive to remember.</p>
+          </header>
+
+          <ol class="context-decision-loop reveal" aria-label="Company AI context and memory decision flow">
+            <li><span>01</span><strong>Employee question</strong></li>
+            <li><span>02</span><strong>Identify context</strong></li>
+            <li><span>03</span><strong>Check permission</strong></li>
+            <li><span>04</span><strong>Get evidence</strong></li>
+            <li><span>05</span><strong>Answer with uncertainty</strong></li>
+            <li><span>06</span><strong>Gate memory</strong></li>
+          </ol>
+
+          <div class="context-route-grid reveal" aria-label="Four routes for employee questions">
+            <article><span>General</span><h3>What is an INNER JOIN?</h3><p>Use general model knowledge. No company retrieval is needed.</p></article>
+            <article><span>Enterprise</span><h3>What is our warranty policy?</h3><p>Retrieve approved company knowledge after checking access.</p></article>
+            <article><span>Live enterprise</span><h3>Why is Line 3 slower today?</h3><p>Use authorized live systems, telemetry, incidents, and current context.</p></article>
+            <article><span>Hybrid</span><h3>Should our model use SCD Type 2?</h3><p>Combine general reasoning with company definitions and constraints.</p></article>
+          </div>
+
+          <div class="memory-explainer-grid">
+            <article class="memory-layer-card reveal">
+              <p class="passage-label">Learning is not automatic memory</p>
+              <h3>Most useful context does not belong in model weights.</h3>
+              <dl>
+                <div><dt>Current context</dt><dd>Evidence needed for this task right now.</dd><dd class="memory-weight">No model change</dd></div>
+                <div><dt>Session / user memory</dt><dd>Conversation state or explicit, user-controlled preferences.</dd><dd class="memory-weight">Usually no model change</dd></div>
+                <div><dt>Organizational memory</dt><dd>Reviewed facts, decisions, procedures, and lessons with provenance and expiry.</dd><dd class="memory-weight">No model change</dd></div>
+                <div><dt>Model adaptation</dt><dd>A deliberate update only when retrieval, tools, and prompting are insufficient.</dd><dd class="memory-weight">Changes weights</dd></div>
+              </dl>
+            </article>
+
+            <article class="line-three-card reveal">
+              <div class="physical-scenario-card__meta"><span>Synthetic case study</span><span>Future project</span></div>
+              <p class="passage-label">Line 3 after maintenance</p>
+              <h3>Conversation becomes a hypothesis—not company truth.</h3>
+              <ol>
+                <li>Route the question and check access.</li>
+                <li>Assemble current plant state with provenance.</li>
+                <li>Extract the prior conversation as a candidate lesson.</li>
+                <li>Verify comparable incidents and require engineer review.</li>
+                <li>Store approved, scoped memory with an owner and expiry.</li>
+                <li>Measure whether it improves later investigations.</li>
+              </ol>
+              <p class="context-design-rule"><strong>Design rule:</strong> learn how to assist the employee, not how to surveil the employee.</p>
+              <div class="context-actions"><a class="primary-action" href="projects/enterprise-context-memory.html">Explore the future project</a><a class="text-action" href="blog/what-should-a-company-ai-remember.html">Read the full article <span aria-hidden="true">→</span></a></div>
+            </article>
+          </div>
+
+          <p class="evidence-boundary-note reveal"><strong>Evidence boundary:</strong> this is a future research and implementation direction using synthetic scenarios. It is not deployed inside an employer, and no real employee conversations are used.</p>
+        </div>
+      </section>
+
+      <section class="research-direction" id="research-direction" aria-labelledby="research-direction-title">
+        <div class="page-shell">
+          <header class="research-direction-heading reveal"><p class="section-number">02 · Current research direction</p><h2 id="research-direction-title">From trustworthy foundations toward governed autonomy.</h2></header>
+          <ol class="research-direction-flow reveal">
+            <li><strong>Reliable Data Platforms</strong><span>Make data quality, reconciliation, and recovery inspectable.</span></li>
+            <li><strong>Distributed Processing</strong><span>Study scale, partitioning, coordination, and failure behaviour.</span></li>
+            <li><strong>Industrial Data Products</strong><span>Connect trusted models to service and operational decisions.</span></li>
+            <li><strong>Optimization &amp; Simulation</strong><span>Compare decisions under explicit objectives and constraints.</span></li>
+            <li><strong>Autonomous Operations</strong><span>Explore systems that act while preserving safety boundaries.</span></li>
+            <li><strong>Governed Agentic AI</strong><span>Keep tools, evidence, policy, and approval outside model authority.</span></li>
+            <li><strong>Enterprise-to-Physical Intelligence</strong><span>Trace intent through trusted data, simulation, authorization, execution, and measured outcome.</span></li>
+            <li><strong>Environmental Drone Fleets</strong><span>Combine mission priority, weather, battery, component health, routing, and fleet constraints.</span></li>
+            <li><strong>Digital-Twin Assurance</strong><span>Use simulation as a verification boundary before consequential operational or physical action.</span></li>
+          </ol>
+          <a class="research-entry-link reveal" href="roadmap/">Open Research &amp; Experiments <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="enterprise-physical-section" id="enterprise-physical" aria-labelledby="enterprise-physical-title">
+        <div class="page-shell">
+          <header class="enterprise-physical-heading reveal">
+            <div>
+              <p class="section-number">Portfolio thesis · Enterprise-to-Physical Intelligence</p>
+              <h2 id="enterprise-physical-title">From enterprise intention to measurable physical outcome.</h2>
+            </div>
+            <p class="section-lead">How can trustworthy operational data support AI-assisted decisions and, eventually, safe physical actions without losing provenance, feasibility, policy control, or human accountability?</p>
+          </header>
+
+          <ol class="enterprise-physical-loop reveal" aria-label="Enterprise intent to measurable physical outcome loop">
+            <li><span>01</span><strong>Business intent</strong></li>
+            <li><span>02</span><strong>Enterprise events</strong></li>
+            <li><span>03</span><strong>Data trust</strong></li>
+            <li><span>04</span><strong>Operational state</strong></li>
+            <li><span>05</span><strong>Reason &amp; optimize</strong></li>
+            <li><span>06</span><strong>Simulate</strong></li>
+            <li><span>07</span><strong>Policy &amp; authority</strong></li>
+            <li><span>08</span><strong>Physical outcome</strong></li>
+            <li><span>09</span><strong>Telemetry &amp; evidence</strong></li>
+          </ol>
+
+          <div class="physical-scenario-grid">
+            <article class="physical-scenario-card reveal">
+              <div class="physical-scenario-card__meta"><span>Secondary project</span><span>Research blueprint</span></div>
+              <p class="passage-label">Secondary research scenario</p>
+              <h3>Environmental &amp; Health-Aware Drone Fleet Intelligence</h3>
+              <p class="physical-scenario-question">When does the geographically shortest mission stop being the safest, most energy-efficient, most reliable, or most productive mission?</p>
+              <p>A trusted data plane combines inspection priority, weather, battery reserve, component health, communication, fleet workload, and route constraints. Deterministic planners and simulation establish feasibility; a bounded agent may retrieve evidence, call approved tools, and explain trade-offs without controlling the flight stack.</p>
+              <a class="primary-action" href="projects/drone-fleet-intelligence.html">Explore the research blueprint <span aria-hidden="true">→</span></a>
+            </article>
+
+            <aside class="physical-boundary-card reveal" aria-labelledby="physical-boundary-title">
+              <p class="passage-label">Control boundary</p>
+              <h3 id="physical-boundary-title">Generative intelligence may propose and coordinate. Deterministic systems establish feasibility and enforce low-level safety.</h3>
+              <ol>
+                <li>Verify mission, asset, fleet, and environmental inputs.</li>
+                <li>Generate assignments and route candidates.</li>
+                <li>Evaluate energy, weather, health, communication, and timing in simulation.</li>
+                <li>Apply policy and human review before publishing a mission plan.</li>
+                <li>Return telemetry and inspection evidence to measurable business outcomes.</li>
+              </ol>
+            </aside>
+          </div>
+
+          <div class="architecture-role-map reveal" aria-label="Existing portfolio projects mapped to architectural roles">
+            <article><span>Trust &amp; evidence</span><strong>AI-Assisted Data Reliability</strong><p>Contracts, quality, quarantine, reconciliation, incidents, approvals, and provenance.</p></article>
+            <article><span>Industrial context</span><strong>Service Intelligence &amp; Root-Cause Support</strong><p>Assets, service history, maintenance, customer impact, and evidence-grounded review.</p></article>
+            <article><span>Decision sandbox</span><strong>Supply Chain Digital Twin</strong><p>Counterfactual scenarios, explicit assumptions, baselines, and outcome comparison.</p></article>
+            <article><span>Fleet optimization</span><strong>Health-Aware Robotic Fleet</strong><p>Task assignment, health and battery constraints, routing, workload, and risk.</p></article>
+            <article><span>Physical intelligence</span><strong>Drone Fleet Intelligence</strong><p>Weather-aware routing, component health, fleet coordination, and inspection evidence.</p></article>
+            <article><span>Infrastructure performance</span><strong>Pipeline &amp; Database Labs</strong><p>Correctness, speed, observability, and cost awareness under controlled scale.</p></article>
+          </div>
+          <p class="evidence-boundary-note reveal"><strong>Evidence boundary:</strong> these are independent projects and research experiments mapped to one conceptual architecture—not one deployed autonomous platform.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="page-shell"><p>Sourav Khandai · Engineering notes</p><a href="index.html">Return to the projects →</a></div></footer>
+  </body>
+</html>

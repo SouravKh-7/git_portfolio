@@ -1,5 +1,12 @@
 - name: "Manufacturing Equipment Lifecycle & Uptime Intelligence Platform"
   slug: "machine-maintenance-uptime-data-pipeline"
+  home:
+    status: "Local pipeline works"
+    tools: "Python · CSV · standard library"
+    intro: "I started with machine, sensor and maintenance CSV files. The current code validates them and produces a combined machine summary and maintenance-priority output."
+    method: "Join records through asset_id, quarantine invalid rows with reasons, and calculate condition, health, downtime and reliability measures."
+    use: "Bring the readings and maintenance history into one review file, so an engineer can inspect why a machine received a particular priority."
+    limit: "Small synthetic dataset. Automated tests, streaming, Spark and Delta Lake are still planned."
   repository_url: "https://github.com/SouravKh-7/manufacturing-asset-lifecycle-platform"
   category: "Featured Resume Projects"
   status: "Active Build"
@@ -18,7 +25,7 @@
     - "Five valid synthetic machines plus deliberate invalid records demonstrate the current batch flow"
   ai_role: "No AI is implemented; ML and evidence-grounded assistance remain future directions after the lakehouse and test foundation."
   limitations: "Early local CSV MVP; no automated tests, Databricks implementation, Delta Lake, CDC, SCD Type 2, orchestration, production monitoring, or deployment."
-  next_milestone: "Add automated tests and implement the first evidence-backed Databricks Bronze/Silver/Gold slice."
+  next_milestone: "Add tests for the CSV validation and calculations, then define the telemetry contract for the NVIDIA hackathon."
   case_study_url: "/git_portfolio/projects/manufacturing-asset-lifecycle.html"
   blog_url: ""
   references:
@@ -40,6 +47,13 @@
 
 - name: "Pipeline Reliability Workbench"
   slug: "production-incident-ai-assistant"
+  home:
+    status: "Python scaffold"
+    tools: "Python · typed evidence contracts"
+    intro: "I have defined the incident and evidence records, a read-only source interface and an initial contract test. The investigation workflow is the next build."
+    method: "The contracts distinguish incident IDs, source records, event time, ingestion time and evidence references. Timeline construction and retrieval are planned."
+    use: "The intended workflow puts logs, alerts and recent changes in one place for an engineer investigating an incident. Time saved has not been measured."
+    limit: "No working collection, correlation, retrieval, assistant or API yet."
   repository_url: "https://github.com/SouravKh-7/production-incident-ai-assistant"
   category: "Featured Resume Projects"
   status: "New Build / Active Development"
@@ -88,6 +102,13 @@
 
 - name: "Manufacturing & Retail Supply Chain Lakehouse"
   slug: "manufacturing-retail-supply-chain-lakehouse"
+  home:
+    status: "Contracts and design"
+    tools: "Python contracts · planned PySpark, Databricks and Delta Lake"
+    intro: "I have started with a source-contract type, a contract test and a proposed data model for manufacturing and retail records."
+    method: "The planned pipeline preserves source batches in Bronze, validates keys and quantities in Silver, and builds reporting tables in Gold."
+    use: "The goal is to compare orders, receipts, stock movements and sales using consistent keys and quantities. There are no analytics results yet."
+    limit: "The lakehouse pipeline, Delta tables, jobs and benchmarks have not been implemented."
   repository_url: "https://github.com/SouravKh-7/manufacturing-retail-supply-chain-lakehouse"
   category: "Featured Resume Projects"
   status: "New Build / Active Development"
